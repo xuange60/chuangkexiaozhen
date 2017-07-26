@@ -7,21 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSONKit.h"
+#import "GDataXMLNode.h"
+#import "TFHpple.h"
+#import "TFHppleElement.h"
+#import "XPathQuery.h"
+#import "AFHTTPSessionManager.h"
+#import "MainViewController.h"
+@interface ViewController : UIViewController<UITextFieldDelegate>
 
-@interface ViewController : UIViewController
 
 
 
 
-@property (strong, nonatomic) IBOutlet UIImageView *logoView;
-
-@property (strong, nonatomic) IBOutlet UIButton *btn2;
-@property (strong, nonatomic) IBOutlet UIButton *mima;
 @property (strong, nonatomic) IBOutlet UIButton *youke;
-
 @property (strong, nonatomic) IBOutlet UITextField *username;
 
 @property (strong, nonatomic) IBOutlet UITextField *pwd;
+
+
+
+@property (strong, nonatomic) IBOutlet UIButton *login;
 
 
 

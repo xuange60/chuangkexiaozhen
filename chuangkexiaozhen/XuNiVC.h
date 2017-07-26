@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface XuNiVC : UIViewController
+#import "BaseViewController.h"
+@interface XuNiVC : BaseViewController
 
 @end

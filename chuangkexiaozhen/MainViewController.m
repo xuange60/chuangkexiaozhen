@@ -1,23 +1,24 @@
 //
-//  XuNiVC.m
+//  MainViewController.m
 //  chuangkexiaozhen
 //
-//  Created by 小灰灰 on 2017/7/25.
+//  Created by zx on 17/7/26.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "XuNiVC.h"
+#import "MainViewController.h"
 
-@interface XuNiVC ()
+@interface MainViewController ()
 
 @end
 
-@implementation XuNiVC
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title=@"虚拟入驻";
     // Do any additional setup after loading the view.
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

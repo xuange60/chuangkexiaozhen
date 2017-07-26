@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title=@"实体入驻";
     // Do any additional setup after loading the view.
 }
 

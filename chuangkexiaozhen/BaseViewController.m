@@ -1,31 +1,31 @@
 //
-//  TestViewController.m
+//  BaseViewController.m
 //  chuangkexiaozhen
 //
 //  Created by zx on 17/7/26.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "TestViewController.h"
+#import "BaseViewController.h"
 
-@interface TestViewController ()
+@interface BaseViewController ()
 
 @end
 
-@implementation TestViewController
+@implementation BaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title=@"申请入驻";
+  //  self.navigationItem.title=@"申请入驻";
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController setNavigationBarHidden:NO];
     
     UIImage *leftButtonIcon = [[UIImage imageNamed:@"left-arrow"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithImage:leftButtonIcon
-                            style:UIBarButtonItemStylePlain target:self action:@selector(backvc)];
-
+                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(backvc)];
+    
     self.navigationItem.leftBarButtonItem=leftBtnItem;
     // Do any additional setup after loading the view.
 }
@@ -47,13 +47,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

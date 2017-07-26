@@ -40,6 +40,8 @@
         self.lab1.text=str;
         [self.btn1 setTitle:str forState:UIControlStateNormal];
         num++;
+        self.btn1.hidden=NO;
+        self.lab1.hidden=NO;
     }else{
         self.btn1.hidden=YES;
         self.lab1.hidden=YES;
@@ -57,6 +59,8 @@
         [self.btn2 setTitle:str forState:UIControlStateNormal];
         self.lab2.text=str;
         num++;
+        self.btn2.hidden=NO;
+        self.lab2.hidden=NO;
     }else{
         self.btn2.hidden=YES;
         self.lab2.hidden=YES;
@@ -73,6 +77,8 @@
         [self.btn3 setTitle:str forState:UIControlStateNormal];
         self.lab3.text=str;
         num++;
+        self.btn3.hidden=NO;
+        self.lab3.hidden=NO;
     }else{
         self.btn3.hidden=YES;
         self.lab3.hidden=YES;
@@ -89,6 +95,8 @@
         [self.btn4 setTitle:str forState:UIControlStateNormal];
         self.lab4.text=str;
         num++;
+        self.btn4.hidden=NO;
+        self.lab4.hidden=NO;
     }else{
         self.btn4.hidden=YES;
         self.lab4.hidden=YES;

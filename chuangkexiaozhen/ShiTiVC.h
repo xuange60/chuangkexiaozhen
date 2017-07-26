@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ShiTiVC : UIViewController
+#import "BaseViewController.h"
+@interface ShiTiVC : BaseViewController
 
 @end

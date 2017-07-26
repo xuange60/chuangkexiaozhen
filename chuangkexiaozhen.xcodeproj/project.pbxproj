@@ -151,6 +151,8 @@
 		FBF557B01F28C332005AB0F4 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557AA1F28C332005AB0F4 /* TFHppleElement.m */; };
 		FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557AC1F28C332005AB0F4 /* XPathQuery.m */; };
 		FBF557B41F28C3B7005AB0F4 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF557B31F28C3B7005AB0F4 /* libxml2.2.tbd */; };
+		FBF557B71F28CA92005AB0F4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557B61F28CA92005AB0F4 /* MainViewController.m */; };
+		FBF557BA1F28DC51005AB0F4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557B91F28DC51005AB0F4 /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -326,6 +328,10 @@
 		FBF557AB1F28C332005AB0F4 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		FBF557AC1F28C332005AB0F4 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		FBF557B31F28C3B7005AB0F4 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		FBF557B51F28CA92005AB0F4 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FBF557B61F28CA92005AB0F4 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FBF557B81F28DC51005AB0F4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		FBF557B91F28DC51005AB0F4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +399,10 @@
 				FBB182DC1F287EC300550227 /* MyView2.xib */,
 				664E50711F227CA100824063 /* MyView.h */,
 				664E50721F227CA100824063 /* MyView.m */,
+				FBF557B51F28CA92005AB0F4 /* MainViewController.h */,
+				FBF557B61F28CA92005AB0F4 /* MainViewController.m */,
+				FBF557B81F28DC51005AB0F4 /* BaseViewController.h */,
+				FBF557B91F28DC51005AB0F4 /* BaseViewController.m */,
 			);
 			path = chuangkexiaozhen;
 			sourceTree = "<group>";
@@ -910,6 +920,7 @@
 				664120061F1DF6BB002C2F36 /* ViewController.m in Sources */,
 				664120031F1DF6BB002C2F36 /* AppDelegate.m in Sources */,
 				664E50A81F25C51500824063 /* ResetVC.m in Sources */,
+				FBF557BA1F28DC51005AB0F4 /* BaseViewController.m in Sources */,
 				FBF557991F28C30E005AB0F4 /* AFURLSessionManager.m in Sources */,
 				664E50731F227CA100824063 /* MyView.m in Sources */,
 				FBF557AF1F28C332005AB0F4 /* TFHpple.m in Sources */,
@@ -918,6 +929,7 @@
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
 				66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */,
+				FBF557B71F28CA92005AB0F4 /* MainViewController.m in Sources */,
 				664120001F1DF6BB002C2F36 /* main.m in Sources */,
 				FBF557981F28C30E005AB0F4 /* AFURLResponseSerialization.m in Sources */,
 				FBF557971F28C30E005AB0F4 /* AFURLRequestSerialization.m in Sources */,

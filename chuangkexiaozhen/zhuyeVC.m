@@ -27,16 +27,20 @@
     
     
     
-
+/*
     NSArray* ary1=@[@"实体入驻管理",@"电子合同管理",@"虚拟入驻管理",@"开通主线管理",@"申诉申请管理",@"资源配置管理"];
     NSArray* ary2=@[@"服务申请"];
     NSArray* ary3=@[@"模块",@"权限",@"角色",@"用户",@"员工列表",@"数据字典"];
     NSDictionary* dic1=[NSDictionary dictionaryWithObjectsAndKeys:ary1,@"创客入驻管理", nil];
     NSDictionary* dic2=[NSDictionary dictionaryWithObjectsAndKeys:ary2,@"服务申请管理", nil];
     NSDictionary* dic3=[NSDictionary dictionaryWithObjectsAndKeys:ary3,@"系统配置", nil];
-    
     NSArray* ary=[NSArray arrayWithObjects:dic1,dic2,dic3, nil];
-    self.datas=ary;
+*/
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* arrays=[defaults objectForKey:@"chuangkexiaozhen.zhujiemian"];
+
+    
+    self.datas=arrays;
     
     
 
@@ -55,21 +59,7 @@
 
 
 
-- (IBAction)btnClick1:(id)sender {
-    
-    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
-    ShiTiVC*vc=[storyboard instantiateViewControllerWithIdentifier:@"ShiTiVC"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
-
-- (IBAction)btnClick2:(id)sender {
-    
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
-    
-    XuNiVC*vc=[board instantiateViewControllerWithIdentifier:@"XuNiVC"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 
 
@@ -144,8 +134,14 @@
     NSLog(@"%@,%@",@"click",data);
     if([data isEqualToString:@"实体入驻"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
+        ShiTiVC*vc=[storyboard instantiateViewControllerWithIdentifier:@"ShiTiVC"];
+        [self.navigationController pushViewController:vc animated:YES];
     }else if([data isEqualToString:@"虚拟入驻"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
+        XuNiVC*vc=[board instantiateViewControllerWithIdentifier:@"XuNiVC"];
+        [self.navigationController pushViewController:vc animated:YES];
     }else if([data isEqualToString:@"文档下载"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"开通主线"]){
