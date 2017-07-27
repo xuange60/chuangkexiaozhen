@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"%@",@"baseviewcontroller");
   //  self.navigationItem.title=@"申请入驻";
     NSString* title1=self.navigationItem.title;
     if(title1==nil || title1.length==0){
