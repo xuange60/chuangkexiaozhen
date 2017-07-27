@@ -28,6 +28,10 @@
 		6697ABCE1F2101D500FC9346 /* event-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6697ABCD1F2101D500FC9346 /* event-3.png */; };
 		6697ABD01F2101DE00FC9346 /* event-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6697ABCF1F2101DE00FC9346 /* event-4.png */; };
 		66A401781F21B1D100C4396C /* MyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A401771F21B1D100C4396C /* MyView.xib */; };
+		66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B681231F29830100BB1CB9 /* WenDangVC.m */; };
+		66B6812A1F29BC4000BB1CB9 /* 下拉按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B681291F29BC4000BB1CB9 /* 下拉按钮.png */; };
+		66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */; };
+		66B6812F1F29CB3C00BB1CB9 /* XiaLaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66B6812E1F29CB3C00BB1CB9 /* XiaLaView.xib */; };
 		66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C43F5B1F26E069002B1E8F /* XuNiVC.m */; };
 		FBB182631F2834B900550227 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB182621F2834B900550227 /* TestViewController.m */; };
 		FBB182671F283FD700550227 /* left-arrow@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB182641F283FD700550227 /* left-arrow@1x.png */; };
@@ -189,6 +193,12 @@
 		6697ABCD1F2101D500FC9346 /* event-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "event-3.png"; sourceTree = "<group>"; };
 		6697ABCF1F2101DE00FC9346 /* event-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "event-4.png"; sourceTree = "<group>"; };
 		66A401771F21B1D100C4396C /* MyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyView.xib; sourceTree = "<group>"; };
+		66B681221F29830100BB1CB9 /* WenDangVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WenDangVC.h; sourceTree = "<group>"; };
+		66B681231F29830100BB1CB9 /* WenDangVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WenDangVC.m; sourceTree = "<group>"; };
+		66B681291F29BC4000BB1CB9 /* 下拉按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉按钮.png"; sourceTree = "<group>"; };
+		66B6812B1F29CB2100BB1CB9 /* XiaLaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaLaView.h; sourceTree = "<group>"; };
+		66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaLaView.m; sourceTree = "<group>"; };
+		66B6812E1F29CB3C00BB1CB9 /* XiaLaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaLaView.xib; sourceTree = "<group>"; };
 		66C43F5A1F26E069002B1E8F /* XuNiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuNiVC.h; sourceTree = "<group>"; };
 		66C43F5B1F26E069002B1E8F /* XuNiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuNiVC.m; sourceTree = "<group>"; };
 		FBB182611F2834B900550227 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -389,7 +399,6 @@
 				66814A1F1F1E64E000322620 /* wodeVC.h */,
 				66814A201F1E64E000322620 /* wodeVC.m */,
 				664120071F1DF6BB002C2F36 /* Main.storyboard */,
-				664E50AC1F25F41E00824063 /* MyStoryboard1.storyboard */,
 				6641200A1F1DF6BB002C2F36 /* Assets.xcassets */,
 				6641200F1F1DF6BB002C2F36 /* Info.plist */,
 				66411FFE1F1DF6BB002C2F36 /* Supporting Files */,
@@ -479,6 +488,7 @@
 				FBB1826C1F285B7D00550227 /* 实体入驻.gif */,
 				FBB182701F285B9400550227 /* 虚拟入驻.gif */,
 				FBB1826E1F285B8300550227 /* 文档下载.gif */,
+				66B681291F29BC4000BB1CB9 /* 下拉按钮.png */,
 			);
 			name = "初始申请";
 			sourceTree = "<group>";
@@ -678,10 +688,16 @@
 		FBD7A7BA1F27917D00B9251D /* 初始申请 */ = {
 			isa = PBXGroup;
 			children = (
+				664E50AC1F25F41E00824063 /* MyStoryboard1.storyboard */,
+				66B6812B1F29CB2100BB1CB9 /* XiaLaView.h */,
+				66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */,
+				66B6812E1F29CB3C00BB1CB9 /* XiaLaView.xib */,
 				664E50A91F25F36600824063 /* ShiTiVC.h */,
 				664E50AA1F25F36600824063 /* ShiTiVC.m */,
 				66C43F5A1F26E069002B1E8F /* XuNiVC.h */,
 				66C43F5B1F26E069002B1E8F /* XuNiVC.m */,
+				66B681221F29830100BB1CB9 /* WenDangVC.h */,
+				66B681231F29830100BB1CB9 /* WenDangVC.m */,
 			);
 			name = "初始申请";
 			sourceTree = "<group>";
@@ -870,6 +886,7 @@
 				FBB182F21F28A5BE00550227 /* 园区资源管理.png in Resources */,
 				FBB182E21F289DE600550227 /* defaultBtnImg.png in Resources */,
 				FBB182DD1F287EC300550227 /* MyView2.xib in Resources */,
+				66B6812F1F29CB3C00BB1CB9 /* XiaLaView.xib in Resources */,
 				664120091F1DF6BB002C2F36 /* Main.storyboard in Resources */,
 				FBB182961F2874FD00550227 /* 考勤逻辑.gif in Resources */,
 				FBB182CB1F287A5C00550227 /* 已完成.gif in Resources */,
@@ -898,6 +915,7 @@
 				FBB1830E1F28B02B00550227 /* 活动路演管理.png in Resources */,
 				FBB182D71F287BD500550227 /* 模块.gif in Resources */,
 				FBB182B51F28778500550227 /* 资源配置管理.gif in Resources */,
+				66B6812A1F29BC4000BB1CB9 /* 下拉按钮.png in Resources */,
 				FBB182F01F28A5A000550227 /* 活动管理.png in Resources */,
 				FBB183021F28A7EB00550227 /* defaultImg.png in Resources */,
 				FBB182D31F287BCC00550227 /* 角色.gif in Resources */,
@@ -929,6 +947,7 @@
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
 				66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */,
+				66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */,
 				FBF557B71F28CA92005AB0F4 /* MainViewController.m in Sources */,
 				664120001F1DF6BB002C2F36 /* main.m in Sources */,
 				FBF557981F28C30E005AB0F4 /* AFURLResponseSerialization.m in Sources */,
@@ -941,6 +960,7 @@
 				FBF557941F28C30E005AB0F4 /* AFHTTPSessionManager.m in Sources */,
 				664E50AB1F25F36600824063 /* ShiTiVC.m in Sources */,
 				FBB182E01F28821400550227 /* MyView2.m in Sources */,
+				66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */,
 				FBF557A31F28C327005AB0F4 /* JSONKit.m in Sources */,
 				FBF557B01F28C332005AB0F4 /* TFHppleElement.m in Sources */,
 			);
