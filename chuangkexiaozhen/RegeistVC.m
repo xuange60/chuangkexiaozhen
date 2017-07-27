@@ -7,6 +7,7 @@
 //
 
 #import "RegeistVC.h"
+#import "ComboViewController.h"
 
 @interface RegeistVC ()
 
@@ -77,6 +78,11 @@
 - (IBAction)yzmBtnClick:(id)sender {
 }
 - (IBAction)xzlxBtnClick:(id)sender {
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
+    NSArray* array=[[NSArray alloc]initWithObjects:@"创业团队",@"创业公司",@"服务机构",@"园区运营",@"创业导师",@"个人",@"其他", nil];
+    [vc setDatas:array withBtn:sender];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)zhuceBtnClick:(id)sender {

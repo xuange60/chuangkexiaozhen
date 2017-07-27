@@ -10,4 +10,7 @@
 
 @interface BaseViewController : UIViewController
 
+@property (strong,nonatomic) NSString* title;
+-(void) setNavigationItemTitle:(NSString*) title;
+
 @end

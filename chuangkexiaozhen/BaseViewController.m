@@ -18,6 +18,11 @@
     [super viewDidLoad];
     
   //  self.navigationItem.title=@"申请入驻";
+    NSString* title1=self.navigationItem.title;
+    if(title1==nil || title1.length==0){
+        self.navigationItem.title=self.title;
+    }
+    
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController setNavigationBarHidden:NO];
@@ -45,6 +50,12 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+
+-(void) setNavigationItemTitle:(NSString*) title
+{
+    self.title=title;
+}
+
 
 /*
  #pragma mark - Navigation
