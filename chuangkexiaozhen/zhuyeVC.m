@@ -11,6 +11,7 @@
 #import "MyView2.h"
 #import "ShiTiVC.h"
 #import "XuNiVC.h"
+#import "WenDangVC.h"
 @interface zhuyeVC ()
 
 @end
@@ -144,6 +145,14 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if([data isEqualToString:@"文档下载"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
+        WenDangVC*vc=[board instantiateViewControllerWithIdentifier:@"WenDangVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+
+        
+        
+        
+        
     }else if([data isEqualToString:@"开通主线"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"我的配置资源"]){
