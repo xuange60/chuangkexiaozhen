@@ -17,13 +17,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"实体入驻";
-    _view1.layer.cornerRadius=5;
-    _view1.layer.borderWidth=0.3;
+    
+    _textField1.layer.borderWidth=0.2;
+    _textField1.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
+    
+    _textField2.layer.borderWidth=0.2;
+    _textField2.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
+
+    _textField3.layer.borderWidth=0.2;
+    _textField3.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
+
+    
+    
+    
+    
+    
+    _view1.layer.cornerRadius=2;
+    _view1.layer.borderWidth=0.2;
     _view1.layer.borderColor=[UIColor lightGrayColor].CGColor;
     
     
-    _view2.layer.cornerRadius=5;
-    _view2.layer.borderWidth=0.3;
+    _view2.layer.cornerRadius=2;
+    _view2.layer.borderWidth=0.2;
     _view2.layer.borderColor=[UIColor lightGrayColor].CGColor;
     
     _xuanWenJianBtn.layer.cornerRadius=10;
