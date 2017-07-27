@@ -40,8 +40,8 @@
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSString* result=[jsondata objectForKey:@"result"];
-            if([@"0" isEqual:result]){
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            if(0==result){
                 NSLog(@"%@",@"用户名或密码错误"); //登陆失败
                 /**
                  *登陆失败提示
@@ -191,8 +191,9 @@
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSNumber* result=[jsondata objectForKey:@"result"];
-            NSLog(@"%@",result);
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+
+            NSLog(@"%d",result);
             //result: 1,验证码发送成功 不等于1,验证码发送失败
             
         }
@@ -219,8 +220,9 @@
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSString* result=[jsondata objectForKey:@"result"];
-            NSLog(@"%@",result);
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            NSLog(@"%d",result);
             //result: 1,注册成功 不等于1,则注册失败
             
         }
@@ -275,8 +277,9 @@
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSNumber* result=[jsondata objectForKey:@"result"];
-            NSLog(@"%@",result);
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+
+            NSLog(@"%d",result);
             //result: 1,验证码发送成功 不等于1,验证码发送失败
             
         }
@@ -302,8 +305,9 @@
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSNumber* result=[jsondata objectForKey:@"result"];
-            NSLog(@"%@",result);
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+
+            NSLog(@"%d",result);
             //result: 1,密码重置成功 不等于1,则密码重置失败
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -314,7 +318,11 @@
 
 
 //实体入驻查询
-//未申请过，不可以查到数据；申请过，查到数据
+//如果用户未提交过申请，不可以查到申请记录；用户层申请过申请，可以查到已提交的数据
+/*如查询到记录时，返回字典数据可能为：
+ {"resourceIds" : "","contact" : "张玄","companyName" : "测试机构","description" : "初创团队","contactType" : "18576672852","applyStatus" : "通过","businessline" : "电子信息"}
+ 入未查询到数据，字典数据为空；
+ */
 -(void) shiTiRuZhuQuery
 {
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
@@ -325,21 +333,180 @@
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
-
+        
         if([contenttype containsString:@"html"]){
             TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
             NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
             NSMutableDictionary* dic=[[NSMutableDictionary alloc] init];
             for (TFHppleElement *ele in arrays) {
-                NSString * idstr=ele.attributes[@"id"];
-                NSString* value=ele.attributes[@"value"];
-                [dic setObject:value forKey:idstr];
+                NSString * idstr=[ele objectForKey:@"id"];
+                NSString* value=[ele objectForKey:@"value"];
+                if(idstr!=nil && value!=nil){
+                    [dic setObject:value forKey:idstr];
+                }
             }
+            
+            //字典NSMutableDictionary* dic包含了查询到的数据
+            
+            //打印查询到的数据
             NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",str);//datas包含了主界面相关数据
+            NSLog(@"%@",str);
+            
+            
+            
             
         }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+//参数 NSData类型的文件数据,文件类型如jpg，png等
+//文件上传成功时返回ResourceId
+-(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *str = [formatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"实体入驻_%@.%@", str,type];
+    NSLog(@"%@",fileName);
+    
+    NSDictionary *dict = @{@"":@""};
+    NSString *urlString = @"http://116.228.176.34:9002/chuangke-serve/upload/save";
+    [manager POST:urlString parameters:dict
+        constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
+                //[formData appendPartWithFileURL:[NSURLfileURLWithPath:@"文件地址"] name:@"file"fileName:@"1234.png"mimeType:@"application/octet-stream"error:nil];
+            [formData appendPartWithFileData:filedata name:@"file" fileName:fileName mimeType:@"image/png"];
+        }progress:^(NSProgress * _Nonnull uploadProgress){
+            // 打印下上传进度 此处界面可能要显示上传进度
+            NSLog(@"%lld%@",100 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount,@"%");
+        }success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+            
+            NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",data);
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            
+            // 文件上传成功 获取ResourceId
+            NSString* ResourceId=[jsondata objectForKey:@"ResourceId"];
+            NSLog(@"%@",ResourceId);
+        }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
+            // 请求失败
+            NSLog(@"请求失败：%@", error);
+        }
+     ];
+    
+}
+
+
+
+-(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithDictionary:param];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            NSLog(@"%d",result);
+            //result: 1,实体入驻提交成功 不等于1,则提交失败
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+}
+
+
+//虚拟入驻申请
+-(void) xuniRuZhuSubmitWithParam:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithDictionary:param];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/saveresapply"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            NSLog(@"%d",result);
+            //result: 1,虚拟入驻提交成功 不等于1,则提交失败
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
+    }];
+}
+
+
+//初始申请上传的所有文件查询
+-(void) chushishenqingFileQuery
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/search"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"0",@"start",@"100",@"length", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            //数组result为结果数据
+            
+            //打印查询到的数据
+            NSData *data = [NSJSONSerialization dataWithJSONObject:result options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+//5.6 初始申请时上传的文档删除
+//参数为 文档的资源id；
+-(void) chushishenqingFileDelete:(NSString*)resourceid
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            NSLog(@"%d",result);
+            //result: 1, 删除成功 不等于1,则删除失败
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
