@@ -18,6 +18,15 @@
     [super viewDidLoad];
     self.navigationItem.title=@"虚拟入驻";
     // Do any additional setup after loading the view.
+    
+    
+    
+
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
