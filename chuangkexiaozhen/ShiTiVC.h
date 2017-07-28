@@ -12,6 +12,8 @@
 #import "BussinessApi.h"
 @interface ShiTiVC : BaseViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property(nonatomic,strong)NSString*resourceID;
+
 @property (strong, nonatomic) IBOutlet UITextField *textField1;
 
 @property (strong, nonatomic) IBOutlet UITextField *textField2;

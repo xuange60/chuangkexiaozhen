@@ -197,7 +197,7 @@
 //注册时，获取验证码
 //参数，手机号码
 //result: 1,验证码发送成功 不等于1,验证码发送失败
-+(int) registerGetCode:(NSString*)mobile
+-(void) registerGetCode:(NSString*)mobile
 {
     __block int yanZhengMaResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
@@ -222,16 +222,13 @@
         NSLog(@"%@",error);
         
     }];
-    
-    
-    return yanZhengMaResult;
 }
 
 
 
 //用户注册
 //result: 1,注册成功 不等于1,则注册失败
-+(int) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type
+-(void) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type
 {
     __block zhuCeResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
@@ -256,9 +253,6 @@
         NSLog(@"%@",error);
         
     }];
-    
-    
-    return zhuCeResult;
 }
 
 
@@ -293,7 +287,7 @@
 
 //重置时获取验证码
 //result: 1,验证码发送成功 不等于1,验证码发送失败
-+(int) resetGetCode:(NSString*)mobile
+-(void) resetGetCode:(NSString*)mobile
 {
     __block int resetYzmResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
@@ -317,14 +311,12 @@
         NSLog(@"%@",error);
         
     }];
-    
-    return resetYzmResult;
 }
 
 
 //重置密码
 //result: 1,密码重置成功 不等于1,则密码重置失败
-+(int) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd
+-(void) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd
 {
    __block int mimaResult=0;//加上——block在block里面就是地址传递
     
@@ -354,8 +346,6 @@
         NSLog(@"%@",error);
         
     }];
-    
-    return mimaResult;
 }
 
 
@@ -409,7 +399,7 @@
 
 //参数 NSData类型的文件数据,文件类型如jpg，png等
 //文件上传成功时返回ResourceId
-+(NSString*) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type
+-(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type
 {
     __block NSString*ids=nil;
     
@@ -447,12 +437,11 @@
             // 请求失败
             NSLog(@"请求失败：%@", error);
         }];
-    return ids;
 }
 
 
 
-+(int) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
+-(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
 {
     __block int shiTiResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
@@ -477,7 +466,6 @@
         
     }];
     
-    return shiTiResult;
 }
 
 

@@ -68,25 +68,9 @@
 
 
 //点击获取验证码按钮的事件处理
-- (IBAction)yzmBtnClick:(id)sender {
-    
-  int yzmResult=[BussinessApi registerGetCode:_mobile.text];
-    //result: 1,验证码发送成功 不等于1,验证码发送失败
-    if (yzmResult==1) {
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送成功，请进行下一步操作" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-        [alertCon addAction:action2];
-        [self presentViewController:alertCon animated:YES completion:nil];
-    }else{
-        
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送失败，请重新获取" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-        [alertCon addAction:action1];
-        [alertCon addAction:action2];
-        [self presentViewController:alertCon animated:YES completion:nil];
-        
-    }
+- (IBAction)yzmBtnClick:(id)sender
+{
+  [self registerGetCode:_mobile.text];
 }
 //选择用户类型按钮的事件处理
 - (IBAction)xzlxBtnClick:(id)sender {
@@ -100,26 +84,99 @@
 //点击注册按钮的事件处理
 - (IBAction)zhuceBtnClick:(id)sender {
     
-   int zhuCeResult=[BussinessApi registerWithCode:_checkcode.text name:_username.text mobile:_mobile.text email:_email.text pwd:_pwd.text type:_usertype.currentTitle];
+   [self registerWithCode:_checkcode.text name:_username.text mobile:_mobile.text email:_email.text pwd:_pwd.text type:_usertype.currentTitle];
 
-    //result: 1,注册成功 不等于1,则注册失败
-    if (zhuCeResult==1) {
-        UIStoryboard*storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        ViewController*vc=[storyBoard instantiateInitialViewController];
-        
-        [self presentViewController:vc animated:YES completion:nil];
-        
-    }else{
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"注册失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-        
-        [alertCon addAction:action2];
-        [self presentViewController:alertCon animated:YES completion:nil];
-    }
 }
 
+
+
+
+//注册时，获取验证码
+//参数，手机号码
+//result: 1,验证码发送成功 不等于1,验证码发送失败
+-(void) registerGetCode:(NSString*)mobile
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:mobile,@"mobile",[NSNumber numberWithInt:1],@"type", nil];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/auth/code"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            NSLog(@"%d",result);
+            //result: 1,验证码发送成功 不等于1,验证码发送失败
+            
+            if (result==1) {
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送成功，请进行下一步操作" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                [alertCon addAction:action2];
+                [self presentViewController:alertCon animated:YES completion:nil];
+            }else{
+                
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送失败，请重新获取" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                [alertCon addAction:action1];
+                [alertCon addAction:action2];
+                [self presentViewController:alertCon animated:YES completion:nil];
+                
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
+    }];
+}
+
+
+
+//用户注册
+//result: 1,注册成功 不等于1,则注册失败
+-(void) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:checkcode,@"mcode",name,@"loginName",mobile,@"mobilePhone",email,@"email",pwd,@"plainPassword",type,@"typeidx", nil];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/register"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            NSLog(@"%d",result);
+           
+            //result: 1,注册成功 不等于1,则注册失败
+            if (result==1) {
+                UIStoryboard*storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                
+                ViewController*vc=[storyBoard instantiateInitialViewController];
+                
+                [self presentViewController:vc animated:YES completion:nil];
+                
+            }else{
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"注册失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                
+                [alertCon addAction:action2];
+                [self presentViewController:alertCon animated:YES completion:nil];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
+    }];
+}
 
 
 

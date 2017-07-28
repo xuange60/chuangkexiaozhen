@@ -136,21 +136,20 @@
     
     // 设置图片
     self.imgView.image = info[UIImagePickerControllerOriginalImage];
+    
+    
+    //??????????????????????????????????????????????????????????????????
+    //5.2 实体入驻时文件上传
+    //参数 NSData类型的文件数据,文件类型如jpg，png等
+    //文件上传成功时返回ResourceId
+    NSData*data=UIImageJPEGRepresentation(_imgView.image, 0.5);
+    [self shitiRuZhuFileup:data withType:@"jpg"];
+
 }
 
 //上传数据
 - (IBAction)shenQingBtnClick:(id)sender {
     
-    //5.2 实体入驻时文件上传
-    //参数 NSData类型的文件数据,文件类型如jpg，png等
-    //文件上传成功时返回ResourceId
-    
-    
-    //??????????????????????????//////
-    
-    NSData*data=UIImageJPEGRepresentation(_imgView.image, 0.5);
-    
-    NSString*resourceIds=[BussinessApi shitiRuZhuFileup:data withType:@"jpg"];
     
     
     //5.3 实体入驻申请提交
@@ -164,40 +163,103 @@
     [dic setObject:_textField3.text forKey:@"companyname"];
     [dic setObject:_textF1.text forKey:@"businessline"];
     [dic setObject:_textF2.text forKey:@"description"];
-    [dic setObject:resourceIds forKey:@"resourceids"];
+    [dic setObject:_resourceID forKey:@"resourceids"];
     
-    int result=[BussinessApi shiTiRuZhuSubmitWithParam:dic];
+    [self shiTiRuZhuSubmitWithParam:dic];
     
-    if (result==1) {
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交成功，请等待审核" preferredStyle:UIAlertControllerStyleAlert];
-        [self presentViewController:alertCon animated:YES completion:^{
-            
-            [NSThread sleepForTimeInterval:0.5];
-            [self dismissViewControllerAnimated:YES completion:^{
-                
-                [NSThread sleepForTimeInterval:0.3];
-                [self.navigationController popViewControllerAnimated:YES];
-            }];
-        }];
- 
-    }else{
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-        [self presentViewController:alertCon animated:YES completion:^{
-            [NSThread sleepForTimeInterval:0.5];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-    }
+}
+
+
+//参数 NSData类型的文件数据,文件类型如jpg，png等
+//文件上传成功时返回ResourceId
+-(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type
+{
+    __block NSString*ids=nil;
+    
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *str = [formatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"实体入驻_%@.%@", str,type];
+    NSLog(@"%@",fileName);
+    
+    NSDictionary *dict = @{@"":@""};
+    NSString *urlString = @"http://116.228.176.34:9002/chuangke-serve/upload/save";
+    [manager POST:urlString parameters:dict
+constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
+    //[formData appendPartWithFileURL:[NSURLfileURLWithPath:@"文件地址"] name:@"file"fileName:@"1234.png"mimeType:@"application/octet-stream"error:nil];
+    [formData appendPartWithFileData:filedata name:@"file" fileName:fileName mimeType:@"image/png"];
+}progress:^(NSProgress * _Nonnull uploadProgress){
+    // 打印下上传进度 此处界面可能要显示上传进度
+    NSLog(@"%lld%@",100 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount,@"%");
+}success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+    
+    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",data);
+    NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+    
+    // 文件上传成功 获取ResourceId
+    NSString* ResourceId=[jsondata objectForKey:@"ResourceId"];
+    NSLog(@"%@",ResourceId);
+    
+    _resourceID=ResourceId;
+    
+}failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
+    // 请求失败
+    NSLog(@"请求失败：%@", error);
+}];
 }
 
 
 
+-(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
+{
+    __block int shiTiResult=0;
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithDictionary:param];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            NSLog(@"%d",result);
+            //result: 1,实体入驻提交成功 不等于1,则提交失败
+           
+            if (result==1) {
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交成功，请等待审核" preferredStyle:UIAlertControllerStyleAlert];
+                [self presentViewController:alertCon animated:YES completion:^{
+                    
+                    [NSThread sleepForTimeInterval:0.5];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        
+                        [NSThread sleepForTimeInterval:0.3];
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }];
+                }];
+                
+            }else{
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
+                [self presentViewController:alertCon animated:YES completion:^{
+                    [NSThread sleepForTimeInterval:0.5];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+            }
 
-
-
-
-
-
-
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+}
 
 
 @end

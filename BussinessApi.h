@@ -32,17 +32,17 @@
 //检查手机号
 -(void) checkMobile:(NSString*)mobile;
 //获取验证码
-+(int) registerGetCode:(NSString*)mobile;
+-(void) registerGetCode:(NSString*)mobile;
 //注册
-+(int) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type;
+-(void) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type;
 
 //4.用手机号码重置密码
 //检查手机号和用户名是否一致
 -(void) checkName:(NSString*)name mobile:(NSString*)mobile;
 //重置时获取验证码
-+(int) resetGetCode:(NSString*)mobile;
+-(void) resetGetCode:(NSString*)mobile;
 //重置密码
-+(int) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd;
+-(void) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd;
 
 
 
@@ -57,7 +57,7 @@
 //5.2 实体入驻时文件上传
 //参数 NSData类型的文件数据,文件类型如jpg，png等
 //文件上传成功时返回ResourceId
-+(NSString*) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type;
+-(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type;
 
 
 
@@ -65,7 +65,7 @@
 //参数为字典： businessline=电子信息 companyname=测试机构 contact=小明 contacttype=18576672852
 // description=初创团队
 // resourceids=597a213880ab5e6790d51fde,597a214a80ab5e6790d51fdf
-+(int) shiTiRuZhuSubmitWithParam:(NSDictionary*)param;
+-(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param;
 
 
 
