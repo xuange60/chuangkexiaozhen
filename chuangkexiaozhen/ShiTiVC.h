@@ -9,17 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "XiaLaView.h"
+#import "BussinessApi.h"
 @interface ShiTiVC : BaseViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textField1;
 
 @property (strong, nonatomic) IBOutlet UITextField *textField2;
 @property (strong, nonatomic) IBOutlet UITextField *textField3;
-
-
-
-
-
 
 @property (strong, nonatomic) IBOutlet UIView *view1;
 @property (strong, nonatomic) IBOutlet UITextField *textF1;

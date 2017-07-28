@@ -37,12 +37,13 @@
     NSDictionary* dic3=[NSDictionary dictionaryWithObjectsAndKeys:ary3,@"系统配置", nil];
     NSArray* ary=[NSArray arrayWithObjects:dic1,dic2,dic3, nil];
 */
+    
+    //前一个界面进行了数据存储，现在进行数据的获取
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray* arrays=[defaults objectForKey:@"chuangkexiaozhen.zhujiemian"];
 
     
     self.datas=arrays;
-    
     
 
 }
@@ -133,6 +134,7 @@
     UIButton* btn=(UIButton*)sender;
     NSString* data=btn.titleLabel.text;
     NSLog(@"%@,%@",@"click",data);
+    
     if([data isEqualToString:@"实体入驻"]){
         NSLog(@"%@ 按钮被点击",data);
         UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
@@ -149,10 +151,6 @@
         WenDangVC*vc=[board instantiateViewControllerWithIdentifier:@"WenDangVC"];
         [self.navigationController pushViewController:vc animated:YES];
 
-        
-        
-        
-        
     }else if([data isEqualToString:@"开通主线"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"我的配置资源"]){

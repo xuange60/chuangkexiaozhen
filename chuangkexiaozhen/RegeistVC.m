@@ -8,6 +8,8 @@
 
 #import "RegeistVC.h"
 #import "ComboViewController.h"
+#import "BussinessApi.h"
+#import "ViewController.h"
 
 @interface RegeistVC ()
 
@@ -58,25 +60,35 @@
 }
 
 
-
+//最上面返回按钮的事件处理
 - (IBAction)cancelRegister:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+//点击获取验证码按钮的事件处理
 - (IBAction)yzmBtnClick:(id)sender {
+    
+  int yzmResult=[BussinessApi registerGetCode:_mobile.text];
+    //result: 1,验证码发送成功 不等于1,验证码发送失败
+    if (yzmResult==1) {
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送成功，请进行下一步操作" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+        [alertCon addAction:action2];
+        [self presentViewController:alertCon animated:YES completion:nil];
+    }else{
+        
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送失败，请重新获取" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+        [alertCon addAction:action1];
+        [alertCon addAction:action2];
+        [self presentViewController:alertCon animated:YES completion:nil];
+        
+    }
 }
+//选择用户类型按钮的事件处理
 - (IBAction)xzlxBtnClick:(id)sender {
     UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
     ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
@@ -85,6 +97,34 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+//点击注册按钮的事件处理
 - (IBAction)zhuceBtnClick:(id)sender {
+    
+   int zhuCeResult=[BussinessApi registerWithCode:_checkcode.text name:_username.text mobile:_mobile.text email:_email.text pwd:_pwd.text type:_usertype.currentTitle];
+
+    //result: 1,注册成功 不等于1,则注册失败
+    if (zhuCeResult==1) {
+        UIStoryboard*storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        ViewController*vc=[storyBoard instantiateInitialViewController];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        
+    }else{
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"注册失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+        
+        [alertCon addAction:action2];
+        [self presentViewController:alertCon animated:YES completion:nil];
+    }
 }
+
+
+
+
+
+
+
+
 @end

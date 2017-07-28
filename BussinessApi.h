@@ -17,6 +17,9 @@
 
 @interface BussinessApi : NSObject
 
+@property(nonatomic)int num;
+
+
 //1.用户登录
 -(void) loginWithName:(NSString*) name andPwd:(NSString*) pwd;
 
@@ -29,17 +32,17 @@
 //检查手机号
 -(void) checkMobile:(NSString*)mobile;
 //获取验证码
--(void) registerGetCode:(NSString*)mobile;
++(int) registerGetCode:(NSString*)mobile;
 //注册
--(void) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type;
++(int) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type;
 
 //4.用手机号码重置密码
 //检查手机号和用户名是否一致
 -(void) checkName:(NSString*)name mobile:(NSString*)mobile;
 //重置时获取验证码
--(void) resetGetCode:(NSString*)mobile;
++(int) resetGetCode:(NSString*)mobile;
 //重置密码
--(void) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd;
++(int) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd;
 
 
 
@@ -54,13 +57,18 @@
 //5.2 实体入驻时文件上传
 //参数 NSData类型的文件数据,文件类型如jpg，png等
 //文件上传成功时返回ResourceId
--(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type;
++(NSString*) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type;
+
+
 
 //5.3 实体入驻申请提交
 //参数为字典： businessline=电子信息 companyname=测试机构 contact=小明 contacttype=18576672852
 // description=初创团队
 // resourceids=597a213880ab5e6790d51fde,597a214a80ab5e6790d51fdf
--(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param;
++(int) shiTiRuZhuSubmitWithParam:(NSDictionary*)param;
+
+
+
 
 
 //5.4 虚拟入驻申请

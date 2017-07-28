@@ -28,10 +28,6 @@
     _textField3.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
 
     
-    
-    
-    
-    
     _view1.layer.cornerRadius=2;
     _view1.layer.borderWidth=0.2;
     _view1.layer.borderColor=[UIColor lightGrayColor].CGColor;
@@ -40,6 +36,9 @@
     _view2.layer.cornerRadius=2;
     _view2.layer.borderWidth=0.2;
     _view2.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
+    _textF1.enabled=NO;
+    _textF2.enabled=NO;
     
     _xuanWenJianBtn.layer.cornerRadius=10;
     
@@ -74,7 +73,7 @@
 - (IBAction)btn2Click:(id)sender {
     
     _xialaView=[[[NSBundle mainBundle]loadNibNamed:@"XiaLaView" owner:self options:nil]lastObject];
-    _xialaView.frame=CGRectMake(_view2.frame.origin.x,_view2.frame.origin.y, _view2.frame.size.width, 160);
+    _xialaView.frame=CGRectMake(_view2.frame.origin.x,_view2.frame.origin.y, _view2.frame.size.width, 120);
     _xialaView.layer.cornerRadius=20;
     
     [_xialaView.btn1 setTitle:@"初创团队" forState:UIControlStateNormal];
@@ -139,18 +138,55 @@
     self.imgView.image = info[UIImagePickerControllerOriginalImage];
 }
 
+//上传数据
 - (IBAction)shenQingBtnClick:(id)sender {
     
-    UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交成功，请等待审核" preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:alertCon animated:YES completion:^{
-        
-        [self dismissViewControllerAnimated:YES completion:^{
-            [self.navigationController popViewControllerAnimated:YES];
+    //5.2 实体入驻时文件上传
+    //参数 NSData类型的文件数据,文件类型如jpg，png等
+    //文件上传成功时返回ResourceId
+    
+    
+    //??????????????????????????//////
+    
+    NSData*data=UIImageJPEGRepresentation(_imgView.image, 0.5);
+    
+    NSString*resourceIds=[BussinessApi shitiRuZhuFileup:data withType:@"jpg"];
+    
+    
+    //5.3 实体入驻申请提交
+    //参数为字典： businessline=电子信息 companyname=测试机构 contact=小明 contacttype=18576672852
+    // description=初创团队
+    // resourceids=597a213880ab5e6790d51fde,597a214a80ab5e6790d51fdf
+    
+    NSMutableDictionary*dic=[NSMutableDictionary dictionary];
+    [dic setObject:_textField1.text forKey:@"contact"];
+    [dic setObject:_textField2.text forKey:@"contacttype"];
+    [dic setObject:_textField3.text forKey:@"companyname"];
+    [dic setObject:_textF1.text forKey:@"businessline"];
+    [dic setObject:_textF2.text forKey:@"description"];
+    [dic setObject:resourceIds forKey:@"resourceids"];
+    
+    int result=[BussinessApi shiTiRuZhuSubmitWithParam:dic];
+    
+    if (result==1) {
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交成功，请等待审核" preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alertCon animated:YES completion:^{
+            
+            [NSThread sleepForTimeInterval:0.5];
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+                [NSThread sleepForTimeInterval:0.3];
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
         }];
-    }];
-   
-    
-    
+ 
+    }else{
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alertCon animated:YES completion:^{
+            [NSThread sleepForTimeInterval:0.5];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
 }
 
 

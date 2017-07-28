@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface WenDangVC : BaseViewController
+@interface WenDangVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end

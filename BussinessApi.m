@@ -10,6 +10,25 @@
 
 @implementation BussinessApi
 
+-(id)init
+{
+    if (self=[super init])
+    {
+    
+    }
+    return self;
+}
+
+
+
+
+
+
+
+
+
+
+
 //用户登录
 //参数 用户名，密码
 //返回数组数据 [{"初始申请",["实体入驻","虚拟入驻","文档下载"]}]
@@ -178,8 +197,9 @@
 //注册时，获取验证码
 //参数，手机号码
 //result: 1,验证码发送成功 不等于1,验证码发送失败
--(void) registerGetCode:(NSString*)mobile
++(int) registerGetCode:(NSString*)mobile
 {
+    __block int yanZhengMaResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:mobile,@"mobile",[NSNumber numberWithInt:1],@"type", nil];
@@ -195,20 +215,25 @@
 
             NSLog(@"%d",result);
             //result: 1,验证码发送成功 不等于1,验证码发送失败
+            yanZhengMaResult=result;
             
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         
     }];
+    
+    
+    return yanZhengMaResult;
 }
 
 
 
 //用户注册
 //result: 1,注册成功 不等于1,则注册失败
--(void) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type
++(int) registerWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile email:(NSString*)email pwd:(NSString*)pwd type:(NSString*)type
 {
+    __block zhuCeResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:checkcode,@"mcode",name,@"loginName",mobile,@"mobilePhone",email,@"email",pwd,@"plainPassword",type,@"typeidx", nil];
@@ -224,12 +249,16 @@
             
             NSLog(@"%d",result);
             //result: 1,注册成功 不等于1,则注册失败
+            zhuCeResult=result;
             
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         
     }];
+    
+    
+    return zhuCeResult;
 }
 
 
@@ -264,8 +293,9 @@
 
 //重置时获取验证码
 //result: 1,验证码发送成功 不等于1,验证码发送失败
--(void) resetGetCode:(NSString*)mobile
++(int) resetGetCode:(NSString*)mobile
 {
+    __block int resetYzmResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:mobile,@"mobile",[NSNumber numberWithInt:2],@"type", nil];
@@ -281,25 +311,32 @@
 
             NSLog(@"%d",result);
             //result: 1,验证码发送成功 不等于1,验证码发送失败
-            
+            resetYzmResult=result;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         
     }];
+    
+    return resetYzmResult;
 }
 
 
 //重置密码
 //result: 1,密码重置成功 不等于1,则密码重置失败
--(void) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd
++(int) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd
 {
+   __block int mimaResult=0;//加上——block在block里面就是地址传递
+    
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:checkcode,@"mcode",name,@"loginName",mobile,@"mobilePhone",pwd,@"plainPassword",nil];
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/retrieve/update"];
-    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
@@ -308,12 +345,17 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
 
             NSLog(@"%d",result);
+            
+         mimaResult=result;
+            
             //result: 1,密码重置成功 不等于1,则密码重置失败
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         
     }];
+    
+    return mimaResult;
 }
 
 
@@ -353,19 +395,24 @@
             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);
             
-            
-            
-            
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
 }
 
+
+
+
+
+
+
 //参数 NSData类型的文件数据,文件类型如jpg，png等
 //文件上传成功时返回ResourceId
--(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type
++(NSString*) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type
 {
+    __block NSString*ids=nil;
+    
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     
@@ -393,18 +440,21 @@
             // 文件上传成功 获取ResourceId
             NSString* ResourceId=[jsondata objectForKey:@"ResourceId"];
             NSLog(@"%@",ResourceId);
+            
+            ids=ResourceId;
+            
         }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
             // 请求失败
             NSLog(@"请求失败：%@", error);
-        }
-     ];
-    
+        }];
+    return ids;
 }
 
 
 
--(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
++(int) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
 {
+    __block int shiTiResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithDictionary:param];
@@ -420,12 +470,14 @@
             
             NSLog(@"%d",result);
             //result: 1,实体入驻提交成功 不等于1,则提交失败
+            shiTiResult=result;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         
     }];
     
+    return shiTiResult;
 }
 
 

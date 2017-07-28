@@ -69,10 +69,12 @@
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/login"];
     
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-        if([contenttype containsString:@"json"]){//返回json格式数据
+        if([contenttype containsString:@"json"])
+        {//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             if(0==result){
@@ -80,6 +82,16 @@
                 /**
                  *登陆失败提示
                  */
+                
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"用户名或密码错误，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                
+                [alertCon addAction:action1];
+                [alertCon addAction:action2];
+                
+                [self presentViewController:alertCon animated:YES completion:nil];
+            
             }
         }else if([contenttype containsString:@"html"]){ //登陆成功
             //保存cookies
@@ -126,7 +138,7 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
-        //登陆失败 界面提示
+        //登陆失败 界面提示       网络发送失败信息提示？？？？
     }];
 }
 

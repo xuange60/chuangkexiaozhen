@@ -42,17 +42,17 @@
     [bussiness shiTiRuZhuQuery];
 }
 
-- (IBAction)shitiruzhufileup:(id)sender {
-    UIImage *image = [UIImage imageNamed:@"Snip20170722_1"];
-    NSData *data = UIImagePNGRepresentation(image);
-    BussinessApi* bussiness=[[BussinessApi alloc] init];
-    [bussiness shitiRuZhuFileup:data withType:@"png"];
-}
-- (IBAction)shitiruzhusubmit:(id)sender {
-    BussinessApi* bussiness=[[BussinessApi alloc] init];
-    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"电子信息",@"businessline",@"测试机构",@"companyname",@"小刚",@"contact",@"18576672852",@"contacttype",@"初创团队",@"description",@"597a200480ab5e6790d51fdd,597a213880ab5e6790d51fde",@"resourceids", nil];
-    [bussiness shiTiRuZhuSubmitWithParam:param];
-}
+//- (IBAction)shitiruzhufileup:(id)sender {
+//    UIImage *image = [UIImage imageNamed:@"Snip20170722_1"];
+//    NSData *data = UIImagePNGRepresentation(image);
+//    BussinessApi* bussiness=[[BussinessApi alloc] init];
+//    [bussiness shitiRuZhuFileup:data withType:@"png"];
+//}
+//- (IBAction)shitiruzhusubmit:(id)sender {
+//    BussinessApi* bussiness=[[BussinessApi alloc] init];
+//    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"电子信息",@"businessline",@"测试机构",@"companyname",@"小刚",@"contact",@"18576672852",@"contacttype",@"初创团队",@"description",@"597a200480ab5e6790d51fdd,597a213880ab5e6790d51fde",@"resourceids", nil];
+//    [bussiness shiTiRuZhuSubmitWithParam:param];
+//}
 
 
 - (IBAction)xuniruzhusubmit:(id)sender {
