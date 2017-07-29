@@ -10,4 +10,10 @@
 
 @interface WenDangVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong)NSMutableArray*Marray;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+
+
 @end
