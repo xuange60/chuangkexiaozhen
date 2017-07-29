@@ -46,10 +46,16 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
+
 
 
 - (IBAction)DeleteBtnClick:(id)sender {
-    UIButton*btn=(UIButton*)sender;
+//    UIButton*btn=(UIButton*)sender;
     
 }
 

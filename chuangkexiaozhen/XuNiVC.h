@@ -17,11 +17,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *duoxuan;
 
-
-
-
-@property(nonatomic,strong)NSMutableString*Mstr;
-
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 
 - (IBAction)BtnClicked:(id)sender;
