@@ -10,7 +10,7 @@
 #import "ComboViewController.h"
 #import "BussinessApi.h"
 #import "ViewController.h"
-
+#import "TestViewController.h"
 @interface RegeistVC ()
 
 @end
@@ -260,6 +260,11 @@
 
 
 
+- (IBAction)test:(id)sender {
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"test" bundle:nil];
+    TestViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 
 

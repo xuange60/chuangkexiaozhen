@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHJ-QP-10K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHJ-QP-10K">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -157,7 +157,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="接口测试"/>
                                 <connections>
-                                    <segue destination="BfL-r2-QEM" kind="presentation" id="U8A-9i-nkf"/>
+                                    <action selector="test:" destination="kao-mp-F1d" eventType="touchUpInside" id="17u-2a-YCk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -178,90 +178,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsK-Np-WX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1663.2" y="784.85757121439292"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="IWh-4r-kBt">
-            <objects>
-                <viewController id="BfL-r2-QEM" customClass="TestViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WmF-Yo-3fx"/>
-                        <viewControllerLayoutGuide type="bottom" id="YZk-L4-r04"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VwC-j2-rtW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-rX-ucc">
-                                <rect key="frame" x="23" y="6" width="97" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
-                                <connections>
-                                    <action selector="back:" destination="BfL-r2-QEM" eventType="touchUpInside" id="mSj-Zz-P2l"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyu-T0-dzR">
-                                <rect key="frame" x="130" y="14" width="88" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="登陆"/>
-                                <connections>
-                                    <action selector="login:" destination="BfL-r2-QEM" eventType="touchUpInside" id="Q3f-Oq-lbr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgA-Kh-mp8">
-                                <rect key="frame" x="101" y="66" width="136" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="实体入驻申请查询"/>
-                                <connections>
-                                    <action selector="shitiruzhuquery:" destination="BfL-r2-QEM" eventType="touchUpInside" id="xbY-UH-duU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L08-8V-zIb">
-                                <rect key="frame" x="106" y="104" width="127" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="实体入驻文件上传"/>
-                                <connections>
-                                    <action selector="shitiruzhufileup:" destination="BfL-r2-QEM" eventType="touchUpInside" id="u5f-Kc-awy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SZ-Gc-wHI">
-                                <rect key="frame" x="106" y="153" width="131" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="实体入驻申请提交"/>
-                                <connections>
-                                    <action selector="shitiruzhusubmit:" destination="BfL-r2-QEM" eventType="touchUpInside" id="W12-S2-LPH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ray-KO-PSB">
-                                <rect key="frame" x="106" y="205" width="137" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="虚拟入驻申请"/>
-                                <connections>
-                                    <action selector="xuniruzhusubmit:" destination="BfL-r2-QEM" eventType="touchUpInside" id="lV4-xo-hBI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIn-pK-edS">
-                                <rect key="frame" x="58" y="249" width="206" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="初始申请上传的所有文件查询"/>
-                                <connections>
-                                    <action selector="chushishenqingfilequery:" destination="BfL-r2-QEM" eventType="touchUpInside" id="6SG-8c-LJb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzY-vE-xwQ">
-                                <rect key="frame" x="86" y="287" width="202" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="实体入驻申请文档删除"/>
-                                <connections>
-                                    <action selector="shitiruzhufiledelete:" destination="BfL-r2-QEM" eventType="touchUpInside" id="Nhn-ut-efh"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UmB-jz-yxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1796" y="1574.6626686656673"/>
         </scene>
         <!--ResetVC-->
         <scene sceneID="cg9-7v-lZj">
