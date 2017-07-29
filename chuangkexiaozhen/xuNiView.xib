@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XuNiVC"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="xuNiView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xss-nD-2tv">
+                    <rect key="frame" x="27" y="5" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-180" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="展示推介机会" image="Snip20170729_1.png">
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="39E-5C-4TR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRA-L8-zAz">
+                    <rect key="frame" x="27" y="40" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-194" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="投融资需求" image="Snip20170729_1.png">
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="Ils-Px-hOJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtf-Dm-2zU">
+                    <rect key="frame" x="27" y="113" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-131" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="制造加工及场地需求" image="Snip20170729_1.png">
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="oB4-It-Cm9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSG-H0-Bnc">
+                    <rect key="frame" x="27" y="150" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-160" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="农艺新品种需求" image="Snip20170729_1.png">
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="eGV-AM-3vM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdG-Vq-7wb">
+                    <rect key="frame" x="27" y="186" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-145" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-52" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="Snip20170729_1.png">
+                        <string key="title">	交流合作机会</string>
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="cJp-yU-sdf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yes-fw-7TS">
+                    <rect key="frame" x="27" y="224" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-194" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title=" 咨询管理 " image="Snip20170729_1.png">
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="TV4-ry-HRy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3P-LD-E5X">
+                    <rect key="frame" x="27" y="262" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-234" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="其他" image="Snip20170729_1.png">
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="dWD-YN-6hP"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSX-7u-p9Q">
+                    <rect key="frame" x="27" y="77" width="325" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-177" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="信息技术需求" image="Snip20170729_1.png">
+                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="Snip20170729_2.png"/>
+                    <connections>
+                        <action selector="XianShiBtnClick:" destination="-1" eventType="touchUpInside" id="DAU-Hu-WqH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.44569227430555558" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btn1" destination="Xss-nD-2tv" id="KI7-gA-2zB"/>
+                <outlet property="btn2" destination="CRA-L8-zAz" id="dHH-r8-F58"/>
+                <outlet property="btn3" destination="aSX-7u-p9Q" id="ZQD-fz-hmF"/>
+                <outlet property="btn4" destination="Wtf-Dm-2zU" id="GKT-3w-mQZ"/>
+                <outlet property="btn5" destination="aSG-H0-Bnc" id="SPo-V4-vB7"/>
+                <outlet property="btn6" destination="kdG-Vq-7wb" id="kVy-2x-Ccm"/>
+                <outlet property="btn7" destination="yes-fw-7TS" id="BO6-N9-gZ6"/>
+                <outlet property="btn8" destination="F3P-LD-E5X" id="7wg-9z-iOm"/>
+            </connections>
+            <point key="canvasLocation" x="-154" y="-442"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Snip20170729_1.png" width="22" height="22"/>
+        <image name="Snip20170729_2.png" width="22" height="22"/>
+    </resources>
+</document>

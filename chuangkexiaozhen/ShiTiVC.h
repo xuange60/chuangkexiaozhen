@@ -28,9 +28,21 @@
 @property (strong, nonatomic) IBOutlet UIButton *btn2;
 
 @property (strong, nonatomic) IBOutlet XiaLaView *xialaView;
+@property (strong, nonatomic) IBOutlet UIView *view3;
+
+@property (strong, nonatomic) IBOutlet UIView *view4;
+@property (strong, nonatomic) IBOutlet UITextField *statueF;
+
+
+
+
+
 
 @property (strong, nonatomic) IBOutlet UIButton *xuanWenJianBtn;
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
+@property (strong, nonatomic) IBOutlet UILabel *jihuashuLab;
+@property (strong, nonatomic) IBOutlet UILabel *tishiLab;
+@property (strong, nonatomic) IBOutlet UIButton *shenqingBtn;
 
 
 

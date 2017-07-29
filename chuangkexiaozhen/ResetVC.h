@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BussinessApi.h"
-@interface ResetVC : UIViewController
+@interface ResetVC : UIViewController<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *userName;
 
 @property (strong, nonatomic) IBOutlet UITextField *mobile;

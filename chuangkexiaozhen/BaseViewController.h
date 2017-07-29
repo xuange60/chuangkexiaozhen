@@ -13,5 +13,5 @@
 @property (strong,nonatomic) NSString* title;
 
 -(void) setNavigationItemTitle:(NSString*) title;
-
+-(void) backvc;
 @end

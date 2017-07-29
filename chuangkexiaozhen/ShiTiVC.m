@@ -14,9 +14,23 @@
 
 @implementation ShiTiVC
 
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        
+       
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.title=@"实体入驻";
+    
+     [self shiTiRuZhuQuery];
+    
     
     _textField1.layer.borderWidth=0.2;
     _textField1.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
@@ -167,6 +181,79 @@
     
     [self shiTiRuZhuSubmitWithParam:dic];
     
+}
+
+
+
+
+//实体入驻查询
+//如果用户未提交过申请，不可以查到申请记录；用户层申请过申请，可以查到已提交的数据
+/*如查询到记录时，返回字典数据可能为：
+ {"resourceIds" : "","contact" : "张玄","companyName" : "测试机构","description" : "初创团队","contactType" : "18576672852","applyStatus" : "通过","businessline" : "电子信息"}
+ 入未查询到数据，字典数据为空；
+ */
+-(void) shiTiRuZhuQuery
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/add"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        if([contenttype containsString:@"html"])
+        {
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
+            NSMutableDictionary* dic=[[NSMutableDictionary alloc] init];
+            for (TFHppleElement *ele in arrays)
+            {
+                NSString * idstr=[ele objectForKey:@"id"];
+                NSString* value=[ele objectForKey:@"value"];
+                if(idstr!=nil && value!=nil){
+                    [dic setObject:value forKey:idstr];
+                }
+            }
+            
+
+            
+            
+            //字典NSMutableDictionary* dic包含了查询到的数据
+            //打印查询到的数据
+            NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            if([dic objectForKey:@"submit"]!=nil){
+                dic=nil;
+            }
+            
+            if (dic==nil) {
+                
+                _view4.hidden=YES;
+                _view3.hidden=NO;
+                
+            }else{
+                
+                _textField1.text=[dic objectForKey:@"contact"];
+                _textField2.text=[dic objectForKey:@"contactType"];
+                _textField3.text=[dic objectForKey:@"companyName"];
+                _textF1.text=[dic objectForKey:@"businessline"];
+                _textF2.text=[dic objectForKey:@"description"];
+                _statueF.text=[dic objectForKey:@"applyStatus"];
+                
+                _view3.hidden=YES;
+                _btn1.hidden=YES;
+                _btn2.hidden=YES;
+                
+                _view4.hidden=NO;
+                
+            }
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 

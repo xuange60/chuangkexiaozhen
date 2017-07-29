@@ -29,6 +29,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kao-mp-F1d" id="lC7-4W-AYP"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CsX-fu-dUz">
                                 <rect key="frame" x="49" y="183" width="276" height="45"/>
@@ -37,6 +40,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kao-mp-F1d" id="QmB-iy-0he"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   邮箱账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s94-hD-Xvw">
                                 <rect key="frame" x="49" y="239" width="276" height="49"/>
@@ -45,6 +51,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kao-mp-F1d" id="cge-b6-IA0"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lD4-Fg-FGt">
                                 <rect key="frame" x="49" y="303" width="163" height="48"/>
@@ -53,6 +62,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kao-mp-F1d" id="IWT-kY-xfT"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y7R-2n-OQO">
                                 <rect key="frame" x="49" y="360" width="276" height="49"/>
@@ -61,6 +73,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kao-mp-F1d" id="tpB-di-q6e"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   请确认密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NeI-dc-uHP">
                                 <rect key="frame" x="49" y="423" width="276" height="45"/>
@@ -69,6 +84,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kao-mp-F1d" id="Ghe-PT-JfG"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2i-Gh-853">
                                 <rect key="frame" x="49" y="479" width="276" height="49"/>

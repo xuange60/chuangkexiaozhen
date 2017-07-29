@@ -18,10 +18,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _userName.delegate=self;
+    _userName.tag=771;
+    
+    _mobile.delegate=self;
+    _mobile.tag=772;
     
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [textField becomeFirstResponder];
+}
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    if (textField.tag==772) {
+       [self checkName:_userName.text mobile:_mobile.text];
+    }
+    
+}
 
 
 //最上面左边返回按钮的事件处理
@@ -41,9 +59,46 @@
 //重置点击提交按钮的处理事件
 - (IBAction)resetBtnClick:(id)sender {
     
-    //result:     1：密码重置成功      不等于1：则密码重置失败
     [self resetPwdWithCode:_yanZhengMa.text name:_userName.text mobile:_mobile.text pwd:_pwd.text];
 }
+
+
+
+
+//检查手机号和用户名是否一致
+//result: false,用户名或密码错误 非false,用户名或密码一致
+-(void) checkName:(NSString*)name mobile:(NSString*)mobile
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:name,@"loginname",mobile,@"mobile", nil];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/retrieve/check"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSString* result=[jsondata objectForKey:@"actionid"];
+            NSLog(@"%@",result);
+            //result: false,用户名或密码错误 非false,用户名或密码一致
+            
+            if ([result isEqualToString:@"false"]) {
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"用户名或密码错误，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                [alertCon addAction:action1];
+                [alertCon addAction:action2];
+                [self presentViewController:alertCon animated:YES completion:nil];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
+    }];
+}
+
 
 
 //重置时获取验证码
@@ -66,12 +121,8 @@
             
             NSLog(@"%d",result);
             //result: 1,验证码发送成功 不等于1,验证码发送失败
-            //result: 1,验证码发送成功 不等于1,验证码发送失败
             if (result==1) {
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送成功，请进行下一步操作" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+               
             }else{
                 
                 UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送失败，请重新获取" preferredStyle:UIAlertControllerStyleAlert];
@@ -94,8 +145,7 @@
 //result: 1,密码重置成功 不等于1,则密码重置失败
 -(void) resetPwdWithCode:(NSString*)checkcode name:(NSString*)name mobile:(NSString*)mobile pwd:(NSString*)pwd
 {
-    __block int mimaResult=0;//加上——block在block里面就是地址传递
-    
+
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:checkcode,@"mcode",name,@"loginName",mobile,@"mobilePhone",pwd,@"plainPassword",nil];
@@ -118,16 +168,13 @@
              if (result==1)//重置成功，跳出界面，记录密码
              {
                  [self dismissViewControllerAnimated:YES completion:nil];
+                 
              }else{       //重置失败，弹出提示，继续设置
                  UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"密码重置失败，请重新设置" preferredStyle:UIAlertControllerStyleAlert];
-                 [self presentViewController:alertCon animated:YES completion:^{
-                     
-                     [NSThread sleepForTimeInterval:0.5];
-                     [self dismissViewControllerAnimated:YES completion:nil];
-                 }];
+                 UIAlertAction*action1=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                 [alertCon addAction:action1];
+                 [self presentViewController:alertCon animated:YES completion:nil];
              }
-
-             
          }
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
          NSLog(@"%@",error);

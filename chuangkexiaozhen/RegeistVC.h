@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegeistVC : UIViewController
+@interface RegeistVC : UIViewController<UITextFieldDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UIButton *yzmBtn;
