@@ -134,7 +134,14 @@
 
     [self.clickbtn setTitle:(btn.titleLabel.text) forState:UIControlStateNormal];
     [self.clickbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if(self.navigationController){ //如果当前视图是导航控制器弹出，则pop
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{//如果当前视图不是导航控制器弹出，则dismiss
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+    
+   
 }
 
 

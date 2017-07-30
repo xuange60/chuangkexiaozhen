@@ -84,7 +84,7 @@
             //result: 1,虚拟入驻提交成功 不等于1,则提交失败
             
             if (result==1) {
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"提交成功，请等待审核" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申请提交成功" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction*action= [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                    [self.navigationController popViewControllerAnimated:YES];
                 }];

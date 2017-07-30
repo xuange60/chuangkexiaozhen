@@ -12,6 +12,7 @@
 #import "ShiTiVC.h"
 #import "XuNiVC.h"
 #import "WenDangVC.h"
+#import "KaiTongZhuXianViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -152,6 +153,9 @@
         [self.navigationController pushViewController:vc animated:YES];
 
     }else if([data isEqualToString:@"开通主线"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+        KaiTongZhuXianViewController*vc=[board instantiateViewControllerWithIdentifier:@"KaiTongZhuXianViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"我的配置资源"]){
         NSLog(@"%@ 按钮被点击",data);
