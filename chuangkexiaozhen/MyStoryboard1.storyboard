@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -467,11 +468,11 @@
                         <viewControllerLayoutGuide type="bottom" id="QDY-VC-90f"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rOb-lI-Gn2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" minimumZoomScale="0.5" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="KWa-SB-zmB">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2d-0S-sC8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="540"/>
@@ -491,7 +492,6 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="5cB-mP-S17"/>
                                     <constraint firstItem="M2d-0S-sC8" firstAttribute="leading" secondItem="KWa-SB-zmB" secondAttribute="leading" id="BzD-52-kA4"/>
                                     <constraint firstItem="M2d-0S-sC8" firstAttribute="centerX" secondItem="KWa-SB-zmB" secondAttribute="centerX" id="JhD-Hy-mD3"/>
                                     <constraint firstItem="M2d-0S-sC8" firstAttribute="top" secondItem="KWa-SB-zmB" secondAttribute="top" id="YWE-MK-AQO"/>
@@ -505,10 +505,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="KWa-SB-zmB" secondAttribute="trailing" id="3Ai-of-U9s"/>
-                            <constraint firstItem="KWa-SB-zmB" firstAttribute="leading" secondItem="rOb-lI-Gn2" secondAttribute="leading" id="3FL-uo-KLX"/>
+                            <constraint firstItem="KWa-SB-zmB" firstAttribute="leading" secondItem="rOb-lI-Gn2" secondAttribute="leading" id="Me3-EZ-FJS"/>
                             <constraint firstItem="KWa-SB-zmB" firstAttribute="top" secondItem="MqD-HK-bLM" secondAttribute="bottom" id="f61-8T-VwR"/>
                             <constraint firstItem="QDY-VC-90f" firstAttribute="top" secondItem="KWa-SB-zmB" secondAttribute="bottom" id="kIR-67-b61"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KWa-SB-zmB" secondAttribute="trailing" constant="39" id="p8U-yz-d9d"/>
                         </constraints>
                     </view>
                     <connections>
