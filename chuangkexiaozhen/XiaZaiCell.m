@@ -17,8 +17,11 @@
 
 -(void)setCellShuJu:(NSArray*)array
 {
-    _textName.text=[array objectAtIndex:0];
-    _textDate.text=[array objectAtIndex:1];
+    NSString*str1=[@"文件名称："stringByAppendingString:[array objectAtIndex:0] ];
+     NSString*str2=[@"上传日期：" stringByAppendingString:[array objectAtIndex:1]];
+    
+    _textName.text=str1;
+    _textDate.text=str2;
     
 }
 
