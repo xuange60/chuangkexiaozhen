@@ -101,12 +101,6 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    
-}
-
 
 
 - (IBAction)DeleteBtnClick:(id)sender {
@@ -114,13 +108,99 @@
     
 }
 
-
-- (IBAction)DownLoadBtnClick:(id)sender {
-     UIButton*btn=(UIButton*)sender;
+- (IBAction)downloadBtnClick:(id)sender forEvent:(UIEvent *)event {
+    UIButton*btn=(UIButton*)sender;
+    
+     NSSet*touches=[event allTouches];
+     UITouch*touch=[touches anyObject];
+     CGPoint point=[touch locationInView:_tableView];
+     NSIndexPath*indexPath=[_tableView indexPathForRowAtPoint:point];
+     _num=indexPath.row;
+    
+    NSDictionary*dic=[_Marray objectAtIndex:_num];
+    NSString*strID=[dic objectForKey:@"id"];
     
     
+    [self chushishenqingFileDownload:strID];
     
+}
+//5.7 初始申请时上传的文档下载
+-(void) chushishenqingFileDownload:(NSString*)resourceid
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/down"];
     
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id", nil];
+    
+    [manager GET:url parameters:parameters
+        progress:^(NSProgress * _Nonnull downloadProgress)
+     {
+         // 打印下下载进度
+         NSLog(@"%lf",1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+     }
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+         NSString* Disposition=[headers objectForKey:@"Content-Disposition"];
+         NSString* filename=nil;
+         if(Disposition!=nil){
+             NSRange range=[Disposition rangeOfString:@"filename"];
+             if(range.location>0){
+                 filename=[Disposition substringFromIndex:(range.location+range.length+1)];
+                 NSLog(@"%@",filename);
+             }
+         }
+         if(filename==nil){
+             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+             formatter.dateFormat = @"yyyyMMddHHmmss";
+             NSString *str = [formatter stringFromDate:[NSDate date]];
+             filename = [NSString stringWithFormat:@"实体入驻_%@.jpg", str];
+         }
+         
+         NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
+         NSString* file=[filePath stringByAppendingPathComponent:filename];
+         NSLog(@"%@",file);
+         NSFileManager* filemanager=[[NSFileManager alloc]init];
+         if(![filemanager fileExistsAtPath:file]){
+             [filemanager createFileAtPath:file contents:nil attributes:nil];
+         }
+         
+         NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:file];
+         [fileHandle writeData:(NSData*)responseObject];
+         [fileHandle closeFile];
+         
+         //此时文件下载成功；
+         
+         
+         //将文件id，文件路径保存下来
+         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+         [defaults setObject:(NSData*)responseObject forKey:@"test"];
+         
+         
+         NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:file,resourceid, nil];
+         [defaults setObject:dic forKey:@"chuangkexiaozhen.resource"];
+         
+         
+         
+         
+         
+     UIStoryboard*board=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
+      xiazaiPhotoVC*vc= [board instantiateViewControllerWithIdentifier:@"xiazaiPhotoVC"];
+     [vc setData:responseObject];
+     [self.navigationController pushViewController:vc animated:YES];
+         
+         
+         
+         
+         
+     }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+     {
+         NSLog(@"%@",error);
+     }
+     ];
 }
 
 

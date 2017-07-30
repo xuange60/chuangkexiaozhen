@@ -7,10 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
+#import "xiazaiPhotoVC.h"
 @interface WenDangVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)NSMutableArray*Marray;
+@property(nonatomic)NSInteger num;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

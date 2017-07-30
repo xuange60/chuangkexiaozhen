@@ -33,6 +33,8 @@
 		66B6812A1F29BC4000BB1CB9 /* 下拉按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B681291F29BC4000BB1CB9 /* 下拉按钮.png */; };
 		66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */; };
 		66B6812F1F29CB3C00BB1CB9 /* XiaLaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66B6812E1F29CB3C00BB1CB9 /* XiaLaView.xib */; };
+		66BE60881F2D82C200D55309 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BE60871F2D82C200D55309 /* download.png */; };
+		66BE608E1F2DBC9900D55309 /* xiazaiPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BE608D1F2DBC9900D55309 /* xiazaiPhotoVC.m */; };
 		66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C43F5B1F26E069002B1E8F /* XuNiVC.m */; };
 		FB0540F51F2DDDBD00548161 /* baodaoruzhu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0540F41F2DDDBD00548161 /* baodaoruzhu.storyboard */; };
 		FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0540F71F2DE24800548161 /* KaiTongZhuXianViewController.m */; };
@@ -209,6 +211,9 @@
 		66B6812B1F29CB2100BB1CB9 /* XiaLaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaLaView.h; sourceTree = "<group>"; };
 		66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaLaView.m; sourceTree = "<group>"; };
 		66B6812E1F29CB3C00BB1CB9 /* XiaLaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaLaView.xib; sourceTree = "<group>"; };
+		66BE60871F2D82C200D55309 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
+		66BE608C1F2DBC9900D55309 /* xiazaiPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiazaiPhotoVC.h; sourceTree = "<group>"; };
+		66BE608D1F2DBC9900D55309 /* xiazaiPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiazaiPhotoVC.m; sourceTree = "<group>"; };
 		66C43F5A1F26E069002B1E8F /* XuNiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuNiVC.h; sourceTree = "<group>"; };
 		66C43F5B1F26E069002B1E8F /* XuNiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuNiVC.m; sourceTree = "<group>"; };
 		FB0540F41F2DDDBD00548161 /* baodaoruzhu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = baodaoruzhu.storyboard; sourceTree = "<group>"; };
@@ -432,9 +437,9 @@
 				664E50721F227CA100824063 /* MyView.m */,
 				FBF557B51F28CA92005AB0F4 /* MainViewController.h */,
 				FBF557B61F28CA92005AB0F4 /* MainViewController.m */,
-				FBF557B81F28DC51005AB0F4 /* BaseViewController.h */,
 				FB913A2C1F2CF9A6003AA5E1 /* ComBoRowsViewController.h */,
 				FB913A2D1F2CF9A6003AA5E1 /* ComBoRowsViewController.m */,
+				FBF557B81F28DC51005AB0F4 /* BaseViewController.h */,
 				FBF557B91F28DC51005AB0F4 /* BaseViewController.m */,
 				FB8DEF2B1F2A042900636704 /* Commons.storyboard */,
 				FB8DEF2D1F2A09A900636704 /* ComboViewController.h */,
@@ -727,6 +732,7 @@
 			isa = PBXGroup;
 			children = (
 				664E50AC1F25F41E00824063 /* MyStoryboard1.storyboard */,
+				66BE60871F2D82C200D55309 /* download.png */,
 				66B6812B1F29CB2100BB1CB9 /* XiaLaView.h */,
 				66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */,
 				66B6812E1F29CB3C00BB1CB9 /* XiaLaView.xib */,
@@ -738,6 +744,8 @@
 				6620D62D1F2D02D200118DCE /* XiaZaiCell.m */,
 				66B681221F29830100BB1CB9 /* WenDangVC.h */,
 				66B681231F29830100BB1CB9 /* WenDangVC.m */,
+				66BE608C1F2DBC9900D55309 /* xiazaiPhotoVC.h */,
+				66BE608D1F2DBC9900D55309 /* xiazaiPhotoVC.m */,
 			);
 			name = "初始申请";
 			sourceTree = "<group>";
@@ -946,6 +954,7 @@
 				FBB182FC1F28A66000550227 /* 服务申请管理.png in Resources */,
 				FBB183061F28AF0100550227 /* 日常活跃度考核.gif in Resources */,
 				66814A291F1FB50700322620 /* event-2.png in Resources */,
+				66BE60881F2D82C200D55309 /* download.png in Resources */,
 				FBB182EA1F28A19700550227 /* 园区服务申请.png in Resources */,
 				FBB182711F285B9400550227 /* 虚拟入驻.gif in Resources */,
 				FBD7A8151F27AFFB00B9251D /* user_@1x.png in Resources */,
@@ -997,6 +1006,7 @@
 				66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */,
 				FBF557B71F28CA92005AB0F4 /* MainViewController.m in Sources */,
 				6620D62E1F2D02D200118DCE /* XiaZaiCell.m in Sources */,
+				66BE608E1F2DBC9900D55309 /* xiazaiPhotoVC.m in Sources */,
 				664120001F1DF6BB002C2F36 /* main.m in Sources */,
 				FBF557981F28C30E005AB0F4 /* AFURLResponseSerialization.m in Sources */,
 				FBF557971F28C30E005AB0F4 /* AFURLRequestSerialization.m in Sources */,
