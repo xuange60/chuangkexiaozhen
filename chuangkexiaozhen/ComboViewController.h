@@ -38,12 +38,12 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *btn10;
 
-
+-(void) setDatas:(NSArray*)array;
 -(void) setDatas:(NSArray*)array withBtn:(UIButton*) btn;
 
 -(void) initWithData;
 
-
+-(id) initView;
 
 
 @end

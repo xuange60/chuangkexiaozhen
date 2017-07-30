@@ -38,6 +38,9 @@
 		66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C43F5B1F26E069002B1E8F /* XuNiVC.m */; };
 		FB0540F51F2DDDBD00548161 /* baodaoruzhu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0540F41F2DDDBD00548161 /* baodaoruzhu.storyboard */; };
 		FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0540F71F2DE24800548161 /* KaiTongZhuXianViewController.m */; };
+		FB0540FB1F2E283100548161 /* WoDeZiYuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0540FA1F2E283100548161 /* WoDeZiYuanViewController.m */; };
+		FB0541011F2E40B500548161 /* ShenSuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0541001F2E40B500548161 /* ShenSuViewController.m */; };
+		FB0541041F2E42E700548161 /* ShenSuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0541031F2E42E700548161 /* ShenSuCell.m */; };
 		FB219D781F2A4ACE0044F3AC /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FB219D771F2A4ACE0044F3AC /* right.png */; };
 		FB8DEF2C1F2A042900636704 /* Commons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8DEF2B1F2A042900636704 /* Commons.storyboard */; };
 		FB8DEF2F1F2A09A900636704 /* ComboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8DEF2E1F2A09A900636704 /* ComboViewController.m */; };
@@ -219,6 +222,12 @@
 		FB0540F41F2DDDBD00548161 /* baodaoruzhu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = baodaoruzhu.storyboard; sourceTree = "<group>"; };
 		FB0540F61F2DE24800548161 /* KaiTongZhuXianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiTongZhuXianViewController.h; sourceTree = "<group>"; };
 		FB0540F71F2DE24800548161 /* KaiTongZhuXianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaiTongZhuXianViewController.m; sourceTree = "<group>"; };
+		FB0540F91F2E283100548161 /* WoDeZiYuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoDeZiYuanViewController.h; sourceTree = "<group>"; };
+		FB0540FA1F2E283100548161 /* WoDeZiYuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoDeZiYuanViewController.m; sourceTree = "<group>"; };
+		FB0540FF1F2E40B500548161 /* ShenSuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShenSuViewController.h; sourceTree = "<group>"; };
+		FB0541001F2E40B500548161 /* ShenSuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShenSuViewController.m; sourceTree = "<group>"; };
+		FB0541021F2E42E700548161 /* ShenSuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShenSuCell.h; sourceTree = "<group>"; };
+		FB0541031F2E42E700548161 /* ShenSuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShenSuCell.m; sourceTree = "<group>"; };
 		FB219D771F2A4ACE0044F3AC /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		FB8DEF2B1F2A042900636704 /* Commons.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Commons.storyboard; sourceTree = "<group>"; };
 		FB8DEF2D1F2A09A900636704 /* ComboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboViewController.h; sourceTree = "<group>"; };
@@ -518,8 +527,14 @@
 			isa = PBXGroup;
 			children = (
 				FB0540F41F2DDDBD00548161 /* baodaoruzhu.storyboard */,
+				FB0540F91F2E283100548161 /* WoDeZiYuanViewController.h */,
+				FB0540FA1F2E283100548161 /* WoDeZiYuanViewController.m */,
 				FB0540F61F2DE24800548161 /* KaiTongZhuXianViewController.h */,
 				FB0540F71F2DE24800548161 /* KaiTongZhuXianViewController.m */,
+				FB0540FF1F2E40B500548161 /* ShenSuViewController.h */,
+				FB0541001F2E40B500548161 /* ShenSuViewController.m */,
+				FB0541021F2E42E700548161 /* ShenSuCell.h */,
+				FB0541031F2E42E700548161 /* ShenSuCell.m */,
 			);
 			name = "报道入驻";
 			sourceTree = "<group>";
@@ -986,6 +1001,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0541011F2E40B500548161 /* ShenSuViewController.m in Sources */,
 				66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */,
 				FBB182631F2834B900550227 /* TestViewController.m in Sources */,
 				664120061F1DF6BB002C2F36 /* ViewController.m in Sources */,
@@ -997,10 +1013,12 @@
 				664E50731F227CA100824063 /* MyView.m in Sources */,
 				FBF557AF1F28C332005AB0F4 /* TFHpple.m in Sources */,
 				FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */,
+				FB0540FB1F2E283100548161 /* WoDeZiYuanViewController.m in Sources */,
 				FBF557A21F28C327005AB0F4 /* GDataXMLNode.m in Sources */,
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
 				FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */,
+				FB0541041F2E42E700548161 /* ShenSuCell.m in Sources */,
 				FB913A2E1F2CF9A6003AA5E1 /* ComBoRowsViewController.m in Sources */,
 				66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */,
 				66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */,

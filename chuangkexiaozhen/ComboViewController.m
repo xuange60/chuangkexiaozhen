@@ -131,7 +131,6 @@
 
 - (IBAction)btnclick:(id)sender {
     UIButton* btn=(UIButton*) sender;
-
     [self.clickbtn setTitle:(btn.titleLabel.text) forState:UIControlStateNormal];
     [self.clickbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     if(self.navigationController){ //如果当前视图是导航控制器弹出，则pop
@@ -140,13 +139,19 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     
-    
    
 }
 
 
 
 
+
+-(id) initView
+{
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    self=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
+    return self;
+}
 
 /*
 #pragma mark - Navigation
