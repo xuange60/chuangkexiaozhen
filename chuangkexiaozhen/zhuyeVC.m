@@ -15,6 +15,7 @@
 #import "KaiTongZhuXianViewController.h"
 #import "RiChangHuoYueVC.h"
 #import "WoDeZiYuanViewController.h"
+#import "ShenSuViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -165,6 +166,9 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"申诉申请"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+        ShenSuViewController*vc=[board instantiateViewControllerWithIdentifier:@"ShenSuViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"电子合同"]){
         NSLog(@"%@ 按钮被点击",data);
