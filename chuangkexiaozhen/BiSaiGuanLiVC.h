@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
+@interface BiSaiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
-@interface BiSaiGuanLiVC : UIViewController
+
+
+@property(nonatomic,strong)NSArray*array;
+-(void)ReceiveShuJu;
+
+
 
 @end

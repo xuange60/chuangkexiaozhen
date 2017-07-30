@@ -79,7 +79,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2cz-zh-A1x" customClass="RiChangCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BiSaiCell" id="2cz-zh-A1x" customClass="BiSaiCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="310"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2cz-zh-A1x" id="3Pq-sV-k7j">
@@ -151,12 +151,18 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.080753989517688751" green="0.47195649147033691" blue="0.96562343835830688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="Delete"/>
+                                                            <connections>
+                                                                <action selector="deleteBtnClicked:forEvent:" destination="hCN-3N-bon" eventType="touchUpInside" id="Pc4-zd-U2n"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePG-rQ-pyX">
                                                             <rect key="frame" x="179" y="250" width="110" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.076685495674610138" green="0.47192865610122681" blue="0.96561425924301147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="DownLoad"/>
+                                                            <connections>
+                                                                <action selector="DownloadBtnClicked:forEvent:" destination="hCN-3N-bon" eventType="touchUpInside" id="g20-T3-q1S"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,6 +170,16 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="benYuanQuzuzhi" destination="S50-H2-cff" id="uqa-k3-UNb"/>
+                                            <outlet property="bisaiLevel" destination="vqi-FQ-X9q" id="MAK-xi-KJe"/>
+                                            <outlet property="bisaiName" destination="Wa4-87-f2b" id="Cv6-LB-e07"/>
+                                            <outlet property="faqiDate" destination="jME-bt-ru3" id="AhL-xz-8im"/>
+                                            <outlet property="mingCi" destination="mUG-Zc-V5K" id="dLF-nW-6pt"/>
+                                            <outlet property="rongyuMingCheng" destination="2U2-l7-Fs6" id="98x-ds-A1K"/>
+                                            <outlet property="suoShuCompany" destination="cyY-pr-vLU" id="41B-UF-p5S"/>
+                                            <outlet property="zuzhiDanWei" destination="JBo-xi-Ymi" id="Vrl-8J-uJ3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

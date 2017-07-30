@@ -1,14 +1,14 @@
 //
-//  RiChangCell.m
+//  BiSaiCell.m
 //  chuangkexiaozhen
 //
 //  Created by 小灰灰 on 2017/7/31.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "RiChangCell.h"
+#import "BiSaiCell.h"
 
-@implementation RiChangCell
+@implementation BiSaiCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -20,18 +20,5 @@
 
     // Configure the view for the selected state
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

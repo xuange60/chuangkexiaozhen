@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		66170E641F2E3676007C3C76 /* BiSaiGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66170E631F2E3676007C3C76 /* BiSaiGuanLiVC.m */; };
 		66170E661F2E41BD007C3C76 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 66170E651F2E41BD007C3C76 /* trash.png */; };
-		66170E691F2E466D007C3C76 /* RiChangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66170E681F2E466D007C3C76 /* RiChangCell.m */; };
+		66170E6C1F2E4AD9007C3C76 /* BiSaiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66170E6B1F2E4AD9007C3C76 /* BiSaiCell.m */; };
 		6620D62E1F2D02D200118DCE /* XiaZaiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620D62D1F2D02D200118DCE /* XiaZaiCell.m */; };
 		664120001F1DF6BB002C2F36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66411FFF1F1DF6BB002C2F36 /* main.m */; };
 		664120031F1DF6BB002C2F36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664120021F1DF6BB002C2F36 /* AppDelegate.m */; };
@@ -181,8 +181,8 @@
 		66170E621F2E3676007C3C76 /* BiSaiGuanLiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiSaiGuanLiVC.h; sourceTree = "<group>"; };
 		66170E631F2E3676007C3C76 /* BiSaiGuanLiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiSaiGuanLiVC.m; sourceTree = "<group>"; };
 		66170E651F2E41BD007C3C76 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
-		66170E671F2E466D007C3C76 /* RiChangCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiChangCell.h; sourceTree = "<group>"; };
-		66170E681F2E466D007C3C76 /* RiChangCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiChangCell.m; sourceTree = "<group>"; };
+		66170E6A1F2E4AD9007C3C76 /* BiSaiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiSaiCell.h; sourceTree = "<group>"; };
+		66170E6B1F2E4AD9007C3C76 /* BiSaiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiSaiCell.m; sourceTree = "<group>"; };
 		6620D62C1F2D02D200118DCE /* XiaZaiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaZaiCell.h; sourceTree = "<group>"; };
 		6620D62D1F2D02D200118DCE /* XiaZaiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaZaiCell.m; sourceTree = "<group>"; };
 		66411FFB1F1DF6BB002C2F36 /* chuangkexiaozhen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chuangkexiaozhen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -553,12 +553,12 @@
 			children = (
 				66170E651F2E41BD007C3C76 /* trash.png */,
 				66F724A41F2E265700773F66 /* RiChangHuoYue.storyboard */,
-				66170E671F2E466D007C3C76 /* RiChangCell.h */,
-				66170E681F2E466D007C3C76 /* RiChangCell.m */,
 				66F724A61F2E271000773F66 /* RiChangHuoYueVC.h */,
 				66F724A71F2E271000773F66 /* RiChangHuoYueVC.m */,
 				66170E621F2E3676007C3C76 /* BiSaiGuanLiVC.h */,
 				66170E631F2E3676007C3C76 /* BiSaiGuanLiVC.m */,
+				66170E6A1F2E4AD9007C3C76 /* BiSaiCell.h */,
+				66170E6B1F2E4AD9007C3C76 /* BiSaiCell.m */,
 			);
 			name = "日常活跃度考核";
 			sourceTree = "<group>";
@@ -1068,6 +1068,7 @@
 				66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */,
 				FBB182631F2834B900550227 /* TestViewController.m in Sources */,
 				664120061F1DF6BB002C2F36 /* ViewController.m in Sources */,
+				66170E6C1F2E4AD9007C3C76 /* BiSaiCell.m in Sources */,
 				664120031F1DF6BB002C2F36 /* AppDelegate.m in Sources */,
 				664E50A81F25C51500824063 /* ResetVC.m in Sources */,
 				FB8DEF2F1F2A09A900636704 /* ComboViewController.m in Sources */,
@@ -1089,7 +1090,6 @@
 				6620D62E1F2D02D200118DCE /* XiaZaiCell.m in Sources */,
 				66BE608E1F2DBC9900D55309 /* xiazaiPhotoVC.m in Sources */,
 				664120001F1DF6BB002C2F36 /* main.m in Sources */,
-				66170E691F2E466D007C3C76 /* RiChangCell.m in Sources */,
 				FBF557981F28C30E005AB0F4 /* AFURLResponseSerialization.m in Sources */,
 				66170E641F2E3676007C3C76 /* BiSaiGuanLiVC.m in Sources */,
 				FBF557971F28C30E005AB0F4 /* AFURLRequestSerialization.m in Sources */,
