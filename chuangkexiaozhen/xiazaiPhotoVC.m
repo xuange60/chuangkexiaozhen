@@ -19,13 +19,16 @@
 -(void)setData:(NSData *)data
 {
     _imgdata=data;
+    
+    
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title=@"下载";
   _imgView.image= [UIImage imageWithData:_imgdata];
+  //  [_imgView sizeToFit];
     
 }
 
@@ -46,5 +49,6 @@
     [_imgView setCenter:CGPointMake(xcenter, ycenter)];
     
 }
+
 
 @end

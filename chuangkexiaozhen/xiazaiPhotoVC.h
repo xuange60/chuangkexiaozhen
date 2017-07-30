@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface xiazaiPhotoVC : UIViewController<UIScrollViewDelegate>
+@interface xiazaiPhotoVC :  BaseViewController<UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
