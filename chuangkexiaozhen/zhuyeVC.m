@@ -14,6 +14,7 @@
 #import "WenDangVC.h"
 #import "KaiTongZhuXianViewController.h"
 #import "RiChangHuoYueVC.h"
+#import "WoDeZiYuanViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -159,6 +160,9 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"我的配置资源"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+        WoDeZiYuanViewController*vc=[board instantiateViewControllerWithIdentifier:@"WoDeZiYuanViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"申诉申请"]){
         NSLog(@"%@ 按钮被点击",data);
