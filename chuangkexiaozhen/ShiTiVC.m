@@ -7,6 +7,7 @@
 //
 
 #import "ShiTiVC.h"
+#import "ComboViewController.h"
 
 @interface ShiTiVC ()
 
@@ -51,8 +52,7 @@
     _view2.layer.borderWidth=0.2;
     _view2.layer.borderColor=[UIColor lightGrayColor].CGColor;
     
-    _textF1.enabled=NO;
-    _textF2.enabled=NO;
+
     
     _xuanWenJianBtn.layer.cornerRadius=10;
     
@@ -63,66 +63,28 @@
 
 //对所属行业作出下拉选项
 - (IBAction)btn1Click:(id)sender {
-    
-    _xialaView=[[[NSBundle mainBundle]loadNibNamed:@"XiaLaView" owner:self options:nil]lastObject];
-    _xialaView.frame=CGRectMake(_view1.frame.origin.x,_view1.frame.origin.y, _view1.frame.size.width, 260);
-    _xialaView.layer.cornerRadius=20;
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
+    NSArray* array=[[NSArray alloc]initWithObjects:@"电子信息",@"生物医药",@"新材料",@"互联网和移动互联网",@"先进制造",@"新能源及节能环保",@"科技服务业",@"农业科技",@"艺术文化",@"电子商务",@"创投孵化", nil];
+    [vc setDatas:array withBtn:sender];
+    vc.navigationItem.title=@"行业类别";
+    [self.navigationController pushViewController:vc animated:YES];
 
-    [_xialaView.btn1 setTitle:@"电子信息" forState:UIControlStateNormal];
-    [_xialaView.btn2 setTitle:@"生物医药" forState:UIControlStateNormal];
-    [_xialaView.btn3 setTitle:@"新材料" forState:UIControlStateNormal];
-    [_xialaView.btn4 setTitle:@"互联网和移动互联网" forState:UIControlStateNormal];
-    [_xialaView.btn5 setTitle:@"先进制造" forState:UIControlStateNormal];
-    [_xialaView.btn6 setTitle:@"新能源及节能环保" forState:UIControlStateNormal];
-    [_xialaView.btn7 setTitle:@"科技服务业" forState:UIControlStateNormal];
-    [_xialaView.btn8 setTitle:@"农业科技" forState:UIControlStateNormal];
-    [_xialaView.btn9 setTitle:@"艺术文化" forState:UIControlStateNormal];
-    [_xialaView.btn10 setTitle:@"电子商务" forState:UIControlStateNormal];
-    [_xialaView.btn11 setTitle:@"创投孵化" forState:UIControlStateNormal];
 
-    [self.view addSubview:_xialaView];
     
 }
 //对团队描述作出下拉选项
 - (IBAction)btn2Click:(id)sender {
-    
-    _xialaView=[[[NSBundle mainBundle]loadNibNamed:@"XiaLaView" owner:self options:nil]lastObject];
-    _xialaView.frame=CGRectMake(_view2.frame.origin.x,_view2.frame.origin.y, _view2.frame.size.width, 120);
-    _xialaView.layer.cornerRadius=20;
-    
-    [_xialaView.btn1 setTitle:@"初创团队" forState:UIControlStateNormal];
-    [_xialaView.btn2 setTitle:@"小微企业" forState:UIControlStateNormal];
-    [_xialaView.btn3 setTitle:@"加速企业" forState:UIControlStateNormal];
-     _xialaView.btn4.hidden=YES;
-     _xialaView.btn5.hidden=YES;
-     _xialaView.btn6.hidden=YES;
-     _xialaView.btn7.hidden=YES;
-     _xialaView.btn8.hidden=YES;
-     _xialaView.btn9.hidden=YES;
-     _xialaView.btn10.hidden=YES;
-     _xialaView.btn11.hidden=YES;
-    
-    [self.view addSubview:_xialaView];
-    
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
+    NSArray* array=[[NSArray alloc]initWithObjects:@"初创团队",@"小微企业",@"加速企业", nil];
+    [vc setDatas:array withBtn:sender];
+    vc.navigationItem.title=@"团队类别";
+    [self.navigationController pushViewController:vc animated:YES];
 
 }
 
-//选中某一个下拉选项后处理事件
-- (IBAction)XiaLaBtnClick:(id)sender {
-    
-    UIButton*btn=(UIButton*)sender;
-    
-    
-    if ([btn.currentTitle containsString:@"团队"] || [btn.currentTitle containsString:@"企业"]   )
-    {
-        _textF2.text=btn.currentTitle;
-    }else{
-       _textF1.text=btn.currentTitle;
-    }
-    
-    _xialaView.hidden=YES;
-    
-}
+
 
 //对于选择文件，打开图库操作
 - (IBAction)xuaWenJianBtnClick:(id)sender {
@@ -175,8 +137,11 @@
     [dic setObject:_textField1.text forKey:@"contact"];
     [dic setObject:_textField2.text forKey:@"contacttype"];
     [dic setObject:_textField3.text forKey:@"companyname"];
-    [dic setObject:_textF1.text forKey:@"businessline"];
-    [dic setObject:_textF2.text forKey:@"description"];
+    [dic setObject:_btn1.currentTitle forKey:@"businessline"];
+    [dic setObject:_btn2.currentTitle forKey:@"description"];
+    if(_resourceID==nil){
+        _resourceID=@"";
+    }
     [dic setObject:_resourceID forKey:@"resourceids"];
     
     [self shiTiRuZhuSubmitWithParam:dic];
@@ -238,13 +203,13 @@
                 _textField1.text=[dic objectForKey:@"contact"];
                 _textField2.text=[dic objectForKey:@"contactType"];
                 _textField3.text=[dic objectForKey:@"companyName"];
-                _textF1.text=[dic objectForKey:@"businessline"];
-                _textF2.text=[dic objectForKey:@"description"];
+                [_btn1 setTitle:[dic objectForKey:@"businessline"] forState:UIControlStateNormal];
+                [_btn2 setTitle:[dic objectForKey:@"description"] forState:UIControlStateNormal];
                 _statueF.text=[dic objectForKey:@"applyStatus"];
                 
                 _view3.hidden=YES;
-                _btn1.hidden=YES;
-                _btn2.hidden=YES;
+                _btn3.hidden=YES;
+                _btn4.hidden=YES;
                 
                 _view4.hidden=NO;
                 
@@ -290,8 +255,12 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     // 文件上传成功 获取ResourceId
     NSString* ResourceId=[jsondata objectForKey:@"ResourceId"];
     NSLog(@"%@",ResourceId);
+    if(_resourceID==nil || [_resourceID length]<2){
+        _resourceID=ResourceId;
+    }else{
+        _resourceID=[NSString stringWithFormat:@"%@,%@",_resourceID,ResourceId];
+    }
     
-    _resourceID=ResourceId;
     
 }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
     // 请求失败

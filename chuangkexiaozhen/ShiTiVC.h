@@ -20,14 +20,16 @@
 @property (strong, nonatomic) IBOutlet UITextField *textField3;
 
 @property (strong, nonatomic) IBOutlet UIView *view1;
-@property (strong, nonatomic) IBOutlet UITextField *textF1;
+
 @property (strong, nonatomic) IBOutlet UIButton *btn1;
 
 @property (strong, nonatomic) IBOutlet UIView *view2;
-@property (strong, nonatomic) IBOutlet UITextField *textF2;
+
 @property (strong, nonatomic) IBOutlet UIButton *btn2;
 
-@property (strong, nonatomic) IBOutlet XiaLaView *xialaView;
+
+
+
 @property (strong, nonatomic) IBOutlet UIView *view3;
 
 @property (strong, nonatomic) IBOutlet UIView *view4;
@@ -45,7 +47,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *shenqingBtn;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *btn3;
 
+@property (strong, nonatomic) IBOutlet UIButton *btn4;
 
 
 

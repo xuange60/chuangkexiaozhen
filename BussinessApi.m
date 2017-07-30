@@ -966,7 +966,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 
 
 
-//7.1.3 孵化成长管理->日常活跃度管理->查询已上传的图片
+//7.1.4 孵化成长管理->日常活跃度管理->查询已上传的图片
 -(void)biSaiGuanLiQueryFile:(NSString*)ids
 {
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
@@ -995,7 +995,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 
 
 
-//7.1.4 孵化成长管理->日常活跃度管理->已上传的文档删除
+//7.1.5 孵化成长管理->日常活跃度管理->已上传的文档删除
 //参数为 文档的资源id； entityId比赛id
 -(void) biSaiGuanLiFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
 {
@@ -1021,6 +1021,934 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
         NSLog(@"%@",error);
     }];
 }
+
+
+
+
+
+
+
+
+
+//7.2.1 产学研管理查询
+/*
+ 响应 [{"id":"5938cb27075910c2d60d07dd","name"
+ :"111","money":3000.0,"effect":"","date":"2017-06-08 03:57:27","company":"云创智能科技有限公司"},{"id":"5938cb08075910c2d60d07db"
+ ,"name":"*****","money":2.0,"effect":"","date":"2017-06-08 03:56:56","company":"云创智能科技有限公司"}]
+ */
+-(void) chanXueYanQuery
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/cooperatorunitInfo/search?start=0&length=1000"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
+//7.2.2 添加产学研项目
+/*
+ 首先要上传文件；
+	提交数据时，请求地址 post http://116.228.176.34:9002/chuangke-serve/cooperatorunitInfo/save
+	参数：
+ 文件id resourceIds
+ 合作机构名称 name
+ 合作金额级别 moneyLevel
+ 合作金额 money
+ 机构级别 level
+ 合作效果 effect
+ 合作机构级别有：
+ <option value="5879d94ea5a121dff6b57a5d">合作机构一级</option>
+ <option value="58be68b9cfdfdf03086a8833">合作机构三级</option>
+ <option value="58c7c57bce7229367c55853e">合作机构二级</option>
+	
+ 合作金额级别有：
+ <option value="58be6e1a769052b56d66e91e">1万元以下</option>
+ <option value="58be6e54769052b56d66e91f">10万元</option>
+ <option value="58be6e72cfdfdf03086a8835">100万元</option>
+ */
+-(void)chanXueYanSubmit:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    [parameters addEntriesFromDictionary:param];
+    NSDictionary* levels=[NSDictionary dictionaryWithObjectsAndKeys:@"5879d94ea5a121dff6b57a5d",@"合作机构一级",@"58be68b9cfdfdf03086a8833",@"合作机构三级",@"58c7c57bce7229367c55853e",@"合作机构二级", nil];
+    NSString* value=[parameters objectForKey:@"level"];
+    [parameters setObject: [levels objectForKey:value] forKey:@"level"];
+    
+    NSDictionary* moneyLevels=[NSDictionary dictionaryWithObjectsAndKeys:@"58be6e1a769052b56d66e91e",@"1万元以下",@"58be6e54769052b56d66e91f",@"10万元",@"58be6e72cfdfdf03086a8835",@"100万元", nil];
+    NSString* value2=[parameters objectForKey:@"moneyLevel"];
+    [parameters setObject: [moneyLevels objectForKey:value2] forKey:@"moneyLevel"];
+    
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/cooperatorunitInfo/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
+
+
+
+
+
+/*
+ 7.2.3 合作项目删除
+ 请求 get  http://116.228.176.34:9002/chuangke-serve/cooperatorunitInfo/delete?id=5938cb08075910c2d60d07db
+ 参数id为 合作项目id
+ */
+-(void)chanXueYanDelete:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/cooperatorunitInfo/delete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+/*
+ 7.2.4 已上传文件查询
+ 请求 get
+ http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597cc95080ab5e6790d528c3&typeIndex=6
+ 参数id为 合作项目id
+ [{"id":"597cc8ff80ab5e6790d528c1","name"
+ :"warn(1).jpg","path":"cash/busiplan/20170729/1501378943000.jpg","date":"2017-07-29"},{"id":"597cc90c80ab5e6790d528c2"
+ ,"name":"warn.jpg","path":"cash/busiplan/20170729/1501378956000.jpg","date":"2017-07-29"}]
+ */
+-(void)chanXueYanQueryFile:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
+    NSLog(@"%@",url);
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"6",@"typeIndex", nil];
+    
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
+
+
+/*
+ 7.2.5 删除已上传文件
+ 请求 get http://116.228.176.34:9002/chuangke-serve/resource/delete?typeIndex=6&entityId=597cc95080ab5e6790d528c3&id=597cc8ff80ab5e6790d528c1
+ 参数 entityid为合作项目id，id为文件id
+ */
+-(void) chanXueYanDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id",entityId,@"entityId",@"6",@"typeIndex", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            
+            NSLog(@"%d",result);
+            //result: 1, 删除成功 不等于1,则删除失败
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+/*
+ 7.3.1 活动查询
+ 请求：get http://116.228.176.34:9002/chuangke-serve/activity/search?start=0&length=1000
+ 响应： [{"id":"5938cd4b075910c2d60d07de","name"
+ :"******","activityLevel":"省市级活动","sponsor":"科创小镇","participant":3,"ownerActivity":"否","company":"云创
+ 智能科技有限公司","date":"2017-06-08 04:06:35"}]
+ */
+-(void) huoDongQuery
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/activity/search?start=0&length=1000"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
+
+/*
+ 7.3.2 活动添加
+ 请求 post http://116.228.176.34:9002/chuangke-serve/activity/save
+ 参数：
+ 活动级别 activityLevel	5879d979a5a121dff6b57a5f
+ 活动名称 name	展会活动
+ 参与人数 participant	2
+ resourceIds	597d501c80ab5e6790d52d18,597d504b80ab5e6790d52d19
+ 主办单位 sponsor	深圳市真服
+ 响应：
+ */
+-(void) huoDongSubmit:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    [parameters addEntriesFromDictionary:param];
+    NSDictionary* activityLevels=[NSDictionary dictionaryWithObjectsAndKeys:@"5879d979a5a121dff6b57a5f",@"省市级活动",@"5879d983a5a121dff6b57a60",@"区县级活动",@"58de163d19eb91a825cd816c",@"园区镇街道活动", nil];
+    NSString* value=[parameters objectForKey:@"activityLevel"];
+    [parameters setObject: [activityLevels objectForKey:value] forKey:@"activityLevel"];
+    
+    
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/activity/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
+
+
+
+
+/*
+ 7.3.3 活动删除
+ 请求 get http://116.228.176.34:9002/chuangke-serve/activity/delete?id=5938cd4b075910c2d60d07de
+ 参数 活动id
+ */
+-(void)huoDongDelete:(NSString*) ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/activity/delete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+/*
+ 7.3.4 活动管理上传文件下载
+ 请求 get http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597d505080ab5e6790d52d1a&typeIndex=7
+ 响应 [{"id":"597d501c80ab5e6790d52d18","name"
+ :"warn.jpg","path":"cash/busiplan/20170730/1501413532000.jpg","date":"2017-07-30"},{"id":"597d504b80ab5e6790d52d19"
+ ,"name":"warn(1).jpg","path":"cash/busiplan/20170730/1501413579000.jpg","date":"2017-07-30"}]
+ */
+-(void)huoDongQueryFile:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
+    NSLog(@"%@",url);
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"7",@"typeIndex", nil];
+    
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+/*
+ 7.3.5 活动管理文件删除
+ 请求 get http://116.228.176.34:9002/chuangke-serve/resource/delete?typeIndex=7&entityId=597d505080ab5e6790d52d1a&id=597d504b80ab5e6790d52d19
+ 参数 entityid为活动id，id为文件id
+ */
+-(void) huoDongDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id",entityId,@"entityId",@"7",@"typeIndex", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            
+            NSLog(@"%d",result);
+            //result: 1, 删除成功 不等于1,则删除失败
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
+
+
+/*
+ 7.4.1 专业知识产权查询
+ 请求 get http://116.228.176.34:9002/chuangke-serve/knowledge/search?start=0&length=1000
+ 响应 [{"id":"5937e243075910c2d60d07c8","name"
+ :"********","code":"********","type":"软件著作权","date":"2017-06-07 19:23:47","company":"云创智能科技有限公司"}]
+ */
+-(void)zhuanYeZhiShiQuery
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/knowledge/search?start=0&length=1000"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+/*
+ 7.4.2 专业知识产权新增
+ 请求 post  http://116.228.176.34:9002/chuangke-serve/knowledge/save
+ 参数
+ 产权编码 code	123131312
+ 知识名称 name	test
+ 文件 	 resourceIds	597d60d680ab5e6790d52d21,597d60d980ab5e6790d52d22
+ 知识类型 type	58be754fcfdfdf03086a8837
+ <option value="58be754fcfdfdf03086a8837">软件著作权</option>
+ <option value="58be756fcfdfdf03086a8839">集成电路布图设计</option>
+ <option value="58be7588cfdfdf03086a883b">商标</option>
+ <option value="58be75a9cfdfdf03086a883d">实用新型专利</option>
+ <option value="58be75c8cfdfdf03086a883f">发明专利</option>
+ <option value="58be75e3cfdfdf03086a8841">文学著作权</option>
+ */
+-(void)zhuanYeZhiShiSubmit:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    [parameters addEntriesFromDictionary:param];
+    NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58be754fcfdfdf03086a8837",@"软件著作权",@"58be756fcfdfdf03086a8839",@"集成电路布图设计",@"58be7588cfdfdf03086a883b",@"商标",@"58be75a9cfdfdf03086a883d",@"实用新型专利",@"58be75c8cfdfdf03086a883f",@"发明专利",@"58be75e3cfdfdf03086a8841",@"文学著作权", nil];
+    NSString* value=[parameters objectForKey:@"type"];
+    [parameters setObject: [types objectForKey:value] forKey:@"type"];
+    
+    
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/knowledge/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+/*
+ 7.4.3 专业知识产权删除
+ 请求 get http://116.228.176.34:9002/chuangke-serve/knowledge/delete?id=597d616180ab5e6790d52d25
+ 参数为 知识id
+ */
+-(void)zhuanYeZhiShiDelete:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/knowledge/delete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+/*
+ 7.4.4 专业知识产权上传文件查询
+ 请求 get  http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597d60ea80ab5e6790d52d23&typeIndex=8
+ 响应 [{"id":"597d60d680ab5e6790d52d21","name"
+ :"warn(1).jpg","path":"cash/busiplan/20170730/1501417814000.jpg","date":"2017-07-30"},{"id":"597d60d980ab5e6790d52d22"
+ ,"name":"warn.jpg","path":"cash/busiplan/20170730/1501417817000.jpg","date":"2017-07-30"}]
+ */
+-(void)zhuanYeZhiShiFileQuery:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
+    NSLog(@"%@",url);
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"8",@"typeIndex", nil];
+    
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+/*
+ 7.4.5  专业知识产权文件删除
+ 请求 get http://116.228.176.34:9002/chuangke-serve/resource/delete?typeIndex=8&entityId=597d60ea80ab5e6790d52d23&id=597d60d980ab5e6790d52d22
+ 参数 entityid为知识产权d，id为文件id
+ */
+-(void) zhuanYeZhiShiFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id",entityId,@"entityId",@"8",@"typeIndex", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            
+            NSLog(@"%d",result);
+            //result: 1, 删除成功 不等于1,则删除失败
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+/*
+ 7.5.1 项目管理查询
+ 请求 get http://116.228.176.34:9002/chuangke-serve/project/search?start=0&length=1000
+ 响应 [{"id":"5938e5d9075910c2d60d07e1","name"
+ :"******","projectLevel":"国家级","competentunit":"******","code":"******","company":"云创智能科技有限公司","date"
+ :"2017-06-08 13:51:21"}]
+ */
+-(void) xiangMuQuery
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/project/search?start=0&length=1000"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+/*
+ 7.5.2 项目提交
+ 请求 post http://116.228.176.34:9002/chuangke-serve/project/save
+ 参数：项目编码 code	1231231231
+ 项目单位 competentunit	12123
+ 项目名称 name	test1
+ 项目级别 projectLevel	58c7c6c24c1a3bea9c268d9d
+ 项目文件 resourceIds	597d6d7280ab5e6790d52d26,597d6d7480ab5e6790d52d27
+ <option value="58c7c6c24c1a3bea9c268d9d">国家级</option>
+ <option value="58c7c6c24c1a3bea9c268d9e">省部级</option>
+ <option value="58c7c6c24c1a3bea9c268d9f">区县级</option>
+ <option value="58c7c6c24c1a3bea9c268da0">一般</option>
+ */
+-(void) xiangMuSubmit:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    [parameters addEntriesFromDictionary:param];
+    NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c6c24c1a3bea9c268d9d",@"国家级",@"58c7c6c24c1a3bea9c268d9e",@"省部级",@"58c7c6c24c1a3bea9c268d9f",@"区县级",@"58c7c6c24c1a3bea9c268da0",@"一般", nil];
+    NSString* value=[parameters objectForKey:@"type"];
+    [parameters setObject: [types objectForKey:value] forKey:@"type"];
+    
+    
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/project/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+/*
+ 7.5.3 项目删除
+ 请求 get http://116.228.176.34:9002/chuangke-serve/project/delete?id=597d6e1a80ab5e6790d52d29
+ 参数 id为项目id
+ */
+-(void) xiangMuDelete:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/project/delete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+/*
+ 7.5.4 项目上传文件查询
+ 请求 get http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597d6d7b80ab5e6790d52d28&typeIndex=9
+ 参数为 项目id
+ 响应 [{"id":"597d6d7280ab5e6790d52d26","name"
+ :"warn(1).jpg","path":"cash/busiplan/20170730/1501421042000.jpg","date":"2017-07-30"},{"id":"597d6d7480ab5e6790d52d27"
+ ,"name":"warn.jpg","path":"cash/busiplan/20170730/1501421044000.jpg","date":"2017-07-30"}]
+ */
+-(void) xiangMuFileQuery:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
+    NSLog(@"%@",url);
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"9",@"typeIndex", nil];
+    
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+/*
+ 7.5.5 项目上传的文件删除
+ 请求 get  http://116.228.176.34:9002/chuangke-serve/resource/delete?typeIndex=9&entityId=597d6d7b80ab5e6790d52d28&id=597d6d7280ab5e6790d52d26
+ 参数 entityid为项目id，id为文件id
+ */
+-(void) xiangMuFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id",entityId,@"entityId",@"9",@"typeIndex", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            
+            NSLog(@"%d",result);
+            //result: 1, 删除成功 不等于1,则删除失败
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
+
+/*
+ 
+ 7.6.1 奖励管理查询
+ 请求 get http://116.228.176.34:9002/chuangke-serve/award/search?start=0&length=1000
+ 响应 [{"id":"5938e5ec075910c2d60d07e2","name"
+ :"******","awardLevel":"一级奖励","awardunit":"******","code":"******","date":"2017-06-08 13:51:40","company"
+ :"云创智能科技有限公司"}]
+ */
+-(void)jiangLiQuery
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/award/search?start=0&length=1000"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+/*
+ 7.6.2 奖励管理提交
+ 请求 post http://116.228.176.34:9002/chuangke-serve/award/save
+ 参数
+ 名称 name	羽毛球奖
+ 级别 awardLevel	58c7c7094c1a775d6de79f72
+ 单位 awardunit	体委
+ 编码 code	131231
+ 文件id  resourceIds	597d6fcb80ab5e6790d52d2a,597d6fcf80ab5e6790d52d2b
+ <option value="58c7c7094c1a775d6de79f72">一级奖励</option>
+ <option value="58c7c7094c1a775d6de79f73">二级奖励</option>
+ <option value="58c7c7094c1a775d6de79f74">三级奖励</option>
+ */
+-(void)jiangLiSubmit:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    [parameters addEntriesFromDictionary:param];
+    NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c7094c1a775d6de79f72",@"一级奖励",@"58c7c7094c1a775d6de79f73",@"二级奖励",@"58c7c7094c1a775d6de79f74",@"三级奖励", nil];
+    NSString* value=[parameters objectForKey:@"type"];
+    [parameters setObject: [types objectForKey:value] forKey:@"type"];
+    
+    
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/award/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+/*
+ 7.6.3 奖励删除
+ 请求 get http://116.228.176.34:9002/chuangke-serve/award/delete?id=597d708280ab5e6790d52d2d
+ 参数 id为奖励id
+ */
+-(void)jiangLiDelete:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/award/delete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+/*
+ 7.6.4 奖励上传的文件查询
+ 请求 get http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597d700b80ab5e6790d52d2c&typeIndex=10
+ 参数id为奖励id
+ 响应 为 [{"id":"597d6fcb80ab5e6790d52d2a","name"
+ :"warn(1).jpg","path":"cash/busiplan/20170730/1501421643000.jpg","date":"2017-07-30"},{"id":"597d6fcf80ab5e6790d52d2b"
+ ,"name":"warn.jpg","path":"cash/busiplan/20170730/1501421647000.jpg","date":"2017-07-30"}]
+ */
+-(void)jiangLiFileQuery:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
+    NSLog(@"%@",url);
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"10",@"typeIndex", nil];
+    
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+/*
+ 7.6.5 奖励上传的文件删除
+ 请求 get http://116.228.176.34:9002/chuangke-serve/resource/delete?typeIndex=10&entityId=597d700b80ab5e6790d52d2c&id=597d6fcb80ab5e6790d52d2a
+ 参数 entityid为奖励id，id为文件id
+ */
+
+-(void) jiangLiFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id",entityId,@"entityId",@"10",@"typeIndex", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            
+            NSLog(@"%d",result);
+            //result: 1, 删除成功 不等于1,则删除失败
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
 
 
 @end
