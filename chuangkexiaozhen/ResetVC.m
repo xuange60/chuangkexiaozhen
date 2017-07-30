@@ -105,7 +105,6 @@
 //result: 1,验证码发送成功 不等于1,验证码发送失败
 -(void) resetGetCode:(NSString*)mobile
 {
-    __block int resetYzmResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:mobile,@"mobile",[NSNumber numberWithInt:2],@"type", nil];
