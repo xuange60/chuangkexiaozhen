@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     self.datas=[NSArray array];
     [super viewDidLoad];
+    self.navigationItem.title=@"申诉申请";
+    [self shenSuShenQingQuery];
     // Do any additional setup after loading the view.
 }
 
@@ -33,7 +35,7 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* str1=@"cell1";
+    static NSString* str1=@"shensucell1";
     
     ShenSuCell* cell=[tableView dequeueReusableCellWithIdentifier:str1];
     if(!cell){
@@ -44,6 +46,7 @@
     cell.status.text=[dic objectForKey:@"status"];
     cell.createDate.text=[dic objectForKey:@"createDate"];
     cell.stateType.text=[dic objectForKey:@"stateType"];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
@@ -54,7 +57,6 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/stateapply/search?start=0&length=1000"];
-    
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
