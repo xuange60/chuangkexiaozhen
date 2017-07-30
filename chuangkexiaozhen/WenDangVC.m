@@ -109,7 +109,6 @@
 }
 
 - (IBAction)downloadBtnClick:(id)sender forEvent:(UIEvent *)event {
-    UIButton*btn=(UIButton*)sender;
     
      NSSet*touches=[event allTouches];
      UITouch*touch=[touches anyObject];

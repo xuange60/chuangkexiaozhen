@@ -226,8 +226,6 @@
 //文件上传成功时返回ResourceId
 -(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type
 {
-    __block NSString*ids=nil;
-    
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     
@@ -272,7 +270,6 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 
 -(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
 {
-    __block int shiTiResult=0;
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithDictionary:param];
