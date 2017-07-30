@@ -34,7 +34,7 @@
     BussinessApi* bussiness=[[BussinessApi alloc] init];
     // [bussiness loginWithName:@"gaogaihui" andPwd:@"123456"];
     //[bussiness loginWithName:@"zhangxuan" andPwd:@"111111"];
-    [bussiness loginWithName:@"admin" andPwd:@"123123"];
+    [bussiness loginWithName:@"cash" andPwd:@"123456"];
 
 }
 - (IBAction)shitiruzhuquery:(id)sender {
@@ -71,6 +71,10 @@
     [bussiness chushishenqingFileDelete:@"597a29e480ab5e6790d51fe3"];
 }
 
+- (IBAction)bisaiguanlifiledelete:(id)sender {
+    BussinessApi* bussiness=[[BussinessApi alloc] init];
+    [bussiness biSaiGuanLiFileDelete:@"597c955280ab5e6790d528ba" withEntityId:@"597c955a80ab5e6790d528bb"];
+}
 
 
 /*

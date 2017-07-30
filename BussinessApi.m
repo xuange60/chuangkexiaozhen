@@ -1012,6 +1012,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             
+            
             NSLog(@"%d",result);
             //result: 1, 删除成功 不等于1,则删除失败
         }

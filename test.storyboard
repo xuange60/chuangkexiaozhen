@@ -78,11 +78,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAN-Xd-ZM5">
-                                <rect key="frame" x="86" y="287" width="202" height="30"/>
+                                <rect key="frame" x="70" y="287" width="202" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="实体入驻申请文档删除"/>
                                 <connections>
                                     <action selector="shitiruzhufiledelete:" destination="bMa-sP-9kL" eventType="touchUpInside" id="hFp-rs-jGi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8J-bi-Qf9">
+                                <rect key="frame" x="58" y="325" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="比赛管理文件删除"/>
+                                <connections>
+                                    <action selector="bisaiguanlifiledelete:" destination="bMa-sP-9kL" eventType="touchUpInside" id="dfA-D4-G9W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -91,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkJ-1a-bbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1796" y="1574.6626686656673"/>
+            <point key="canvasLocation" x="-1796.25" y="1573.943661971831"/>
         </scene>
     </scenes>
 </document>
