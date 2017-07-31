@@ -63,6 +63,7 @@
 
 //对所属行业作出下拉选项
 - (IBAction)btn1Click:(id)sender {
+    
     UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
     ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
     NSArray* array=[[NSArray alloc]initWithObjects:@"电子信息",@"生物医药",@"新材料",@"互联网和移动互联网",@"先进制造",@"新能源及节能环保",@"科技服务业",@"农业科技",@"艺术文化",@"电子商务",@"创投孵化", nil];

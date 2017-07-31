@@ -59,17 +59,14 @@
 
 
 
-
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.navigationItem.title=@"文档下载";
     
+    
+      
 }
 
 #pragma mark-
@@ -109,8 +106,7 @@
     NSDictionary*dic=[_Marray objectAtIndex:indexPath.row];
     NSString*str1=[dic objectForKey:@"name"];
     NSString*str2=[dic objectForKey:@"date"];
-    NSArray*ary=[NSArray arrayWithObjects:str1,str2, nil];
-    
+   
     cell.Name.text=str1;
     cell.Date.text=str2;
     
@@ -151,8 +147,9 @@
             NSLog(@"%d",result);
             //result: 1, 删除成功 不等于1,则删除失败
             
-            [self biSaiGuanLiQueryFile:resourceid];
-            [_tableView reloadData];
+            [self biSaiGuanLiQueryFile:entityId];
+           
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

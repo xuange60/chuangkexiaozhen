@@ -409,7 +409,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyyMMddHHmmss";
     NSString *str = [formatter stringFromDate:[NSDate date]];
-    NSString *fileName = [NSString stringWithFormat:@"实体入驻_%@.%@", str,type];
+    NSString *fileName = [NSString stringWithFormat:@"文件上传_%@.%@", str,type];
     NSLog(@"%@",fileName);
     
     NSDictionary *dict = @{@"":@""};
@@ -432,6 +432,55 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     NSLog(@"%@",ResourceId);
     
     ids=ResourceId;
+    
+}failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
+    // 请求失败
+    NSLog(@"请求失败：%@", error);
+}];
+}
+
+
+
+-(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type withResult:(NSMutableString*) string
+{
+    __block NSString*ids=nil;
+    
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *str = [formatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"文件上传_%@.%@", str,type];
+    NSLog(@"%@",fileName);
+    
+    NSDictionary *dict = @{@"":@""};
+    NSString *urlString = @"http://116.228.176.34:9002/chuangke-serve/upload/save";
+    [manager POST:urlString parameters:dict
+constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
+    //[formData appendPartWithFileURL:[NSURLfileURLWithPath:@"文件地址"] name:@"file"fileName:@"1234.png"mimeType:@"application/octet-stream"error:nil];
+    [formData appendPartWithFileData:filedata name:@"file" fileName:fileName mimeType:@"image/png"];
+}progress:^(NSProgress * _Nonnull uploadProgress){
+    // 打印下上传进度 此处界面可能要显示上传进度
+    NSLog(@"%lld%@",100 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount,@"%");
+}success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+    
+    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",data);
+    NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+    
+    // 文件上传成功 获取ResourceId
+    NSString* ResourceId=[jsondata objectForKey:@"ResourceId"];
+    if(string.length==0){
+        [string appendString:ResourceId];
+    }else{
+        [string appendString:@","];
+        [string appendString:ResourceId];
+    }
+    
+    //结果在string
+    NSLog(@"%@",string);
+    
     
 }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
     // 请求失败

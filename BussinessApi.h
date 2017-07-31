@@ -59,7 +59,7 @@
 //文件上传成功时返回ResourceId
 -(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type;
 
-
+-(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type withResult:(NSMutableString*) string;
 
 //5.3 实体入驻申请提交
 //参数为字典： businessline=电子信息 companyname=测试机构 contact=小明 contacttype=18576672852

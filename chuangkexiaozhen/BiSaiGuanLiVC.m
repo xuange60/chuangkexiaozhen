@@ -9,12 +9,20 @@
 #import "BiSaiGuanLiVC.h"
 #import "BiSaiCell.h"
 #import "BussinessApi.h"
+#import "AddBiSaiVC.h"
 @interface BiSaiGuanLiVC ()
 
 @end
 
 @implementation BiSaiGuanLiVC
 
+
+//提前加载数据方法
+-(void)ReceiveShuJu
+{
+    [self biSaiGuanLiQuery];
+}
+// 网络请求，查询数据方法
 -(void)biSaiGuanLiQuery
 {
     
@@ -25,7 +33,7 @@
      :"上海市创新创业大赛","competeLevel":"省部级比赛","prizeAwarded":"一等奖","hornerName":"********","orgnizationUnit":""
      ,"date":"2017-06-07 10:56:37","ownerCompetition":"是","score":14,"company":"云创智能科技有限公司"}]
      */
-
+    
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -54,18 +62,28 @@
 }
 
 
--(void)ReceiveShuJu
-{
-    [self biSaiGuanLiQuery];
-}
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title=@"比赛管理";
+    
+    UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
+    
+    [self.navigationItem setRightBarButtonItem:RightBarItem];
+
+    
 }
 
+//左边添加比赛事件
+-(void)RightBarItemClick:(UIBarButtonItem*)item
+{
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+    AddBiSaiVC*vc=[board instantiateViewControllerWithIdentifier:@"AddBiSaiVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+
+}
+
+#pragma mark-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _array.count;
@@ -106,7 +124,7 @@
 
 
 
-
+//删除比赛事件处理
 - (IBAction)deleteBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
    NSSet*touches= [event allTouches];
@@ -154,7 +172,7 @@
 }
 
 
-
+//下载比赛事件的处理，进入当前比赛事件的凭证图片
 - (IBAction)DownloadBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
     NSSet*touches= [event allTouches];
