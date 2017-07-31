@@ -71,7 +71,6 @@
     
     [self.navigationItem setRightBarButtonItem:RightBarItem];
 
-    
 }
 
 //左边添加比赛事件
@@ -81,6 +80,17 @@
     AddBiSaiVC*vc=[board instantiateViewControllerWithIdentifier:@"AddBiSaiVC"];
     [self.navigationController pushViewController:vc animated:YES];
 
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfo) name:@"ADDSUCCESS" object:nil];
+}
+-(void)receiveInfo
+{
+    [_tableView reloadData];
 }
 
 #pragma mark-
@@ -121,8 +131,6 @@
     
     return cell;
 }
-
-
 
 //删除比赛事件处理
 - (IBAction)deleteBtnClicked:(id)sender forEvent:(UIEvent *)event {
