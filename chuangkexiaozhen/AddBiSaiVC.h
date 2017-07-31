@@ -16,17 +16,17 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *zuzhijigouName;
 
+@property (strong, nonatomic) IBOutlet UIButton *CompleteLevelBtn;
+
+@property (strong, nonatomic) IBOutlet UIButton *prizeAwardsBtn;
 
 @property (strong, nonatomic) IBOutlet UIView *myView;
 
-
-
-
-
+@property(nonatomic,strong)NSMutableString*Mstr;
 @property(nonatomic,strong) UIImageView*imgView;
-
 @property(nonatomic,strong)NSMutableArray*mArray;
 
+@property(nonatomic,strong)NSString*photosIDS;
 
 - (IBAction)BiSaiLevelCkicl:(id)sender forEvent:(UIEvent *)event;
 
