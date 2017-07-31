@@ -16,6 +16,7 @@
 #import "RiChangHuoYueVC.h"
 #import "WoDeZiYuanViewController.h"
 #import "ShenSuViewController.h"
+#import "DianZiHeTongViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -171,6 +172,9 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"电子合同"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+        DianZiHeTongViewController*vc=[board instantiateViewControllerWithIdentifier:@"DianZiHeTongViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"日常活跃度考核"]){
         NSLog(@"%@ 按钮被点击",data);

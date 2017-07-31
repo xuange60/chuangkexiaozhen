@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BussinessApi.h"
 @interface BaseViewController : UIViewController
 
-@property (strong,nonatomic) NSString* title;
+@property (strong,nonatomic) NSString* navtitle;
 
 -(void) setNavigationItemTitle:(NSString*) title;
 -(void) backvc;

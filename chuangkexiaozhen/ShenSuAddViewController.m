@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"申诉申请";
+    [self initWithData];
     // Do any additional setup after loading the view.
 }
 
@@ -38,6 +39,22 @@
     NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:self.type.currentTitle,@"stateType",self.detail.text,@"stateContent",self.liyou.text,@"stateReason", nil];
     [self shenSuShenQingSubmit:param];
 }
+
+
+-(void) initWithData
+{
+    if(self.data!=nil){
+        [self.type setTitle:[self.data objectForKey:@"stateType"] forState:UIControlStateNormal];
+        [self.type setUserInteractionEnabled:NO];
+        self.detail.text=[self.data objectForKey:@"stateContent"];
+        self.detail.editable=NO;
+        self.liyou.text=[self.data objectForKey:@"stateReason"];
+        self.liyou.editable=NO;
+        [self.shensuSubmit setHidden:YES];
+    }
+
+}
+
 
 //申诉申请提交
 -(void)shenSuShenQingSubmit:(NSDictionary*)param
