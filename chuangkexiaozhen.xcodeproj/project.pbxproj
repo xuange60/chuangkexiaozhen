@@ -39,6 +39,8 @@
 		66BE60881F2D82C200D55309 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BE60871F2D82C200D55309 /* download.png */; };
 		66BE608E1F2DBC9900D55309 /* xiazaiPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BE608D1F2DBC9900D55309 /* xiazaiPhotoVC.m */; };
 		66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C43F5B1F26E069002B1E8F /* XuNiVC.m */; };
+		66CFA1971F2EE54C00E94CCA /* bisaiPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CFA1961F2EE54C00E94CCA /* bisaiPhotoVC.m */; };
+		66CFA19A1F2EE94000E94CCA /* bisaiPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CFA1991F2EE94000E94CCA /* bisaiPhotoCell.m */; };
 		66F724A51F2E265700773F66 /* RiChangHuoYue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F724A41F2E265700773F66 /* RiChangHuoYue.storyboard */; };
 		66F724A81F2E271000773F66 /* RiChangHuoYueVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F724A71F2E271000773F66 /* RiChangHuoYueVC.m */; };
 		FB0540F51F2DDDBD00548161 /* baodaoruzhu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0540F41F2DDDBD00548161 /* baodaoruzhu.storyboard */; };
@@ -229,6 +231,10 @@
 		66BE608D1F2DBC9900D55309 /* xiazaiPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiazaiPhotoVC.m; sourceTree = "<group>"; };
 		66C43F5A1F26E069002B1E8F /* XuNiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuNiVC.h; sourceTree = "<group>"; };
 		66C43F5B1F26E069002B1E8F /* XuNiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuNiVC.m; sourceTree = "<group>"; };
+		66CFA1951F2EE54C00E94CCA /* bisaiPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bisaiPhotoVC.h; sourceTree = "<group>"; };
+		66CFA1961F2EE54C00E94CCA /* bisaiPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bisaiPhotoVC.m; sourceTree = "<group>"; };
+		66CFA1981F2EE94000E94CCA /* bisaiPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bisaiPhotoCell.h; sourceTree = "<group>"; };
+		66CFA1991F2EE94000E94CCA /* bisaiPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bisaiPhotoCell.m; sourceTree = "<group>"; };
 		66F724A41F2E265700773F66 /* RiChangHuoYue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RiChangHuoYue.storyboard; sourceTree = "<group>"; };
 		66F724A61F2E271000773F66 /* RiChangHuoYueVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiChangHuoYueVC.h; sourceTree = "<group>"; };
 		66F724A71F2E271000773F66 /* RiChangHuoYueVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiChangHuoYueVC.m; sourceTree = "<group>"; };
@@ -555,10 +561,14 @@
 				66F724A41F2E265700773F66 /* RiChangHuoYue.storyboard */,
 				66F724A61F2E271000773F66 /* RiChangHuoYueVC.h */,
 				66F724A71F2E271000773F66 /* RiChangHuoYueVC.m */,
-				66170E621F2E3676007C3C76 /* BiSaiGuanLiVC.h */,
-				66170E631F2E3676007C3C76 /* BiSaiGuanLiVC.m */,
 				66170E6A1F2E4AD9007C3C76 /* BiSaiCell.h */,
 				66170E6B1F2E4AD9007C3C76 /* BiSaiCell.m */,
+				66170E621F2E3676007C3C76 /* BiSaiGuanLiVC.h */,
+				66170E631F2E3676007C3C76 /* BiSaiGuanLiVC.m */,
+				66CFA1981F2EE94000E94CCA /* bisaiPhotoCell.h */,
+				66CFA1991F2EE94000E94CCA /* bisaiPhotoCell.m */,
+				66CFA1951F2EE54C00E94CCA /* bisaiPhotoVC.h */,
+				66CFA1961F2EE54C00E94CCA /* bisaiPhotoVC.m */,
 			);
 			name = "日常活跃度考核";
 			sourceTree = "<group>";
@@ -1082,6 +1092,7 @@
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
 				FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */,
+				66CFA1971F2EE54C00E94CCA /* bisaiPhotoVC.m in Sources */,
 				FB0541041F2E42E700548161 /* ShenSuCell.m in Sources */,
 				FB913A2E1F2CF9A6003AA5E1 /* ComBoRowsViewController.m in Sources */,
 				66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */,
@@ -1104,6 +1115,7 @@
 				66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */,
 				66F724A81F2E271000773F66 /* RiChangHuoYueVC.m in Sources */,
 				FBF557A31F28C327005AB0F4 /* JSONKit.m in Sources */,
+				66CFA19A1F2EE94000E94CCA /* bisaiPhotoCell.m in Sources */,
 				FBF557B01F28C332005AB0F4 /* TFHppleElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

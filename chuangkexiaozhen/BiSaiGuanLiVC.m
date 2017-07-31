@@ -45,6 +45,7 @@
             
             _array=result;
             
+            [_tableView reloadData];
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -56,7 +57,6 @@
 -(void)ReceiveShuJu
 {
     [self biSaiGuanLiQuery];
-
 }
 
 
@@ -64,15 +64,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-    
-    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return _array.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,33 +109,72 @@
 
 - (IBAction)deleteBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
+   NSSet*touches= [event allTouches];
     
+   UITouch*touch=[touches anyObject];
     
+   CGPoint point=[touch locationInView:_tableView];
+    
+   NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
+    NSString*strID=[dic objectForKey:@"id"];
+    
+    [self biSaiGuanLiDelete:strID];
+    
+
+}
+
+//7.1.3孵化成长管理->日常活跃度管理->比赛管理删除
+-(void)biSaiGuanLiDelete:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/competition/batchdelete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+            [self biSaiGuanLiQuery];
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 
 
 - (IBAction)DownloadBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
+    NSString*strID=[dic objectForKey:@"id"];
     
     
-    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+    bisaiPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"bisaiPhotoVC"];
+    [vc ReceiveShuJuPhoto:strID];
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
-
-
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
