@@ -20,6 +20,8 @@
 //提前加载数据方法
 -(void)ReceiveShuJu
 {
+    _array=[NSArray array];
+    
     [self biSaiGuanLiQuery];
 }
 // 网络请求，查询数据方法
@@ -90,6 +92,7 @@
 }
 -(void)receiveInfo
 {
+    [self biSaiGuanLiQuery];
     [_tableView reloadData];
 }
 

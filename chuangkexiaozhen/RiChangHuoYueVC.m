@@ -7,8 +7,10 @@
 //
 
 #import "RiChangHuoYueVC.h"
-#import "BussinessApi.h"
+
+//#import "BussinessApi.h"
 #import "BiSaiGuanLiVC.h"
+#import "ChanXueYanGuanLiVC.h"
 @interface RiChangHuoYueVC ()
 
 @end
@@ -30,14 +32,13 @@
     
 }
 
-
-
-
-
-
-
-
 - (IBAction)btn2Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+    ChanXueYanGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanGuanLiVC"];
+    [vc ReceiveShuJu];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 - (IBAction)btn3Clicked:(id)sender forEvent:(UIEvent *)event {
 }

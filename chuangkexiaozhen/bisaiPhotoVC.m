@@ -18,11 +18,10 @@
 
 -(void)ReceiveShuJuPhoto:(NSString*)str
 {
+    _entryID=[NSString stringWithString:str];
      _Marray=[NSMutableArray array];
-    
+    _num=0;
     [self biSaiGuanLiQueryFile:str];
-    
-    _entryID=str;
     
 }
 

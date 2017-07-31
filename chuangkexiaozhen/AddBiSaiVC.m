@@ -21,6 +21,8 @@
     self.navigationItem.title=@"添加比赛";
      _mArray=[NSMutableArray array];//保存展示数据
      _Mstr=[NSMutableString string];//用于图片id连接
+    _photosIDS=[NSString string];
+    
 }
 
 // 比赛级别选择的事件处理
