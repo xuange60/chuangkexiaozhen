@@ -9,6 +9,7 @@
 #import "ShenSuViewController.h"
 #import "ShenSuCell.h"
 #import "BussinessApi.h"
+#import "ShenSuAddViewController.h"
 @interface ShenSuViewController ()
 
 @end
@@ -19,8 +20,23 @@
     self.datas=[NSArray array];
     [super viewDidLoad];
     self.navigationItem.title=@"申诉申请";
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(add)];
+    
+    self.navigationItem.rightBarButtonItem=rightBtnItem;
     [self shenSuShenQingQuery];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shenSuShenQingQuery) name:@"ShenSuViewController" object:nil];
     // Do any additional setup after loading the view.
+}
+
+-(void)add
+{
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+    ShenSuAddViewController* add=[storyboard instantiateViewControllerWithIdentifier:@"ShenSuAddViewController"];
+    [self.navigationController pushViewController:add animated:YES];
+    NSLog(@"%@",@"add");
 }
 
 - (void)didReceiveMemoryWarning {

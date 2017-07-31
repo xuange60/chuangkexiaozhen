@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
+-(void)shenSuShenQingQuery;
+
 @end
