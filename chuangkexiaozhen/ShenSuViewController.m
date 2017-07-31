@@ -47,7 +47,8 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.datas count];
+    NSUInteger num=[self.datas count];
+    return num;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -91,6 +92,84 @@
         NSLog(@"%@",error);
     }];
 }
+
+- (IBAction)ShenSuDetail:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+    ShenSuAddViewController* add=[storyboard instantiateViewControllerWithIdentifier:@"ShenSuAddViewController"];
+    add.data=dic;
+    [self.navigationController pushViewController:add animated:YES];
+    NSLog(@"%@",@"add");
+    
+}
+
+- (IBAction)ShenSuDelete:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    NSString* id=[dic objectForKey:@"id"];
+    [self shenSuShenQingDelete:id];
+    
+}
+
+
+//申诉请求删除
+-(void)shenSuShenQingDelete:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/stateapply/batchdelete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+            //result: 1,提交成功 不等于1,提交
+            if(1==result){
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申诉申请已删除" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self shenSuShenQingQuery];
+                }];
+                [alertCon addAction:action2];
+                [self presentViewController:alertCon animated:YES completion:nil];
+            }else{
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申诉申请删除失败" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+                [alertCon addAction:action2];
+                [self presentViewController:alertCon animated:YES completion:nil];
+            }
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
 
 /*
 #pragma mark - Navigation
