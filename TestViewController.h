@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BussinessApi.h"
 //接口测试文件
 @interface TestViewController : UIViewController
+
+
+@property (strong,nonatomic) BussinessApi* bussinessapi;
+
 
 @end

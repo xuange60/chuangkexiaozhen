@@ -78,6 +78,8 @@
 		FB0A29E91F2F8D30003F4C4E /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0A29E81F2F8D30003F4C4E /* upload.png */; };
 		FB0A29EC1F2F8E1F003F4C4E /* DianZiHeTongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A29EB1F2F8E1F003F4C4E /* DianZiHeTongViewController.m */; };
 		FB219D781F2A4ACE0044F3AC /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FB219D771F2A4ACE0044F3AC /* right.png */; };
+		FB4BDE8B1F30BA8600290046 /* ImgeUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */; };
+		FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */; };
 		FB8DEF2C1F2A042900636704 /* Commons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8DEF2B1F2A042900636704 /* Commons.storyboard */; };
 		FB8DEF2F1F2A09A900636704 /* ComboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8DEF2E1F2A09A900636704 /* ComboViewController.m */; };
 		FB913A2E1F2CF9A6003AA5E1 /* ComBoRowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB913A2D1F2CF9A6003AA5E1 /* ComBoRowsViewController.m */; };
@@ -323,6 +325,10 @@
 		FB0A29EA1F2F8E1F003F4C4E /* DianZiHeTongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZiHeTongViewController.h; sourceTree = "<group>"; };
 		FB0A29EB1F2F8E1F003F4C4E /* DianZiHeTongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianZiHeTongViewController.m; sourceTree = "<group>"; };
 		FB219D771F2A4ACE0044F3AC /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		FB4BDE891F30BA8600290046 /* ImgeUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgeUpViewController.h; sourceTree = "<group>"; };
+		FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgeUpViewController.m; sourceTree = "<group>"; };
+		FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuHusChengZhangGuanLi.h; sourceTree = "<group>"; };
+		FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuHusChengZhangGuanLi.m; sourceTree = "<group>"; };
 		FB8DEF2B1F2A042900636704 /* Commons.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Commons.storyboard; sourceTree = "<group>"; };
 		FB8DEF2D1F2A09A900636704 /* ComboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboViewController.h; sourceTree = "<group>"; };
 		FB8DEF2E1F2A09A900636704 /* ComboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboViewController.m; sourceTree = "<group>"; };
@@ -549,6 +555,8 @@
 				FB8DEF2B1F2A042900636704 /* Commons.storyboard */,
 				FB8DEF2D1F2A09A900636704 /* ComboViewController.h */,
 				FB8DEF2E1F2A09A900636704 /* ComboViewController.m */,
+				FB4BDE891F30BA8600290046 /* ImgeUpViewController.h */,
+				FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */,
 			);
 			path = chuangkexiaozhen;
 			sourceTree = "<group>";
@@ -996,6 +1004,8 @@
 				FB0A29DF1F2F759F003F4C4E /* NSMutableDictionary+NSMutableDictory_Extend.m */,
 				FB0A29E41F2F7BDF003F4C4E /* NSArray+NSArray_Extend.h */,
 				FB0A29E51F2F7BDF003F4C4E /* NSArray+NSArray_Extend.m */,
+				FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */,
+				FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */,
 			);
 			name = bussiness;
 			sourceTree = "<group>";
@@ -1227,6 +1237,7 @@
 				FBF557BA1F28DC51005AB0F4 /* BaseViewController.m in Sources */,
 				FBF557991F28C30E005AB0F4 /* AFURLSessionManager.m in Sources */,
 				664E50731F227CA100824063 /* MyView.m in Sources */,
+				FB4BDE8B1F30BA8600290046 /* ImgeUpViewController.m in Sources */,
 				66A512551F309F6F00498E12 /* ActivePhotoVC.m in Sources */,
 				FBF557AF1F28C332005AB0F4 /* TFHpple.m in Sources */,
 				FB0A29E01F2F759F003F4C4E /* NSMutableDictionary+NSMutableDictory_Extend.m in Sources */,
@@ -1238,6 +1249,7 @@
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */,
 				FB0A29EC1F2F8E1F003F4C4E /* DianZiHeTongViewController.m in Sources */,
+				FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
 				FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */,
 				66CFA1971F2EE54C00E94CCA /* bisaiPhotoVC.m in Sources */,

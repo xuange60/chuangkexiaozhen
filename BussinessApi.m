@@ -1643,6 +1643,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
+                [self.delegate  queryAllFileUp :result];
+            }
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1690,7 +1694,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
+                [self.delegate addData:[NSNumber numberWithInt:result]];
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -1721,7 +1727,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
+                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1756,6 +1764,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
+                [self.delegate  queryAllFileUp :result];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1788,6 +1799,11 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             
             NSLog(@"%d",result);
             //result: 1, 删除成功 不等于1,则删除失败
+            if (self.delegate && [self.delegate respondsToSelector:@selector(DeleteDoubleParam:)])
+            {
+                [self.delegate DeleteDoubleParam:[NSNumber numberWithInt:result]];
+            }
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1821,6 +1837,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
+                [self.delegate  queryAllFileUp :result];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1849,8 +1868,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
     NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c6c24c1a3bea9c268d9d",@"国家级",@"58c7c6c24c1a3bea9c268d9e",@"省部级",@"58c7c6c24c1a3bea9c268d9f",@"区县级",@"58c7c6c24c1a3bea9c268da0",@"一般", nil];
-    NSString* value=[parameters objectForKey:@"type"];
-    [parameters setObject: [types objectForKey:value] forKey:@"type"];
+    NSString* value=[parameters objectForKey:@"projectLevel"];
+    [parameters setObject: [types objectForKey:value] forKey:@"projectLevel"];
     
     
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
@@ -1865,7 +1884,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
+                [self.delegate addData:[NSNumber numberWithInt:result]];
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -1895,7 +1916,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
+                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1931,6 +1954,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
+                [self.delegate  queryAllFileUp :result];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1961,6 +1987,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             
             NSLog(@"%d",result);
             //result: 1, 删除成功 不等于1,则删除失败
+            if (self.delegate && [self.delegate respondsToSelector:@selector(DeleteDoubleParam:)])
+            {
+                [self.delegate DeleteDoubleParam:[NSNumber numberWithInt:result]];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1998,6 +2028,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
+                [self.delegate  queryAllFileUp :result];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -2027,8 +2060,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
     NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c7094c1a775d6de79f72",@"一级奖励",@"58c7c7094c1a775d6de79f73",@"二级奖励",@"58c7c7094c1a775d6de79f74",@"三级奖励", nil];
-    NSString* value=[parameters objectForKey:@"type"];
-    [parameters setObject: [types objectForKey:value] forKey:@"type"];
+    NSString* value=[parameters objectForKey:@"awardLevel"];
+    [parameters setObject: [types objectForKey:value] forKey:@"awardLevel"];
     
     
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
@@ -2043,7 +2076,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
+                [self.delegate addData:[NSNumber numberWithInt:result]];
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -2075,7 +2110,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
+                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -2111,6 +2148,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
+                [self.delegate  queryAllFileUp :result];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -2142,6 +2182,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             
             NSLog(@"%d",result);
             //result: 1, 删除成功 不等于1,则删除失败
+            if (self.delegate && [self.delegate respondsToSelector:@selector(DeleteDoubleParam:)])
+            {
+                [self.delegate DeleteDoubleParam:[NSNumber numberWithInt:result]];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
