@@ -24,6 +24,13 @@
 
 -(void)addData:(id)data;
 
+-(void)DeleteDoubleParam:(id)data;
+
+-(void)queryAllFileUp:(id)data;
+
+
+
+
 @end
 
 
@@ -301,7 +308,7 @@ http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597cc95080
  响应：
  */
 -(void) huoDongSubmit:(NSDictionary*)param;
-
+-(void)huoDongSubmitNew:(NSDictionary*)param;
 
 /*
  7.3.3 活动删除
@@ -320,7 +327,7 @@ http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597cc95080
  ,"name":"warn(1).jpg","path":"cash/busiplan/20170730/1501413579000.jpg","date":"2017-07-30"}]
  */
 -(void)huoDongQueryFile:(NSString*)ids;
-
+-(void)huoDongQueryFileNew:(NSString *)ids;
 
 
 /*
@@ -330,6 +337,7 @@ http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597cc95080
  */
 -(void) huoDongDelete:(NSString*)resourceid withEntityId:(NSString*) entityId;
 
+-(void)huoDongDeleteNew:(NSString *)resourceid withEntityIdNew:(NSString *)entityId;
 
 
 /*

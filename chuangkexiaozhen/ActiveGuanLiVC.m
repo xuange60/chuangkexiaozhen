@@ -24,8 +24,13 @@
 
     
     _ary=[NSArray array];
+    
+    self.navigationItem.title=@"活动管理";
+    
+    UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
+    
+    [self.navigationItem setRightBarButtonItem:RightBarItem];
 }
-
 
 //查询数据里面的委托代理
 -(void)loadNetworkFinished:(id)data
@@ -37,6 +42,29 @@
     }
     
     [_tableView reloadData];
+}
+
+
+
+//左边添加比赛事件
+-(void)RightBarItemClick:(UIBarButtonItem*)item
+{
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+    AddActiveVC*vc=[board instantiateViewControllerWithIdentifier:@"AddActiveVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDCHANYEXUESCUUESS" object:nil];
+}
+
+-(void)receiveInfomation
+{
+    
+//    [self chanXueYanQuery];
 }
 
 #pragma mark
@@ -82,11 +110,6 @@
 }
 
 
-
-
-
-
-
 - (IBAction)ActiveDeleteCkick:(id)sender forEvent:(UIEvent *)event {
     
     NSSet*touches= [event allTouches];
@@ -101,7 +124,7 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    [_api huoDongDelete:strID];
+    [_api huoDongDeleteNew:strID];
 
 }
 //api的代理
@@ -134,14 +157,9 @@
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     
-//    ChanXueYanPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanPhotoVC"];
-//    [vc ReceiveShuJuPhoto:strID];
-//    [self.navigationController pushViewController:vc animated:YES];
-
-    
-    
-    
-    
+    ActivePhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ActivePhotoVC"];
+    [vc ReceiveShuJuPhoto:strID];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

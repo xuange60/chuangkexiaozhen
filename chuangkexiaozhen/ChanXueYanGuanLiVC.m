@@ -89,6 +89,10 @@
     [self chanXueYanQuery];
 }
 
+
+
+
+
 #pragma mark-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

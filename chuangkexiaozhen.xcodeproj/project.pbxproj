@@ -36,6 +36,9 @@
 		66A512491F301B6400498E12 /* ChanXueYanPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512481F301B6400498E12 /* ChanXueYanPhotoCell.m */; };
 		66A5124C1F30702900498E12 /* ActiveGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A5124B1F30702900498E12 /* ActiveGuanLiVC.m */; };
 		66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A5124E1F3076EE00498E12 /* ActiveGuanLiCell.m */; };
+		66A512521F309F4C00498E12 /* ActivePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512511F309F4C00498E12 /* ActivePhotoCell.m */; };
+		66A512551F309F6F00498E12 /* ActivePhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512541F309F6F00498E12 /* ActivePhotoVC.m */; };
+		66A512581F309F8C00498E12 /* AddActiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512571F309F8C00498E12 /* AddActiveVC.m */; };
 		66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B681231F29830100BB1CB9 /* WenDangVC.m */; };
 		66B6812A1F29BC4000BB1CB9 /* 下拉按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B681291F29BC4000BB1CB9 /* 下拉按钮.png */; };
 		66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */; };
@@ -254,6 +257,12 @@
 		66A5124B1F30702900498E12 /* ActiveGuanLiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveGuanLiVC.m; sourceTree = "<group>"; };
 		66A5124D1F3076EE00498E12 /* ActiveGuanLiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveGuanLiCell.h; sourceTree = "<group>"; };
 		66A5124E1F3076EE00498E12 /* ActiveGuanLiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveGuanLiCell.m; sourceTree = "<group>"; };
+		66A512501F309F4C00498E12 /* ActivePhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivePhotoCell.h; sourceTree = "<group>"; };
+		66A512511F309F4C00498E12 /* ActivePhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivePhotoCell.m; sourceTree = "<group>"; };
+		66A512531F309F6F00498E12 /* ActivePhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivePhotoVC.h; sourceTree = "<group>"; };
+		66A512541F309F6F00498E12 /* ActivePhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivePhotoVC.m; sourceTree = "<group>"; };
+		66A512561F309F8C00498E12 /* AddActiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddActiveVC.h; sourceTree = "<group>"; };
+		66A512571F309F8C00498E12 /* AddActiveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddActiveVC.m; sourceTree = "<group>"; };
 		66B681221F29830100BB1CB9 /* WenDangVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WenDangVC.h; sourceTree = "<group>"; };
 		66B681231F29830100BB1CB9 /* WenDangVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WenDangVC.m; sourceTree = "<group>"; };
 		66B681291F29BC4000BB1CB9 /* 下拉按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉按钮.png"; sourceTree = "<group>"; };
@@ -657,6 +666,12 @@
 				66A5124E1F3076EE00498E12 /* ActiveGuanLiCell.m */,
 				66A5124A1F30702900498E12 /* ActiveGuanLiVC.h */,
 				66A5124B1F30702900498E12 /* ActiveGuanLiVC.m */,
+				66A512501F309F4C00498E12 /* ActivePhotoCell.h */,
+				66A512511F309F4C00498E12 /* ActivePhotoCell.m */,
+				66A512531F309F6F00498E12 /* ActivePhotoVC.h */,
+				66A512541F309F6F00498E12 /* ActivePhotoVC.m */,
+				66A512561F309F8C00498E12 /* AddActiveVC.h */,
+				66A512571F309F8C00498E12 /* AddActiveVC.m */,
 			);
 			name = "日常活跃度考核";
 			sourceTree = "<group>";
@@ -1212,11 +1227,14 @@
 				FBF557BA1F28DC51005AB0F4 /* BaseViewController.m in Sources */,
 				FBF557991F28C30E005AB0F4 /* AFURLSessionManager.m in Sources */,
 				664E50731F227CA100824063 /* MyView.m in Sources */,
+				66A512551F309F6F00498E12 /* ActivePhotoVC.m in Sources */,
 				FBF557AF1F28C332005AB0F4 /* TFHpple.m in Sources */,
 				FB0A29E01F2F759F003F4C4E /* NSMutableDictionary+NSMutableDictory_Extend.m in Sources */,
 				FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */,
 				FB0540FB1F2E283100548161 /* WoDeZiYuanViewController.m in Sources */,
+				66A512581F309F8C00498E12 /* AddActiveVC.m in Sources */,
 				FBF557A21F28C327005AB0F4 /* GDataXMLNode.m in Sources */,
+				66A512521F309F4C00498E12 /* ActivePhotoCell.m in Sources */,
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */,
 				FB0A29EC1F2F8E1F003F4C4E /* DianZiHeTongViewController.m in Sources */,

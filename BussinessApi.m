@@ -1329,6 +1329,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%@",result);
             //result: 保存查询到的结果
             
+        
             if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)])
             {
                 [self.delegate loadNetworkFinished:result];
@@ -1383,6 +1384,41 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
+-(void) huoDongSubmitNew:(NSDictionary*)param
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    [parameters addEntriesFromDictionary:param];
+    NSDictionary* activityLevels=[NSDictionary dictionaryWithObjectsAndKeys:@"5879d979a5a121dff6b57a5f",@"省市级活动",@"5879d983a5a121dff6b57a60",@"区县级活动",@"58de163d19eb91a825cd816c",@"园区镇街道活动", nil];
+    NSString* value=[parameters objectForKey:@"activityLevel"];
+    [parameters setObject: [activityLevels objectForKey:value] forKey:@"activityLevel"];
+    
+    
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/activity/save"];
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
+                [self.delegate addData:[NSNumber numberWithInt:result]];
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -1489,6 +1525,34 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
         NSLog(@"%@",error);
     }];
 }
+-(void)huoDongQueryFileNew:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
+    NSLog(@"%@",url);
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"7",@"typeIndex", nil];
+    
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            //result: 保存查询到的结果
+            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
+                [self.delegate  queryAllFileUp :result];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 
 
@@ -1522,7 +1586,35 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     }];
 }
 
-
+-(void)huoDongDeleteNew:(NSString *)resourceid withEntityIdNew:(NSString *)entityId
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id",entityId,@"entityId",@"7",@"typeIndex", nil];
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            
+            
+            NSLog(@"%d",result);
+            //result: 1, 删除成功 不等于1,则删除失败
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(DeleteDoubleParam:)])
+            {
+                [self.delegate DeleteDoubleParam:[NSNumber numberWithInt:result]];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 
 
