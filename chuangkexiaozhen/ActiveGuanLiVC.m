@@ -19,10 +19,9 @@
     // Do any additional setup after loading the view.
     
     _api=[[BussinessApi alloc]init];
+     _api.delegate=self;
     [_api huoDongQueryNew];//查询数据
-    _api.delegate=self;
-
-    
+   
     _ary=[NSArray array];
     
     self.navigationItem.title=@"活动管理";
@@ -58,13 +57,12 @@
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDCHANYEXUESCUUESS" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDACTIVESCUUESS" object:nil];
 }
 
 -(void)receiveInfomation
 {
-    
-//    [self chanXueYanQuery];
+    [_api huoDongQueryNew];//查询数据
 }
 
 #pragma mark

@@ -174,7 +174,7 @@
     [self chushishenqingFileDownload:strID];
     
 }
-//5.7 初始申请时上传的文档下载
+//5.7 文档下载
 -(void) chushishenqingFileDownload:(NSString*)resourceid
 {
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";

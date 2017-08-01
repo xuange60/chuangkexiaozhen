@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"下载";
-  _imgView.image= [UIImage imageWithData:_imgdata];
+    _imgView.image= [UIImage imageWithData:_imgdata];
   //  [_imgView sizeToFit];
     
 }

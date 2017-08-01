@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.title=@"添加产学研";
     _mArray=[NSMutableArray array];//保存展示数据
     _Mstr=[NSMutableString string];//用于图片id连接
@@ -44,7 +45,7 @@
     ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
     NSArray* array=[[NSArray alloc]initWithObjects:@"1万元以下",@"10万元",@"100万元", nil];
     [vc setDatas:array withBtn:sender];
-    vc.navigationItem.title=@"比赛级别";
+    vc.navigationItem.title=@"合作金额级别";
     [self.navigationController pushViewController:vc animated:YES];
     
 }

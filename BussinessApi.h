@@ -18,15 +18,15 @@
 @protocol BussinessApiDelegate<NSObject>
 
 @optional
-- (void)loadNetworkFinished:(id)data;//网络数据加载完成
+- (void)loadNetworkFinished:(id)data;//第一个界面 查询完成
 
--(void)deleteData:(id)data;
+-(void)deleteData:(id)data;//第一个界面 删除完成
 
--(void)addData:(id)data;
+-(void)addData:(id)data;   //第一个界面添加按钮 完成
 
--(void)DeleteDoubleParam:(id)data;
+-(void)DeleteDoubleParam:(id)data;  //第二个界面 2个参数的删除 完成
 
--(void)queryAllFileUp:(id)data;
+-(void)queryAllFileUp:(id)data;     //第二个界面的查询
 
 
 
@@ -86,7 +86,6 @@
 // description=初创团队
 // resourceids=597a213880ab5e6790d51fde,597a214a80ab5e6790d51fdf
 -(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param;
-
 
 
 
