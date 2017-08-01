@@ -15,9 +15,22 @@
 #import "AFHTTPSessionManager.h"
 
 
-@interface BussinessApi : NSObject
+@protocol BussinessApiDelegate<NSObject>
 
+@optional
+- (void)loadNetworkFinished:(id)data;//网络数据加载完成
+
+-(void)deleteData:(id)data;
+
+-(void)addData:(id)data;
+
+@end
+
+
+@interface BussinessApi : NSObject
 @property(nonatomic)int num;
+@property(nonatomic,assign)id <BussinessApiDelegate> delegate;
+
 
 
 //1.用户登录
@@ -274,7 +287,7 @@ http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597cc95080
  智能科技有限公司","date":"2017-06-08 04:06:35"}]
  */
 -(void) huoDongQuery;
-
+-(void) huoDongQueryNew;
 
 /*
  7.3.2 活动添加
@@ -296,6 +309,7 @@ http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597cc95080
  参数 活动id
  */
 -(void)huoDongDelete:(NSString*) ids;
+-(void)huoDongDeleteNew:(NSString*)ids;
 
 
 /*

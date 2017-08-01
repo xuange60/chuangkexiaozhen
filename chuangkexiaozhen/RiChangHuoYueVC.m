@@ -11,6 +11,7 @@
 //#import "BussinessApi.h"
 #import "BiSaiGuanLiVC.h"
 #import "ChanXueYanGuanLiVC.h"
+#import "ActiveGuanLiVC.h"
 @interface RiChangHuoYueVC ()
 
 @end
@@ -41,6 +42,12 @@
     
 }
 - (IBAction)btn3Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+    ActiveGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ActiveGuanLiVC"];
+//    [vc ReceiveShuJu];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 

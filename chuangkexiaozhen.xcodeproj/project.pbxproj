@@ -34,6 +34,8 @@
 		66A401781F21B1D100C4396C /* MyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A401771F21B1D100C4396C /* MyView.xib */; };
 		66A512461F301B1500498E12 /* ChanXueYanPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512451F301B1500498E12 /* ChanXueYanPhotoVC.m */; };
 		66A512491F301B6400498E12 /* ChanXueYanPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512481F301B6400498E12 /* ChanXueYanPhotoCell.m */; };
+		66A5124C1F30702900498E12 /* ActiveGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A5124B1F30702900498E12 /* ActiveGuanLiVC.m */; };
+		66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A5124E1F3076EE00498E12 /* ActiveGuanLiCell.m */; };
 		66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B681231F29830100BB1CB9 /* WenDangVC.m */; };
 		66B6812A1F29BC4000BB1CB9 /* 下拉按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B681291F29BC4000BB1CB9 /* 下拉按钮.png */; };
 		66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */; };
@@ -248,6 +250,10 @@
 		66A512451F301B1500498E12 /* ChanXueYanPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChanXueYanPhotoVC.m; sourceTree = "<group>"; };
 		66A512471F301B6400498E12 /* ChanXueYanPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanXueYanPhotoCell.h; sourceTree = "<group>"; };
 		66A512481F301B6400498E12 /* ChanXueYanPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChanXueYanPhotoCell.m; sourceTree = "<group>"; };
+		66A5124A1F30702900498E12 /* ActiveGuanLiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveGuanLiVC.h; sourceTree = "<group>"; };
+		66A5124B1F30702900498E12 /* ActiveGuanLiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveGuanLiVC.m; sourceTree = "<group>"; };
+		66A5124D1F3076EE00498E12 /* ActiveGuanLiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveGuanLiCell.h; sourceTree = "<group>"; };
+		66A5124E1F3076EE00498E12 /* ActiveGuanLiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveGuanLiCell.m; sourceTree = "<group>"; };
 		66B681221F29830100BB1CB9 /* WenDangVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WenDangVC.h; sourceTree = "<group>"; };
 		66B681231F29830100BB1CB9 /* WenDangVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WenDangVC.m; sourceTree = "<group>"; };
 		66B681291F29BC4000BB1CB9 /* 下拉按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉按钮.png"; sourceTree = "<group>"; };
@@ -647,6 +653,10 @@
 				66A512451F301B1500498E12 /* ChanXueYanPhotoVC.m */,
 				66F7CA5C1F2F8DFC009F9F84 /* AddChanXueYanVC.h */,
 				66F7CA5D1F2F8DFC009F9F84 /* AddChanXueYanVC.m */,
+				66A5124D1F3076EE00498E12 /* ActiveGuanLiCell.h */,
+				66A5124E1F3076EE00498E12 /* ActiveGuanLiCell.m */,
+				66A5124A1F30702900498E12 /* ActiveGuanLiVC.h */,
+				66A5124B1F30702900498E12 /* ActiveGuanLiVC.m */,
 			);
 			name = "日常活跃度考核";
 			sourceTree = "<group>";
@@ -1208,6 +1218,7 @@
 				FB0540FB1F2E283100548161 /* WoDeZiYuanViewController.m in Sources */,
 				FBF557A21F28C327005AB0F4 /* GDataXMLNode.m in Sources */,
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
+				66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */,
 				FB0A29EC1F2F8E1F003F4C4E /* DianZiHeTongViewController.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
 				FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */,
@@ -1228,6 +1239,7 @@
 				66170E641F2E3676007C3C76 /* BiSaiGuanLiVC.m in Sources */,
 				FBF557971F28C30E005AB0F4 /* AFURLRequestSerialization.m in Sources */,
 				FBF557961F28C30E005AB0F4 /* AFSecurityPolicy.m in Sources */,
+				66A5124C1F30702900498E12 /* ActiveGuanLiVC.m in Sources */,
 				664E509E1F25B1E800824063 /* RegeistVC.m in Sources */,
 				66814A2D1F1FBE5300322620 /* CustomCell.m in Sources */,
 				66814A1E1F1E64CE00322620 /* zhuyeVC.m in Sources */,
