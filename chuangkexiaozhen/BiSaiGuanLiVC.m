@@ -93,7 +93,6 @@
 -(void)receiveInfo
 {
     [self biSaiGuanLiQuery];
-    [_tableView reloadData];
 }
 
 #pragma mark-

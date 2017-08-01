@@ -87,7 +87,6 @@
 {
     
     [self chanXueYanQuery];
-    [_tableView reloadData];
 }
 
 #pragma mark-
@@ -134,12 +133,70 @@
 
 - (IBAction)DeleteChanXueBtn:(id)sender forEvent:(UIEvent *)event {
     
+    NSSet*touches= [event allTouches];
     
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
+    NSString*strID=[dic objectForKey:@"id"];
+    
+    [self chanXueYanDelete:strID];
+
 }
+/*
+ 7.2.3 合作项目删除
+ 请求 get  http://116.228.176.34:9002/chuangke-serve/cooperatorunitInfo/delete?id=5938cb08075910c2d60d07db
+ 参数id为 合作项目id
+ */
+-(void)chanXueYanDelete:(NSString*)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/cooperatorunitInfo/delete",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,删除成功 不等于1,失败
+            
+            [self chanXueYanQuery];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
 
 - (IBAction)DownloadChanXueBtn:(id)sender forEvent:(UIEvent *)event {
     
+    NSSet*touches= [event allTouches];
     
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
+    NSString*strID=[dic objectForKey:@"id"];
+    
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+    ChanXueYanPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanPhotoVC"];
+    [vc ReceiveShuJuPhoto:strID];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
