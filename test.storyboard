@@ -334,26 +334,41 @@
                                 <rect key="frame" x="171" y="260" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="销售合同管理查询"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmS-Lb-bX9">
-                                <rect key="frame" x="171" y="298" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="销售合同管理添加"/>
+                                <connections>
+                                    <action selector="xiaoshouhetongguanliquery:" destination="XUs-i0-RVq" eventType="touchUpInside" id="Y65-vL-W55"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPJ-X7-eQc">
                                 <rect key="frame" x="171" y="335" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="销售合同管理删除"/>
+                                <connections>
+                                    <action selector="xiaoshouhetongdelete:" destination="XUs-i0-RVq" eventType="touchUpInside" id="LJ7-KC-SmW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiR-X0-ajR">
                                 <rect key="frame" x="168" y="373" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="销售合同管理文件查询"/>
+                                <connections>
+                                    <action selector="xioaoshouhetongfilequery:" destination="XUs-i0-RVq" eventType="touchUpInside" id="hli-Tm-DPQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuc-6h-rh7">
                                 <rect key="frame" x="168" y="418" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="销售合同管理文件删除"/>
+                                <connections>
+                                    <action selector="xiashouhetongfiledelete:" destination="XUs-i0-RVq" eventType="touchUpInside" id="7aJ-pW-M9B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmS-Lb-bX9">
+                                <rect key="frame" x="164" y="297" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="销售合同管理添加"/>
+                                <connections>
+                                    <action selector="xiaoshouhetongsubmit:" destination="XUs-i0-RVq" eventType="touchUpInside" id="ZKa-NJ-Ppi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

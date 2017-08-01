@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     self.bussinessapi=[[BussinessApi alloc] init];
+    self.fuhuachengzguanli=[[FuHusChengZhangGuanLi alloc] init];
     [super viewDidLoad];
 }
 
@@ -226,10 +227,27 @@
 }
 
 
+- (IBAction)xiaoshouhetongguanliquery:(id)sender {
+    [_fuhuachengzguanli XiaoShouHeTongQuery];
+   
+}
 
+- (IBAction)xiaoshouhetongsubmit:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"",@"arrivalResourceIds",@"",@"benefitResourceIds",@"产品销售合同",@"pactName",@"二级合作方",@"partnerLevel",@"30000",@"partnerPrice", @"10000元级别",@"saleBenefit",@"1万",@"saleMoney",@"1000",@"societyBenefit",nil];
+    [_fuhuachengzguanli XiaoShouHeTongSubmit:param];
+}
 
+- (IBAction)xiaoshouhetongdelete:(id)sender {
+    [_fuhuachengzguanli XiaoShouHeTongDelete:@"594b6f3a075910c2d60d08e6"];
+}
 
+- (IBAction)xioaoshouhetongfilequery:(id)sender {
+    [_fuhuachengzguanli XiaoShouHeTongFileQuery:@"59809b9480ab5e6790d536d3"];
+}
 
+- (IBAction)xiashouhetongfiledelete:(id)sender {
+    [_fuhuachengzguanli XiaoShouHeTongFileDelete:@"59809b8c80ab5e6790d536d1" withEntityId:@"59809b9480ab5e6790d536d3"];
+}
 
 
 
