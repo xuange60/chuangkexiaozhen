@@ -406,7 +406,7 @@ http://116.228.176.34:9002/chuangke-serve/resource/downlist/search?id=597cc95080
  /*
 7.5.2 项目提交
 请求 post http://116.228.176.34:9002/chuangke-serve/project/save
-参数：项目编码 code	1231231231
+参数：项目编码 code	 1231231231
 项目单位 competentunit	12123
 项目名称 name	test1
 项目级别 projectLevel	58c7c6c24c1a3bea9c268d9d
