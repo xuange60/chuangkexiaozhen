@@ -1643,8 +1643,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
-                [self.delegate  queryAllFileUp :result];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :result];
             }
             
         }
@@ -1837,8 +1837,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
-                [self.delegate  queryAllFileUp :result];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :result];
             }
         }
         
@@ -2028,8 +2028,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
-                [self.delegate  queryAllFileUp :result];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :result];
             }
         }
         

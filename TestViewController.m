@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     self.bussinessapi=[[BussinessApi alloc] init];
     self.fuhuachengzguanli=[[FuHusChengZhangGuanLi alloc] init];
+    self.yuangongguanli=[[YuanGongGuanLi alloc] init];
+    self.yuanqufuwushenqing=[[YuanQuFuWuShenQing alloc] init];
     [super viewDidLoad];
 }
 
@@ -248,6 +250,152 @@
 - (IBAction)xiashouhetongfiledelete:(id)sender {
     [_fuhuachengzguanli XiaoShouHeTongFileDelete:@"59809b8c80ab5e6790d536d1" withEntityId:@"59809b9480ab5e6790d536d3"];
 }
+
+
+- (IBAction)nashuiguanliquery:(id)sender {
+    [_fuhuachengzguanli NaShuiGuanLiQuery];
+}
+
+
+- (IBAction)nashuiguanlisubmit:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"纳税季度级别",@"dateType",@"10000元级别",@"taxLevel",@"5000",@"taxPrice",@"",@"taxResourceIds",@"公司",@"taxTarget",@"国税",@"taxType", nil];
+    [_fuhuachengzguanli NaShuiGuanLiSubmit:param];
+}
+
+- (IBAction)nashuiguanlidelete:(id)sender {
+    [_fuhuachengzguanli NaShuiGuanLiDelete:@"5938ee2e075910c2d60d07e7"];
+}
+
+
+
+
+- (IBAction)nashuiguanlifilequery:(id)sender {
+    [_fuhuachengzguanli NaShuiGuanLiFileQuery:@"5981d65280ab5e6790d53b4d"];
+}
+
+
+- (IBAction)nashuiguanlifiledelete:(id)sender {
+    [_fuhuachengzguanli NaShuiGuanLiFileDelete:@"5981d64d80ab5e6790d53b4b" withEntityId:@"5981d65280ab5e6790d53b4d"];
+}
+
+
+
+
+- (IBAction)shichangzhanyoulvquery:(id)sender {
+    [_fuhuachengzguanli ShiChangZhanYouQuery];
+}
+
+
+- (IBAction)shichangzhanyoulvssubmit:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"",@"investigateResourceIds",@"ceshi",@"marketDetail",@"20",@"marketPercent",@"jigou",@"organizationName",@"占有率级别5%",@"percentLevel", nil];
+    [_fuhuachengzguanli ShiChangZhanYouSubmit:param];
+}
+
+
+- (IBAction)shichangzhanyoulvdelete:(id)sender {
+    [_fuhuachengzguanli ShiChangZhanYouDelete:@"5938edcc075910c2d60d07e6"];
+}
+
+
+- (IBAction)shicahngzhenyoulvfilequery:(id)sender {
+    [_fuhuachengzguanli ShiChangZhanYouFileQuery:@"5980a0fc80ab5e6790d536db"];
+}
+
+- (IBAction)shichangzhenyoulvfiledelete:(id)sender {
+    [_fuhuachengzguanli ShiChangZhanYouFileDelete:@"5980a0f980ab5e6790d536da" withEntityId:@"5980a0fc80ab5e6790d536db"];
+}
+
+
+
+
+
+
+- (IBAction)renyuanjiegouquery:(id)sender {
+    [_fuhuachengzguanli RenYuanJieGouQuery];
+}
+
+
+- (IBAction)renyuanjiegousubmit:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"4",@"marketPerson",@"50",@"marketPersonPercent",@"2",@"operatePerson",@"25",@"operatePersonPercent",@"2",@"techniquePerson",@"25",@"techniquePersonPercent",@"8",@"toltalPerson",@"",@"resourceIds", nil];
+    [_fuhuachengzguanli RenYuanJieGouSubmit:param];
+}
+
+
+- (IBAction)renyuanjiegoudelete:(id)sender {
+    [_fuhuachengzguanli RenYuanJieGouDelete:@"5981d8cf80ab5e6790d53b51"];
+}
+
+
+- (IBAction)renyuanjiegoufilequery:(id)sender {
+    [_fuhuachengzguanli RenYuanJieGouFileQuery:@"5980a57c80ab5e6790d536df"];
+}
+
+
+- (IBAction)renyuanjiegoufiledelete:(id)sender {
+    [_fuhuachengzguanli RenYuanJieGouFileDelete:@"5980a57580ab5e6790d536dd" withEntityId:@"5980a57c80ab5e6790d536df"];
+}
+
+
+
+
+
+
+- (IBAction)yuanqufuwushenqingquery:(id)sender {
+    [_yuanqufuwushenqing YuanQuFuWuQuery];
+    
+}
+
+
+- (IBAction)yuanqufuwushenqingsubmit:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"xxxxx",@"content",@"",@"resourceIds",@"企业培训",@"serveCategory", nil];
+    [_yuanqufuwushenqing YuanQuFuWuSubmit:param];
+}
+
+
+- (IBAction)yuanqufuwushenqingdelete:(id)sender {
+    [_yuanqufuwushenqing YuanQuFuWuDelete:@"5981ec8e80ab5e6790d53b5b"];
+}
+
+
+
+- (IBAction)yuanqufuwushenqingfilequery:(id)sender {
+    [_yuanqufuwushenqing YuanQuFuWuFileQuery:@"5981dedc80ab5e6790d53b58"];
+}
+
+
+- (IBAction)yuanqufuwushenqingfiledelete:(id)sender {
+    [_yuanqufuwushenqing YuanQuFuWuFileDelete:@"5981ded080ab5e6790d53b56" withEntityId:@"5981dedc80ab5e6790d53b58"];
+}
+
+
+
+
+
+
+
+
+- (IBAction)yuangongquery:(id)sender {
+    [_yuangongguanli YuanGongQuery];
+    
+}
+
+- (IBAction)yuangongsubmit:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"测试部门",@"department",@"111@qq.com",@"email",@"",@"id",@"ceshi111",@"loginName",@"18511111111",@"mobilePhone",@"测试用户",@"name",@"123456",@"password",@"1",@"rank",@"beizhu",@"remark", nil];
+    [_yuangongguanli YuanGongSubmit:param];
+}
+
+- (IBAction)yuangongdeldte:(id)sender {
+    [_yuangongguanli YuanGongDelete:@"5981ee1f80ab5e6790d53b60"];
+}
+
+- (IBAction)yuangongupdate:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"测试部门",@"department",@"111_asdadas@qq.com",@"email",@"5981eeb580ab5e6790d53b62",@"id",@"ceshi111",@"loginName",@"18511111111",@"mobilePhone",@"测试用户222",@"name",@"123456",@"password",@"1",@"rank",@"beizhu",@"remark", nil];
+    [_yuangongguanli YuanGongSubmit:param];
+}
+
+
+
+
 
 
 

@@ -204,7 +204,12 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 
 
 
-
+-(id) initView
+{
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    self=[storyboard instantiateViewControllerWithIdentifier:@"ImgeUpViewController"];
+    return self;
+}
 
 
 /*

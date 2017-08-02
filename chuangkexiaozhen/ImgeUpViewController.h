@@ -34,6 +34,6 @@
 
 //视图控制器生成后，在push后调用； name：通知name，title:导航项标题
 -(void) setNotifyName:(NSString*)name AndTitle:(NSString*) title;
-
+-(id) initView;
 
 @end

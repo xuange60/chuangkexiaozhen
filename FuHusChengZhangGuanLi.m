@@ -37,8 +37,8 @@
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
-                [self.delegate  queryAllFileUp :result];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :result];
             }
         }
         
@@ -269,7 +269,7 @@ saleBenefit
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/sax/search?start=0&length=1000"];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/tax/search?start=0&length=1000"];
     
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -281,8 +281,8 @@ saleBenefit
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
-                [self.delegate  queryAllFileUp :result];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :result];
             }
         }
         
@@ -482,8 +482,8 @@ saleBenefit
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
-                [self.delegate  queryAllFileUp :result];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :result];
             }
         }
         
@@ -691,8 +691,8 @@ saleBenefit
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(queryAllFileUp:)]) {
-                [self.delegate  queryAllFileUp :result];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :result];
             }
         }
         

@@ -17,6 +17,7 @@
 #import "WoDeZiYuanViewController.h"
 #import "ShenSuViewController.h"
 #import "DianZiHeTongViewController.h"
+#import "FuWuViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -191,6 +192,9 @@
     }else if([data isEqualToString:@"团队运营成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"服务申请"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"YuanQuFuWu" bundle:nil];
+        FuWuViewController*vc=[board instantiateViewControllerWithIdentifier:@"FuWuViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"员工列表"]){
         NSLog(@"%@ 按钮被点击",data);
