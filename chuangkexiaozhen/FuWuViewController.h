@@ -11,6 +11,8 @@
 #import "YuanQuFuWuShenQing.h"
 #import "FuWuShenQingCell.h"
 #import "FuWuShenQingAddViewController.h"
+#import "FilelistViewController.h"
+#import "FuWuShenQingDetailViewController.h"
 @interface FuWuViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong,nonatomic) YuanQuFuWuShenQing* yuanqufuwushenqing;

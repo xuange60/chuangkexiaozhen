@@ -48,7 +48,8 @@
 -(void)getfile:(id)data
 {
     if(data!=nil){
-        self.resourids=(NSString*)data;
+        NSNotification* tmp=(NSNotification*)data;
+        self.resourids=(NSString*)tmp.object;
     }
 
 }
@@ -56,6 +57,9 @@
 
 //点击提交按钮 modify
 - (IBAction)submit:(id)sender {
+    /*
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"xxxxxtest",@"content",@"59830a1f80ab5e6790d53ff9,59830a3980ab5e6790d53ffa",@"resourceIds",@"企业培训",@"serveCategory", nil];
+    */
     NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:self.fuwucontent.text,@"content",self.resourids,@"resourceIds",self.fuwutype.currentTitle,@"serveCategory", nil];
     [self.yuanqufuwushenqing YuanQuFuWuSubmit:param];
 }

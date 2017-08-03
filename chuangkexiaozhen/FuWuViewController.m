@@ -90,6 +90,77 @@
 
 
 
+
+- (IBAction)ShenSuDetail:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"YuanQuFuWu" bundle:nil];
+    FuWuShenQingDetailViewController* add=[storyboard instantiateViewControllerWithIdentifier:@"FuWuShenQingDetailViewController"];
+    add.data=dic;
+    
+    [self.navigationController pushViewController:add animated:YES];
+    NSLog(@"%@",@"add");
+    
+}
+
+
+- (IBAction)FuWuDelete:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    
+    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    
+    [self.yuanqufuwushenqing YuanQuFuWuDelete:ids];
+    
+}
+
+
+
+-(void)deleteData:(id)data
+{
+    [self query];
+}
+
+
+
+- (IBAction)fileList:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    
+    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    FilelistViewController* filelist=[[FilelistViewController alloc] initView:ids withType:@"35"];
+    [self.navigationController pushViewController:filelist animated:YES];
+    
+}
+
+
+
+
+
+
+
 /*
 #pragma mark - Navigation
 

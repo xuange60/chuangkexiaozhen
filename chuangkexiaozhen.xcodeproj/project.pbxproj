@@ -93,6 +93,9 @@
 		FB219D781F2A4ACE0044F3AC /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FB219D771F2A4ACE0044F3AC /* right.png */; };
 		FB4BDE8B1F30BA8600290046 /* ImgeUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */; };
 		FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */; };
+		FB5F9DCA1F33569900EED720 /* FuWuShenQingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */; };
+		FB5F9DCD1F3361CE00EED720 /* FilelistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DCC1F3361CE00EED720 /* FilelistViewController.m */; };
+		FB5F9DD01F3361F800EED720 /* FilelistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DCF1F3361F800EED720 /* FilelistCell.m */; };
 		FB8DEF2C1F2A042900636704 /* Commons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8DEF2B1F2A042900636704 /* Commons.storyboard */; };
 		FB8DEF2F1F2A09A900636704 /* ComboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8DEF2E1F2A09A900636704 /* ComboViewController.m */; };
 		FB913A2E1F2CF9A6003AA5E1 /* ComBoRowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB913A2D1F2CF9A6003AA5E1 /* ComBoRowsViewController.m */; };
@@ -373,6 +376,12 @@
 		FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgeUpViewController.m; sourceTree = "<group>"; };
 		FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuHusChengZhangGuanLi.h; sourceTree = "<group>"; };
 		FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuHusChengZhangGuanLi.m; sourceTree = "<group>"; };
+		FB5F9DC81F33569900EED720 /* FuWuShenQingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuWuShenQingDetailViewController.h; sourceTree = "<group>"; };
+		FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuWuShenQingDetailViewController.m; sourceTree = "<group>"; };
+		FB5F9DCB1F3361CE00EED720 /* FilelistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilelistViewController.h; sourceTree = "<group>"; };
+		FB5F9DCC1F3361CE00EED720 /* FilelistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilelistViewController.m; sourceTree = "<group>"; };
+		FB5F9DCE1F3361F800EED720 /* FilelistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilelistCell.h; sourceTree = "<group>"; };
+		FB5F9DCF1F3361F800EED720 /* FilelistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilelistCell.m; sourceTree = "<group>"; };
 		FB8DEF2B1F2A042900636704 /* Commons.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Commons.storyboard; sourceTree = "<group>"; };
 		FB8DEF2D1F2A09A900636704 /* ComboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboViewController.h; sourceTree = "<group>"; };
 		FB8DEF2E1F2A09A900636704 /* ComboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboViewController.m; sourceTree = "<group>"; };
@@ -613,6 +622,10 @@
 				FB8DEF2E1F2A09A900636704 /* ComboViewController.m */,
 				FB4BDE891F30BA8600290046 /* ImgeUpViewController.h */,
 				FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */,
+				FB5F9DCB1F3361CE00EED720 /* FilelistViewController.h */,
+				FB5F9DCC1F3361CE00EED720 /* FilelistViewController.m */,
+				FB5F9DCE1F3361F800EED720 /* FilelistCell.h */,
+				FB5F9DCF1F3361F800EED720 /* FilelistCell.m */,
 			);
 			path = chuangkexiaozhen;
 			sourceTree = "<group>";
@@ -1113,6 +1126,8 @@
 				FBF77B701F322B60004F17C3 /* FuWuShenQingCell.m */,
 				FBF77B721F323729004F17C3 /* FuWuShenQingAddViewController.h */,
 				FBF77B731F323729004F17C3 /* FuWuShenQingAddViewController.m */,
+				FB5F9DC81F33569900EED720 /* FuWuShenQingDetailViewController.h */,
+				FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */,
 			);
 			name = "园区服务申请";
 			sourceTree = "<group>";
@@ -1354,6 +1369,7 @@
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */,
 				FB0A29EC1F2F8E1F003F4C4E /* DianZiHeTongViewController.m in Sources */,
+				FB5F9DD01F3361F800EED720 /* FilelistCell.m in Sources */,
 				FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
 				FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */,
@@ -1389,6 +1405,7 @@
 				664E50AB1F25F36600824063 /* ShiTiVC.m in Sources */,
 				FBF77B6E1F322A5A004F17C3 /* FuWuViewController.m in Sources */,
 				FBB182E01F28821400550227 /* MyView2.m in Sources */,
+				FB5F9DCD1F3361CE00EED720 /* FilelistViewController.m in Sources */,
 				66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */,
 				FB0A29DA1F2F6B12003F4C4E /* ShenSuAddViewController.m in Sources */,
 				66A4D9101F3331D700967C75 /* AddXiangMuVC.m in Sources */,
@@ -1397,6 +1414,7 @@
 				FBF557A31F28C327005AB0F4 /* JSONKit.m in Sources */,
 				66A4D90A1F33319500967C75 /* XiangMuPhotoVC.m in Sources */,
 				66A4D8F81F32EF4E00967C75 /* JiangLiGuanLiVC.m in Sources */,
+				FB5F9DCA1F33569900EED720 /* FuWuShenQingDetailViewController.m in Sources */,
 				66F7CA531F2F2539009F9F84 /* AddBiSaiVC.m in Sources */,
 				66A4D8FE1F3318D100967C75 /* ZhuanLiPhotoCell.m in Sources */,
 				FBF77B741F323729004F17C3 /* FuWuShenQingAddViewController.m in Sources */,

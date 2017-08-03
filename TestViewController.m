@@ -7,6 +7,7 @@
 //
 
 #import "TestViewController.h"
+#import "FilelistViewController.h"
 
 //接口测试文件
 @interface TestViewController ()
@@ -32,6 +33,15 @@
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (IBAction)test:(id)sender {
+    FilelistViewController* filelist=[[FilelistViewController alloc] initView];
+    [self presentViewController:filelist animated:YES completion:nil];
+}
+
+
+
 
 
 - (IBAction)login:(id)sender {
@@ -347,7 +357,7 @@
 
 
 - (IBAction)yuanqufuwushenqingsubmit:(id)sender {
-    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"xxxxx",@"content",@"",@"resourceIds",@"企业培训",@"serveCategory", nil];
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"xxxxxtest",@"content",@"59830a1f80ab5e6790d53ff9,59830a3980ab5e6790d53ffa",@"resourceIds",@"企业培训",@"serveCategory", nil];
     [_yuanqufuwushenqing YuanQuFuWuSubmit:param];
 }
 

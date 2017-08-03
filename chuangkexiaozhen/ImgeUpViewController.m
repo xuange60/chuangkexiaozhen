@@ -120,7 +120,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyyMMddHHmmss";
     NSString *str = [formatter stringFromDate:[NSDate date]];
-    NSString *fileName = [NSString stringWithFormat:@"文件上传_%@.%@", str,type];
+    NSString *fileName = [NSString stringWithFormat:@"上传文件_%@.%@", str,type];
     NSLog(@"%@",fileName);
     
     NSDictionary *dict = @{@"":@""};
