@@ -1,5 +1,5 @@
 //
-//  AddXiangMuVC.h
+//  AddJiangLiVC.h
 //  chuangkexiaozhen
 //
 //  Created by 小灰灰 on 2017/8/3.
@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface AddXiangMuVC : BaseViewController
+@interface AddJiangLiVC : BaseViewController
 <UIImagePickerControllerDelegate,BussinessApiDelegate>
 
 @property(nonatomic,strong)BussinessApi*api;

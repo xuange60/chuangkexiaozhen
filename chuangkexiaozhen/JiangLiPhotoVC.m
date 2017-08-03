@@ -1,18 +1,18 @@
 //
-//  XiangMuPhotoVC.m
+//  JiangLiPhotoVC.m
 //  chuangkexiaozhen
 //
 //  Created by 小灰灰 on 2017/8/3.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "XiangMuPhotoVC.h"
-#import "XiangMuPhotoCell.h"
-@interface XiangMuPhotoVC ()
+#import "JiangLiPhotoVC.h"
+
+@interface JiangLiPhotoVC ()
 
 @end
 
-@implementation XiangMuPhotoVC
+@implementation JiangLiPhotoVC
 
 -(void)ReceiveShuJuPhoto:(NSString*)str
 {
@@ -22,7 +22,7 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
-    [_api xiangMuFileQuery:_entryID];
+    [_api jiangLiFileQuery:_entryID];
     
 }
 
@@ -38,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     self.navigationItem.title=@"文档下载";
 }
 #pragma mark-
@@ -55,11 +55,11 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString*ss=@"XiangMuPhotoCell";
-    XiangMuPhotoCell  *cell=[tableView dequeueReusableCellWithIdentifier:ss];
+    NSString*ss=@"JiangLiPhotoCell";
+    JiangLiPhotoCell  *cell=[tableView dequeueReusableCellWithIdentifier:ss];
     
     if (!cell) {
-        cell=(XiangMuPhotoCell*)[[XiangMuPhotoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ss];
+        cell=(JiangLiPhotoCell*)[[JiangLiPhotoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ss];
     }
     
     
@@ -83,8 +83,7 @@
     NSDictionary*dic=[_Marray objectAtIndex:_num];
     NSString*strID=[dic objectForKey:@"id"];
     
-    [_api xiangMuFileDelete:strID withEntityId:_entryID];
-    
+    [_api jiangLiFileDelete:strID withEntityId:_entryID];
 }
 
 //第二页删除的代理
@@ -92,7 +91,7 @@
 
 -(void)DeleteDoubleParam:(id)data
 {
-    [_api xiangMuFileQuery:_entryID];
+    [_api jiangLiFileQuery:_entryID];
     
 }
 

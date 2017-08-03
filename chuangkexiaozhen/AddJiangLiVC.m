@@ -1,23 +1,23 @@
 //
-//  AddXiangMuVC.m
+//  AddJiangLiVC.m
 //  chuangkexiaozhen
 //
 //  Created by 小灰灰 on 2017/8/3.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "AddXiangMuVC.h"
+#import "AddJiangLiVC.h"
 #import "ComboViewController.h"
-@interface AddXiangMuVC ()
+@interface AddJiangLiVC ()
 
 @end
 
-@implementation AddXiangMuVC
+@implementation AddJiangLiVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title=@"添加项目管理";
+    self.navigationItem.title=@"添加奖励管理";
     _mArray=[NSMutableArray array];//保存展示数据
     _Mstr=[NSMutableString string];//用于图片id连接
     
@@ -31,9 +31,9 @@
 - (IBAction)levelBtnClick:(id)sender {
     UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
     ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
-    NSArray* array=[[NSArray alloc]initWithObjects:@"国家级",@"省部级",@"区县级",@"一般",nil];
+    NSArray* array=[[NSArray alloc]initWithObjects:@"一级奖励",@"二级奖励",@"三级奖励",nil];
     [vc setDatas:array withBtn:sender];
-    vc.navigationItem.title=@"级别";
+    vc.navigationItem.title=@"奖励级别";
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -94,29 +94,29 @@
 - (IBAction)TiJiaoClick:(id)sender {
     
     /*
-     7.5.2 项目提交
-     请求 post http://116.228.176.34:9002/chuangke-serve/project/save
-     参数：项目编码 code	1231231231
-     项目单位 competentunit	12123
-     项目名称 name	test1
-     项目级别 projectLevel	58c7c6c24c1a3bea9c268d9d
-     项目文件 resourceIds	597d6d7280ab5e6790d52d26,597d6d7480ab5e6790d52d27
-     <option value="58c7c6c24c1a3bea9c268d9d">国家级</option>
-     <option value="58c7c6c24c1a3bea9c268d9e">省部级</option>
-     <option value="58c7c6c24c1a3bea9c268d9f">区县级</option>
-     <option value="58c7c6c24c1a3bea9c268da0">一般</option>
+     7.6.2 奖励管理提交
+     请求 post http://116.228.176.34:9002/chuangke-serve/award/save
+     参数
+     名称 name	羽毛球奖
+     级别 awardLevel	58c7c7094c1a775d6de79f72
+     单位 awardunit	体委
+     编码 code	131231
+     文件id  resourceIds	597d6fcb80ab5e6790d52d2a,597d6fcf80ab5e6790d52d2b
+     <option value="58c7c7094c1a775d6de79f72">一级奖励</option>
+     <option value="58c7c7094c1a775d6de79f73">二级奖励</option>
+     <option value="58c7c7094c1a775d6de79f74">三级奖励</option>
      */
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     
     [dic  setObject:_name.text forKey:@"name"];
     [dic setObject:_biMa.text forKey:@"code"];
-    [dic setObject:_levelBtn.currentTitle forKey:@"projectLevel"];
-    [dic setObject:_danWei forKey:@"competentunit"];
+    [dic setObject:_levelBtn.currentTitle forKey:@"awardLevel"];
+    [dic setObject:_danWei forKey:@"awardunit"];
     
     [dic setObject:_photosIDS forKey:@"resourceIds"];
     
-    [_api xiangMuSubmit:dic];
+    [_api jiangLiSubmit:dic];
     
 }
 
@@ -129,7 +129,7 @@
     if (result==1)
     {
         [self.navigationController popViewControllerAnimated:YES];
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDXIANGMUSCUUESS" object:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDJIANGLISCUUESS" object:nil];
     }
 }
 

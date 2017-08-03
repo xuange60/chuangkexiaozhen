@@ -1,5 +1,5 @@
 //
-//  XiangMuGuanLiCell.h
+//  JiangLiGuanLiCell.h
 //  chuangkexiaozhen
 //
 //  Created by 小灰灰 on 2017/8/3.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XiangMuGuanLiCell : UITableViewCell
+@interface JiangLiGuanLiCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UILabel *level;
@@ -18,8 +18,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *shiJian;
 
-
 @property (strong, nonatomic) IBOutlet UILabel *gongSi;
-
 
 @end
