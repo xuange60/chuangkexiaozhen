@@ -1,21 +1,19 @@
 //
-//  ActivePhotoVC.m
+//  ZhuanLiPhotoVC.m
 //  chuangkexiaozhen
 //
-//  Created by 小灰灰 on 2017/8/1.
+//  Created by 小灰灰 on 2017/8/3.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "ActivePhotoVC.h"
-#import "ActivePhotoCell.h"
-#import "BussinessApi.h"
+#import "ZhuanLiPhotoVC.h"
+#import "ZhuanLiPhotoCell.h"
 #import "xiazaiPhotoVC.h"
-@interface ActivePhotoVC ()
+@interface ZhuanLiPhotoVC ()
 
 @end
 
-@implementation ActivePhotoVC
-
+@implementation ZhuanLiPhotoVC
 
 -(void)ReceiveShuJuPhoto:(NSString*)str
 {
@@ -25,7 +23,7 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
-    [_api huoDongQueryFileNew:_entryID];
+    [_api zhuanYeZhiShiFileQuery:_entryID];
     
 }
 
@@ -58,11 +56,11 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString*ss=@"ActivePhotoCell";
-    ActivePhotoCell*cell=[tableView dequeueReusableCellWithIdentifier:ss];
+    NSString*ss=@"ZhuanLiPhotoCell";
+    ZhuanLiPhotoCell  *cell=[tableView dequeueReusableCellWithIdentifier:ss];
     
     if (!cell) {
-        cell=(ActivePhotoCell*)[[ActivePhotoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ss];
+        cell=(ZhuanLiPhotoCell*)[[ZhuanLiPhotoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ss];
     }
     
     
@@ -70,14 +68,13 @@
     NSString*str1=[dic objectForKey:@"name"];
     NSString*str2=[dic objectForKey:@"date"];
     
-    cell.Name.text=str1;
-    cell.Date.text=str2;
+    cell.name.text=str1;
+    cell.date.text=str2;
     
     return cell;
 }
 
-- (IBAction)activeDeleteClick:(id)sender forEvent:(UIEvent *)event {
-    
+- (IBAction)SecondPageDelete:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches=[event allTouches];
     UITouch*touch=[touches anyObject];
     CGPoint point=[touch locationInView:_tableView];
@@ -88,7 +85,9 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    [_api huoDongDeleteNew:strID withEntityIdNew:_entryID];
+    [_api zhuanYeZhiShiFileDelete:strID withEntityId:_entryID];
+  
+    
 }
 
 //第二页删除的代理
@@ -96,13 +95,11 @@
 
 -(void)DeleteDoubleParam:(id)data
 {
-    [_api huoDongQueryFileNew:_entryID];
+    [_api zhuanYeZhiShiFileQuery:_entryID];
     
 }
 
-
-- (IBAction)activeDownloadClick:(id)sender forEvent:(UIEvent *)event {
-    
+- (IBAction)SecondPageDownload:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches=[event allTouches];
     UITouch*touch=[touches anyObject];
     CGPoint point=[touch locationInView:_tableView];
@@ -112,9 +109,10 @@
     NSDictionary*dic=[_Marray objectAtIndex:_num];
     NSString*strID=[dic objectForKey:@"id"];
     
-    
     [_api chushishenqingFileDownload:strID];
-
+ 
+    
+    
 }
 
 //第二页下载的代理

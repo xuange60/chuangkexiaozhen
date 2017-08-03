@@ -22,14 +22,15 @@
 
 -(void)deleteData:(id)data;//第一个界面 删除完成
 
--(void)addData:(id)data;   //第一个界面添加按钮 完成
+-(void)addData:(id)data;   //第一个界面添加 完成
 
--(void)DeleteDoubleParam:(id)data;  //第二个界面 2个参数的删除 完成
+-(void)DeleteDoubleParam:(id)data;  //第二个界面 2个参数的 删除 完成
 
 -(void)queryAllFileUp:(id)data;     //第二个界面的查询
 
+-(void)XianShiPhoto:(id)data;       //第二个界面 下载 完成
 
-
+-(void)selectPhotoFromKu:(id)data;  // 从图库选择照片上传完成 的回调
 
 @end
 
@@ -80,6 +81,7 @@
 -(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type;
 
 -(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type withResult:(NSMutableString*) string;
+
 
 //5.3 实体入驻申请提交
 //参数为字典： businessline=电子信息 companyname=测试机构 contact=小明 contacttype=18576672852

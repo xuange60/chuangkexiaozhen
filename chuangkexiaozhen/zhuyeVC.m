@@ -18,6 +18,7 @@
 #import "ShenSuViewController.h"
 #import "DianZiHeTongViewController.h"
 #import "FuWuViewController.h"
+#import "keJiChuanXinGuanLiVC.h"
 @interface zhuyeVC ()
 
 @end
@@ -187,6 +188,10 @@
         
     }else if([data isEqualToString:@"科技创新成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
+        keJiChuanXinGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"keJiChuanXinGuanLiVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+
     }else if([data isEqualToString:@"市场销售成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"团队运营成熟度考核"]){

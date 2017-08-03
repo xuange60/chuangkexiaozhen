@@ -443,8 +443,6 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 
 -(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type withResult:(NSMutableString*) string
 {
-    __block NSString*ids=nil;
-    
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     
@@ -480,6 +478,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     
     //结果在string
     NSLog(@"%@",string);
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectPhotoFromKu:)]) {
+        [self.delegate  selectPhotoFromKu:string];
+    }
     
     
 }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
@@ -651,16 +653,20 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
          
          //此时文件下载成功；
          
-         //将文件id，文件路径保存下来
-         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-         NSMutableDictionary* dic=[defaults objectForKey:@"chuangkexiaozhen.resource"];
-         if(dic==nil){
-             dic=[NSMutableDictionary dictionary];
+//         //将文件id，文件路径保存下来
+//         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//         NSMutableDictionary* dic=[defaults objectForKey:@"chuangkexiaozhen.resource"];
+//         if(dic==nil){
+//             dic=[NSMutableDictionary dictionary];
+//         }
+//         [dic setObject:file forKey:resourceid];
+//         
+//         [defaults setObject:dic forKey:@"chuangkexiaozhen.resource"];
+         
+         
+         if (self.delegate && [self.delegate respondsToSelector:@selector(XianShiPhoto:)]) {
+             [self.delegate XianShiPhoto:responseObject];
          }
-         [dic setObject:file forKey:resourceid];
-         [defaults setObject:dic forKey:@"chuangkexiaozhen.resource"];
-         
-         
      }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
      {

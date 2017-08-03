@@ -12,6 +12,8 @@
 
 #import "ActivePhotoVC.h"
 #import "AddActiveVC.h"
+
+
 @interface ActiveGuanLiVC : UIViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

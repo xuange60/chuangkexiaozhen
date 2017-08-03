@@ -1,30 +1,32 @@
 //
-//  ActiveGuanLiVC.m
+//  ZhuanLiGuanLiVC.m
 //  chuangkexiaozhen
 //
-//  Created by 小灰灰 on 2017/8/1.
+//  Created by 小灰灰 on 2017/8/3.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "ActiveGuanLiVC.h"
-
-@interface ActiveGuanLiVC ()
+#import "ZhuanLiGuanLiVC.h"
+#import "ZhuanLiGuanLiCell.h"
+#import "ZhuanLiPhotoVC.h"
+#import "AddZhuanLiVC.h"
+@interface ZhuanLiGuanLiVC ()
 
 @end
 
-@implementation ActiveGuanLiVC
+@implementation ZhuanLiGuanLiVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     _api=[[BussinessApi alloc]init];
-     _api.delegate=self;
-    [_api huoDongQueryNew];//查询数据
-   
+    _api.delegate=self;
+    [_api zhuanYeZhiShiQuery];//查询数据
+    
     _ary=[NSArray array];
     
-    self.navigationItem.title=@"活动管理";
+    self.navigationItem.title=@"专利知识管理";
     
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
     
@@ -34,7 +36,7 @@
 //查询数据里面的委托代理
 -(void)loadNetworkFinished:(id)data
 {
-   
+    
     if ( data !=nil)
     {
         _ary=(NSArray*)data;
@@ -48,8 +50,9 @@
 //左边添加比赛事件
 -(void)RightBarItemClick:(UIBarButtonItem*)item
 {
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-    AddActiveVC*vc=[board instantiateViewControllerWithIdentifier:@"AddActiveVC"];
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
+    AddZhuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"AddZhuanLiVC"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -57,12 +60,12 @@
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDACTIVESCUUESS" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDZHUANLISCUUESS" object:nil];
 }
 
 -(void)receiveInfomation
 {
-    [_api huoDongQueryNew];//查询数据
+    [_api zhuanYeZhiShiQuery];//查询数据
 }
 
 #pragma mark
@@ -76,40 +79,33 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString*str=@"ActiveGuanLiCell";
+    static NSString*str=@"ZhuanLiGuanLiCell";
     
-    ActiveGuanLiCell*cell=[tableView dequeueReusableCellWithIdentifier:str];
+    ZhuanLiGuanLiCell*cell=[tableView dequeueReusableCellWithIdentifier:str];
     
     if (!cell) {
-        cell=[[ActiveGuanLiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+        cell=[[ZhuanLiGuanLiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
     /*
-     7.3.1 活动查询
-     请求：get http://116.228.176.34:9002/chuangke-serve/activity/search?start=0&length=1000
-     响应： [{"id":"5938cd4b075910c2d60d07de","name"
-     :"******","activityLevel":"省市级活动","sponsor":"科创小镇","participant":3,"ownerActivity":"否","company":"云创
-     智能科技有限公司","date":"2017-06-08 04:06:35"}]
+     7.4.1 专业知识产权查询
+     请求 get http://116.228.176.34:9002/chuangke-serve/knowledge/search?start=0&length=1000
+     响应 [{"id":"5937e243075910c2d60d07c8","name"
+     :"********","code":"********","type":"软件著作权","date":"2017-06-07 19:23:47","company":"云创智能科技有限公司"}]
      */
-
     
     NSDictionary*dic= [_ary objectAtIndex:indexPath.row];
     
-    cell.activeName.text=[dic objectForKey:@"name"];
-    cell.activeLevel.text=[dic objectForKey:@"activityLevel"];
-    cell.danWei.text=[dic objectForKey:@"sponsor"];
-    
-    NSNumber*num=[dic objectForKey:@"participant"];
-    cell.renShu.text=[NSString stringWithFormat:@"%@",num];
-    cell.benYuanQu.text=[dic objectForKey:@"ownerActivity"];
-    cell.company.text=[dic objectForKey:@"company"];
+    cell.name.text=[dic objectForKey:@"name"];
+    cell.bianMa.text=[dic objectForKey:@"code"];
+    cell.leiXing.text=[dic objectForKey:@"type"];
+    cell.shiJian.text=[dic objectForKey:@"date"];
+    cell.gongSi.text=[dic objectForKey:@"company"];
     
     return cell;
 }
 
-
-- (IBAction)ActiveDeleteCkick:(id)sender forEvent:(UIEvent *)event {
-    
+- (IBAction)FirstPageDelect:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches= [event allTouches];
     
     UITouch*touch=[touches anyObject];
@@ -122,8 +118,9 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    [_api huoDongDeleteNew:strID];
-
+    [_api zhuanYeZhiShiDelete:strID];
+    
+    
 }
 //api的第一页删除的代理
 -(void)deleteData:(id)data
@@ -134,13 +131,11 @@
     
     if (result==1) {
         
-        [_api huoDongQueryNew];
+        [_api zhuanYeZhiShiQuery];
     }
 }
 
-
-- (IBAction)ActiveDownloadClick:(id)sender forEvent:(UIEvent *)event {
-    
+- (IBAction)FirstPageDownload:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches= [event allTouches];
     
     UITouch*touch=[touches anyObject];
@@ -153,17 +148,12 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-    
-    ActivePhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ActivePhotoVC"];
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
+    ZhuanLiPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ZhuanLiPhotoVC"];
     [vc ReceiveShuJuPhoto:strID];
     [self.navigationController pushViewController:vc animated:YES];
-    
+
 }
-
-
-
-
 
 
 

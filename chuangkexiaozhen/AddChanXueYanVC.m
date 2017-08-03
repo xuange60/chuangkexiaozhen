@@ -104,8 +104,6 @@
     
 -(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type withResult:(NSMutableString*) string
     {
-        __block NSString*ids=nil;
-        
         AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
         manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
         

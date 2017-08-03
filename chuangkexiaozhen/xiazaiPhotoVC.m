@@ -19,8 +19,7 @@
 -(void)setData:(NSData *)data
 {
     _imgdata=data;
-    
-    
+
 }
 
 
@@ -28,8 +27,7 @@
     [super viewDidLoad];
     self.navigationItem.title=@"下载";
     _imgView.image= [UIImage imageWithData:_imgdata];
-  //  [_imgView sizeToFit];
-    
+ 
 }
 
 - (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
