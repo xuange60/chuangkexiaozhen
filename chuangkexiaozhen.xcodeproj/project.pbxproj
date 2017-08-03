@@ -45,6 +45,10 @@
 		66A4D90A1F33319500967C75 /* XiangMuPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D9091F33319500967C75 /* XiangMuPhotoVC.m */; };
 		66A4D90D1F3331B900967C75 /* XiangMuPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D90C1F3331B900967C75 /* XiangMuPhotoCell.m */; };
 		66A4D9101F3331D700967C75 /* AddXiangMuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D90F1F3331D700967C75 /* AddXiangMuVC.m */; };
+		66A4D9131F336ABD00967C75 /* JiangLiGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D9121F336ABD00967C75 /* JiangLiGuanLiCell.m */; };
+		66A4D9161F336ADB00967C75 /* JiangLiPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D9151F336ADB00967C75 /* JiangLiPhotoCell.m */; };
+		66A4D9191F336AF800967C75 /* JiangLiPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D9181F336AF800967C75 /* JiangLiPhotoVC.m */; };
+		66A4D91C1F336B0F00967C75 /* AddJiangLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D91B1F336B0F00967C75 /* AddJiangLiVC.m */; };
 		66A512461F301B1500498E12 /* ChanXueYanPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512451F301B1500498E12 /* ChanXueYanPhotoVC.m */; };
 		66A512491F301B6400498E12 /* ChanXueYanPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512481F301B6400498E12 /* ChanXueYanPhotoCell.m */; };
 		66A5124C1F30702900498E12 /* ActiveGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A5124B1F30702900498E12 /* ActiveGuanLiVC.m */; };
@@ -298,6 +302,14 @@
 		66A4D90C1F3331B900967C75 /* XiangMuPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiangMuPhotoCell.m; sourceTree = "<group>"; };
 		66A4D90E1F3331D700967C75 /* AddXiangMuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddXiangMuVC.h; sourceTree = "<group>"; };
 		66A4D90F1F3331D700967C75 /* AddXiangMuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddXiangMuVC.m; sourceTree = "<group>"; };
+		66A4D9111F336ABD00967C75 /* JiangLiGuanLiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiangLiGuanLiCell.h; sourceTree = "<group>"; };
+		66A4D9121F336ABD00967C75 /* JiangLiGuanLiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiangLiGuanLiCell.m; sourceTree = "<group>"; };
+		66A4D9141F336ADB00967C75 /* JiangLiPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiangLiPhotoCell.h; sourceTree = "<group>"; };
+		66A4D9151F336ADB00967C75 /* JiangLiPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiangLiPhotoCell.m; sourceTree = "<group>"; };
+		66A4D9171F336AF800967C75 /* JiangLiPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiangLiPhotoVC.h; sourceTree = "<group>"; };
+		66A4D9181F336AF800967C75 /* JiangLiPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiangLiPhotoVC.m; sourceTree = "<group>"; };
+		66A4D91A1F336B0F00967C75 /* AddJiangLiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddJiangLiVC.h; sourceTree = "<group>"; };
+		66A4D91B1F336B0F00967C75 /* AddJiangLiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddJiangLiVC.m; sourceTree = "<group>"; };
 		66A512441F301B1500498E12 /* ChanXueYanPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanXueYanPhotoVC.h; sourceTree = "<group>"; };
 		66A512451F301B1500498E12 /* ChanXueYanPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChanXueYanPhotoVC.m; sourceTree = "<group>"; };
 		66A512471F301B6400498E12 /* ChanXueYanPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanXueYanPhotoCell.h; sourceTree = "<group>"; };
@@ -705,8 +717,8 @@
 			isa = PBXGroup;
 			children = (
 				66F724A01F2E254800773F66 /* 日常活跃度考核 */,
-				66F724A21F2E25B300773F66 /* 市场销售成熟度考核 */,
 				66F724A11F2E257D00773F66 /* 科技创新成熟度考核 */,
+				66F724A21F2E25B300773F66 /* 市场销售成熟度考核 */,
 				66F724A31F2E25DD00773F66 /* 团队运营成熟度考核 */,
 			);
 			name = "孵化成长";
@@ -779,8 +791,16 @@
 				66A4D9091F33319500967C75 /* XiangMuPhotoVC.m */,
 				66A4D90E1F3331D700967C75 /* AddXiangMuVC.h */,
 				66A4D90F1F3331D700967C75 /* AddXiangMuVC.m */,
+				66A4D9111F336ABD00967C75 /* JiangLiGuanLiCell.h */,
+				66A4D9121F336ABD00967C75 /* JiangLiGuanLiCell.m */,
 				66A4D8F61F32EF4E00967C75 /* JiangLiGuanLiVC.h */,
 				66A4D8F71F32EF4E00967C75 /* JiangLiGuanLiVC.m */,
+				66A4D9141F336ADB00967C75 /* JiangLiPhotoCell.h */,
+				66A4D9151F336ADB00967C75 /* JiangLiPhotoCell.m */,
+				66A4D9171F336AF800967C75 /* JiangLiPhotoVC.h */,
+				66A4D9181F336AF800967C75 /* JiangLiPhotoVC.m */,
+				66A4D91A1F336B0F00967C75 /* AddJiangLiVC.h */,
+				66A4D91B1F336B0F00967C75 /* AddJiangLiVC.m */,
 			);
 			name = "科技创新成熟度考核";
 			sourceTree = "<group>";
@@ -1347,6 +1367,7 @@
 				FBB182631F2834B900550227 /* TestViewController.m in Sources */,
 				664120061F1DF6BB002C2F36 /* ViewController.m in Sources */,
 				66170E6C1F2E4AD9007C3C76 /* BiSaiCell.m in Sources */,
+				66A4D91C1F336B0F00967C75 /* AddJiangLiVC.m in Sources */,
 				FBF77B711F322B60004F17C3 /* FuWuShenQingCell.m in Sources */,
 				664120031F1DF6BB002C2F36 /* AppDelegate.m in Sources */,
 				664E50A81F25C51500824063 /* ResetVC.m in Sources */,
@@ -1361,6 +1382,7 @@
 				FBF557AF1F28C332005AB0F4 /* TFHpple.m in Sources */,
 				FB0A29E01F2F759F003F4C4E /* NSMutableDictionary+NSMutableDictory_Extend.m in Sources */,
 				FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */,
+				66A4D9131F336ABD00967C75 /* JiangLiGuanLiCell.m in Sources */,
 				FB0540FB1F2E283100548161 /* WoDeZiYuanViewController.m in Sources */,
 				66A512581F309F8C00498E12 /* AddActiveVC.m in Sources */,
 				FBF557A21F28C327005AB0F4 /* GDataXMLNode.m in Sources */,
@@ -1375,6 +1397,7 @@
 				FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */,
 				66CFA1971F2EE54C00E94CCA /* bisaiPhotoVC.m in Sources */,
 				FB0541041F2E42E700548161 /* ShenSuCell.m in Sources */,
+				66A4D9191F336AF800967C75 /* JiangLiPhotoVC.m in Sources */,
 				FB913A2E1F2CF9A6003AA5E1 /* ComBoRowsViewController.m in Sources */,
 				66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */,
 				66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */,
@@ -1412,6 +1435,7 @@
 				66F724A81F2E271000773F66 /* RiChangHuoYueVC.m in Sources */,
 				66F7CA581F2F85F6009F9F84 /* ChanXueYanGuanLiVC.m in Sources */,
 				FBF557A31F28C327005AB0F4 /* JSONKit.m in Sources */,
+				66A4D9161F336ADB00967C75 /* JiangLiPhotoCell.m in Sources */,
 				66A4D90A1F33319500967C75 /* XiangMuPhotoVC.m in Sources */,
 				66A4D8F81F32EF4E00967C75 /* JiangLiGuanLiVC.m in Sources */,
 				FB5F9DCA1F33569900EED720 /* FuWuShenQingDetailViewController.m in Sources */,

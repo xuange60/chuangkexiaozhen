@@ -1,5 +1,5 @@
 //
-//  XiangMuPhotoVC.h
+//  JiangLiPhotoVC.h
 //  chuangkexiaozhen
 //
 //  Created by 小灰灰 on 2017/8/3.
@@ -7,8 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "JiangLiPhotoCell.h"
 #import "xiazaiPhotoVC.h"
-@interface XiangMuPhotoVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
+
+@interface JiangLiPhotoVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property(nonatomic,strong)NSMutableArray*Marray;
 @property(nonatomic)NSInteger num;
@@ -17,6 +19,4 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong)BussinessApi*api;
 -(void)ReceiveShuJuPhoto:(NSString*)str;
-
-
 @end

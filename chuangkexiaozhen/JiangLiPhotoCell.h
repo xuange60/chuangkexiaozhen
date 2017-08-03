@@ -1,5 +1,5 @@
 //
-//  XiangMuPhotoCell.h
+//  JiangLiPhotoCell.h
 //  chuangkexiaozhen
 //
 //  Created by 小灰灰 on 2017/8/3.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XiangMuPhotoCell : UITableViewCell
-
+@interface JiangLiPhotoCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *name;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *date;
+
 @end

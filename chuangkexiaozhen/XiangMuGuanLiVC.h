@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
-@interface XiangMuGuanLiVC : BaseViewController
+@interface XiangMuGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic,strong)BussinessApi*api;
+@property(nonatomic,strong)NSArray*ary;
+
+
 
 @end
