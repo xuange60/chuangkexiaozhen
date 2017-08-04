@@ -106,6 +106,8 @@
 		FB219D781F2A4ACE0044F3AC /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FB219D771F2A4ACE0044F3AC /* right.png */; };
 		FB4BDE8B1F30BA8600290046 /* ImgeUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */; };
 		FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */; };
+		FB5186D01F34B85300C9705A /* yuangongguanli.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5186CF1F34B85300C9705A /* yuangongguanli.storyboard */; };
+		FB5186D31F34B92600C9705A /* YuanGongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186D21F34B92600C9705A /* YuanGongCell.m */; };
 		FB5F9DCA1F33569900EED720 /* FuWuShenQingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */; };
 		FB5F9DCD1F3361CE00EED720 /* FilelistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DCC1F3361CE00EED720 /* FilelistViewController.m */; };
 		FB5F9DD01F3361F800EED720 /* FilelistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DCF1F3361F800EED720 /* FilelistCell.m */; };
@@ -415,6 +417,9 @@
 		FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgeUpViewController.m; sourceTree = "<group>"; };
 		FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuHusChengZhangGuanLi.h; sourceTree = "<group>"; };
 		FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuHusChengZhangGuanLi.m; sourceTree = "<group>"; };
+		FB5186CF1F34B85300C9705A /* yuangongguanli.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = yuangongguanli.storyboard; sourceTree = "<group>"; };
+		FB5186D11F34B92600C9705A /* YuanGongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongCell.h; sourceTree = "<group>"; };
+		FB5186D21F34B92600C9705A /* YuanGongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongCell.m; sourceTree = "<group>"; };
 		FB5F9DC81F33569900EED720 /* FuWuShenQingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuWuShenQingDetailViewController.h; sourceTree = "<group>"; };
 		FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuWuShenQingDetailViewController.m; sourceTree = "<group>"; };
 		FB5F9DCB1F3361CE00EED720 /* FilelistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilelistViewController.h; sourceTree = "<group>"; };
@@ -570,8 +575,8 @@
 		FBF557B91F28DC51005AB0F4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		FBF77B631F321890004F17C3 /* YuanQuFuWuShenQing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YuanQuFuWuShenQing.h; path = ../YuanQuFuWuShenQing.h; sourceTree = "<group>"; };
 		FBF77B641F321890004F17C3 /* YuanQuFuWuShenQing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YuanQuFuWuShenQing.m; path = ../YuanQuFuWuShenQing.m; sourceTree = "<group>"; };
-		FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongGuanLi.h; sourceTree = "<group>"; };
-		FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongGuanLi.m; sourceTree = "<group>"; };
+		FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YuanGongGuanLi.h; path = ../YuanGongGuanLi.h; sourceTree = "<group>"; };
+		FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YuanGongGuanLi.m; path = ../YuanGongGuanLi.m; sourceTree = "<group>"; };
 		FBF77B6A1F3228F3004F17C3 /* YuanQuFuWu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YuanQuFuWu.storyboard; sourceTree = "<group>"; };
 		FBF77B6C1F322A5A004F17C3 /* FuWuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuWuViewController.h; sourceTree = "<group>"; };
 		FBF77B6D1F322A5A004F17C3 /* FuWuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuWuViewController.m; sourceTree = "<group>"; };
@@ -619,6 +624,7 @@
 		66411FFD1F1DF6BB002C2F36 /* chuangkexiaozhen */ = {
 			isa = PBXGroup;
 			children = (
+				FB5186CE1F34B53800C9705A /* 员工管理 */,
 				FBF77B691F322788004F17C3 /* 园区服务申请 */,
 				FB0540F31F2DDD5D00548161 /* 报道入驻 */,
 				66F7249F1F2E24A800773F66 /* 孵化成长 */,
@@ -900,6 +906,18 @@
 			name = files;
 			sourceTree = "<group>";
 		};
+		FB5186CE1F34B53800C9705A /* 员工管理 */ = {
+			isa = PBXGroup;
+			children = (
+				FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */,
+				FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */,
+				FB5186CF1F34B85300C9705A /* yuangongguanli.storyboard */,
+				FB5186D11F34B92600C9705A /* YuanGongCell.h */,
+				FB5186D21F34B92600C9705A /* YuanGongCell.m */,
+			);
+			name = "员工管理";
+			sourceTree = "<group>";
+		};
 		FBB182761F28716500550227 /* 初始申请 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1165,8 +1183,6 @@
 				FB0A29E51F2F7BDF003F4C4E /* NSArray+NSArray_Extend.m */,
 				FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */,
 				FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */,
-				FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */,
-				FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */,
 			);
 			name = bussiness;
 			sourceTree = "<group>";
@@ -1350,6 +1366,7 @@
 				FBB182F21F28A5BE00550227 /* 园区资源管理.png in Resources */,
 				FBB182E21F289DE600550227 /* defaultBtnImg.png in Resources */,
 				FBB182DD1F287EC300550227 /* MyView2.xib in Resources */,
+				FB5186D01F34B85300C9705A /* yuangongguanli.storyboard in Resources */,
 				66B6812F1F29CB3C00BB1CB9 /* XiaLaView.xib in Resources */,
 				664120091F1DF6BB002C2F36 /* Main.storyboard in Resources */,
 				FBB182961F2874FD00550227 /* 考勤逻辑.gif in Resources */,
@@ -1487,6 +1504,7 @@
 				66A4D9101F3331D700967C75 /* AddXiangMuVC.m in Sources */,
 				66F724A81F2E271000773F66 /* RiChangHuoYueVC.m in Sources */,
 				66F7CA581F2F85F6009F9F84 /* ChanXueYanGuanLiVC.m in Sources */,
+				FB5186D31F34B92600C9705A /* YuanGongCell.m in Sources */,
 				FBF557A31F28C327005AB0F4 /* JSONKit.m in Sources */,
 				66A4D9161F336ADB00967C75 /* JiangLiPhotoCell.m in Sources */,
 				66A4D90A1F33319500967C75 /* XiangMuPhotoVC.m in Sources */,
