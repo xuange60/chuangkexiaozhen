@@ -10,6 +10,130 @@
 
 @implementation FuHusChengZhangGuanLi
 
+
+//5.7 的文档下载
+-(void) chushishenqingFileDownload:(NSString*)resourceid
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/down"];
+    
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:resourceid,@"id", nil];
+    
+    [manager GET:url parameters:parameters
+        progress:^(NSProgress * _Nonnull downloadProgress)
+     {
+         // 打印下下载进度
+         NSLog(@"%lf",1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+     }
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+         NSString* Disposition=[headers objectForKey:@"Content-Disposition"];
+         NSString* filename=nil;
+         if(Disposition!=nil){
+             NSRange range=[Disposition rangeOfString:@"filename"];
+             if(range.location>0){
+                 filename=[Disposition substringFromIndex:(range.location+range.length+1)];
+                 NSLog(@"%@",filename);
+             }
+         }
+         if(filename==nil){
+             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+             formatter.dateFormat = @"yyyyMMddHHmmss";
+             NSString *str = [formatter stringFromDate:[NSDate date]];
+             filename = [NSString stringWithFormat:@"实体入驻_%@.jpg", str];
+         }
+         
+         NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
+         NSString* file=[filePath stringByAppendingPathComponent:filename];
+         NSLog(@"%@",file);
+         NSFileManager* filemanager=[[NSFileManager alloc]init];
+         if(![filemanager fileExistsAtPath:file]){
+             [filemanager createFileAtPath:file contents:nil attributes:nil];
+         }
+         
+         NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:file];
+         [fileHandle writeData:(NSData*)responseObject];
+         [fileHandle closeFile];
+         
+         //此时文件下载成功；
+         
+         //         //将文件id，文件路径保存下来
+         //         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+         //         NSMutableDictionary* dic=[defaults objectForKey:@"chuangkexiaozhen.resource"];
+         //         if(dic==nil){
+         //             dic=[NSMutableDictionary dictionary];
+         //         }
+         //         [dic setObject:file forKey:resourceid];
+         //
+         //         [defaults setObject:dic forKey:@"chuangkexiaozhen.resource"];
+         
+         
+         if (self.delegate && [self.delegate respondsToSelector:@selector(XianShiPhoto:)]) {
+             [self.delegate XianShiPhoto:responseObject];
+         }
+     }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+     {
+         NSLog(@"%@",error);
+     }
+     ];
+}
+
+-(void) shitiRuZhuFileup:(NSData*) filedata withType:(NSString*)type withResult:(NSMutableString*) string
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *str = [formatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"文件上传_%@.%@", str,type];
+    NSLog(@"%@",fileName);
+    
+    NSDictionary *dict = @{@"":@""};
+    NSString *urlString = @"http://116.228.176.34:9002/chuangke-serve/upload/save";
+    [manager POST:urlString parameters:dict
+constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
+    //[formData appendPartWithFileURL:[NSURLfileURLWithPath:@"文件地址"] name:@"file"fileName:@"1234.png"mimeType:@"application/octet-stream"error:nil];
+    [formData appendPartWithFileData:filedata name:@"file" fileName:fileName mimeType:@"image/png"];
+}progress:^(NSProgress * _Nonnull uploadProgress){
+    // 打印下上传进度 此处界面可能要显示上传进度
+    NSLog(@"%lld%@",100 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount,@"%");
+}success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+    
+    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",data);
+    NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+    
+    // 文件上传成功 获取ResourceId
+    NSString* ResourceId=[jsondata objectForKey:@"ResourceId"];
+    if(string.length==0){
+        [string appendString:ResourceId];
+    }else{
+        [string appendString:@","];
+        [string appendString:ResourceId];
+    }
+    
+    //结果在string
+    NSLog(@"%@",string);
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectPhotoFromKu:)]) {
+        [self.delegate  selectPhotoFromKu:string];
+    }
+    
+    
+}failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
+    // 请求失败
+    NSLog(@"请求失败：%@", error);
+}];
+}
+
+
+
+
 /*
 销售合同管理
 7.7.1 销售合同查询

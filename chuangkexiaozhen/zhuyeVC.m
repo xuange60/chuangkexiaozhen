@@ -184,8 +184,6 @@
         RiChangHuoYueVC*vc=[board instantiateViewControllerWithIdentifier:@"RiChangHuoYueVC"];
         [self.navigationController pushViewController:vc animated:YES];
 
-        
-        
     }else if([data isEqualToString:@"科技创新成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
@@ -194,6 +192,11 @@
 
     }else if([data isEqualToString:@"市场销售成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
+        ShiChangXiaoShouVC*vc=[board instantiateViewControllerWithIdentifier:@"ShiChangXiaoShouVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    
     }else if([data isEqualToString:@"团队运营成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"服务申请"]){

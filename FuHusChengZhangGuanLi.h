@@ -9,10 +9,33 @@
 #import <Foundation/Foundation.h>
 #import "BussinessApi.h"
 
+@protocol FuHusChengZhangGuanLiDelegate <NSObject>
+
+@optional
+- (void)loadNetworkFinished:(id)data;//第一个界面 查询完成
+
+-(void)deleteData:(id)data;//第一个界面 删除完成
+
+-(void)addData:(id)data;   //第一个界面添加 完成
+
+-(void)DeleteDoubleParam:(id)data;  //第二个界面 2个参数的 删除 完成
+
+-(void)queryAllFileUp:(id)data;     //第二个界面的查询
+
+-(void)XianShiPhoto:(id)data;       //第二个界面 下载 完成
+
+-(void)selectPhotoFromKu:(id)data;  // 从图库选择照片上传完成 的回调
+
+
+
+@end
+
+
+
 @interface FuHusChengZhangGuanLi : NSObject
 
 @property(nonatomic)int num;
-@property(nonatomic,assign)id <BussinessApiDelegate> delegate;
+@property(nonatomic,assign)id <FuHusChengZhangGuanLiDelegate> delegate;
 //孵化成长管理相关网络操作
 //孵化成长管理相关网络操作
 //孵化成长管理相关网络操作
@@ -165,14 +188,6 @@ taxLevel
     :0,"recordsFiltered":0,"totalPages":0}
 */
 -(void)NaShuiGuanLiFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId;
-
-
-
-
-
-
-
-
 
 
 /*
