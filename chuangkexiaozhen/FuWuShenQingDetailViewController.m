@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.fuwutype setTitle:(NSString*)[self.data objectForKey:@"serveCategory"] forState:UIControlStateNormal];
+    [self.fuwutype setTitle:(NSString*)[self.data objectNotNullForKey:@"serveCategory"] forState:UIControlStateNormal];
     self.navigationItem.title=@"申请详情";
-    [self.fuwucontent setText:(NSString*)[self.data objectForKey:@"content"]];
+    [self.fuwucontent setText:(NSString*)[self.data objectNotNullForKey:@"content"]];
     // Do any additional setup after loading the view.
 }
 

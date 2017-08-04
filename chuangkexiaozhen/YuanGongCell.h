@@ -10,4 +10,13 @@
 
 @interface YuanGongCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *name;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *mobile;
+
+@property (strong, nonatomic) IBOutlet UILabel *email;
+
+@property (strong, nonatomic) IBOutlet UILabel *date;
+
 @end
