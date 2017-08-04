@@ -11,7 +11,6 @@
 
 @interface YuanGongGuanLi : NSObject
 
-@property(nonatomic)int num;
 @property(nonatomic,assign)id <BussinessApiDelegate> delegate;
 
 

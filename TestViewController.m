@@ -21,6 +21,8 @@
     self.fuhuachengzguanli=[[FuHusChengZhangGuanLi alloc] init];
     self.yuangongguanli=[[YuanGongGuanLi alloc] init];
     self.yuanqufuwushenqing=[[YuanQuFuWuShenQing alloc] init];
+    _kaoqinguanli=[[KaoQinGuanLi alloc] init];
+    _huodong=[[HuoDong alloc] init];
     [super viewDidLoad];
 }
 
@@ -406,6 +408,27 @@
 
 
 
+- (IBAction)kaoqinquery:(id)sender {
+    [_kaoqinguanli KaoQinQuery];
+}
+
+
+
+- (IBAction)kaoqindetailquery:(id)sender {
+    [_kaoqinguanli KaoQinDetailQuery:@"58f9d2ea19eb8cbffbb87b23"];
+}
+
+
+
+- (IBAction)luyanquery:(id)sender {
+    [_huodong HuoDongLuYanQuery];
+}
+
+
+
+- (IBAction)luyanxiangqingquery:(id)sender {
+    [_huodong HuoDongLuYanDetailQuery:@"596b820b80ab5e6790d4f05a"];
+}
 
 
 

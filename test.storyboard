@@ -606,13 +606,45 @@
                                     <action selector="xiaoshouhetongsubmit:" destination="XUs-i0-RVq" eventType="touchUpInside" id="ZKa-NJ-Ppi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVn-wm-fqU">
+                                <rect key="frame" x="20" y="449" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="考勤查询"/>
+                                <connections>
+                                    <action selector="kaoqinquery:" destination="XUs-i0-RVq" eventType="touchUpInside" id="XSm-Bh-JZh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daA-85-lFU">
+                                <rect key="frame" x="20" y="487" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="考勤详情查询"/>
+                                <connections>
+                                    <action selector="kaoqindetailquery:" destination="XUs-i0-RVq" eventType="touchUpInside" id="6Hb-6C-pxy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLB-4e-T1D">
+                                <rect key="frame" x="164" y="456" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="路演查询"/>
+                                <connections>
+                                    <action selector="luyanquery:" destination="XUs-i0-RVq" eventType="touchUpInside" id="fEJ-UH-I0w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E9-b7-VZh">
+                                <rect key="frame" x="164" y="494" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="路演详情查询"/>
+                                <connections>
+                                    <action selector="luyanxiangqingquery:" destination="XUs-i0-RVq" eventType="touchUpInside" id="KGt-9P-PDu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHT-FV-KvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1796" y="2438"/>
+            <point key="canvasLocation" x="-1796.25" y="2436.9718309859154"/>
         </scene>
     </scenes>
 </document>

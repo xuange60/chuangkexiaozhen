@@ -19,6 +19,7 @@
 #import "DianZiHeTongViewController.h"
 #import "FuWuViewController.h"
 #import "keJiChuanXinGuanLiVC.h"
+#import "YuanGongViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -205,6 +206,9 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"员工列表"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"yuangongguanli" bundle:nil];
+        YuanGongViewController*vc=[board instantiateViewControllerWithIdentifier:@"YuanGongViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"考勤统计"]){
         NSLog(@"%@ 按钮被点击",data);

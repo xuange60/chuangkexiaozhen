@@ -108,6 +108,13 @@
 		FB219D781F2A4ACE0044F3AC /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FB219D771F2A4ACE0044F3AC /* right.png */; };
 		FB4BDE8B1F30BA8600290046 /* ImgeUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */; };
 		FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */; };
+		FB5186D01F34B85300C9705A /* yuangongguanli.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5186CF1F34B85300C9705A /* yuangongguanli.storyboard */; };
+		FB5186D31F34B92600C9705A /* YuanGongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186D21F34B92600C9705A /* YuanGongCell.m */; };
+		FB5186D61F34C3E300C9705A /* YuanGongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186D51F34C3E300C9705A /* YuanGongViewController.m */; };
+		FB5186D91F34C89200C9705A /* YuanGongAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186D81F34C89200C9705A /* YuanGongAddViewController.m */; };
+		FB5186DC1F34CE2A00C9705A /* YuanGongDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186DB1F34CE2A00C9705A /* YuanGongDetailViewController.m */; };
+		FB5186E01F34DD4300C9705A /* KaoQinGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186DF1F34DD4300C9705A /* KaoQinGuanLi.m */; };
+		FB5186E41F34E23500C9705A /* HuoDong.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186E31F34E23500C9705A /* HuoDong.m */; };
 		FB5F9DCA1F33569900EED720 /* FuWuShenQingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */; };
 		FB5F9DCD1F3361CE00EED720 /* FilelistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DCC1F3361CE00EED720 /* FilelistViewController.m */; };
 		FB5F9DD01F3361F800EED720 /* FilelistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F9DCF1F3361F800EED720 /* FilelistCell.m */; };
@@ -359,7 +366,6 @@
 		66B938D51F34679E006D73FB /* AddHeTongVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHeTongVC.m; sourceTree = "<group>"; };
 		66B938D71F347C39006D73FB /* AddNaShuiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNaShuiVC.h; sourceTree = "<group>"; };
 		66B938D81F347C39006D73FB /* AddNaShuiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNaShuiVC.m; sourceTree = "<group>"; };
-		66B938DA1F34BFCC006D73FB /* NSDictionary+NSDictionary_Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSDictionary_Extend.h"; sourceTree = "<group>"; };
 		66B938DB1F34BFCC006D73FB /* NSDictionary+NSDictionary_Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSDictionary_Extend.m"; sourceTree = "<group>"; };
 		66B938DD1F34E67D006D73FB /* AddZhanYouLuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddZhanYouLuVC.h; sourceTree = "<group>"; };
 		66B938DE1F34E67D006D73FB /* AddZhanYouLuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddZhanYouLuVC.m; sourceTree = "<group>"; };
@@ -421,6 +427,19 @@
 		FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgeUpViewController.m; sourceTree = "<group>"; };
 		FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuHusChengZhangGuanLi.h; sourceTree = "<group>"; };
 		FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuHusChengZhangGuanLi.m; sourceTree = "<group>"; };
+		FB5186CF1F34B85300C9705A /* yuangongguanli.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = yuangongguanli.storyboard; sourceTree = "<group>"; };
+		FB5186D11F34B92600C9705A /* YuanGongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongCell.h; sourceTree = "<group>"; };
+		FB5186D21F34B92600C9705A /* YuanGongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongCell.m; sourceTree = "<group>"; };
+		FB5186D41F34C3E300C9705A /* YuanGongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongViewController.h; sourceTree = "<group>"; };
+		FB5186D51F34C3E300C9705A /* YuanGongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongViewController.m; sourceTree = "<group>"; };
+		FB5186D71F34C89200C9705A /* YuanGongAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongAddViewController.h; sourceTree = "<group>"; };
+		FB5186D81F34C89200C9705A /* YuanGongAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongAddViewController.m; sourceTree = "<group>"; };
+		FB5186DA1F34CE2A00C9705A /* YuanGongDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongDetailViewController.h; sourceTree = "<group>"; };
+		FB5186DB1F34CE2A00C9705A /* YuanGongDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongDetailViewController.m; sourceTree = "<group>"; };
+		FB5186DE1F34DD4300C9705A /* KaoQinGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaoQinGuanLi.h; sourceTree = "<group>"; };
+		FB5186DF1F34DD4300C9705A /* KaoQinGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaoQinGuanLi.m; sourceTree = "<group>"; };
+		FB5186E21F34E23500C9705A /* HuoDong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuoDong.h; sourceTree = "<group>"; };
+		FB5186E31F34E23500C9705A /* HuoDong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuoDong.m; sourceTree = "<group>"; };
 		FB5F9DC81F33569900EED720 /* FuWuShenQingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuWuShenQingDetailViewController.h; sourceTree = "<group>"; };
 		FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuWuShenQingDetailViewController.m; sourceTree = "<group>"; };
 		FB5F9DCB1F3361CE00EED720 /* FilelistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilelistViewController.h; sourceTree = "<group>"; };
@@ -576,8 +595,8 @@
 		FBF557B91F28DC51005AB0F4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		FBF77B631F321890004F17C3 /* YuanQuFuWuShenQing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YuanQuFuWuShenQing.h; path = ../YuanQuFuWuShenQing.h; sourceTree = "<group>"; };
 		FBF77B641F321890004F17C3 /* YuanQuFuWuShenQing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YuanQuFuWuShenQing.m; path = ../YuanQuFuWuShenQing.m; sourceTree = "<group>"; };
-		FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanGongGuanLi.h; sourceTree = "<group>"; };
-		FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanGongGuanLi.m; sourceTree = "<group>"; };
+		FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YuanGongGuanLi.h; path = ../YuanGongGuanLi.h; sourceTree = "<group>"; };
+		FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YuanGongGuanLi.m; path = ../YuanGongGuanLi.m; sourceTree = "<group>"; };
 		FBF77B6A1F3228F3004F17C3 /* YuanQuFuWu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YuanQuFuWu.storyboard; sourceTree = "<group>"; };
 		FBF77B6C1F322A5A004F17C3 /* FuWuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuWuViewController.h; sourceTree = "<group>"; };
 		FBF77B6D1F322A5A004F17C3 /* FuWuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuWuViewController.m; sourceTree = "<group>"; };
@@ -625,6 +644,9 @@
 		66411FFD1F1DF6BB002C2F36 /* chuangkexiaozhen */ = {
 			isa = PBXGroup;
 			children = (
+				FB5186E11F34E18D00C9705A /* 活动路演管理 */,
+				FB5186DD1F34D4DC00C9705A /* 无感考勤管理 */,
+				FB5186CE1F34B53800C9705A /* 员工管理 */,
 				FBF77B691F322788004F17C3 /* 园区服务申请 */,
 				FB0540F31F2DDD5D00548161 /* 报道入驻 */,
 				66F7249F1F2E24A800773F66 /* 孵化成长 */,
@@ -908,6 +930,42 @@
 			name = files;
 			sourceTree = "<group>";
 		};
+		FB5186CE1F34B53800C9705A /* 员工管理 */ = {
+			isa = PBXGroup;
+			children = (
+				FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */,
+				FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */,
+				FB5186CF1F34B85300C9705A /* yuangongguanli.storyboard */,
+				FB5186D11F34B92600C9705A /* YuanGongCell.h */,
+				FB5186D21F34B92600C9705A /* YuanGongCell.m */,
+				FB5186D41F34C3E300C9705A /* YuanGongViewController.h */,
+				FB5186D51F34C3E300C9705A /* YuanGongViewController.m */,
+				FB5186D71F34C89200C9705A /* YuanGongAddViewController.h */,
+				FB5186D81F34C89200C9705A /* YuanGongAddViewController.m */,
+				FB5186DA1F34CE2A00C9705A /* YuanGongDetailViewController.h */,
+				FB5186DB1F34CE2A00C9705A /* YuanGongDetailViewController.m */,
+			);
+			name = "员工管理";
+			sourceTree = "<group>";
+		};
+		FB5186DD1F34D4DC00C9705A /* 无感考勤管理 */ = {
+			isa = PBXGroup;
+			children = (
+				FB5186DE1F34DD4300C9705A /* KaoQinGuanLi.h */,
+				FB5186DF1F34DD4300C9705A /* KaoQinGuanLi.m */,
+			);
+			name = "无感考勤管理";
+			sourceTree = "<group>";
+		};
+		FB5186E11F34E18D00C9705A /* 活动路演管理 */ = {
+			isa = PBXGroup;
+			children = (
+				FB5186E21F34E23500C9705A /* HuoDong.h */,
+				FB5186E31F34E23500C9705A /* HuoDong.m */,
+			);
+			name = "活动路演管理";
+			sourceTree = "<group>";
+		};
 		FBB182761F28716500550227 /* 初始申请 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1173,10 +1231,6 @@
 				FB0A29E51F2F7BDF003F4C4E /* NSArray+NSArray_Extend.m */,
 				FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */,
 				FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */,
-				FBF77B661F321DA9004F17C3 /* YuanGongGuanLi.h */,
-				FBF77B671F321DA9004F17C3 /* YuanGongGuanLi.m */,
-				66B938DA1F34BFCC006D73FB /* NSDictionary+NSDictionary_Extend.h */,
-				66B938DB1F34BFCC006D73FB /* NSDictionary+NSDictionary_Extend.m */,
 			);
 			name = bussiness;
 			sourceTree = "<group>";
@@ -1360,6 +1414,7 @@
 				FBB182F21F28A5BE00550227 /* 园区资源管理.png in Resources */,
 				FBB182E21F289DE600550227 /* defaultBtnImg.png in Resources */,
 				FBB182DD1F287EC300550227 /* MyView2.xib in Resources */,
+				FB5186D01F34B85300C9705A /* yuangongguanli.storyboard in Resources */,
 				66B6812F1F29CB3C00BB1CB9 /* XiaLaView.xib in Resources */,
 				664120091F1DF6BB002C2F36 /* Main.storyboard in Resources */,
 				FBB182961F2874FD00550227 /* 考勤逻辑.gif in Resources */,
@@ -1429,6 +1484,7 @@
 				664120031F1DF6BB002C2F36 /* AppDelegate.m in Sources */,
 				664E50A81F25C51500824063 /* ResetVC.m in Sources */,
 				FB8DEF2F1F2A09A900636704 /* ComboViewController.m in Sources */,
+				FB5186E01F34DD4300C9705A /* KaoQinGuanLi.m in Sources */,
 				FBF557BA1F28DC51005AB0F4 /* BaseViewController.m in Sources */,
 				FBF557991F28C30E005AB0F4 /* AFURLSessionManager.m in Sources */,
 				664E50731F227CA100824063 /* MyView.m in Sources */,
@@ -1436,6 +1492,7 @@
 				FB4BDE8B1F30BA8600290046 /* ImgeUpViewController.m in Sources */,
 				66A512551F309F6F00498E12 /* ActivePhotoVC.m in Sources */,
 				66A4D9071F33317700967C75 /* XiangMuGuanLiCell.m in Sources */,
+				FB5186DC1F34CE2A00C9705A /* YuanGongDetailViewController.m in Sources */,
 				FBF557AF1F28C332005AB0F4 /* TFHpple.m in Sources */,
 				FB0A29E01F2F759F003F4C4E /* NSMutableDictionary+NSMutableDictory_Extend.m in Sources */,
 				66B938C71F3423FB006D73FB /* NaShuiGuanLiVC.m in Sources */,
@@ -1453,6 +1510,7 @@
 				FB5F9DD01F3361F800EED720 /* FilelistCell.m in Sources */,
 				FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */,
 				FBF557A11F28C327005AB0F4 /* BussinessApi.m in Sources */,
+				FB5186D91F34C89200C9705A /* YuanGongAddViewController.m in Sources */,
 				FB0540F81F2DE24800548161 /* KaiTongZhuXianViewController.m in Sources */,
 				66CFA1971F2EE54C00E94CCA /* bisaiPhotoVC.m in Sources */,
 				FB0541041F2E42E700548161 /* ShenSuCell.m in Sources */,
@@ -1497,6 +1555,7 @@
 				66A4D9101F3331D700967C75 /* AddXiangMuVC.m in Sources */,
 				66F724A81F2E271000773F66 /* RiChangHuoYueVC.m in Sources */,
 				66F7CA581F2F85F6009F9F84 /* ChanXueYanGuanLiVC.m in Sources */,
+				FB5186D31F34B92600C9705A /* YuanGongCell.m in Sources */,
 				FBF557A31F28C327005AB0F4 /* JSONKit.m in Sources */,
 				66A4D9161F336ADB00967C75 /* JiangLiPhotoCell.m in Sources */,
 				66A4D90A1F33319500967C75 /* XiangMuPhotoVC.m in Sources */,
@@ -1507,6 +1566,7 @@
 				66B938D91F347C39006D73FB /* AddNaShuiVC.m in Sources */,
 				66A4D8FE1F3318D100967C75 /* ZhuanLiPhotoCell.m in Sources */,
 				FBF77B741F323729004F17C3 /* FuWuShenQingAddViewController.m in Sources */,
+				FB5186D61F34C3E300C9705A /* YuanGongViewController.m in Sources */,
 				66A4D8F21F32EF1F00967C75 /* ZhuanLiGuanLiVC.m in Sources */,
 				66CFA19A1F2EE94000E94CCA /* bisaiPhotoCell.m in Sources */,
 				66B938DF1F34E67D006D73FB /* AddZhanYouLuVC.m in Sources */,
