@@ -59,12 +59,16 @@
 {
     [super viewWillAppear:animated];
     
+    NSLog(@"%s",__func__);
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDHETONGSCUUESS" object:nil];
+    NSLog(@"%s",__func__);
 }
 
 -(void)receiveInfomation
 {
+    NSLog(@"%s",__func__);
     [_FuHua XiaoShouHeTongQuery];//查询数据
+    NSLog(@"%s",__func__);
 }
 
 #pragma mark

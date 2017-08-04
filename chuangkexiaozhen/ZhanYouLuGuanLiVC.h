@@ -7,7 +7,20 @@
 //
 
 #import "BaseViewController.h"
+#import "ZhanYouLuGuanLiCell.h"
+#import "AddZhanYouLuVC.h"
+#import "FilelistViewController.h"
+#import "FuHusChengZhangGuanLi.h"
+@interface ZhanYouLuGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,FuHusChengZhangGuanLiDelegate>
 
-@interface ZhanYouLuGuanLiVC : BaseViewController
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic,strong)BussinessApi*api;
+@property(nonatomic,strong)NSArray*ary;
+@property(nonatomic,strong)FuHusChengZhangGuanLi*FuHua;
+
+
+
+
 
 @end

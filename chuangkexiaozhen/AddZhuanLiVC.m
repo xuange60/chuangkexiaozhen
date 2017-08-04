@@ -123,6 +123,7 @@
 
 -(void)addData:(id)data
 {
+    NSLog(@"%s",__func__);
     NSNumber*num=data;
     int result=[num intValue];
     if (result==1)
@@ -130,6 +131,8 @@
         [self.navigationController popViewControllerAnimated:YES];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDZHUANLISCUUESS" object:nil];
     }
+    
+    NSLog(@"%s",__func__);
 }
 
 @end

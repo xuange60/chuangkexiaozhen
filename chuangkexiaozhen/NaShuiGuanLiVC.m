@@ -18,18 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+     _ary=[NSArray array];
     _FuHua=[[FuHusChengZhangGuanLi alloc]init];
     _FuHua.delegate=self;
     
     [_FuHua NaShuiGuanLiQuery];//查询数据
-    
-    _ary=[NSArray array];
     
     self.navigationItem.title=@"纳税管理";
     
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
     
     [self.navigationItem setRightBarButtonItem:RightBarItem];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDNASHUISCUUESS" object:nil];
 }
 
 //查询数据里面的委托代理
@@ -58,7 +58,7 @@
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDNASHUISCUUESS" object:nil];
+
 }
 
 -(void)receiveInfomation
@@ -96,11 +96,11 @@
     
     NSDictionary*dic= [_ary objectAtIndex:indexPath.row];
     
-    cell.gongSi.text=[dic objectForKey:@"tenantName"];
-    cell.shiJianFangshi.text=[dic objectForKey:@"dateType"];
-    cell.jinE.text=[dic objectForKey:@"taxPrice"];
-    cell.leiBie.text=[dic objectForKey:@"国税"];
-    cell.duiXiang.text=[dic objectForKey:@"taxTarget"];
+    cell.gongSi.text=[dic objectNotNullForKey:@"tenantName"];
+    cell.shiJianFangshi.text=[dic objectNotNullForKey:@"dateType"];
+    cell.jinE.text=[dic objectNotNullForKey:@"taxPrice"];
+    cell.leiBie.text=[dic objectNotNullForKey:@"taxType"];
+    cell.duiXiang.text=[dic objectNotNullForKey:@"taxTarget"];
     
     
     return cell;
@@ -116,7 +116,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"taxResourceIds"];
+    NSString*strID=[dic objectForKey:@"id"];
     
     
     [_FuHua NaShuiGuanLiDelete:strID];

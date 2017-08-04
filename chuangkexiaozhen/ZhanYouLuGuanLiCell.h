@@ -10,4 +10,14 @@
 
 @interface ZhanYouLuGuanLiCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *gongSi;
+
+@property (strong, nonatomic) IBOutlet UILabel *zhanYouLu;
+
+@property (strong, nonatomic) IBOutlet UILabel *shiChang;
+
+@property (strong, nonatomic) IBOutlet UILabel *jiGou;
+
+
+
 @end

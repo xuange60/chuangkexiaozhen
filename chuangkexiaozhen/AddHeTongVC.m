@@ -92,14 +92,14 @@
      社会效益 societyBenefit 100
 */
     
-    [dic setObject:_btn1Title.currentTitle forKey:@"partnerLevel"];
+    [dic setNotNullObject:_btn1Title.currentTitle forKey:@"partnerLevel"];
 
-    [dic setObject:_jinE.text forKey:@"partnerPrice"];
-    [dic setObject:_xiaoYi.text forKey:@"societyBenefit"];
+    [dic setNotNullObject:_jinE.text forKey:@"partnerPrice"];
+    [dic setNotNullObject:_xiaoYi.text forKey:@"societyBenefit"];
    
     [dic setNotNullObject:_btn2Title.currentTitle forKey:@"saleMoney"];
     [dic setNotNullObject:_btn3Title.currentTitle forKey:@"saleBenefit"];
-    [dic setObject:_photosIDS forKey:@"arrivalResourceIds"];
+    [dic setNotNullObject:_photosIDS forKey:@"arrivalResourceIds"];
     
     [_fuHua XiaoShouHeTongSubmit:dic];
     
@@ -108,9 +108,18 @@
 
 -(void)addData:(id)data
 {
+    NSLog(@"%s",__func__);
+    
+    NSNumber*num=(NSNumber*)data;
+    int result=[num intValue];
+    
+    if (result==1)
+    {
+
     [self.navigationController popViewControllerAnimated:YES];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDHETONGSUCCESS" object:nil];
-    
+    }
+    NSLog(@"%s",__func__);
 }
 
 @end

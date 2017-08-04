@@ -50,8 +50,8 @@
 - (IBAction)ShangChuan:(id)sender {
     
     ImgeUpViewController* imgup=[[ImgeUpViewController alloc] initView];
-    [imgup setNotifyName:@"FuWuShenQingAddViewControllerFileUp" AndTitle:@"文档上传"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"FuWuShenQingAddViewControllerFileUp" object:nil];
+    [imgup setNotifyName:@"ADDNASHUIVCFileUp" AndTitle:@"文档上传"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"ADDNASHUIVCFileUp" object:nil];
     [self.navigationController pushViewController:imgup animated:YES];
 }
 
@@ -69,7 +69,7 @@
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     /*
-     /*
+     
      7.8.2 纳税管理添加
      请求 post    http://116.228.176.34:9002/chuangke-serve/market/tax/save
      参数：
@@ -99,8 +99,15 @@
 
 -(void)addData:(id)data
 {
-    [self.navigationController popViewControllerAnimated:YES];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDNASHUISUCCESS" object:nil];
+   
+    NSNumber*num=(NSNumber*)data;
+    int result=[num intValue];
+    
+    if (result==1)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDNASHUISUCCESS" object:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 
