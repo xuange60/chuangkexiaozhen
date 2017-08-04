@@ -51,7 +51,7 @@
     
     UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
     ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
-    NSArray* array=[[NSArray alloc]initWithObjects:@"100万级别",@"1000万级别",@"10000万级别", @"100000万级别",nil];
+    NSArray* array=[[NSArray alloc]initWithObjects:@"100元级别",@"1000元级别",@"10000元级别", @"100000元级别",nil];
     [vc setDatas:array withBtn:sender];
     vc.navigationItem.title=@"合作社会效益级别";
     [self.navigationController pushViewController:vc animated:YES];
@@ -61,8 +61,8 @@
 - (IBAction)ShangChuan:(id)sender {
     
     ImgeUpViewController* imgup=[[ImgeUpViewController alloc] initView];
-    [imgup setNotifyName:@"FuWuShenQingAddViewControllerFileUp" AndTitle:@"文档上传"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"FuWuShenQingAddViewControllerFileUp" object:nil];
+    [imgup setNotifyName:@"ADDHETONGVCFileUp" AndTitle:@"文档上传"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"ADDHETONGVCFileUp" object:nil];
     [self.navigationController pushViewController:imgup animated:YES];
 }
 
@@ -93,20 +93,13 @@
 */
     
     [dic setObject:_btn1Title.currentTitle forKey:@"partnerLevel"];
-    
-    
-    int value1=[_jinE.text intValue];
-    NSNumber*jinE= [NSNumber numberWithInt:value1];
-    [dic setObject:jinE forKey:@"partnerPrice"];
-    
-    int value2=[_xiaoYi.text intValue];
-    NSNumber*xiaoyi= [NSNumber numberWithInt:value2];
-    [dic setObject:xiaoyi forKey:@"societyBenefit"];
-   
 
-//    [dic setNotNullObject:_btn2Title.currentTitle forKey:@"saleMoney"];
-//    [dic setNotNullObject:_btn3Title.currentTitle forKey:@"saleBenefit"];
-    [dic setObject:_photosIDS forKey:@"resourceIds"];
+    [dic setObject:_jinE.text forKey:@"partnerPrice"];
+    [dic setObject:_xiaoYi.text forKey:@"societyBenefit"];
+   
+    [dic setNotNullObject:_btn2Title.currentTitle forKey:@"saleMoney"];
+    [dic setNotNullObject:_btn3Title.currentTitle forKey:@"saleBenefit"];
+    [dic setObject:_photosIDS forKey:@"arrivalResourceIds"];
     
     [_fuHua XiaoShouHeTongSubmit:dic];
     

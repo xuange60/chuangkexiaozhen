@@ -30,8 +30,6 @@
 
 @end
 
-
-
 @interface FuHusChengZhangGuanLi : NSObject
 
 @property(nonatomic)int num;

@@ -18,13 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    _ary=[NSArray array];
     _FuHua=[[FuHusChengZhangGuanLi alloc]init];
     _FuHua.delegate=self;
     
     [_FuHua XiaoShouHeTongQuery];//查询数据
     
-    _ary=[NSArray array];
+
     
     self.navigationItem.title=@"销售合同管理";
     
@@ -99,13 +99,13 @@
     
     NSDictionary*dic= [_ary objectAtIndex:indexPath.row];
     
-     cell.gongSi.text=[dic objectForKey:@"tenantName"];
-     cell.name.text=[dic objectForKey:@"pactName"];
-     cell.level.text=[dic objectForKey:@"partnerLevel"];
+     cell.gongSi.text=[dic objectNotNullForKey:@"tenantName"];
+     cell.name.text=[dic objectNotNullForKey:@"pactName"];
+     cell.level.text=[dic objectNotNullForKey:@"partnerLevel"];
     
     
      NSNumber* price=[dic objectForKey:@"partnerPrice"];
-    cell.JinE.text=[NSString stringWithFormat:@"%@",price];
+     cell.JinE.text=[NSString stringWithFormat:@"%@",price];
      NSNumber*xiaoYi=[dic objectForKey:@"benefitPrice"];
      cell.XiaoYi.text=[NSString stringWithFormat:@"%@",xiaoYi];
     
