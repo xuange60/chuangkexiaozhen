@@ -21,6 +21,7 @@
 #import "keJiChuanXinGuanLiVC.h"
 #import "YuanGongViewController.h"
 #import "GenZongViewController.h"
+#import "PaiHangBangViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -234,14 +235,34 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"综合能力排行"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"paihangbang" bundle:nil];
+        PaiHangBangViewController*vc=[board instantiateViewControllerWithIdentifier:@"PaiHangBangViewController"];
+        vc.paihangbangtype=@"ZongHeNengLi";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"日活跃度排行"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"paihangbang" bundle:nil];
+        PaiHangBangViewController*vc=[board instantiateViewControllerWithIdentifier:@"PaiHangBangViewController"];
+        vc.paihangbangtype=@"RiHuoYue";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"科技创新能力排行"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"paihangbang" bundle:nil];
+        PaiHangBangViewController*vc=[board instantiateViewControllerWithIdentifier:@"PaiHangBangViewController"];
+        vc.paihangbangtype=@"KeJiChuangXin";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"市场业务能力排行"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"paihangbang" bundle:nil];
+        PaiHangBangViewController*vc=[board instantiateViewControllerWithIdentifier:@"PaiHangBangViewController"];
+        vc.paihangbangtype=@"ShiChangPaiHang";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"行政运营能力排行"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"paihangbang" bundle:nil];
+        PaiHangBangViewController*vc=[board instantiateViewControllerWithIdentifier:@"PaiHangBangViewController"];
+        vc.paihangbangtype=@"XingZhengYunYing";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"答辩管理"]){
         NSLog(@"%@ 按钮被点击",data);

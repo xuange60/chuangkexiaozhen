@@ -1,18 +1,18 @@
 //
-//  ZongHeNengLiViewController.m
+//  PingFenDetailViewController.m
 //  chuangkexiaozhen
 //
-//  Created by zx on 2017/8/5.
+//  Created by zx on 2017/8/6.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import "PaiHangBangViewController.h"
+#import "PingFenDetailViewController.h"
 
-@interface PaiHangBangViewController ()
+@interface PingFenDetailViewController ()
 
 @end
 
-@implementation PaiHangBangViewController
+@implementation PingFenDetailViewController
 
 - (void)viewDidLoad {
     self.datas=[NSArray array];
@@ -21,22 +21,20 @@
     [super viewDidLoad];
     
     //modify
+    self.navigationItem.title=@"评分详情";
     if([self.paihangbangtype isEqualToString:@"ZongHeNengLi"]){
-        self.navigationItem.title=@"综合能力排行";
+        self.navigationItem.title=@"评分详情";
     }else if([self.paihangbangtype isEqualToString:@"RiHuoYue"]){
-        self.navigationItem.title=@"日活跃排行";
+        self.navigationItem.title=@"评分详情";
     }else if([self.paihangbangtype isEqualToString:@"KeJiChuangXin"]){
-        self.navigationItem.title=@"科技创新能力排行";
+        self.navigationItem.title=@"评分详情";
     }else if([self.paihangbangtype isEqualToString:@"ShiChangPaiHang"]){
-        self.navigationItem.title=@"市场业务能力排行";
+        self.navigationItem.title=@"评分详情";
     }else if([self.paihangbangtype isEqualToString:@"XingZhengYunYing"]){
-        self.navigationItem.title=@"行政运营能力排行";
-    }else{
-        self.paihangbangtype=@"ZongHeNengLi";
-        self.navigationItem.title=@"综合能力排行";
+        self.navigationItem.title=@"评分详情";
     }
     
-
+    
     
     self.paihangbang=[[PaiHangBang alloc] init];
     self.paihangbang.delegate=self;
@@ -55,21 +53,18 @@
 -(void)query
 {
     if([self.paihangbangtype isEqualToString:@"ZongHeNengLi"]){
-        [self.paihangbang ZongHeNengLiQuery];
+        [self.paihangbang ZongHeNengLiDetailQuery:_ids];
     }else if([self.paihangbangtype isEqualToString:@"RiHuoYue"]){
-        [_paihangbang RiHuoYueQuery];
+        [_paihangbang RiHuoYueDelatiQuery:_ids];
     }else if([self.paihangbangtype isEqualToString:@"KeJiChuangXin"]){
-        [_paihangbang KeJiChuangXinQuery];
+        [_paihangbang KeJiChuangXinDetailQuery:_ids];
     }else if([self.paihangbangtype isEqualToString:@"ShiChangPaiHang"]){
-        [_paihangbang ShiChangPaiHangQuery];
+        [_paihangbang ShiChangPaiHangDetailQuery:_ids];
     }else if([self.paihangbangtype isEqualToString:@"XingZhengYunYing"]){
-        [_paihangbang XingZhengYunYingQuery];
-    }else{
-        self.paihangbangtype=@"ZongHeNengLi";
-        [_paihangbang ZongHeNengLiQuery];
+        [_paihangbang XingZhengYunYingDetailQuery:_ids];
     }
     
-
+    
 }
 
 
@@ -95,47 +90,31 @@
 //modify 加载单元格数据时使用 注意设置单元格的Identifier
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* str1=@"PaiHangBangCell";
+    static NSString* str1=@"PingFenDetailCell";
     
-    PaiHangBangCell* cell=[tableView dequeueReusableCellWithIdentifier:str1];
+    PingFenDetailCell* cell=[tableView dequeueReusableCellWithIdentifier:str1];
     if(!cell){
-        cell=[[PaiHangBangCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str1];
+        cell=[[PingFenDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str1];
     }
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
     cell.name.text=[dic objectNotNullForKey:@"name"];
     cell.score.text=[dic objectNotNullForKey:@"score"];
-    cell.descriptions.text=[dic objectNotNullForKey:@"description"];
-
+    cell.materialType.text=[dic objectNotNullForKey:@"materialType"];
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }
 
 
+/*
+#pragma mark - Navigation
 
-- (IBAction)PingFenDetail:(id)sender forEvent:(UIEvent *)event {
-    NSSet*touches= [event allTouches];
-    
-    UITouch*touch=[touches anyObject];
-    
-    CGPoint point=[touch locationInView:_tableview];
-    
-    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
-    
-    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
-    
-    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"paihangbang" bundle:nil];
-    PingFenDetailViewController* detail=[storyboard instantiateViewControllerWithIdentifier:@"PingFenDetailViewController"];
-    
-    NSString* ids=[dic objectNotNullForKey:@"id"];
-    detail.ids=ids;
-    detail.paihangbangtype=_paihangbangtype;
-    
-    
-    [self.navigationController pushViewController:detail animated:YES];
-    NSLog(@"%@",@"detail");
-    
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
+*/
 
 @end
