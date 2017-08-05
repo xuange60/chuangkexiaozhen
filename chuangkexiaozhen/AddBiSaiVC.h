@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "ImgeUpViewController.h"
 @interface AddBiSaiVC : BaseViewController<UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *bisaiName;

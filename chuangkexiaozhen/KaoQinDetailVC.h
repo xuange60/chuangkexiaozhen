@@ -7,9 +7,14 @@
 //
 
 #import "BaseViewController.h"
-
-@interface KaoQinDetailVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+#import "KaoQinGuanLi.h"
+#import "BussinessApi.h"
+@interface KaoQinDetailVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic,strong)NSArray*array;
+
+-(void)receiveArray:(NSArray*)array;
+
 
 
 @end
