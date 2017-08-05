@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.genzongfuwu=[[GenZongFuWu alloc] init];
     self.genzongfuwu.delegate=self;
+    self.navigationItem.title=@"反馈意见";
     // Do any additional setup after loading the view.
 }
 
@@ -27,10 +28,10 @@
 }
 
 - (IBAction)submit:(id)sender {
-    /*
-    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:self.fuwucontent.text,@"content",self.resourids,@"resourceIds",self.fuwutype.currentTitle,@"serveCategory", nil];
-    [self.yuanqufuwushenqing YuanQuFuWuSubmit:param];
-     */
+
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:self.content.text,@"content",self.genzongtitle.text,@"title", nil];
+    [self.genzongfuwu GenZongFuWuSubmit:param];
+
 }
 
 //modify
@@ -39,15 +40,15 @@
     NSNumber* num=(NSNumber*)data;
     int result=[num intValue];
     if(1==result){
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"服务申请已提交" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"反馈意见已提交" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self.navigationController popViewControllerAnimated:YES];
         }];
         [alertCon addAction:action2];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"FuWuViewController" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"GenZongViewController" object:nil];
         [self presentViewController:alertCon animated:YES completion:nil];
     }else{
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"服务申请提交失败" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"反馈意见提交失败" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
         [alertCon addAction:action2];
         [self presentViewController:alertCon animated:YES completion:nil];

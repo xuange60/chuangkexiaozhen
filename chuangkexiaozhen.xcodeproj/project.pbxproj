@@ -243,6 +243,9 @@
 		FBDAA69B1F360D1700E28CF0 /* GenZongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA69A1F360D1700E28CF0 /* GenZongViewController.m */; };
 		FBDAA69C1F36114600E28CF0 /* KaoQinGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB84491F35B479008B6B15 /* KaoQinGuanLiCell.m */; };
 		FBDAA69F1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA69E1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m */; };
+		FBDAA6A11F3616F000E28CF0 /* paihangbang.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDAA6A01F3616F000E28CF0 /* paihangbang.storyboard */; };
+		FBDAA6A41F36185600E28CF0 /* PaiHangBangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6A31F36185600E28CF0 /* PaiHangBangViewController.m */; };
+		FBDAA6A71F36187100E28CF0 /* PaiHangBangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6A61F36187100E28CF0 /* PaiHangBangCell.m */; };
 		FBF557941F28C30E005AB0F4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */; };
 		FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578B1F28C30E005AB0F4 /* AFNetworkReachabilityManager.m */; };
 		FBF557961F28C30E005AB0F4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578D1F28C30E005AB0F4 /* AFSecurityPolicy.m */; };
@@ -601,6 +604,11 @@
 		FBDAA69A1F360D1700E28CF0 /* GenZongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenZongViewController.m; sourceTree = "<group>"; };
 		FBDAA69D1F3612ED00E28CF0 /* GenZongFuWuAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenZongFuWuAddViewController.h; sourceTree = "<group>"; };
 		FBDAA69E1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenZongFuWuAddViewController.m; sourceTree = "<group>"; };
+		FBDAA6A01F3616F000E28CF0 /* paihangbang.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = paihangbang.storyboard; sourceTree = "<group>"; };
+		FBDAA6A21F36185600E28CF0 /* PaiHangBangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiHangBangViewController.h; sourceTree = "<group>"; };
+		FBDAA6A31F36185600E28CF0 /* PaiHangBangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaiHangBangViewController.m; sourceTree = "<group>"; };
+		FBDAA6A51F36187100E28CF0 /* PaiHangBangCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiHangBangCell.h; sourceTree = "<group>"; };
+		FBDAA6A61F36187100E28CF0 /* PaiHangBangCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaiHangBangCell.m; sourceTree = "<group>"; };
 		FBF557871F28C30E005AB0F4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FBF557891F28C30E005AB0F4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1237,6 +1245,11 @@
 			children = (
 				FBC9821B1F358BBF00CFDE01 /* PaiHangBang.h */,
 				FBC9821C1F358BBF00CFDE01 /* PaiHangBang.m */,
+				FBDAA6A01F3616F000E28CF0 /* paihangbang.storyboard */,
+				FBDAA6A21F36185600E28CF0 /* PaiHangBangViewController.h */,
+				FBDAA6A31F36185600E28CF0 /* PaiHangBangViewController.m */,
+				FBDAA6A51F36187100E28CF0 /* PaiHangBangCell.h */,
+				FBDAA6A61F36187100E28CF0 /* PaiHangBangCell.m */,
 			);
 			name = "双创KPI排行榜";
 			sourceTree = "<group>";
@@ -1441,6 +1454,7 @@
 				FBB1830C1F28AF4C00550227 /* 团队运营成熟度考核.gif in Resources */,
 				FBD7A82C1F27B21B00B9251D /* file_@3x.png in Resources */,
 				FBB183041F28AE0100550227 /* 我的配置资源.gif in Resources */,
+				FBDAA6A11F3616F000E28CF0 /* paihangbang.storyboard in Resources */,
 				FBF77B6B1F3228F3004F17C3 /* YuanQuFuWu.storyboard in Resources */,
 				FBB182A81F28762C00550227 /* 跟踪服务管理.gif in Resources */,
 				FBB182C91F287A5600550227 /* 待完成.gif in Resources */,
@@ -1595,6 +1609,7 @@
 				66A512521F309F4C00498E12 /* ActivePhotoCell.m in Sources */,
 				FBF77B651F321890004F17C3 /* YuanQuFuWuShenQing.m in Sources */,
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
+				FBDAA6A41F36185600E28CF0 /* PaiHangBangViewController.m in Sources */,
 				66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */,
 				66B938D31F3425D4006D73FB /* ZhanYouLuGuanLiCell.m in Sources */,
 				66AB84471F35B44E008B6B15 /* KaoQinGuanLiVC.m in Sources */,
@@ -1609,6 +1624,7 @@
 				66A4D9191F336AF800967C75 /* JiangLiPhotoVC.m in Sources */,
 				FB913A2E1F2CF9A6003AA5E1 /* ComBoRowsViewController.m in Sources */,
 				66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */,
+				FBDAA6A71F36187100E28CF0 /* PaiHangBangCell.m in Sources */,
 				66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */,
 				FBC982191F35889900CFDE01 /* GenZongFuWu.m in Sources */,
 				66A4D9011F3318EB00967C75 /* ZhuanLiPhotoVC.m in Sources */,

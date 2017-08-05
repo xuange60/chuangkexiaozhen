@@ -59,6 +59,9 @@
 
 -(void)add
 {
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"tuichu" bundle:nil];
+    GenZongFuWuAddViewController* add=[storyboard instantiateViewControllerWithIdentifier:@"GenZongFuWuAddViewController"];
+    [self.navigationController pushViewController:add animated:YES];
     NSLog(@"%@",@"add");
 }
 
