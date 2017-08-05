@@ -58,7 +58,6 @@
 		66A512581F309F8C00498E12 /* AddActiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A512571F309F8C00498E12 /* AddActiveVC.m */; };
 		66AB84441F35B3F1008B6B15 /* KaoQinGuanLi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AB84431F35B3F1008B6B15 /* KaoQinGuanLi.storyboard */; };
 		66AB84471F35B44E008B6B15 /* KaoQinGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB84461F35B44E008B6B15 /* KaoQinGuanLiVC.m */; };
-		66AB844A1F35B479008B6B15 /* KaoQinGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB84491F35B479008B6B15 /* KaoQinGuanLiCell.m */; };
 		66AB844C1F35C0BE008B6B15 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AB844B1F35C0BE008B6B15 /* calendar.png */; };
 		66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B681231F29830100BB1CB9 /* WenDangVC.m */; };
 		66B6812A1F29BC4000BB1CB9 /* 下拉按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B681291F29BC4000BB1CB9 /* 下拉按钮.png */; };
@@ -242,6 +241,8 @@
 		FBDAA68F1F36082200E28CF0 /* tuichu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDAA68E1F36082200E28CF0 /* tuichu.storyboard */; };
 		FBDAA6951F360AD100E28CF0 /* GenZongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6941F360AD100E28CF0 /* GenZongCell.m */; };
 		FBDAA69B1F360D1700E28CF0 /* GenZongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA69A1F360D1700E28CF0 /* GenZongViewController.m */; };
+		FBDAA69C1F36114600E28CF0 /* KaoQinGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB84491F35B479008B6B15 /* KaoQinGuanLiCell.m */; };
+		FBDAA69F1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA69E1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m */; };
 		FBF557941F28C30E005AB0F4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */; };
 		FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578B1F28C30E005AB0F4 /* AFNetworkReachabilityManager.m */; };
 		FBF557961F28C30E005AB0F4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578D1F28C30E005AB0F4 /* AFSecurityPolicy.m */; };
@@ -598,6 +599,8 @@
 		FBDAA6941F360AD100E28CF0 /* GenZongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenZongCell.m; sourceTree = "<group>"; };
 		FBDAA6991F360D1700E28CF0 /* GenZongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenZongViewController.h; sourceTree = "<group>"; };
 		FBDAA69A1F360D1700E28CF0 /* GenZongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenZongViewController.m; sourceTree = "<group>"; };
+		FBDAA69D1F3612ED00E28CF0 /* GenZongFuWuAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenZongFuWuAddViewController.h; sourceTree = "<group>"; };
+		FBDAA69E1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenZongFuWuAddViewController.m; sourceTree = "<group>"; };
 		FBF557871F28C30E005AB0F4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FBF557891F28C30E005AB0F4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1223,6 +1226,8 @@
 				FBDAA68E1F36082200E28CF0 /* tuichu.storyboard */,
 				FBDAA6931F360AD100E28CF0 /* GenZongCell.h */,
 				FBDAA6941F360AD100E28CF0 /* GenZongCell.m */,
+				FBDAA69D1F3612ED00E28CF0 /* GenZongFuWuAddViewController.h */,
+				FBDAA69E1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m */,
 			);
 			name = "退出机制";
 			sourceTree = "<group>";
@@ -1554,6 +1559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDAA69C1F36114600E28CF0 /* KaoQinGuanLiCell.m in Sources */,
 				66CC4C711F358C86008A08FD /* HuoDong.m in Sources */,
 				FB0541011F2E40B500548161 /* ShenSuViewController.m in Sources */,
 				66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */,
@@ -1655,6 +1661,7 @@
 				66F7CA531F2F2539009F9F84 /* AddBiSaiVC.m in Sources */,
 				66B938DC1F34BFCC006D73FB /* NSDictionary+NSDictionary_Extend.m in Sources */,
 				66B938D91F347C39006D73FB /* AddNaShuiVC.m in Sources */,
+				FBDAA69F1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m in Sources */,
 				66A4D8FE1F3318D100967C75 /* ZhuanLiPhotoCell.m in Sources */,
 				FBDAA6951F360AD100E28CF0 /* GenZongCell.m in Sources */,
 				FBF77B741F323729004F17C3 /* FuWuShenQingAddViewController.m in Sources */,

@@ -90,7 +90,26 @@
 }
 
 
+- (IBAction)delete:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    
+    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    
+    [self.genzongfuwu GenZongFuWuDelete:ids];
+}
 
+-(void)deleteData:(id)data
+{
+    [self query];
+}
 
 
 
