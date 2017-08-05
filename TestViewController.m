@@ -23,6 +23,8 @@
     self.yuanqufuwushenqing=[[YuanQuFuWuShenQing alloc] init];
     _kaoqinguanli=[[KaoQinGuanLi alloc] init];
     _huodong=[[HuoDong alloc] init];
+    _genzongfuwu=[[GenZongFuWu alloc] init];
+    _paihangbang=[[PaiHangBang alloc] init];
     [super viewDidLoad];
 }
 
@@ -429,6 +431,86 @@
 - (IBAction)luyanxiangqingquery:(id)sender {
     [_huodong HuoDongLuYanDetailQuery:@"596b820b80ab5e6790d4f05a"];
 }
+
+
+
+
+- (IBAction)genzongfuwuquery:(id)sender {
+    [_genzongfuwu GenZongFuWuQuery];
+}
+
+
+
+- (IBAction)genzongfuwusubmit:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"xxxxx",@"content",@"反馈意见",@"title", nil];
+    [_genzongfuwu GenZongFuWuSubmit:param];
+    
+}
+
+
+
+- (IBAction)genzongfuwudelete:(id)sender {
+    [_genzongfuwu GenZongFuWuDelete:@"59853bb080ab5e6790d5491d"];
+}
+
+
+- (IBAction)zonghenenglipaihang:(id)sender {
+    [_paihangbang ZongHeNengLiQuery];
+}
+
+
+- (IBAction)zonghenengliscore:(id)sender {
+    [_paihangbang ZongHeNengLiDetailQuery:@"58e5eab219eb64c4e63875f1"];
+}
+
+
+- (IBAction)rihuoyuedupaihang:(id)sender {
+    [_paihangbang RiHuoYueQuery];
+}
+
+
+
+- (IBAction)rihuoyueduscore:(id)sender {
+    [_paihangbang RiHuoYueDelatiQuery:@"58e5eab219eb64c4e63875f1"];
+}
+
+
+
+- (IBAction)kejichuangxinpaihang:(id)sender {
+    [_paihangbang KeJiChuangXinQuery];
+}
+
+
+
+- (IBAction)kejichuangxinscore:(id)sender {
+    [_paihangbang KeJiChuangXinDetailQuery:@"58e5eab219eb64c4e63875f1"];
+}
+
+
+
+
+- (IBAction)shichangyewupaihang:(id)sender {
+    [_paihangbang ShiChangPaiHangQuery];
+}
+
+
+
+- (IBAction)shicahngyewuscore:(id)sender {
+    [_paihangbang ShiChangPaiHangDetailQuery:@"58e5eab219eb64c4e63875f1"];
+}
+
+
+
+- (IBAction)xingzhengyunyingpaihang:(id)sender {
+    [_paihangbang XingZhengYunYingQuery];
+}
+
+
+
+- (IBAction)xingzhengyunyingscore:(id)sender {
+    [_paihangbang XingZhengYunYingDetailQuery:@"58e5eab219eb64c4e63875f1"];
+}
+
 
 
 
