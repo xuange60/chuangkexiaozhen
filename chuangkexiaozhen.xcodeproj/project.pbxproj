@@ -207,6 +207,9 @@
 		FBB1831E1F28BB5100550227 /* 任务通告.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBB1831D1F28BB5100550227 /* 任务通告.gif */; };
 		FBB183201F28BB9B00550227 /* 园区任务通告.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB1831F1F28BB9B00550227 /* 园区任务通告.png */; };
 		FBB183221F28BC0400550227 /* 活动报销管理.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBB183211F28BC0400550227 /* 活动报销管理.gif */; };
+		FBC982151F35650800CFDE01 /* HuoDong.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5186E31F34E23500C9705A /* HuoDong.m */; };
+		FBC982191F35889900CFDE01 /* GenZongFuWu.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC982181F35889900CFDE01 /* GenZongFuWu.m */; };
+		FBC9821D1F358BBF00CFDE01 /* PaiHangBang.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC9821C1F358BBF00CFDE01 /* PaiHangBang.m */; };
 		FBD7A7B51F27807700B9251D /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBD7A7B41F27807700B9251D /* background.jpg */; };
 		FBD7A7B71F278B8500B9251D /* left_02.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD7A7B61F278B8500B9251D /* left_02.png */; };
 		FBD7A7B91F278B8C00B9251D /* right_02.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD7A7B81F278B8C00B9251D /* right_02.png */; };
@@ -548,6 +551,10 @@
 		FBB1831D1F28BB5100550227 /* 任务通告.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "任务通告.gif"; sourceTree = "<group>"; };
 		FBB1831F1F28BB9B00550227 /* 园区任务通告.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "园区任务通告.png"; sourceTree = "<group>"; };
 		FBB183211F28BC0400550227 /* 活动报销管理.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "活动报销管理.gif"; sourceTree = "<group>"; };
+		FBC982171F35889900CFDE01 /* GenZongFuWu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenZongFuWu.h; sourceTree = "<group>"; };
+		FBC982181F35889900CFDE01 /* GenZongFuWu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenZongFuWu.m; sourceTree = "<group>"; };
+		FBC9821B1F358BBF00CFDE01 /* PaiHangBang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiHangBang.h; sourceTree = "<group>"; };
+		FBC9821C1F358BBF00CFDE01 /* PaiHangBang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaiHangBang.m; sourceTree = "<group>"; };
 		FBD7A7B41F27807700B9251D /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		FBD7A7B61F278B8500B9251D /* left_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_02.png; sourceTree = "<group>"; };
 		FBD7A7B81F278B8C00B9251D /* right_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_02.png; sourceTree = "<group>"; };
@@ -658,6 +665,8 @@
 		66411FFD1F1DF6BB002C2F36 /* chuangkexiaozhen */ = {
 			isa = PBXGroup;
 			children = (
+				FBC9821A1F358B9C00CFDE01 /* 双创KPI排行榜 */,
+				FBC982161F35887900CFDE01 /* 退出机制 */,
 				FB5186E11F34E18D00C9705A /* 活动路演管理 */,
 				FB5186DD1F34D4DC00C9705A /* 无感考勤管理 */,
 				FB5186CE1F34B53800C9705A /* 员工管理 */,
@@ -1181,6 +1190,24 @@
 			name = "园区任务通告";
 			sourceTree = "<group>";
 		};
+		FBC982161F35887900CFDE01 /* 退出机制 */ = {
+			isa = PBXGroup;
+			children = (
+				FBC982171F35889900CFDE01 /* GenZongFuWu.h */,
+				FBC982181F35889900CFDE01 /* GenZongFuWu.m */,
+			);
+			name = "退出机制";
+			sourceTree = "<group>";
+		};
+		FBC9821A1F358B9C00CFDE01 /* 双创KPI排行榜 */ = {
+			isa = PBXGroup;
+			children = (
+				FBC9821B1F358BBF00CFDE01 /* PaiHangBang.h */,
+				FBC9821C1F358BBF00CFDE01 /* PaiHangBang.m */,
+			);
+			name = "双创KPI排行榜";
+			sourceTree = "<group>";
+		};
 		FBD7A7A21F26FB2800B9251D /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1504,6 +1531,7 @@
 				66170E6C1F2E4AD9007C3C76 /* BiSaiCell.m in Sources */,
 				66A4D91C1F336B0F00967C75 /* AddJiangLiVC.m in Sources */,
 				FBF77B711F322B60004F17C3 /* FuWuShenQingCell.m in Sources */,
+				FBC9821D1F358BBF00CFDE01 /* PaiHangBang.m in Sources */,
 				66B938CA1F342425006D73FB /* ZhanYouLuGuanLiVC.m in Sources */,
 				66B938C11F3423C8006D73FB /* ShiChangXiaoShouVC.m in Sources */,
 				664120031F1DF6BB002C2F36 /* AppDelegate.m in Sources */,
@@ -1544,6 +1572,7 @@
 				FB913A2E1F2CF9A6003AA5E1 /* ComBoRowsViewController.m in Sources */,
 				66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */,
 				66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */,
+				FBC982191F35889900CFDE01 /* GenZongFuWu.m in Sources */,
 				66A4D9011F3318EB00967C75 /* ZhuanLiPhotoVC.m in Sources */,
 				FBF557B71F28CA92005AB0F4 /* MainViewController.m in Sources */,
 				66B938C41F3423E5006D73FB /* HeTongGuanLiVC.m in Sources */,
