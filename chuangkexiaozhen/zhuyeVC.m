@@ -216,6 +216,11 @@
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"考勤统计"]){
         NSLog(@"%@ 按钮被点击",data);
+        
+        
+        
+        
+        
     }else if([data isEqualToString:@"路演发布管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"主动性退出管理"]){
