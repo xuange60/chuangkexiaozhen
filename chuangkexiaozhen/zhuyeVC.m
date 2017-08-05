@@ -20,6 +20,7 @@
 #import "FuWuViewController.h"
 #import "keJiChuanXinGuanLiVC.h"
 #import "YuanGongViewController.h"
+#import "GenZongViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -228,6 +229,9 @@
     }else if([data isEqualToString:@"被动性退出管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"跟踪服务管理"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"tuichu" bundle:nil];
+        GenZongViewController*vc=[board instantiateViewControllerWithIdentifier:@"GenZongViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"综合能力排行"]){
         NSLog(@"%@ 按钮被点击",data);

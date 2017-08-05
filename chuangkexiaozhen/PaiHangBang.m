@@ -58,29 +58,63 @@
  */
 -(void)ZongHeNengLiDetailQuery:(NSString*)ids
 {
+
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=colligateAbility&tenantId=",ids];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/tenantscore/detail"];
+    NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"colligateAbility",@"lable", nil];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSArray* result=[jsondata objectForKey:@"obj"];
-            NSLog(@"%@",result);
-            //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
-                [self.delegate  loadNetworkFinished :result];
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
+            NSString* tenantId=nil;
+            for (TFHppleElement *ele in arrays) {
+                NSString * idstr=[ele objectForKey:@"name"];
+                if([idstr isEqualToString:@"tenantId"]){
+                    tenantId=[ele objectForKey:@"value"];
+                    break;
+                }
             }
+            //获取tenantId后，发送网络请求
+            if(tenantId!=nil){
+                
+                NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=colligateAbility&tenantId=",tenantId];
+                
+                [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+                    NSString* contenttype=[headers objectForKey:@"Content-Type"];
+                    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@",data);
+                    if([contenttype containsString:@"json"]){//返回json格式数据
+                        NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+                        NSArray* result=[jsondata objectForKey:@"obj"];
+                        NSLog(@"%@",result);
+                        //result: 保存查询到的结果
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                            [self.delegate  loadNetworkFinished :result];
+                        }
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"%@",error);
+                }];
+            }
+            
+            
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+    
+
 }
 
 
@@ -134,21 +168,52 @@
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=dayAbility&tenantId=",ids];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/tenantscore/detail"];
+    NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"dayAbility",@"lable", nil];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSArray* result=[jsondata objectForKey:@"obj"];
-            NSLog(@"%@",result);
-            //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
-                [self.delegate  loadNetworkFinished :result];
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
+            NSString* tenantId=nil;
+            for (TFHppleElement *ele in arrays) {
+                NSString * idstr=[ele objectForKey:@"name"];
+                if([idstr isEqualToString:@"tenantId"]){
+                    tenantId=[ele objectForKey:@"value"];
+                    break;
+                }
             }
+            //获取tenantId后，发送网络请求
+            if(tenantId!=nil){
+                
+                NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=dayAbility&tenantId=",tenantId];
+                
+                [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+                    NSString* contenttype=[headers objectForKey:@"Content-Type"];
+                    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@",data);
+                    if([contenttype containsString:@"json"]){//返回json格式数据
+                        NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+                        NSArray* result=[jsondata objectForKey:@"obj"];
+                        NSLog(@"%@",result);
+                        //result: 保存查询到的结果
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                            [self.delegate  loadNetworkFinished :result];
+                        }
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"%@",error);
+                }];
+            }
+            
+            
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -204,26 +269,59 @@
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=scienceAbility&tenantId=",ids];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/tenantscore/detail"];
+    NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"scienceAbility",@"lable", nil];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSArray* result=[jsondata objectForKey:@"obj"];
-            NSLog(@"%@",result);
-            //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
-                [self.delegate  loadNetworkFinished :result];
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
+            NSString* tenantId=nil;
+            for (TFHppleElement *ele in arrays) {
+                NSString * idstr=[ele objectForKey:@"name"];
+                if([idstr isEqualToString:@"tenantId"]){
+                    tenantId=[ele objectForKey:@"value"];
+                    break;
+                }
             }
+            //获取tenantId后，发送网络请求
+            if(tenantId!=nil){
+                
+                NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=scienceAbility&tenantId=",tenantId];
+                
+                [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+                    NSString* contenttype=[headers objectForKey:@"Content-Type"];
+                    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@",data);
+                    if([contenttype containsString:@"json"]){//返回json格式数据
+                        NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+                        NSArray* result=[jsondata objectForKey:@"obj"];
+                        NSLog(@"%@",result);
+                        //result: 保存查询到的结果
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                            [self.delegate  loadNetworkFinished :result];
+                        }
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"%@",error);
+                }];
+                
+            }
+            
+            
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+
 }
 
 /*
@@ -273,21 +371,52 @@
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=marketAbility&tenantId=",ids];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/tenantscore/detail"];
+    NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"marketAbility",@"lable", nil];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSArray* result=[jsondata objectForKey:@"obj"];
-            NSLog(@"%@",result);
-            //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
-                [self.delegate  loadNetworkFinished :result];
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
+            NSString* tenantId=nil;
+            for (TFHppleElement *ele in arrays) {
+                NSString * idstr=[ele objectForKey:@"name"];
+                if([idstr isEqualToString:@"tenantId"]){
+                    tenantId=[ele objectForKey:@"value"];
+                    break;
+                }
             }
+            //获取tenantId后，发送网络请求
+            if(tenantId!=nil){
+                
+                NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=marketAbility&tenantId=",tenantId];
+                
+                [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+                    NSString* contenttype=[headers objectForKey:@"Content-Type"];
+                    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@",data);
+                    if([contenttype containsString:@"json"]){//返回json格式数据
+                        NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+                        NSArray* result=[jsondata objectForKey:@"obj"];
+                        NSLog(@"%@",result);
+                        //result: 保存查询到的结果
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                            [self.delegate  loadNetworkFinished :result];
+                        }
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"%@",error);
+                }];
+            }
+            
+            
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -345,21 +474,52 @@
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=manageAbility&tenantId=",ids];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/tenantscore/detail"];
+    NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"marketAbility",@"lable", nil];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSArray* result=[jsondata objectForKey:@"obj"];
-            NSLog(@"%@",result);
-            //result: 保存查询到的结果
-            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
-                [self.delegate  loadNetworkFinished :result];
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
+            NSString* tenantId=nil;
+            for (TFHppleElement *ele in arrays) {
+                NSString * idstr=[ele objectForKey:@"name"];
+                if([idstr isEqualToString:@"tenantId"]){
+                    tenantId=[ele objectForKey:@"value"];
+                    break;
+                }
             }
+            //获取tenantId后，发送网络请求
+            if(tenantId!=nil){
+                
+                NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=marketAbility&tenantId=",tenantId];
+                
+                [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+                    NSString* contenttype=[headers objectForKey:@"Content-Type"];
+                    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@",data);
+                    if([contenttype containsString:@"json"]){//返回json格式数据
+                        NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+                        NSArray* result=[jsondata objectForKey:@"obj"];
+                        NSLog(@"%@",result);
+                        //result: 保存查询到的结果
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                            [self.delegate  loadNetworkFinished :result];
+                        }
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"%@",error);
+                }];
+            }
+            
+            
+            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -370,6 +530,66 @@
 
 
 
+
+-(void)tenantIdQuery:(NSString*)ids label:(NSString*)label
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/tenantscore/detail"];
+    NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:ids,@"id",@"colligateAbility",@"lable", nil];
+    
+    [manager GET:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//input"];
+            NSString* tenantId=nil;
+            for (TFHppleElement *ele in arrays) {
+                NSString * idstr=[ele objectForKey:@"name"];
+                if([idstr isEqualToString:@"tenantId"]){
+                    tenantId=[ele objectForKey:@"value"];
+                    break;
+                }
+            }
+            //获取tenantId后，发送网络请求
+            if(tenantId!=nil){
+                
+                NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/tenantscore/detail/search?start=0&length=1000&lable=colligateAbility&tenantId=",ids];
+                
+                [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+                    NSString* contenttype=[headers objectForKey:@"Content-Type"];
+                    NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@",data);
+                    if([contenttype containsString:@"json"]){//返回json格式数据
+                        NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+                        NSArray* result=[jsondata objectForKey:@"obj"];
+                        NSLog(@"%@",result);
+                        //result: 保存查询到的结果
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                            [self.delegate  loadNetworkFinished :result];
+                        }
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"%@",error);
+                }];
+            }
+            
+            
+
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+    
+}
 
 
 

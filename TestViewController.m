@@ -460,7 +460,7 @@
 
 
 - (IBAction)zonghenengliscore:(id)sender {
-    [_paihangbang ZongHeNengLiDetailQuery:@"58e5eab219eb64c4e63875f1"];
+    [_paihangbang ZongHeNengLiDetailQuery:@"5937757d075910c2d60d07bf"];
 }
 
 
@@ -471,7 +471,7 @@
 
 
 - (IBAction)rihuoyueduscore:(id)sender {
-    [_paihangbang RiHuoYueDelatiQuery:@"58e5eab219eb64c4e63875f1"];
+    [_paihangbang RiHuoYueDelatiQuery:@"58e5eab219eb64c4e63875f3"];
 }
 
 
@@ -483,7 +483,7 @@
 
 
 - (IBAction)kejichuangxinscore:(id)sender {
-    [_paihangbang KeJiChuangXinDetailQuery:@"58e5eab219eb64c4e63875f1"];
+    [_paihangbang KeJiChuangXinDetailQuery:@"58e5eab219eb64c4e63875f3"];
 }
 
 
@@ -496,7 +496,7 @@
 
 
 - (IBAction)shicahngyewuscore:(id)sender {
-    [_paihangbang ShiChangPaiHangDetailQuery:@"58e5eab219eb64c4e63875f1"];
+    [_paihangbang ShiChangPaiHangDetailQuery:@"58e5eab219eb64c4e63875f3"];
 }
 
 
@@ -508,7 +508,7 @@
 
 
 - (IBAction)xingzhengyunyingscore:(id)sender {
-    [_paihangbang XingZhengYunYingDetailQuery:@"58e5eab219eb64c4e63875f1"];
+    [_paihangbang XingZhengYunYingDetailQuery:@"5937757d075910c2d60d07bf"];
 }
 
 
