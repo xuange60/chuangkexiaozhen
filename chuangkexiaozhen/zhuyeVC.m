@@ -218,9 +218,9 @@
     }else if([data isEqualToString:@"考勤统计"]){
         NSLog(@"%@ 按钮被点击",data);
         
-        
-        
-        
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaoQinGuanLi" bundle:nil];
+        KaoQinGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"KaoQinGuanLiVC"];
+        [self.navigationController pushViewController:vc animated:YES];
         
     }else if([data isEqualToString:@"路演发布管理"]){
         NSLog(@"%@ 按钮被点击",data);

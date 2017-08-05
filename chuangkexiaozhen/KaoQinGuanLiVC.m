@@ -31,7 +31,8 @@
 
 - (IBAction)startBtnClick:(id)sender {
     
-    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(_startTime.frame.origin.x, _startTime.frame.origin.y+5, 200, 200)];
+    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(_startTime.frame.origin.x, _startTime.frame.origin.y+5, self.view.frame.size.width, 200)];
+    picker.backgroundColor=[UIColor whiteColor];
     picker.datePickerMode=UIDatePickerModeDate;
     [self.view addSubview:picker];
     [picker addTarget:self action:@selector(pickerStart:) forControlEvents:UIControlEventValueChanged];
@@ -44,7 +45,8 @@
 
 
 - (IBAction)endBtnClick:(id)sender {
-    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(_endTime.frame.origin.x, _endTime.frame.origin.y+5, 200, 200)];
+    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(_endTime.frame.origin.x, _endTime.frame.origin.y+5, self.view.frame.size.width, 200)];
+    picker.backgroundColor=[UIColor whiteColor];
     picker.datePickerMode=UIDatePickerModeDate;
     [self.view addSubview:picker];
     [picker addTarget:self action:@selector(pickerEnd:) forControlEvents:UIControlEventValueChanged];
@@ -103,6 +105,20 @@
 
     return cell;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
+//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    
+//}
+
+
+
+
 
 
 
