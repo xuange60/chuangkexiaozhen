@@ -10,6 +10,7 @@
 #import "GenZongFuWu.h"
 #import "GenZongCell.h"
 #import "BussinessApi.h"
+#import "GenZongFuWuAddViewController.h"
 @interface GenZongViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong,nonatomic) GenZongFuWu* genzongfuwu;
