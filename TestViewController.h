@@ -13,6 +13,8 @@
 #import "YuanGongGuanLi.h"
 #import "HuoDong.h"
 #import "KaoQinGuanLi.h"
+#import "GenZongFuWu.h"
+#import "PaiHangBang.h"
 
 //接口测试文件
 @interface TestViewController : UIViewController
@@ -24,5 +26,8 @@
 @property (strong,nonatomic) YuanGongGuanLi* yuangongguanli;
 @property (strong,nonatomic) HuoDong* huodong;
 @property (strong,nonatomic) KaoQinGuanLi* kaoqinguanli;
+@property (strong,nonatomic) GenZongFuWu* genzongfuwu;
+@property (strong,nonatomic) PaiHangBang* paihangbang;
+
 
 @end
