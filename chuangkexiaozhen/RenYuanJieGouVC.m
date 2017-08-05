@@ -49,7 +49,7 @@
 //左边添加比赛事件
 -(void)RightBarItemClick:(UIBarButtonItem*)item
 {
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
     AddRenYuanVC*vc=[board instantiateViewControllerWithIdentifier:@"AddRenYuanVC"];
     [self.navigationController pushViewController:vc animated:YES];
 }

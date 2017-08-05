@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ShiChangXiaoShouVC.h"
+#import "TuanDuiGuanLiVC.h"
+#import "RenYuanJieGouVC.h"
 @interface zhuyeVC : UIViewController<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
