@@ -200,6 +200,10 @@
     
     }else if([data isEqualToString:@"团队运营成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+        RenYuanJieGouVC*vc=[board instantiateViewControllerWithIdentifier:@"RenYuanJieGouVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if([data isEqualToString:@"服务申请"]){
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"YuanQuFuWu" bundle:nil];
         FuWuViewController*vc=[board instantiateViewControllerWithIdentifier:@"FuWuViewController"];
