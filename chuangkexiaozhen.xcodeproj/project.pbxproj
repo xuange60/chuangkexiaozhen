@@ -250,6 +250,10 @@
 		FBDAA6A71F36187100E28CF0 /* PaiHangBangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6A61F36187100E28CF0 /* PaiHangBangCell.m */; };
 		FBDAA6AA1F3626BB00E28CF0 /* PingFenDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6A91F3626BB00E28CF0 /* PingFenDetailCell.m */; };
 		FBDAA6AD1F3626D200E28CF0 /* PingFenDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6AC1F3626D200E28CF0 /* PingFenDetailViewController.m */; };
+		FBDAA6AF1F362CAD00E28CF0 /* huodongluyan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDAA6AE1F362CAD00E28CF0 /* huodongluyan.storyboard */; };
+		FBDAA6B21F362D8300E28CF0 /* HuoDongLuYanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6B11F362D8300E28CF0 /* HuoDongLuYanViewController.m */; };
+		FBDAA6B51F362DA400E28CF0 /* HuoDongLuYanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6B41F362DA400E28CF0 /* HuoDongLuYanCell.m */; };
+		FBDAA6B81F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6B71F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m */; };
 		FBF557941F28C30E005AB0F4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */; };
 		FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578B1F28C30E005AB0F4 /* AFNetworkReachabilityManager.m */; };
 		FBF557961F28C30E005AB0F4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578D1F28C30E005AB0F4 /* AFSecurityPolicy.m */; };
@@ -621,6 +625,13 @@
 		FBDAA6A91F3626BB00E28CF0 /* PingFenDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingFenDetailCell.m; sourceTree = "<group>"; };
 		FBDAA6AB1F3626D200E28CF0 /* PingFenDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingFenDetailViewController.h; sourceTree = "<group>"; };
 		FBDAA6AC1F3626D200E28CF0 /* PingFenDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingFenDetailViewController.m; sourceTree = "<group>"; };
+		FBDAA6AE1F362CAD00E28CF0 /* huodongluyan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = huodongluyan.storyboard; sourceTree = "<group>"; };
+		FBDAA6B01F362D8300E28CF0 /* HuoDongLuYanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuoDongLuYanViewController.h; sourceTree = "<group>"; };
+		FBDAA6B11F362D8300E28CF0 /* HuoDongLuYanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuoDongLuYanViewController.m; sourceTree = "<group>"; };
+		FBDAA6B31F362DA400E28CF0 /* HuoDongLuYanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuoDongLuYanCell.h; sourceTree = "<group>"; };
+		FBDAA6B41F362DA400E28CF0 /* HuoDongLuYanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuoDongLuYanCell.m; sourceTree = "<group>"; };
+		FBDAA6B61F3633C400E28CF0 /* HuoDongLuYanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuoDongLuYanDetailViewController.h; sourceTree = "<group>"; };
+		FBDAA6B71F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuoDongLuYanDetailViewController.m; sourceTree = "<group>"; };
 		FBF557871F28C30E005AB0F4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FBF557891F28C30E005AB0F4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1044,6 +1055,13 @@
 			children = (
 				FB5186E21F34E23500C9705A /* HuoDong.h */,
 				FB5186E31F34E23500C9705A /* HuoDong.m */,
+				FBDAA6AE1F362CAD00E28CF0 /* huodongluyan.storyboard */,
+				FBDAA6B01F362D8300E28CF0 /* HuoDongLuYanViewController.h */,
+				FBDAA6B11F362D8300E28CF0 /* HuoDongLuYanViewController.m */,
+				FBDAA6B31F362DA400E28CF0 /* HuoDongLuYanCell.h */,
+				FBDAA6B41F362DA400E28CF0 /* HuoDongLuYanCell.m */,
+				FBDAA6B61F3633C400E28CF0 /* HuoDongLuYanDetailViewController.h */,
+				FBDAA6B71F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m */,
 			);
 			name = "活动路演管理";
 			sourceTree = "<group>";
@@ -1551,6 +1569,7 @@
 				FBD7A7B71F278B8500B9251D /* left_02.png in Resources */,
 				FB0A29C81F2F6373003F4C4E /* filesucc.png in Resources */,
 				FBB182AD1F28777500550227 /* 开通主线管理.gif in Resources */,
+				FBDAA6AF1F362CAD00E28CF0 /* huodongluyan.storyboard in Resources */,
 				FBB182FC1F28A66000550227 /* 服务申请管理.png in Resources */,
 				FBB183061F28AF0100550227 /* 日常活跃度考核.gif in Resources */,
 				66814A291F1FB50700322620 /* event-2.png in Resources */,
@@ -1620,6 +1639,7 @@
 				FBF557AF1F28C332005AB0F4 /* TFHpple.m in Sources */,
 				66CC4C701F3587AB008A08FD /* AddRenYuanVC.m in Sources */,
 				FB0A29E01F2F759F003F4C4E /* NSMutableDictionary+NSMutableDictory_Extend.m in Sources */,
+				FBDAA6B21F362D8300E28CF0 /* HuoDongLuYanViewController.m in Sources */,
 				66B938C71F3423FB006D73FB /* NaShuiGuanLiVC.m in Sources */,
 				FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */,
 				66A4D9131F336ABD00967C75 /* JiangLiGuanLiCell.m in Sources */,
@@ -1630,6 +1650,7 @@
 				FBF77B651F321890004F17C3 /* YuanQuFuWuShenQing.m in Sources */,
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
 				FBDAA6A41F36185600E28CF0 /* PaiHangBangViewController.m in Sources */,
+				FBDAA6B81F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m in Sources */,
 				66A5124F1F3076EE00498E12 /* ActiveGuanLiCell.m in Sources */,
 				66B938D31F3425D4006D73FB /* ZhanYouLuGuanLiCell.m in Sources */,
 				66AB84471F35B44E008B6B15 /* KaoQinGuanLiVC.m in Sources */,
@@ -1650,6 +1671,7 @@
 				66A4D9011F3318EB00967C75 /* ZhuanLiPhotoVC.m in Sources */,
 				FBF557B71F28CA92005AB0F4 /* MainViewController.m in Sources */,
 				66B938C41F3423E5006D73FB /* HeTongGuanLiVC.m in Sources */,
+				FBDAA6B51F362DA400E28CF0 /* HuoDongLuYanCell.m in Sources */,
 				6620D62E1F2D02D200118DCE /* XiaZaiCell.m in Sources */,
 				66BE608E1F2DBC9900D55309 /* xiazaiPhotoVC.m in Sources */,
 				66CC4C6D1F3583AA008A08FD /* RenYuanJieGouCell.m in Sources */,
