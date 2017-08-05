@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "KaoQinGuanLi.h"
-
+#import "KaoQinDetailVC.h"
 @interface KaoQinGuanLiVC : BaseViewController<UIPickerViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)KaoQinGuanLi*kaoQin;

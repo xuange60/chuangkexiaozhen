@@ -59,6 +59,7 @@
 		66AB84441F35B3F1008B6B15 /* KaoQinGuanLi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AB84431F35B3F1008B6B15 /* KaoQinGuanLi.storyboard */; };
 		66AB84471F35B44E008B6B15 /* KaoQinGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB84461F35B44E008B6B15 /* KaoQinGuanLiVC.m */; };
 		66AB844C1F35C0BE008B6B15 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AB844B1F35C0BE008B6B15 /* calendar.png */; };
+		66AB844F1F361200008B6B15 /* KaoQinDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB844E1F361200008B6B15 /* KaoQinDetailVC.m */; };
 		66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B681231F29830100BB1CB9 /* WenDangVC.m */; };
 		66B6812A1F29BC4000BB1CB9 /* 下拉按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B681291F29BC4000BB1CB9 /* 下拉按钮.png */; };
 		66B6812D1F29CB2100BB1CB9 /* XiaLaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B6812C1F29CB2100BB1CB9 /* XiaLaView.m */; };
@@ -366,6 +367,8 @@
 		66AB84481F35B479008B6B15 /* KaoQinGuanLiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaoQinGuanLiCell.h; sourceTree = "<group>"; };
 		66AB84491F35B479008B6B15 /* KaoQinGuanLiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaoQinGuanLiCell.m; sourceTree = "<group>"; };
 		66AB844B1F35C0BE008B6B15 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		66AB844D1F361200008B6B15 /* KaoQinDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaoQinDetailVC.h; sourceTree = "<group>"; };
+		66AB844E1F361200008B6B15 /* KaoQinDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaoQinDetailVC.m; sourceTree = "<group>"; };
 		66B681221F29830100BB1CB9 /* WenDangVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WenDangVC.h; sourceTree = "<group>"; };
 		66B681231F29830100BB1CB9 /* WenDangVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WenDangVC.m; sourceTree = "<group>"; };
 		66B681291F29BC4000BB1CB9 /* 下拉按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉按钮.png"; sourceTree = "<group>"; };
@@ -1019,6 +1022,8 @@
 				66AB84491F35B479008B6B15 /* KaoQinGuanLiCell.m */,
 				66AB84451F35B44E008B6B15 /* KaoQinGuanLiVC.h */,
 				66AB84461F35B44E008B6B15 /* KaoQinGuanLiVC.m */,
+				66AB844D1F361200008B6B15 /* KaoQinDetailVC.h */,
+				66AB844E1F361200008B6B15 /* KaoQinDetailVC.m */,
 			);
 			name = "无感考勤管理";
 			sourceTree = "<group>";
@@ -1672,6 +1677,7 @@
 				FBF557A31F28C327005AB0F4 /* JSONKit.m in Sources */,
 				66A4D9161F336ADB00967C75 /* JiangLiPhotoCell.m in Sources */,
 				66A4D90A1F33319500967C75 /* XiangMuPhotoVC.m in Sources */,
+				66AB844F1F361200008B6B15 /* KaoQinDetailVC.m in Sources */,
 				66A4D8F81F32EF4E00967C75 /* JiangLiGuanLiVC.m in Sources */,
 				FB5F9DCA1F33569900EED720 /* FuWuShenQingDetailViewController.m in Sources */,
 				66F7CA531F2F2539009F9F84 /* AddBiSaiVC.m in Sources */,
