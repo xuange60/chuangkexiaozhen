@@ -22,6 +22,7 @@
 #import "YuanGongViewController.h"
 #import "GenZongViewController.h"
 #import "PaiHangBangViewController.h"
+#import "HuoDongLuYanViewController.h"
 @interface zhuyeVC ()
 
 @end
@@ -224,6 +225,9 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if([data isEqualToString:@"路演发布管理"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"huodongluyan" bundle:nil];
+        HuoDongLuYanViewController* vc=[board instantiateViewControllerWithIdentifier:@"HuoDongLuYanViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"主动性退出管理"]){
         NSLog(@"%@ 按钮被点击",data);

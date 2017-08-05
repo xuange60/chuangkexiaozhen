@@ -109,6 +109,9 @@
             }
             
             //字典NSMutableDictionary* dic包含了查询到的数据
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :dic];
+            }
             
             //打印查询到的数据
             NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
