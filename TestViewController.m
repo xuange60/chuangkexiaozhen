@@ -409,13 +409,13 @@
 
 
 - (IBAction)kaoqinquery:(id)sender {
-    [_kaoqinguanli KaoQinQuery];
+    [_kaoqinguanli KaoQinQueryStart:@"2017-08-04 00:00:00" End:@"2017-08-04 23:59:59"];
 }
 
 
 
 - (IBAction)kaoqindetailquery:(id)sender {
-    [_kaoqinguanli KaoQinDetailQuery:@"58f9d2ea19eb8cbffbb87b23"];
+    [_kaoqinguanli KaoQinDetailQuery:@"58f9d2ea19eb8cbffbb87b23" date:@"2017-08-04"];
 }
 
 

@@ -81,7 +81,7 @@
                 NSString * idstr=[ele objectForKey:@"name"];
                 NSString* value=[ele objectForKey:@"value"];
                 if(idstr!=nil && value!=nil){
-                    [dic setObject:value forKey:idstr];
+                    [dic setNotNullObject:value forKey:idstr];
                 }
             }
             
@@ -90,24 +90,21 @@
                 NSString * idstr=[ele objectForKey:@"name"];
                 NSString* value=ele.content;
                 if(idstr!=nil && value!=nil && [idstr isEqualToString:@"content"]){
-                    [dic setObject:value forKey:idstr];
+                    [dic setNotNullObject:value forKey:idstr];
                 }
             }
             
             NSArray* array2=[doc searchWithXPathQuery:@"//select"];
             for (TFHppleElement *ele in array2) {
                 NSString * idstr=[ele objectForKey:@"name"];
-                NSArray* array3=[ele children];
+                NSArray* array3=[ele childrenWithTagName:@"option"];
                 if(idstr!=nil && array3!=nil && [idstr isEqualToString:@"noticeList"]){
                     NSMutableArray* value=[NSMutableArray array];
                     for (TFHppleElement *ele1 in array3) {
-                        NSString* tag=ele.tagName;
-                        if([tag isEqualToString:@"option"]){
-                            NSString* option=ele1.content;
-                            [value addObject:option];
-                        }
+                        NSString* option=ele1.content;
+                        [value addObject:option];
                     }
-                    [dic setObject:value forKey:idstr];
+                    [dic setNotNullObject:value forKey:idstr];
                 }
             }
             

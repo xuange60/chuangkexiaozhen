@@ -14,7 +14,9 @@
 
 /*
  10.1 考勤统计查询
- 请求 get  http://116.228.176.34:9002/chuangke-serve/userattendance/search?start=0&length=10000
+ 请求 get  http://116.228.176.34:9002/chuangke-serve/userattendance/search?start=0&length=10000&startTime=?&endTime=?
+ startTime=2017-08-04 00:00:00
+ endTime=2017-08-04 23:59:59
  响应： [{"id":"58f9d2ea19eb8cbffbb87b23","actualCount"
  :0,"absentCount":1,"shouldCount":1,"rateOfAttend":"0.00%","companyName":"都步（上海）智能科技有限公司"},{"id":"58f5887219eb8cbffbb87aa0"
  ,"actualCount":0,"absentCount":1,"shouldCount":1,"rateOfAttend":"0.00%","companyName":"清基(上海）农业发展有限公
@@ -27,9 +29,12 @@
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/userattendance/search?start=0&length=10000"];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/userattendance/search"];
+    NSMutableDictionary* param=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"0",@"start",@"10000",@"length", nil];
+    [param setObject:starttime forKey:@"starttime"];
+    [param setObject:endtime forKey:@"endtime"];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
@@ -52,7 +57,8 @@
 
 /*
  10.2 查询考勤详情
- 请求 get  http://116.228.176.34:9002/chuangke-serve/userattendance/user/search?start=0&length=1000tenanId=58f9d27d19eb8cbffbb87b1f
+ 请求 get
+ http://116.228.176.34:9002/chuangke-serve/userattendance/user/search?start=0&length=1000&tenantId=58f9d2ea19eb8cbffbb87b23&selectDate=2017-08-04
  响应 [{"id":"58f9d27d19eb8cbffbb87b1f","date"
  :"2017-08-04","username":"都步（上海）智能科技有限公司","status":null,"absence":"未出勤","startTime":null,"endTime":null
  }]
@@ -63,9 +69,12 @@
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/userattendance/user/search?start=0&length=10000&tenantId=",ids];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/userattendance/user/search"];
+    NSMutableDictionary* param=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"0",@"start",@"10000",@"length", nil];
+    [param setObject:ids forKey:@"tenantId"];
+    [param setObject:date forKey:@"selectDate"];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
