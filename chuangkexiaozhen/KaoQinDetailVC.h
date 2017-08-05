@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface KaoQinDetailVC : BaseViewController
+@interface KaoQinDetailVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
