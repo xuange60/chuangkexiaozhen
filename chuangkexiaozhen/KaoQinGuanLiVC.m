@@ -23,7 +23,16 @@
     _kaoQin.delegate=self;
 
 
+    NSDate * date=[NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString*time=[dateFormatter stringFromDate:date];
     
+    
+    NSString*start=[NSString stringWithFormat:@"%@ %@",time,@"00:00:00"];
+    NSString*end=[NSString stringWithFormat:@"%@ %@",time,@"23:59:59"];
+    
+    [_kaoQin KaoQinQueryStart:start End:end];
     
 }
 
@@ -34,33 +43,31 @@
     UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(_startTime.frame.origin.x, _startTime.frame.origin.y+5, self.view.frame.size.width, 200)];
     picker.backgroundColor=[UIColor whiteColor];
     picker.datePickerMode=UIDatePickerModeDate;
+    picker.minimumDate=[NSDate dateWithTimeIntervalSince1970:0];
+    picker.maximumDate=[NSDate date];
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置为中文
+    picker.locale = locale;
+    
     [self.view addSubview:picker];
     [picker addTarget:self action:@selector(pickerStart:) forControlEvents:UIControlEventValueChanged];
 }
 -(void)pickerStart:(UIDatePicker*)picker
 {
-  _startTime.text= [NSString stringWithFormat:@"%@",picker.date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    _startTime.text = [dateFormatter stringFromDate:picker.date];
     [picker removeFromSuperview];
 }
 
 
-- (IBAction)endBtnClick:(id)sender {
-    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(_endTime.frame.origin.x, _endTime.frame.origin.y+5, self.view.frame.size.width, 200)];
-    picker.backgroundColor=[UIColor whiteColor];
-    picker.datePickerMode=UIDatePickerModeDate;
-    [self.view addSubview:picker];
-    [picker addTarget:self action:@selector(pickerEnd:) forControlEvents:UIControlEventValueChanged];
-}
-
--(void)pickerEnd:(UIDatePicker*)picker
-{
- _endTime.text= [NSString stringWithFormat:@"%@",picker.date];
-    [picker removeFromSuperview];
-}
 
 - (IBAction)ChaXunBtnClick:(id)sender {
 
- [_kaoQin KaoQinQueryStart:_startTime.text End:_endTime.text];
+    NSString*start=[NSString stringWithFormat:@"%@ %@",_startTime.text,@"00:00:00"];
+    NSString*end=[NSString stringWithFormat:@"%@ %@",_startTime.text,@"23:59:59"];
+    
+ [_kaoQin KaoQinQueryStart:start End:end];
     
 }
 
@@ -148,7 +155,9 @@
     [self.navigationController pushViewController:vc animated:YES];
     
     
-  //   [_kaoQin KaoQinDetailQuery:<#(NSString *)#> date:<#(NSString *)#>];
+     [_kaoQin KaoQinDetailQuery:strId date:_startTime.text];
+    
+    
 }
 
 
