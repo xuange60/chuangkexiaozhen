@@ -149,9 +149,13 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
-    JiangLiPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"JiangLiPhotoVC"];
-    [vc ReceiveShuJuPhoto:strID];
+//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
+//    JiangLiPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"JiangLiPhotoVC"];
+//    [vc ReceiveShuJuPhoto:strID];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"10"];
     [self.navigationController pushViewController:vc animated:YES];
     
 }
