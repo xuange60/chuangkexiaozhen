@@ -113,22 +113,6 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0;
-}
-
-//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    
-//}
-
-
-
-
-
-
-
 - (IBAction)DetailBtnClick:(id)sender forEvent:(UIEvent *)event {
     
     NSSet*touches=[event allTouches];
@@ -138,28 +122,20 @@
     
     NSIndexPath*path=[_tableView indexPathForRowAtPoint:point];
     
-    /*
-     10.2 查询考勤详情
-     请求 get  http://116.228.176.34:9002/chuangke-serve/userattendance/user/search?start=0&length=1000
-     响应 [{"id":"58f9d27d19eb8cbffbb87b1f","date"
-     :"2017-08-04","username":"都步（上海）智能科技有限公司","status":null,"absence":"未出勤","startTime":null,"endTime":null
-     }]
-     */
-
-    NSDictionary *dic=[_ary objectAtIndex:path.row];
     
+    NSDictionary *dic=[_ary objectAtIndex:path.row];
     NSString*strId=[dic objectNotNullForKey:@"id"];
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaoQinGuanLi" bundle:nil];
     KaoQinDetailVC*vc=[board instantiateViewControllerWithIdentifier:@"KaoQinDetailVC"];
+    
+    NSArray*array=[NSArray arrayWithObjects:strId,_startTime.text ,nil];
+    [vc receiveArray:array];
+    
     [self.navigationController pushViewController:vc animated:YES];
     
     
-     [_kaoQin KaoQinDetailQuery:strId date:_startTime.text];
-    
-    
 }
-
 
 
 
