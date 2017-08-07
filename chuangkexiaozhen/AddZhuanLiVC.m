@@ -39,56 +39,21 @@
 }
 
 - (IBAction)shangChuanClick:(id)sender {
-    // 1.判断相册是否可以打开
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-        return;
-    // 2. 创建图片选择控制器
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    // 3. 设置打开照片相册类型(显示所有相簿)
-    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    // 4.设置代理
-    ipc.delegate = self;
-    // 5.modal出这个控制器
-    [self presentViewController:ipc animated:YES completion:nil];
-    
+    ImgeUpViewController* imgup=[[ImgeUpViewController alloc] initView];
+    [imgup setNotifyName:@"ADDZHUANLIFileUp" AndTitle:@"文档上传"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"ADDZHUANLIFileUp" object:nil];
+    [self.navigationController pushViewController:imgup animated:YES];
 }
 
-#pragma mark -- <UIImagePickerControllerDelegate>--
-// 获取图片后的操作
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+-(void)getfile:(id)data
 {
-    // 销毁控制器
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    // 设置图片
-    UIImage*image = info[UIImagePickerControllerOriginalImage];
-    
-    [_mArray addObject:image];
-    
-    
-    if (_mArray.count==1) {
-        _iv1.image=[_mArray objectAtIndex:0];
-    }else if (_mArray.count==2){
-        _iv2.image=[_mArray objectAtIndex:1];
-    }else if (_mArray.count==3){
-        _iv3.image=[_mArray objectAtIndex:2];
+    if(data!=nil){
+        NSNotification* tmp=(NSNotification*)data;
+        
+        self.photosIDS=(NSString*)tmp.object;
     }
     
-    
-    // 文件上传
-    //参数 NSData类型的文件数据,文件类型如jpg，png等
-    //文件上传成功时返回ResourceId
-    NSData*data=UIImageJPEGRepresentation(image, 0.5);
-    
-    [_api shitiRuZhuFileup:data withType:@"jpg" withResult:_Mstr];
 }
-
-//从图库选择文件的代理
--(void)selectPhotoFromKu:(id)data
-{
-    _photosIDS=[NSString stringWithString:(NSString*)data];
-}
-
 
 - (IBAction)TiJiaoClick:(id)sender {
     

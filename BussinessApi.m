@@ -932,6 +932,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate loadNetworkFinished:result];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -981,6 +985,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData::)]) {
+                [self.delegate addData:[NSNumber numberWithInt:result]];
+            }
+
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -1009,7 +1017,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData::)]) {
+                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1108,6 +1118,11 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate loadNetworkFinished:result];
+            }
+
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1168,6 +1183,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData::)]) {
+                [self.delegate addData:[NSNumber numberWithInt:result]];
+            }
+
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -1202,7 +1221,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData::)]) {
+                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            }
+
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1310,6 +1332,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
             //result: 保存查询到的结果
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate loadNetworkFinished:result];
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1390,6 +1416,11 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData::)]) {
+                [self.delegate addData:[NSNumber numberWithInt:result]];
+            }
+
+            
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -1458,7 +1489,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData::)]) {
+                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            }
+
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -8,13 +8,15 @@
 
 #import "BaseViewController.h"
 #import "ChanXueYanPhotoVC.h"
-
-@interface ChanXueYanGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+#import "BussinessApi.h"
+#import "FilelistViewController.h"
+@interface ChanXueYanGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)NSArray*array;
+@property(nonatomic,strong)BussinessApi*api;
 -(void)ReceiveShuJu;
 
 

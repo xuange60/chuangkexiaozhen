@@ -22,45 +22,19 @@
 {
     _array=[NSArray array];
     
-    [self biSaiGuanLiQuery];
+    _api=[[BussinessApi alloc]init];
+    _api.delegate=self;
+    
+    [_api biSaiGuanLiQuery];
 }
-// 网络请求，查询数据方法
--(void)biSaiGuanLiQuery
+
+//查询的委托代理
+-(void)loadNetworkFinished:(id)data
 {
+    _array=(NSArray*)data;
     
-    //7.1.1孵化成长管理->日常活跃度管理->比赛管理查询
-    /*
-     响应 	响应数据为array；如下格式
-     [{"id":"5937dbe5075910c2d60d07c6","name"
-     :"上海市创新创业大赛","competeLevel":"省部级比赛","prizeAwarded":"一等奖","hornerName":"********","orgnizationUnit":""
-     ,"date":"2017-06-07 10:56:37","ownerCompetition":"是","score":14,"company":"云创智能科技有限公司"}]
-     */
-    
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
-    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
-    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/competition/search?start=0&length=1000"];
-    
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
-        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSArray* result=[jsondata objectForKey:@"obj"];
-            NSLog(@"%@",result);
-            //result: 保存查询到的结果
-            
-            
-            _array=result;
-            
-            [_tableView reloadData];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
+    [_tableView reloadData];
+
 }
 
 
@@ -90,9 +64,10 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfo) name:@"ADDSUCCESS" object:nil];
 }
+//左边添加后再次查询，刷新数据
 -(void)receiveInfo
 {
-    [self biSaiGuanLiQuery];
+    [_api biSaiGuanLiQuery];
 }
 
 #pragma mark-
@@ -148,41 +123,23 @@
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     NSString*strID=[dic objectForKey:@"id"];
     
-    [self biSaiGuanLiDelete:strID];
+    [_api biSaiGuanLiDelete:strID];
     
-
 }
-
-//7.1.3孵化成长管理->日常活跃度管理->比赛管理删除
--(void)biSaiGuanLiDelete:(NSString*)ids
+//删除数据委托代理，刷新
+-(void)deleteData:(id)data
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
-    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
-    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/competition/batchdelete",ids];
+    NSNumber*num=(NSNumber*)data;
+    int result=[num intValue];
+    if (result==1)//删除成功
+    {
+         [_api biSaiGuanLiQuery];
+    }
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
-        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
-            NSLog(@"%d",result);
-            //result: 1,删除成功 不等于1,失败
-            
-            [self biSaiGuanLiQuery];
-            
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
 }
 
 
-//下载比赛事件的处理，进入当前比赛事件的凭证图片
+//下载比赛事件的处理，进入
 - (IBAction)DownloadBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
     NSSet*touches= [event allTouches];
@@ -197,11 +154,16 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-    bisaiPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"bisaiPhotoVC"];
-    [vc ReceiveShuJuPhoto:strID];
-    [self.navigationController pushViewController:vc animated:YES];
+//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+//    bisaiPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"bisaiPhotoVC"];
+//    [vc ReceiveShuJuPhoto:strID];
+//    [self.navigationController pushViewController:vc animated:YES];
 
+    
+    FilelistViewController* filelist=[[FilelistViewController alloc] initView:strID withType:@"5"];
+    [self.navigationController pushViewController:filelist animated:YES];
+
+    
 }
 
 

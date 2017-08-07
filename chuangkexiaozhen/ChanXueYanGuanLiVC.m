@@ -20,40 +20,18 @@
 {
     _array=[NSArray array];
     
-    [self chanXueYanQuery];
-}
-// 网络请求，查询数据方法
-
--(void) chanXueYanQuery
-{
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
-    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
-    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/cooperatorunitInfo/search?start=0&length=1000"];
+    _api=[[BussinessApi alloc]init];
+    _api.delegate=self;
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
-        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            NSArray* result=[jsondata objectForKey:@"obj"];
-            NSLog(@"%@",result);
-            //result: 保存查询到的结果
-            
-            _array=[NSArray arrayWithArray:result];
-            [_tableView reloadData];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
+    [_api chanXueYanQuery];
 }
 
-
-
-
+-(void)loadNetworkFinished:(id)data
+{
+    _array=[NSArray arrayWithArray:(NSArray*)data];
+    [_tableView reloadData];
+    
+}
 
 - (void)viewDidLoad
 {
@@ -85,11 +63,8 @@
 
 -(void)receiveInfomation
 {
-    
-    [self chanXueYanQuery];
+    [_api chanXueYanQuery];
 }
-
-
 
 
 
@@ -148,39 +123,20 @@
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     NSString*strID=[dic objectForKey:@"id"];
     
-    [self chanXueYanDelete:strID];
+    [_api chanXueYanDelete:strID];
 
 }
-/*
- 7.2.3 合作项目删除
- 请求 get  http://116.228.176.34:9002/chuangke-serve/cooperatorunitInfo/delete?id=5938cb08075910c2d60d07db
- 参数id为 合作项目id
- */
--(void)chanXueYanDelete:(NSString*)ids
+
+-(void)deleteData:(id)data
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
-    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
-    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/cooperatorunitInfo/delete",ids];
-    
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
-        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
-            NSLog(@"%d",result);
-            //result: 1,删除成功 不等于1,失败
-            
-            [self chanXueYanQuery];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
+    NSNumber*num=(NSNumber*)data;
+    int result=[num intValue];
+    if (result==1)
+    {
+        [_api chanXueYanQuery];
+    }
 }
+
 
 
 - (IBAction)DownloadChanXueBtn:(id)sender forEvent:(UIEvent *)event {
@@ -197,10 +153,15 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-    ChanXueYanPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanPhotoVC"];
-    [vc ReceiveShuJuPhoto:strID];
-    [self.navigationController pushViewController:vc animated:YES];
+//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+//    ChanXueYanPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanPhotoVC"];
+//    [vc ReceiveShuJuPhoto:strID];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"6"];
+     [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 

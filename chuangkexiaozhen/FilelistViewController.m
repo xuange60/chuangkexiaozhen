@@ -14,6 +14,26 @@
 
 @implementation FilelistViewController
 
+-(id) initView
+{
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    self=[storyboard instantiateViewControllerWithIdentifier:@"FilelistViewController"];
+    return self;
+}
+
+
+
+-(id)initView:(NSString*) entityid withType:(NSString*)type
+{
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    self=[storyboard instantiateViewControllerWithIdentifier:@"FilelistViewController"];
+    self.entityid=entityid;
+    self.type=type;
+    return self;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"相关文档列表";
@@ -272,41 +292,5 @@
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
--(id) initView
-{
-    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
-    self=[storyboard instantiateViewControllerWithIdentifier:@"FilelistViewController"];
-    return self;
-}
-
-
-
--(id)initView:(NSString*) entityid withType:(NSString*)type
-{
-    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
-    self=[storyboard instantiateViewControllerWithIdentifier:@"FilelistViewController"];
-    self.entityid=entityid;
-    self.type=type;
-    return self;
-}
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "BussinessApi.h"
+#import "ImgeUpViewController.h"
+
 @interface AddActiveVC : BaseViewController<UIImagePickerControllerDelegate,BussinessApiDelegate>
 
 @property(nonatomic,strong)BussinessApi*api;
@@ -18,11 +20,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *renShu;
 @property (strong, nonatomic) IBOutlet UIButton *activeLevelBtn;
 
-@property (strong, nonatomic) IBOutlet UIImageView *iv1;
-
-@property (strong, nonatomic) IBOutlet UIImageView *iv2;
-
-@property (strong, nonatomic) IBOutlet UIImageView *iv3;
 
 
 - (IBAction)ActiveLevelClick:(id)sender;

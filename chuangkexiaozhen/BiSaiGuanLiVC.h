@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "bisaiPhotoVC.h"
-@interface BiSaiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+#import "BussinessApi.h"
+#import "FilelistViewController.h"
+@interface BiSaiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)NSArray*array;
+@property(nonatomic,strong)BussinessApi*api;
 -(void)ReceiveShuJu;
 
 
