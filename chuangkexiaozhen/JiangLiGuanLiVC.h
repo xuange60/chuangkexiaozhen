@@ -8,7 +8,6 @@
 
 #import "BaseViewController.h"
 #import "JiangLiGuanLiCell.h"
-#import "JiangLiPhotoVC.h"
 #import "AddJiangLiVC.h"
 #import "BussinessApi.h"
 #import "FilelistViewController.h"

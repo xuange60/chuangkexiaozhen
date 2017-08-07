@@ -8,7 +8,6 @@
 
 #import "ZhuanLiGuanLiVC.h"
 #import "ZhuanLiGuanLiCell.h"
-#import "ZhuanLiPhotoVC.h"
 #import "AddZhuanLiVC.h"
 @interface ZhuanLiGuanLiVC ()
 

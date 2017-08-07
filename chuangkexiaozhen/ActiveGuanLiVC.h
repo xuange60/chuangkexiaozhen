@@ -10,7 +10,6 @@
 #import "BussinessApi.h"
 #import "ActiveGuanLiCell.h"
 
-#import "ActivePhotoVC.h"
 #import "AddActiveVC.h"
 #import "FilelistViewController.h"
 

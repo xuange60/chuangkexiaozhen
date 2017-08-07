@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "ChanXueYanPhotoVC.h"
 #import "BussinessApi.h"
 #import "FilelistViewController.h"
 @interface ChanXueYanGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>

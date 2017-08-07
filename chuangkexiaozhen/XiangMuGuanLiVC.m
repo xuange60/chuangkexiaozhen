@@ -7,7 +7,6 @@
 //
 
 #import "XiangMuGuanLiVC.h"
-#import "XiangMuPhotoVC.h"
 #import "AddXiangMuVC.h"
 #import "XiangMuGuanLiCell.h"
 

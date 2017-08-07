@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-#import "bisaiPhotoVC.h"
 #import "BussinessApi.h"
 #import "FilelistViewController.h"
 @interface BiSaiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
