@@ -24,6 +24,10 @@
     _Mstr=[NSMutableString string];//用于图片id连接
     
     _photosIDS=[NSString string];
+    
+    _api=[[BussinessApi alloc]init];
+    _api.delegate=self;
+    
 }
 
 
@@ -68,10 +72,7 @@
     
 }
 
-    
-    
-    
-    
+
 - (IBAction)CommitBtnClick:(id)sender {
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
@@ -105,54 +106,20 @@
         [dic setObject:_jiGouLevel.currentTitle forKey:@"level"];
         [dic setObject:_photosIDS forKey:@"resourceIds"];
     
-        [self chanXueYanSubmit:dic];
+        [_api chanXueYanSubmit:dic];
 
 }
-    
--(void)chanXueYanSubmit:(NSDictionary*)param
+
+-(void)addData:(id)data
 {
-    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
-    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    
-    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
-    [parameters addEntriesFromDictionary:param];
-    NSDictionary* levels=[NSDictionary dictionaryWithObjectsAndKeys:@"5879d94ea5a121dff6b57a5d",@"合作机构一级",@"58be68b9cfdfdf03086a8833",@"合作机构三级",@"58c7c57bce7229367c55853e",@"合作机构二级", nil];
-    NSString* value=[parameters objectForKey:@"level"];
-    [parameters setObject: [levels objectForKey:value] forKey:@"level"];
-    
-    NSDictionary* moneyLevels=[NSDictionary dictionaryWithObjectsAndKeys:@"58be6e1a769052b56d66e91e",@"1万元以下",@"58be6e54769052b56d66e91f",@"10万元",@"58be6e72cfdfdf03086a8835",@"100万元", nil];
-    NSString* value2=[parameters objectForKey:@"moneyLevel"];
-    [parameters setObject: [moneyLevels objectForKey:value2] forKey:@"moneyLevel"];
-    
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
-    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/cooperatorunitInfo/save"];
-    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
-        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
-            NSLog(@"%d",result);
-            //result: 1,提交成功 不等于1,提交
-            
-            if (result==1)
-            {
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDCHANYEXUESCUUESS" object:nil];
-            }
-            
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
-    
+    NSNumber*num=(NSNumber*)data;
+    int result=[num intValue];
+    if (result==1)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDCHANYEXUESCUUESS" object:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
-
-
-
 
 
 

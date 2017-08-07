@@ -8,7 +8,8 @@
 
 #import "BaseViewController.h"
 #import "ImgeUpViewController.h"
-@interface AddBiSaiVC : BaseViewController<UIImagePickerControllerDelegate>
+#import "BussinessApi.h"
+@interface AddBiSaiVC : BaseViewController<UIImagePickerControllerDelegate,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *bisaiName;
 
@@ -35,7 +36,7 @@
 
 
 
-
+@property(nonatomic,strong)BussinessApi*api;
 
 
 @end

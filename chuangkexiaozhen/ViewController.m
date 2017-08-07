@@ -139,6 +139,12 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         //登陆失败 界面提示       网络发送失败信息提示？？？？
+        
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"网络请求发送失败，请等待网络恢复" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+        [alertCon addAction:action2];
+        [self presentViewController:alertCon animated:YES completion:nil];
+        
     }];
 }
 

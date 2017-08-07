@@ -985,7 +985,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
-            if (self.delegate && [self.delegate respondsToSelector:@selector(addData::)]) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
                 [self.delegate addData:[NSNumber numberWithInt:result]];
             }
 
@@ -1017,7 +1017,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData::)]) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
                 [self.delegate deleteData:[NSNumber numberWithInt:result]];
             }
         }
@@ -1183,7 +1183,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
-            if (self.delegate && [self.delegate respondsToSelector:@selector(addData::)]) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
                 [self.delegate addData:[NSNumber numberWithInt:result]];
             }
 
@@ -1221,7 +1221,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData::)]) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)])
+            {
                 [self.delegate deleteData:[NSNumber numberWithInt:result]];
             }
 
@@ -1416,7 +1417,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
-            if (self.delegate && [self.delegate respondsToSelector:@selector(addData::)]) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
                 [self.delegate addData:[NSNumber numberWithInt:result]];
             }
 
@@ -1489,7 +1490,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData::)]) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
                 [self.delegate deleteData:[NSNumber numberWithInt:result]];
             }
 

@@ -40,23 +40,8 @@
     self.navigationItem.title=@"产学研管理";
     
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    
     [self.navigationItem setRightBarButtonItem:RightBarItem];
     
-}
-
-//左边添加比赛事件
--(void)RightBarItemClick:(UIBarButtonItem*)item
-{
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-    AddChanXueYanVC*vc=[board instantiateViewControllerWithIdentifier:@"AddChanXueYanVC"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDCHANYEXUESCUUESS" object:nil];
 }
@@ -67,6 +52,14 @@
 }
 
 
+//左边添加比赛事件
+-(void)RightBarItemClick:(UIBarButtonItem*)item
+{
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+    AddChanXueYanVC*vc=[board instantiateViewControllerWithIdentifier:@"AddChanXueYanVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 #pragma mark-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -99,7 +92,7 @@
 
     cell.hezuoJine.text=[NSString stringWithFormat:@"%@",money];
     
-              cell.hezuoXiaoGuo.text=[dic objectForKey:@"effect"];
+    cell.hezuoXiaoGuo.text=[dic objectForKey:@"effect"];
     cell.suoshuGongSi.text=[dic objectForKey:@"company"];
     
     
@@ -151,12 +144,6 @@
     
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     NSString*strID=[dic objectForKey:@"id"];
-    
-    
-//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-//    ChanXueYanPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanPhotoVC"];
-//    [vc ReceiveShuJuPhoto:strID];
-//    [self.navigationController pushViewController:vc animated:YES];
     
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"6"];

@@ -47,7 +47,15 @@
     
     [self.navigationItem setRightBarButtonItem:RightBarItem];
 
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfo) name:@"ADDBISAISUCCESS" object:nil];
 }
+
+//左边添加后再次查询，刷新数据
+-(void)receiveInfo
+{
+    [_api biSaiGuanLiQuery];
+}
+
 
 //左边添加比赛事件
 -(void)RightBarItemClick:(UIBarButtonItem*)item
@@ -62,14 +70,7 @@
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfo) name:@"ADDSUCCESS" object:nil];
 }
-//左边添加后再次查询，刷新数据
--(void)receiveInfo
-{
-    [_api biSaiGuanLiQuery];
-}
-
 #pragma mark-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -153,13 +154,7 @@
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     NSString*strID=[dic objectForKey:@"id"];
     
-    
-//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-//    bisaiPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"bisaiPhotoVC"];
-//    [vc ReceiveShuJuPhoto:strID];
-//    [self.navigationController pushViewController:vc animated:YES];
 
-    
     FilelistViewController* filelist=[[FilelistViewController alloc] initView:strID withType:@"5"];
     [self.navigationController pushViewController:filelist animated:YES];
 

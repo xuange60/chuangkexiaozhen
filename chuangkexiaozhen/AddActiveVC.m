@@ -96,8 +96,8 @@
     int result=[num intValue];
     if (result==1)
     {
-        [self.navigationController popViewControllerAnimated:YES];
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDACTIVESCUUESS" object:nil];
+      [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDACTIVESCUUESS" object:nil];
+      [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
