@@ -56,9 +56,6 @@
     
     _xuanWenJianBtn.layer.cornerRadius=10;
     
-    
-    
-   
 }
 
 //对所属行业作出下拉选项

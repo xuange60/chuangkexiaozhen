@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "ComboViewController.h"
 #import "BussinessApi.h"
-
+#import "ImgeUpViewController.h"
 @interface AddZhuanLiVC : BaseViewController<UIImagePickerControllerDelegate,BussinessApiDelegate>
 
 @property(nonatomic,strong)BussinessApi*api;
@@ -22,12 +22,6 @@
 
 
 
-
-@property (strong, nonatomic) IBOutlet UIImageView *iv1;
-
-@property (strong, nonatomic) IBOutlet UIImageView *iv2;
-
-@property (strong, nonatomic) IBOutlet UIImageView *iv3;
 
 
 - (IBAction)leiBieBtnClick:(id)sender;

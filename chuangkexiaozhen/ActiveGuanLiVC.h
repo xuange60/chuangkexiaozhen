@@ -10,9 +10,8 @@
 #import "BussinessApi.h"
 #import "ActiveGuanLiCell.h"
 
-#import "ActivePhotoVC.h"
 #import "AddActiveVC.h"
-
+#import "FilelistViewController.h"
 
 @interface ActiveGuanLiVC : UIViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

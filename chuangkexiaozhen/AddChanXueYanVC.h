@@ -7,8 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
-@interface AddChanXueYanVC : BaseViewController<UIImagePickerControllerDelegate>
+#import "ImgeUpViewController.h"
+#import "BussinessApi.h"
+@interface AddChanXueYanVC : BaseViewController<UIImagePickerControllerDelegate,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *name;
 @property (strong, nonatomic) IBOutlet UITextField *effct;
@@ -17,11 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *jiGouLevel;
 @property (strong, nonatomic) IBOutlet UIButton *moneyLevel;
 
-@property (strong, nonatomic) IBOutlet UIImageView *iv1;
 
-
-@property (strong, nonatomic) IBOutlet UIImageView *iv2;
-@property (strong, nonatomic) IBOutlet UIImageView *iv3;
+@property(nonatomic,strong)BussinessApi*api;
 
 @property(nonatomic,strong)NSMutableString*Mstr;
 @property(nonatomic,strong) UIImageView*imgView;

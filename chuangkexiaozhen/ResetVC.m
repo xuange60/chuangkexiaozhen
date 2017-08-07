@@ -86,9 +86,7 @@
             
             if ([result isEqualToString:@"false"]) {
                 UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"用户名或密码错误，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
                 UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action1];
                 [alertCon addAction:action2];
                 [self presentViewController:alertCon animated:YES completion:nil];
             }

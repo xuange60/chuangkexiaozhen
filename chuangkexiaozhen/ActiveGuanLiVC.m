@@ -18,23 +18,32 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+      _ary=[NSArray array];
+    
+    
     _api=[[BussinessApi alloc]init];
-     _api.delegate=self;
+    _api.delegate=self;
     [_api huoDongQueryNew];//查询数据
    
-    _ary=[NSArray array];
-    
+
     self.navigationItem.title=@"活动管理";
     
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    
     [self.navigationItem setRightBarButtonItem:RightBarItem];
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDACTIVESCUUESS" object:nil];
 }
+
+-(void)receiveInfomation
+{
+    [_api huoDongQueryNew];//查询数据
+}
+
 
 //查询数据里面的委托代理
 -(void)loadNetworkFinished:(id)data
 {
-   
     if ( data !=nil)
     {
         _ary=(NSArray*)data;
@@ -51,18 +60,6 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     AddActiveVC*vc=[board instantiateViewControllerWithIdentifier:@"AddActiveVC"];
     [self.navigationController pushViewController:vc animated:YES];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDACTIVESCUUESS" object:nil];
-}
-
--(void)receiveInfomation
-{
-    [_api huoDongQueryNew];//查询数据
 }
 
 #pragma mark
@@ -153,12 +150,8 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
-    
-    ActivePhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"ActivePhotoVC"];
-    [vc ReceiveShuJuPhoto:strID];
+    FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"7"];
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 

@@ -23,11 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *levelBtn;
 
 
-@property (strong, nonatomic) IBOutlet UIImageView *iv1;
 
-@property (strong, nonatomic) IBOutlet UIImageView *iv2;
-
-@property (strong, nonatomic) IBOutlet UIImageView *iv3;
 
 - (IBAction)levelBtnClick:(id)sender;
 

@@ -7,7 +7,6 @@
 //
 
 #import "XiangMuGuanLiVC.h"
-#import "XiangMuPhotoVC.h"
 #import "AddXiangMuVC.h"
 #import "XiangMuGuanLiCell.h"
 
@@ -151,9 +150,12 @@
     NSString*strID=[dic objectForKey:@"id"];
     
     
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
-    XiangMuPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"XiangMuPhotoVC"];
-    [vc ReceiveShuJuPhoto:strID];
+//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
+//    XiangMuPhotoVC*vc=[board instantiateViewControllerWithIdentifier:@"XiangMuPhotoVC"];
+//    [vc ReceiveShuJuPhoto:strID];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"9"];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

@@ -126,9 +126,7 @@
             //result:  false,用户名已被占用 非false，用户名可用
             if ([result isEqualToString: @"false"]) {
                 UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"用户名已被注册，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action1];
+                 UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
                 [alertCon addAction:action2];
                 [self presentViewController:alertCon animated:YES completion:nil];
             }
@@ -162,9 +160,7 @@
             //result: false,手机号码不可用 非false,手机号码可用
             if ([result isEqualToString: @"false"]) {
                 UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"手机号码不可用，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
                 UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action1];
                 [alertCon addAction:action2];
                 [self presentViewController:alertCon animated:YES completion:nil];
             }
@@ -202,9 +198,7 @@
             }else{
                 
                 UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"验证码发送失败，请重新获取" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
                 UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action1];
                 [alertCon addAction:action2];
                 [self presentViewController:alertCon animated:YES completion:nil];
                 

@@ -8,10 +8,9 @@
 
 #import "BaseViewController.h"
 #import "JiangLiGuanLiCell.h"
-#import "JiangLiPhotoVC.h"
 #import "AddJiangLiVC.h"
 #import "BussinessApi.h"
-
+#import "FilelistViewController.h"
 @interface JiangLiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
