@@ -557,13 +557,37 @@
                                     <action selector="back:" destination="vlV-3X-LNL" eventType="touchUpInside" id="EZi-Tx-RNI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-bo-2MR">
+                                <rect key="frame" x="29" y="211" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="答辩管理查询"/>
+                                <connections>
+                                    <action selector="dabianguanliquery:" destination="vlV-3X-LNL" eventType="touchUpInside" id="7Pn-OD-MzS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSA-B8-3ZY">
+                                <rect key="frame" x="29" y="257" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="答辩删除"/>
+                                <connections>
+                                    <action selector="dabianguanlidelete:" destination="vlV-3X-LNL" eventType="touchUpInside" id="YJV-4X-1w8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-Gp-35t">
+                                <rect key="frame" x="29" y="310" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="答辩打分"/>
+                                <connections>
+                                    <action selector="dabianguanlidafen:" destination="vlV-3X-LNL" eventType="touchUpInside" id="eBo-eu-Xr2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMf-pz-Ein" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-953" y="2393"/>
+            <point key="canvasLocation" x="-954.375" y="2392.605633802817"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="mJs-L0-EM8">

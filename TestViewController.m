@@ -25,6 +25,7 @@
     _huodong=[[HuoDong alloc] init];
     _genzongfuwu=[[GenZongFuWu alloc] init];
     _paihangbang=[[PaiHangBang alloc] init];
+    _dabianguanli=[[DaBianGuanLi alloc] init];
     [super viewDidLoad];
 }
 
@@ -51,8 +52,8 @@
 - (IBAction)login:(id)sender {
     BussinessApi* bussiness=[[BussinessApi alloc] init];
     // [bussiness loginWithName:@"gaogaihui" andPwd:@"123456"];
-    //[bussiness loginWithName:@"zhangxuan" andPwd:@"111111"];
-    [bussiness loginWithName:@"cash" andPwd:@"123456"];
+    [bussiness loginWithName:@"admin" andPwd:@"123123"];
+   // [bussiness loginWithName:@"cash" andPwd:@"123456"];
 
 }
 - (IBAction)shitiruzhuquery:(id)sender {
@@ -511,6 +512,23 @@
     [_paihangbang XingZhengYunYingDetailQuery:@"5937757d075910c2d60d07bf"];
 }
 
+
+
+- (IBAction)dabianguanliquery:(id)sender {
+    [_dabianguanli DaBianGuanLiQuery];
+    
+}
+
+
+- (IBAction)dabianguanlidelete:(id)sender {
+    [_dabianguanli DaBianDelete:@"59888c1422637b17beb2f882"];
+}
+
+
+- (IBAction)dabianguanlidafen:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"true",@"agreeApplyin",@"59888cc522637b17beb2f884",@"applyTreatId",@"",@"resourceIds",@"与园区方向切合度",@"reasons",@"项目创新性和独特性",@"reasons",@"项目团队运营能力",@"reasons",@"项目市场业务能力",@"reasons",@"项目产品技术研发能力",@"reasons",@"90",@"scores",@"90",@"scores",@"90",@"scores",@"90",@"scores",@"90",@"scores", nil];
+    [_dabianguanli DaBianPingFenSubmit:param];
+}
 
 
 
