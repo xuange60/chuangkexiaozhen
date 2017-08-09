@@ -8,13 +8,17 @@
 
 #import "BaseViewController.h"
 #import "ShiTiRuZhuGuanLi.h"
+#import "ShiTiRuZhuGuanLiCell.h"
+#import "FilelistViewController.h"
+#import "EditShiTiVC.h"
+#import "AddShiTiVC.h"
 @interface ShiTiRuZhuGuanLivc : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)ShiTiRuZhuGuanLi*shiti;
 
-
+@property(nonatomic,strong)NSArray*array;
 
 
 
