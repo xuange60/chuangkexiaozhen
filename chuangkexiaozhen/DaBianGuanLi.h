@@ -53,4 +53,24 @@ scores	80
 
 
 
+/*
+ 1.3 打分及文件上传
+ 请求 post http://116.228.176.34:9002/chuangke-serve/reviewinfo/save
+ 请求参数
+ 是否允许接入 agreeApplyin	true
+ 答辩记录id  applyTreatId	597dbefb80ab5e6790d52d79
+ 附件 resourceIds	 598887e222637b17beb2f87a,598887e622637b17beb2f87b
+ reasons	与园区方向切合度
+ reasons	项目创新性和独特性
+ reasons	项目团队运营能力
+ reasons	项目市场业务能力
+ reasons	项目产品技术研发能力
+ scores	80
+ scores	80
+ scores	80
+ scores	80
+ scores	80
+ */
+-(void)DaBianPingFenAdd:(NSDictionary*)param;
+
 @end
