@@ -192,14 +192,23 @@
     NSString* scores3=[((NSArray*)[param objectForKey:@"scores"]) objectAtIndexNotErr:2];
     NSString* scores4=[((NSArray*)[param objectForKey:@"scores"]) objectAtIndexNotErr:3];
     NSString* scores5=[((NSArray*)[param objectForKey:@"scores"]) objectAtIndexNotErr:4];
-    NSString* post=[NSString stringWithFormat:@"agreeApplyin=%@&applyTreatId=%@&resourceIds=%@&reasons=%@&scores=%@&reasons=%@&scores=%@&reasons=%@&scores=%@&reasons=%@&scores=%@&reasons=%@&scores=%@",agreeApplyin,applyTreatId,resourceIds,reasons1,scores1,reasons2,scores2,reasons3,scores3,reasons4,scores4,reasons5,scores5];
+    NSString* post=[NSString stringWithFormat:@"resourceIds=%@&applyTreatId=%@&scores=%@&reasons=%@&scores=%@&reasons=%@&scores=%@&reasons=%@&scores=%@&reasons=%@&scores=%@&reasons=%@&agreeApplyin=%@",resourceIds,applyTreatId,scores1,reasons1,scores2,reasons2,scores3,reasons3,scores4,reasons4,scores5,reasons5,agreeApplyin];
     NSData* postdate=[post dataUsingEncoding:NSUTF8StringEncoding];
     NSString* length=[NSString stringWithFormat:@"%lu",(unsigned long)[postdate length]];
     NSMutableURLRequest* req=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
     [req setHTTPMethod:@"POST"];
     [req setValue:length forHTTPHeaderField:@"Content-Length"];
-    [req setValue:@"application-x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray<NSHTTPCookie *> *cookies=[cookieJar cookies];
+    NSHTTPCookie* cookie1=[cookies objectAtIndex:0];
+    NSString* cookiename=[cookie1 valueForKey:NSHTTPCookieName];
+    NSString* cookievalue=[cookie1 valueForKey:NSHTTPCookieValue];
+    NSString* cookiestr=[NSString stringWithFormat:@"%@=%@",cookiename,cookievalue];
+    [req setValue:cookiestr forHTTPHeaderField:@"Cookie"];
     [req setHTTPBody:postdate];
+    
+
     
     NSURLResponse* resp=nil;
     NSError* err=nil;

@@ -531,7 +531,7 @@
 - (IBAction)dabianguanlidafen2:(id)sender {
     NSArray* ary1=[NSArray arrayWithObjects:@"与园区方向切合度",@"项目创新性和独特性",@"项目团队运营能力",@"项目市场业务能力",@"项目产品技术研发能力", nil];
     NSArray* ary2=[NSArray arrayWithObjects:@"90",@"90",@"90",@"90",@"90", nil];
-    NSMutableDictionary* param=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"true",@"agreeApplyin",@"59888cc522637b17beb2f884",@"applyTreatId",@"",@"resourceIds",ary1,@"reasons",ary2,@"scores", nil];
+    NSMutableDictionary* param=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"true",@"agreeApplyin",@"598b25e722637b17beb30166",@"applyTreatId",@"",@"resourceIds",ary1,@"reasons",ary2,@"scores", nil];
     [_dabianguanli DaBianPingFenAdd:param];
 }
 
