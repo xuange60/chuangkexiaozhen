@@ -12,6 +12,7 @@
 #import "FilelistViewController.h"
 #import "EditShiTiVC.h"
 #import "AddShiTiVC.h"
+#import "DetailShiTiVC.h"
 @interface ShiTiRuZhuGuanLivc : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

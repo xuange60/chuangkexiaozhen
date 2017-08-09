@@ -13,6 +13,8 @@
 		661CE37D1F3AF8C5009E374D /* EditShiTiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 661CE37C1F3AF8C5009E374D /* EditShiTiVC.m */; };
 		661CE3801F3AF8E0009E374D /* AddShiTiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 661CE37F1F3AF8E0009E374D /* AddShiTiVC.m */; };
 		661CE3811F3B2D37009E374D /* DaBianGuanLi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669E9ECB1F39574700D50690 /* DaBianGuanLi.storyboard */; };
+		661CE3841F3B45B0009E374D /* DetailShiTiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 661CE3831F3B45B0009E374D /* DetailShiTiVC.m */; };
+		661CE3871F3B4E4F009E374D /* DetailShiTiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 661CE3861F3B4E4F009E374D /* DetailShiTiCell.m */; };
 		6620D62E1F2D02D200118DCE /* XiaZaiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620D62D1F2D02D200118DCE /* XiaZaiCell.m */; };
 		664120001F1DF6BB002C2F36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66411FFF1F1DF6BB002C2F36 /* main.m */; };
 		664120031F1DF6BB002C2F36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664120021F1DF6BB002C2F36 /* AppDelegate.m */; };
@@ -298,6 +300,10 @@
 		661CE37C1F3AF8C5009E374D /* EditShiTiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditShiTiVC.m; sourceTree = "<group>"; };
 		661CE37E1F3AF8E0009E374D /* AddShiTiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShiTiVC.h; sourceTree = "<group>"; };
 		661CE37F1F3AF8E0009E374D /* AddShiTiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShiTiVC.m; sourceTree = "<group>"; };
+		661CE3821F3B45B0009E374D /* DetailShiTiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailShiTiVC.h; sourceTree = "<group>"; };
+		661CE3831F3B45B0009E374D /* DetailShiTiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailShiTiVC.m; sourceTree = "<group>"; };
+		661CE3851F3B4E4F009E374D /* DetailShiTiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailShiTiCell.h; sourceTree = "<group>"; };
+		661CE3861F3B4E4F009E374D /* DetailShiTiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailShiTiCell.m; sourceTree = "<group>"; };
 		6620D62C1F2D02D200118DCE /* XiaZaiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaZaiCell.h; sourceTree = "<group>"; };
 		6620D62D1F2D02D200118DCE /* XiaZaiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaZaiCell.m; sourceTree = "<group>"; };
 		66411FFB1F1DF6BB002C2F36 /* chuangkexiaozhen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chuangkexiaozhen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1338,6 +1344,10 @@
 				661CE37C1F3AF8C5009E374D /* EditShiTiVC.m */,
 				661CE37E1F3AF8E0009E374D /* AddShiTiVC.h */,
 				661CE37F1F3AF8E0009E374D /* AddShiTiVC.m */,
+				661CE3851F3B4E4F009E374D /* DetailShiTiCell.h */,
+				661CE3861F3B4E4F009E374D /* DetailShiTiCell.m */,
+				661CE3821F3B45B0009E374D /* DetailShiTiVC.h */,
+				661CE3831F3B45B0009E374D /* DetailShiTiVC.m */,
 			);
 			name = "实体入驻管理";
 			sourceTree = "<group>";
@@ -1762,12 +1772,14 @@
 				FB0A29E61F2F7BDF003F4C4E /* NSArray+NSArray_Extend.m in Sources */,
 				FBF557941F28C30E005AB0F4 /* AFHTTPSessionManager.m in Sources */,
 				664E50AB1F25F36600824063 /* ShiTiVC.m in Sources */,
+				661CE3871F3B4E4F009E374D /* DetailShiTiCell.m in Sources */,
 				FBF77B6E1F322A5A004F17C3 /* FuWuViewController.m in Sources */,
 				FBB182E01F28821400550227 /* MyView2.m in Sources */,
 				FB5F9DCD1F3361CE00EED720 /* FilelistViewController.m in Sources */,
 				66B681241F29830100BB1CB9 /* WenDangVC.m in Sources */,
 				FBD655C81F38CAC400F9E4F4 /* ShiTiRuZhuGuanLi.m in Sources */,
 				FB0A29DA1F2F6B12003F4C4E /* ShenSuAddViewController.m in Sources */,
+				661CE3841F3B45B0009E374D /* DetailShiTiVC.m in Sources */,
 				66A4D9101F3331D700967C75 /* AddXiangMuVC.m in Sources */,
 				66F724A81F2E271000773F66 /* RiChangHuoYueVC.m in Sources */,
 				66F7CA581F2F85F6009F9F84 /* ChanXueYanGuanLiVC.m in Sources */,

@@ -145,9 +145,10 @@
     NSDictionary*dic=[_array objectAtIndex:path.row];
     NSString*strID=[dic objectForKey:@"id"];
     
-//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
-//    AddShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"AddShiTiVC"];
-//    [self.navigationController pushViewController:vc animated:YES];
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
+    DetailShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"DetailShiTiVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 //审核通过的操作

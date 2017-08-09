@@ -274,10 +274,7 @@
         [self.navigationController pushViewController:vc animated:YES];
         
         
-        
-        
-        
-        
+
     }else if([data isEqualToString:@"虚拟入驻管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"电子合同管理"]){

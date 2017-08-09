@@ -94,17 +94,13 @@
         }
     }
 
-    
     NSDictionary*dic=[NSDictionary dictionary];
      [dic setValue:strID forKey:@""];
     
      [dic setValue:_textField.text forKey:@"defenceDateStr"];
      [dic setValue:_address.text forKey:@"addr"];
     
-    
     [_shiti TiJiaoDaBianShenQing:dic];
-    
-    
 }
 
 -(void)addData:(id)data
