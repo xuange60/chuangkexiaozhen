@@ -14,6 +14,11 @@
 
 @implementation AddShiTiVC
 
+-(void)setData:(NSString*)strId
+{
+    _strID=[NSString stringWithString:strId];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    
@@ -22,12 +27,13 @@
     _shiti.delegate=self;
      [_shiti DaBianZhuanJiaQuery];
 }
--(void)loadNetworkFinished:(id)data
+-(void)afternetwork4:(id)data
 {
-    _array=[NSArray arrayWithObject:data];
+    _array=[NSArray arrayWithArray:(NSArray*)data];
 }
 
 - (IBAction)btn1Clicked:(id)sender {
+    
     
     /*
      2.4.2 获取评审专家列表
@@ -37,10 +43,18 @@
      :"58e7316c19eb5e6b9401247e","name":"王博雅","loginName":"wangboya"}]
      */
 
+    NSMutableArray*array=[NSMutableArray array];
+    for (NSDictionary*dic in _array)
+    {
+       NSString*str=[dic objectForKey:@"name"];
+        [array addObject:str];
+    }
+    //数组里面是字典，字典里面是键值对
+    
     UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
     ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
    
-    [vc setDatas:_array withBtn:sender];
+    [vc setDatas:array withBtn:sender];
     vc.navigationItem.title=@"评审专家列表";
     [self.navigationController pushViewController:vc animated:YES];
 
@@ -78,36 +92,45 @@
      2.4.1 提交答辩
      post http://116.228.176.34:9002/chuangke-serve/applytreat/save
      参数
+     记录id applyid
      评审专家id userIds
      答辩时间 defenceDateStr
      答辩地点 addr
      */
 
-    NSString*strID=@"";
+    NSString*str=@"";
     for (NSDictionary*dic in _array)
     {
         NSString*nameValue=[dic objectForKey:@"name"];
         
         if ([nameValue isEqualToString:_btn1.currentTitle])
         {
-            strID=[dic objectForKey:@"id"];
+            str=[dic objectForKey:@"id"];
         }
     }
 
-    NSDictionary*dic=[NSDictionary dictionary];
-     [dic setValue:strID forKey:@""];
-    
-     [dic setValue:_textField.text forKey:@"defenceDateStr"];
-     [dic setValue:_address.text forKey:@"addr"];
-    
+     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
+     [dic setNotNullObject: str forKey:@"userIds"];
+     [dic setNotNullObject:_textField.text forKey:@"defenceDateStr"];
+     [dic setNotNullObject:_address.text forKey:@"addr"];
+     [dic setNotNullObject:_strID forKey:@"applyid"];
+
     [_shiti TiJiaoDaBianShenQing:dic];
 }
 
--(void)addData:(id)data
+-(void)afternetwork3:(id)data
 {
+    int result=[(NSNumber*)data intValue];
     
+    if (result==1)
+    {
+      UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"信息提交成功" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction*action=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+        [alertCon addAction:action];
+        [self presentViewController:alertCon animated:YES completion:nil];
+    }
     
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

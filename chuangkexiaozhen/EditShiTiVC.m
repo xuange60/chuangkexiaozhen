@@ -14,9 +14,17 @@
 
 @implementation EditShiTiVC
 
--(void)setShuJu:(NSString*)strId
+-(void)setShuJu:(NSString*)strId infoAry:(NSArray *)ary
 {
     _strID=[NSString stringWithString:strId];
+// _array=[NSArray arrayWithObject:ary];//数组一个整体，当新数组的一个元素
+   
+     _array=[NSArray arrayWithArray:ary];//把原数组的5个元素直接复制给新数组
+   
+//    - (void)addObject:(ObjectType)anObject;object作为一个整体，做一个新元素
+//    - (void)addObjectsFromArray:把原数组的元素个数直接复制给新数组
+   
+    
 }
 
 
@@ -27,8 +35,16 @@
     _shiti=[[ShiTiRuZhuGuanLi alloc]init];
     _shiti.delegate=self;
 
-    [_shiti ShiTiRuZhuGuanLiQuery];
-    
+    //显示对应的值
+    _textF1.text=[_array objectAtIndex:0];
+    _textF2.text=[_array objectAtIndex:1];
+    _textF3.text=[_array objectAtIndex:2];
+   
+    NSString*str1=[_array objectAtIndex:3];
+    NSString*str2=[_array objectAtIndex:4];
+
+     [_btn1 setTitle:str1 forState:UIControlStateNormal];
+     [_btn2 setTitle:str2 forState:UIControlStateNormal];
 }
 
 
@@ -57,16 +73,33 @@
 
 - (IBAction)tijiaoClick:(id)sender {
     
+    /*
+     2.7 修改请求
+     提交修改后的请求 http://116.228.176.34:9002/chuangke-serve/apply/update/apply
+     参数：businessLine	电子信息
+     companyName	克里斯蒂
+     contact	浮动浮动
+     contactType	354657648611
+     description	初创团队
+     id	597af69d80ab5e6790d5243d
+     */
+
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    
-    
-    
-    
-    
+     [dic setNotNullObject:_textF1.text forKey:@"contact"];
+     [dic setNotNullObject:_textF2.text forKey:@"contactType"];
+     [dic setNotNullObject:_textF3.text forKey:@"companyName"];
+     [dic setNotNullObject:_btn1.currentTitle forKey:@"businessLine"];
+     [dic setNotNullObject:_btn2.currentTitle forKey:@"description"];
+     [dic setNotNullObject:_strID forKey:@"id"];
+
     [_shiti ShiTiRuZhuModify:dic];
 }
 
-
+-(void)afternetwork7:(id)data
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"XIUGAIXINXISUCCESS" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 

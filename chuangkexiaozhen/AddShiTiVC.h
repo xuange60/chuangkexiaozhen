@@ -21,7 +21,9 @@
 @property(nonatomic,strong)NSArray*array;
 
 
+@property(nonatomic,strong)NSString*strID;
 
+-(void)setData:(NSString*)strId;
 
 
 

@@ -23,6 +23,8 @@
 
 @property(nonatomic,strong)ShiTiRuZhuGuanLi*shiti;
 @property(nonatomic,strong)NSString*strID;
--(void)setShuJu:(NSString*)strId;
+@property(nonatomic,strong)NSArray*array;
+
+-(void)setShuJu:(NSString*)strId  infoAry:(NSArray*)ary;
 
 @end

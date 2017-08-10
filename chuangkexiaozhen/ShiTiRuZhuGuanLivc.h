@@ -21,7 +21,7 @@
 
 @property(nonatomic,strong)NSArray*array;
 
-
+@property(nonatomic,strong)NSArray*InfoAry;
 
 
 @end
