@@ -460,11 +460,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-6e-Vkr">
-                                <rect key="frame" x="274" y="410" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="right.png"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Vk-hL-RnZ">
                                 <rect key="frame" x="80" y="478" width="160" height="40"/>
                                 <color key="backgroundColor" red="0.32735323910000003" green="0.4882062674" blue="0.96729010339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -501,9 +496,12 @@
                                     <action selector="btn1Click:" destination="eg3-oQ-67j" eventType="touchUpInside" id="nwl-g9-yfW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmN-Ut-ErG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmN-Ut-ErG">
                                 <rect key="frame" x="275" y="330" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="EiG-3k-Ymx"/>
+                                    <constraint firstAttribute="height" constant="30" id="xv1-fb-ld9"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="right.png"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slU-Bt-1A2">
@@ -517,11 +515,21 @@
                                     <action selector="btn2Click:" destination="eg3-oQ-67j" eventType="touchUpInside" id="I8P-Di-LYM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-6e-Vkr">
+                                <rect key="frame" x="275" y="410" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TD2-u9-Ums"/>
+                                    <constraint firstAttribute="width" constant="30" id="kb0-ZC-ZqC"/>
+                                </constraints>
+                                <state key="normal" image="right.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bfZ-6e-Vkr" firstAttribute="top" secondItem="fWq-pY-BK5" secondAttribute="bottom" constant="10" id="4i8-M9-hQn"/>
                             <constraint firstItem="uoa-Lu-5Fc" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="20" id="5tE-2z-Oqn"/>
                             <constraint firstItem="5Ri-nh-eNP" firstAttribute="top" secondItem="uoa-Lu-5Fc" secondAttribute="bottom" constant="5" id="8Dg-ne-bk6"/>
+                            <constraint firstAttribute="trailing" secondItem="KmN-Ut-ErG" secondAttribute="trailing" constant="15" id="8lX-1G-3ig"/>
                             <constraint firstItem="slU-Bt-1A2" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="15" id="9ln-ll-UwM"/>
                             <constraint firstAttribute="trailing" secondItem="hRA-kH-Tym" secondAttribute="trailing" constant="10" id="Bhj-3a-WyY"/>
                             <constraint firstItem="rBr-ew-kaR" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="15" id="Er1-0w-Mxi"/>
@@ -535,6 +543,7 @@
                             <constraint firstItem="5Ri-nh-eNP" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="15" id="Y2v-p9-9rw"/>
                             <constraint firstAttribute="trailing" secondItem="fWq-pY-BK5" secondAttribute="trailing" constant="10" id="Yl4-fk-D2g"/>
                             <constraint firstItem="l4H-Ic-5cm" firstAttribute="top" secondItem="5Ri-nh-eNP" secondAttribute="bottom" constant="10" id="Ypb-L0-EhL"/>
+                            <constraint firstAttribute="trailing" secondItem="bfZ-6e-Vkr" secondAttribute="trailing" constant="15" id="ZnO-or-hAK"/>
                             <constraint firstItem="L9P-xM-Srv" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="15" id="aTm-Yp-N0v"/>
                             <constraint firstItem="l4H-Ic-5cm" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="20" id="byJ-nC-1eY"/>
                             <constraint firstAttribute="trailing" secondItem="uoa-Lu-5Fc" secondAttribute="trailing" constant="10" id="dw6-qN-44n"/>
@@ -552,6 +561,7 @@
                             <constraint firstItem="l2k-eP-qTE" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="20" id="xKA-A4-Ocz"/>
                             <constraint firstItem="rBr-ew-kaR" firstAttribute="top" secondItem="l2k-eP-qTE" secondAttribute="bottom" constant="5" id="yyt-eh-vD3"/>
                             <constraint firstAttribute="trailing" secondItem="l2k-eP-qTE" secondAttribute="trailing" constant="20" id="zQO-yG-iUX"/>
+                            <constraint firstItem="KmN-Ut-ErG" firstAttribute="top" secondItem="l4H-Ic-5cm" secondAttribute="bottom" constant="10" id="zp5-Xm-uU6"/>
                         </constraints>
                     </view>
                     <connections>

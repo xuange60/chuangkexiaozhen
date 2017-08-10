@@ -26,7 +26,15 @@
     
     [_shiti ShiTiRuZhuGuanLiQuery];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfo) name:@"XIUGAIXINXISUCCESS" object:nil];
+
 }
+//修改信息后的刷新
+-(void)receiveInfo
+{
+    [_shiti ShiTiRuZhuGuanLiQuery];
+}
+
 
 -(void)loadNetworkFinished:(id)data
 {
@@ -98,7 +106,7 @@
         cell.addBtn.hidden=YES;
         cell.succBtn.hidden=YES;
         cell.deleteBtn.hidden=YES;
-//        [cell.errorBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [cell.errorBtn setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
     }else{
         
         cell.addBtn.hidden=NO;
@@ -106,6 +114,7 @@
         cell.errorBtn.hidden=NO;
         cell.deleteBtn.hidden=NO;
     }
+    
     
     return cell;
 }
@@ -117,11 +126,20 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    _InfoAry=[NSArray arrayWithObjects:
+              [dic objectNotNullForKey:@"contact"],
+              [dic objectNotNullForKey:@"contactType"],
+              [dic objectNotNullForKey:@"companyName"],
+              [dic objectNotNullForKey:@"businessLine"],
+              [dic objectNotNullForKey:@"description"],
+              nil];
+    
     NSString*strID=[dic objectForKey:@"id"];
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
     EditShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"EditShiTiVC"];
-    [vc setShuJu:strID];
+    [vc setShuJu:strID   infoAry:_InfoAry];
     [self.navigationController pushViewController:vc animated:YES];
     
   }
@@ -138,6 +156,7 @@
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
     AddShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"AddShiTiVC"];
+    [vc setData:strID];
     [self.navigationController pushViewController:vc animated:YES];
 
     
@@ -170,6 +189,13 @@
     
     [_shiti ShiTiRuZhuGuanLiTongGuo:strID];
 }
+-(void)afternetwork5:(id)data
+{
+    [_shiti ShiTiRuZhuGuanLiQuery];
+}
+
+
+
 
 //审核不通过的操作
 - (IBAction)ErrorClick:(id)sender forEvent:(UIEvent *)event {

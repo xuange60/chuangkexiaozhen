@@ -107,15 +107,11 @@
 {
     NSNumber *num=(NSNumber*)data;
     int result=[num intValue];
-    if (result==1) {
-    
+    if (result==1)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDDABIANSUCCESS" object:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDDABIANSUCCESS" object:nil];
-    [self.navigationController popViewControllerAnimated:YES];
-
-    
-    
 }
 
 
