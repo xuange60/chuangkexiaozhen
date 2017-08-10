@@ -762,6 +762,30 @@
                                     <action selector="shensuqingqiusucc:" destination="CIK-nD-AUu" eventType="touchUpInside" id="GdV-Xu-5Ls"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipt-wJ-BMK">
+                                <rect key="frame" x="168" y="418" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="资源配置查询"/>
+                                <connections>
+                                    <action selector="ziyuanpeizhiquery:" destination="CIK-nD-AUu" eventType="touchUpInside" id="t8U-WN-jCQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jY2-Du-fDR">
+                                <rect key="frame" x="168" y="456" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="资源配置修改"/>
+                                <connections>
+                                    <action selector="ziyuanpeizhimodify:" destination="CIK-nD-AUu" eventType="touchUpInside" id="yn5-JN-Ay1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lF6-E2-0xH">
+                                <rect key="frame" x="174" y="494" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="资源配置删除"/>
+                                <connections>
+                                    <action selector="ziyuanpeizhidelete:" destination="CIK-nD-AUu" eventType="touchUpInside" id="9ym-Yw-tSd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

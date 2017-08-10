@@ -40,6 +40,10 @@
     
     _shensushenqingguanli=[[ShenSuShenQingGuanLi alloc] init];
     _shensushenqingguanli.delegate=self;
+    
+    _ziyuanpeizhiguanli=[[ZiYuanPeiZhiGuanLi alloc] init];
+    _ziyuanpeizhiguanli.delegate=self;
+    
     [super viewDidLoad];
 }
 
@@ -686,6 +690,61 @@
 - (IBAction)shensuqingqiusucc:(id)sender {
     [_shensushenqingguanli ShenSuShenQingSucc:@"597a0c0480ab5e6790d51fdb"];
 }
+
+
+
+- (IBAction)ziyuanpeizhiquery:(id)sender {
+    
+    [_ziyuanpeizhiguanli ZiYuanGuanLiQuery];
+}
+
+/*
+ 2.13.1 资源管理配置修改
+ post http://116.228.176.34:9002/chuangke-serve/resourceallocation/update
+ 参数
+ EgcCodes	58e6005f19eb64c4e63875fd
+ EgcCodes	58e6005f19eb64c4e63875fd
+ OeCodes	58e600f419eb64c4e6387604
+ OeCodes	59361919075910c2d60d0789
+ OeCodes	58e600f419eb64c4e6387604
+ OeCodes	59361919075910c2d60d0789
+ PlCodes	58f58e5119eb8cbffbb87ad5
+ PlCodes	58f58e6519eb8cbffbb87ad7
+ PlCodes	58f58e5119eb8cbffbb87ad5
+ PlCodes	58f58e6519eb8cbffbb87ad7
+ TcCodes	597d815f80ab5e6790d52d52
+ TcCodes	597d814c80ab5e6790d52d4f
+ TcCodes	597d815480ab5e6790d52d50
+ concatType
+ desc	2222
+ id	597d825c80ab5e6790d52d62
+ name
+ numberOfOffice	1
+ numberOfegc	1
+ numberOfoe	3
+ numberOfpl	2
+ numberOftc	2
+ printAccount	1
+ printPassword	1
+ 
+ 
+ {"actionid":"","result":1,"errorcode":"","desc":"","obj":null,"objid":null,"action":null,"recordsTotal"
+ :0,"recordsFiltered":0,"totalPages":0}
+ */
+- (IBAction)ziyuanpeizhimodify:(id)sender {
+    NSArray* ary1=[NSArray arrayWithObjects:@"58e6005f19eb64c4e63875fd", nil];
+    NSArray* ary2=[NSArray arrayWithObjects:@"58e600f419eb64c4e6387604", nil];
+    NSArray* ary3=[NSArray array];
+    NSArray* ary4=[NSArray arrayWithObjects:@"58f58e5119eb8cbffbb87ad5", nil];
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"",@"concatType",@"hello",@"desc",@"597d825c80ab5e6790d52d62",@"id",@"xiaoming",@"name",@"4",@"numberOfOffice",@"4",@"numberOfegc",@"4",@"numberOfoe",@"4",@"numberOfpl",@"4",@"numberOftc",@"xzczx",@"printAccount",@"123123wqe",@"printPassword",ary1,@"EgcCodes",ary2,@"OeCodes",ary3,@"PlCodes",ary4,@"TcCodes",nil];
+    [_ziyuanpeizhiguanli ZiYuanGuanLiModify:param];
+}
+
+
+
+- (IBAction)ziyuanpeizhidelete:(id)sender {
+}
+
 
 
 
