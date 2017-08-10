@@ -88,7 +88,14 @@
    
      [dic setNotNullObject:aryScore forKey:@"scores"];
      [dic setNotNullObject:aryName forKey:@"reasons"];
-     [dic setNotNullObject: _btn.currentTitle forKey:@"agreeApplyin"];
+    NSString* temp=_btn.currentTitle;
+    NSString* agreeApplyin=nil;
+    if([temp isEqualToString:@"是"]){
+        agreeApplyin=@"true";
+    }else{
+        agreeApplyin=@"false";
+    }
+     [dic setNotNullObject: agreeApplyin forKey:@"agreeApplyin"];
      [dic setNotNullObject:_strID forKey:@"applyTreatId"];
      [dic setNotNullObject:_photosIDS forKey:@"resourceIds"];
     [_dabian DaBianPingFenAdd:dic];
