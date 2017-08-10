@@ -114,8 +114,21 @@
 
 - (IBAction)DaScoreBtnClick:(id)sender forEvent:(UIEvent *)event {
     
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    NSString*strID=[dic objectForKey:@"id"];
+
+
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"DaBianGuanLi" bundle:nil];
     MarkScoreVC*vc=[board instantiateViewControllerWithIdentifier:@"MarkScoreVC"];
+    [vc setShuJu:strID];
     [self.navigationController pushViewController:vc animated:YES];
     
 }
