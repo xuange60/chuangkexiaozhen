@@ -101,8 +101,8 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
-                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork1:)]) {
+                [self.delegate afternetwork1:[NSNumber numberWithInt:result]];
             }
         }
         
@@ -138,8 +138,8 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
-            if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
-                [self.delegate addData:[NSNumber numberWithInt:result]];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+                [self.delegate afternetwork2:[NSNumber numberWithInt:result]];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -170,8 +170,8 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
-                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
+                [self.delegate afternetwork3:[NSNumber numberWithInt:result]];
             }
         }
         

@@ -160,7 +160,7 @@
     
     //result: 1,删除成功 不等于1,失败
     if(result==1){
-        if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(addData:)]) {
             [self.delegate addData:[NSNumber numberWithInt:result]];
         }
     }

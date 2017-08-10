@@ -77,8 +77,8 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
-                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork1:)]) {
+                [self.delegate afternetwork1:[NSNumber numberWithInt:result]];
             }
         }
         
@@ -111,8 +111,8 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
-                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+                [self.delegate afternetwork2:[NSNumber numberWithInt:result]];
             }
         }
         

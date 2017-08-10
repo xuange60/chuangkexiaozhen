@@ -32,6 +32,21 @@
 
 -(void)selectPhotoFromKu:(id)data;  // 从图库选择照片上传完成 的回调
 
+
+
+-(void)afternetwork1:(id)data;
+-(void)afternetwork2:(id)data;
+-(void)afternetwork3:(id)data;
+-(void)afternetwork4:(id)data;
+-(void)afternetwork5:(id)data;
+-(void)afternetwork6:(id)data;
+-(void)afternetwork7:(id)data;
+-(void)afternetwork8:(id)data;
+-(void)afternetwork9:(id)data;
+-(void)afternetwork10:(id)data;
+-(void)afternetwork11:(id)data;
+-(void)afternetwork12:(id)data;
+
 @end
 
 
