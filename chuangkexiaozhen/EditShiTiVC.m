@@ -27,7 +27,7 @@
     _shiti=[[ShiTiRuZhuGuanLi alloc]init];
     _shiti.delegate=self;
 
-    [_shiti ShiTiRuZhuQuery:_strID];
+    [_shiti ShiTiRuZhuGuanLiQuery];
     
 }
 
