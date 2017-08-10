@@ -91,12 +91,12 @@
      [dic setNotNullObject: _btn.currentTitle forKey:@"agreeApplyin"];
      [dic setNotNullObject:_strID forKey:@"applyTreatId"];
      [dic setNotNullObject:_photosIDS forKey:@"resourceIds"];
-    [_dabian DaBianPingFenSubmit:dic];
+    [_dabian DaBianPingFenAdd:dic];
     
     
 }
 
--(void)deleteData:(id)data
+-(void)addData:(id)data
 {
     NSNumber *num=(NSNumber*)data;
     int result=[num intValue];
