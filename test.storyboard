@@ -205,6 +205,15 @@
                                     <segue destination="vlV-3X-LNL" kind="presentation" id="UFD-4B-zrL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRh-hC-cym">
+                                <rect key="frame" x="258" y="192" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="next4"/>
+                                <connections>
+                                    <segue destination="CIK-nD-AUu" kind="presentation" id="Uwp-1S-Fe6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9464853406" green="0.95948415990000002" blue="0.96887427569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -574,7 +583,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-Gp-35t">
-                                <rect key="frame" x="29" y="310" width="120" height="30"/>
+                                <rect key="frame" x="29" y="295" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="答辩打分"/>
                                 <connections>
@@ -588,6 +597,178 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMf-pz-Ein" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-954.375" y="2392.605633802817"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="Agz-KK-orl">
+            <objects>
+                <viewController id="CIK-nD-AUu" customClass="TestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M3B-7O-5Uh"/>
+                        <viewControllerLayoutGuide type="bottom" id="NAA-Pd-Q1K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uHG-m7-w7I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7C1-vu-jwq">
+                                <rect key="frame" x="31" y="62" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="back:" destination="CIK-nD-AUu" eventType="touchUpInside" id="iL4-WB-rzN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qak-qU-kue">
+                                <rect key="frame" x="16" y="100" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="实体入驻管理查询"/>
+                                <connections>
+                                    <action selector="shitiruzhugunliquery:" destination="CIK-nD-AUu" eventType="touchUpInside" id="DnU-0c-2TX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cow-He-BJB">
+                                <rect key="frame" x="23" y="148" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="审批不通过"/>
+                                <connections>
+                                    <action selector="shitiruzhuNo:" destination="CIK-nD-AUu" eventType="touchUpInside" id="y5X-7z-P0D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp9-ZQ-Skd">
+                                <rect key="frame" x="23" y="196" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="撤销不通过"/>
+                                <connections>
+                                    <action selector="shitiruzhuCancleNo:" destination="CIK-nD-AUu" eventType="touchUpInside" id="4RW-XR-2o8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqM-vO-YZn">
+                                <rect key="frame" x="23" y="245" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="审批通过"/>
+                                <connections>
+                                    <action selector="shitiruzhuYes:" destination="CIK-nD-AUu" eventType="touchUpInside" id="ueJ-KH-BR2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3z-Og-uKm">
+                                <rect key="frame" x="23" y="283" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="记录删除"/>
+                                <connections>
+                                    <action selector="shitiruzhudelete:" destination="CIK-nD-AUu" eventType="touchUpInside" id="aaq-h1-O5u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Car-ff-u8E">
+                                <rect key="frame" x="21" y="333" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="添加答辩"/>
+                                <connections>
+                                    <action selector="shitiruzhuadddabian:" destination="CIK-nD-AUu" eventType="touchUpInside" id="8vQ-yH-NGH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPJ-Se-q1l">
+                                <rect key="frame" x="23" y="379" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="修改信息"/>
+                                <connections>
+                                    <action selector="shitiruzhumodify:" destination="CIK-nD-AUu" eventType="touchUpInside" id="hKF-gd-j85"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vL-N9-ksw">
+                                <rect key="frame" x="25" y="429" width="124" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="电子合同查询"/>
+                                <connections>
+                                    <action selector="dianzihetongquery:" destination="CIK-nD-AUu" eventType="touchUpInside" id="iJ3-Z6-rs3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6Y-Cx-kma">
+                                <rect key="frame" x="9" y="467" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="虚拟入驻查询"/>
+                                <connections>
+                                    <action selector="xuniruzhuquery:" destination="CIK-nD-AUu" eventType="touchUpInside" id="J7N-99-dQq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0On-fb-oQT">
+                                <rect key="frame" x="3" y="505" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="虚拟入驻不通过"/>
+                                <connections>
+                                    <action selector="xuniruzhuno:" destination="CIK-nD-AUu" eventType="touchUpInside" id="lK8-VX-lDN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbT-Ff-R8F">
+                                <rect key="frame" x="164" y="69" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="虚拟入驻删除"/>
+                                <connections>
+                                    <action selector="xuniruzhudelete:" destination="CIK-nD-AUu" eventType="touchUpInside" id="pI4-dG-cm4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5g-yv-dbw">
+                                <rect key="frame" x="164" y="114" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="虚拟入驻通过"/>
+                                <connections>
+                                    <action selector="xuniruzhuyes:" destination="CIK-nD-AUu" eventType="touchUpInside" id="cEJ-al-mY8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhm-cq-FEA">
+                                <rect key="frame" x="164" y="152" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="虚拟入驻修改"/>
+                                <connections>
+                                    <action selector="xuniruzhumodify:" destination="CIK-nD-AUu" eventType="touchUpInside" id="N0z-8e-NOK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB0-N4-3wh">
+                                <rect key="frame" x="164" y="207" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开通主线管理查询"/>
+                                <connections>
+                                    <action selector="kaitongzhuxianquery:" destination="CIK-nD-AUu" eventType="touchUpInside" id="RxY-Rh-zdv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeI-Vu-ktW">
+                                <rect key="frame" x="164" y="245" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开通主线申请删除"/>
+                                <connections>
+                                    <action selector="kaitongzhuxiandelete:" destination="CIK-nD-AUu" eventType="touchUpInside" id="yiQ-Tt-fy9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Et-qr-ozu">
+                                <rect key="frame" x="163" y="296" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="申诉请求查询"/>
+                                <connections>
+                                    <action selector="shensuqingqiuquery:" destination="CIK-nD-AUu" eventType="touchUpInside" id="L0f-og-TMQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu0-sr-YwO">
+                                <rect key="frame" x="168" y="334" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="申诉请求删除"/>
+                                <connections>
+                                    <action selector="shensuqingqiudelete:" destination="CIK-nD-AUu" eventType="touchUpInside" id="xJj-gm-ci1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-Fu-C5b">
+                                <rect key="frame" x="163" y="372" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="申诉请求受理"/>
+                                <connections>
+                                    <action selector="shensuqingqiusucc:" destination="CIK-nD-AUu" eventType="touchUpInside" id="GdV-Xu-5Ls"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ibh-Dd-AyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-836.25" y="1573.943661971831"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="mJs-L0-EM8">

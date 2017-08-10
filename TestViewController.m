@@ -26,6 +26,20 @@
     _genzongfuwu=[[GenZongFuWu alloc] init];
     _paihangbang=[[PaiHangBang alloc] init];
     _dabianguanli=[[DaBianGuanLi alloc] init];
+    _shitiruzhuguanli=[[ShiTiRuZhuGuanLi alloc] init];
+    _shitiruzhuguanli.delegate=self;
+    
+    _dianzihetongguanli=[[DianZiHeTongGuanLi alloc] init];
+    _dianzihetongguanli.delegate=self;
+    
+    _xuniruzhuguanli=[[XuNiRuZhuGuanLi alloc] init];
+    _xuniruzhuguanli.delegate=self;
+    
+    _kaitongzhuxianguanli=[[KaiTongZhuXianGuanLi alloc] init];
+    _kaitongzhuxianguanli.delegate=self;
+    
+    _shensushenqingguanli=[[ShenSuShenQingGuanLi alloc] init];
+    _shensushenqingguanli.delegate=self;
     [super viewDidLoad];
 }
 
@@ -33,6 +47,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+- (void)loadNetworkFinished:(id)data
+{
+    if([data isKindOfClass:[NSArray class]]){
+        NSLog(@"count=%lu",(unsigned long)[(NSArray*)data count]);
+        
+    }
+    NSLog(@"%@",data);
+}
+
 
 
 - (IBAction)back:(id)sender {
@@ -534,6 +560,134 @@
     NSMutableDictionary* param=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"true",@"agreeApplyin",@"598b25e722637b17beb30166",@"applyTreatId",@"",@"resourceIds",ary1,@"reasons",ary2,@"scores", nil];
     [_dabianguanli DaBianPingFenAdd:param];
 }
+
+
+
+- (IBAction)shitiruzhugunliquery:(id)sender {
+    [_shitiruzhuguanli ShiTiRuZhuGuanLiQuery];
+}
+
+
+
+- (IBAction)shitiruzhuNo:(id)sender {
+    [_shitiruzhuguanli ShiTiRuZhuGuanLiJuJue:@"59798aff80ab5e6790d51fd8"];
+}
+
+
+- (IBAction)shitiruzhuCancleNo:(id)sender {
+    [_shitiruzhuguanli ShiTiRuZhuGuanLiJuJueCancle:@"59798aff80ab5e6790d51fd8"];
+}
+
+
+- (IBAction)shitiruzhuYes:(id)sender {
+    [_shitiruzhuguanli ShiTiRuZhuGuanLiTongGuo:@"597a0a1680ab5e6790d51fda"];
+}
+
+
+- (IBAction)shitiruzhudelete:(id)sender {
+    [_shitiruzhuguanli ShiTiRuZhuDelete:@"59798aff80ab5e6790d51fd8"];
+}
+
+/*
+记录id applyid
+评审专家id userIds
+答辩时间 defenceDateStr
+答辩地点 addr
+*/
+- (IBAction)shitiruzhuadddabian:(id)sender {
+    [_shitiruzhuguanli DaBianZhuanJiaQuery];
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"597a26d180ab5e6790d51fe1",@"applyid",@"5875a60bee19799d1cc83824",@"userIds",@"2017-08-10",@"defenceDateStr",@"上海答辩",@"addr", nil];
+    [_shitiruzhuguanli TiJiaoDaBianShenQing:param];
+}
+
+/*
+ 参数：businessLine	电子信息
+ companyName	克里斯蒂
+ contact	浮动浮动
+ contactType	354657648611
+ description	初创团队
+ id	597af69d80ab5e6790d5243d
+ */
+
+- (IBAction)shitiruzhumodify:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"597a0a1680ab5e6790d51fda",@"id",@"初创团队",@"description",@"354657648611",@"contactType",@"xiugai",@"contact",@"ceshijigou",@"companyName",@"电子信息",@"businessLine", nil];
+    [_shitiruzhuguanli ShiTiRuZhuModify:param];
+}
+
+
+
+
+
+- (IBAction)dianzihetongquery:(id)sender {
+    [_dianzihetongguanli DianZiHeTongQuery];
+}
+
+
+- (IBAction)xuniruzhuquery:(id)sender {
+    [_xuniruzhuguanli XuNiRuZhuGuanLiQuery];
+    
+}
+
+
+- (IBAction)xuniruzhuno:(id)sender {
+    [_xuniruzhuguanli XuNiRuZhuGuanLiNo:@"596b2d9380ab5e6790d4f04e"];
+}
+
+
+- (IBAction)xuniruzhudelete:(id)sender {
+    [_xuniruzhuguanli XuNiRuZhuGuanLiDelete:@"596b29a680ab5e6790d4f04b"];
+}
+
+
+- (IBAction)xuniruzhuyes:(id)sender {
+    [_xuniruzhuguanli XuNiRuZhuGuanLiYes:@"596cd43b80ab5e6790d4f4ba"];
+}
+
+/*
+ 2.10.3 虚拟入驻申请修改 --
+ 参数 post id:id,contact:contact,contacttype:contactType,branchname:branchName,coopcategories
+ :coopcategoriesStr,desc:desc}
+ http://116.228.176.34:9002/chuangke-serve/apply/update/resapply
+ */
+- (IBAction)xuniruzhumodify:(id)sender {
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"596cd43b80ab5e6790d4f4ba",@"id",@"xioagao1",@"contact",@"18577777777",@"contacttype",@"12312312000",@"branchname",@"投融资需求,信息技术需求",@"coopcategories",@"ceshishuju",@"desc", nil];
+    [_xuniruzhuguanli XuNiRuZhuGuanLiModify:param];
+}
+
+
+
+
+- (IBAction)kaitongzhuxianquery:(id)sender {
+    [_kaitongzhuxianguanli KaiTongZhuXianQuery];
+    
+}
+
+
+
+- (IBAction)kaitongzhuxiandelete:(id)sender {
+    [_kaitongzhuxianguanli KaiTongZhuXianDelete:@"58e5fd0d19eb64c4e63875f5"];
+}
+
+
+
+- (IBAction)shensuqingqiuquery:(id)sender {
+    [_shensushenqingguanli ShenSuShenQingQuery];
+}
+
+
+
+- (IBAction)shensuqingqiudelete:(id)sender {
+    [_shensushenqingguanli ShenSuShenQingDelete:@"59361bad075910c2d60d0791"];
+}
+
+
+
+
+- (IBAction)shensuqingqiusucc:(id)sender {
+    [_shensushenqingguanli ShenSuShenQingSucc:@"597a0c0480ab5e6790d51fdb"];
+}
+
+
 
 /*
 #pragma mark - Navigation

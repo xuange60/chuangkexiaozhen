@@ -25,36 +25,61 @@
  
  
  申请状态有：未处理，处理中，通过，失败
- 当申请状态为：未处理或处理中时，可以编辑、添加答辩、审批通过，审批不通过，删除，下载文档
+ 当申请状态为未处理或处理中时，可以 编辑,添加答辩,审批通过,审批不通过,删除,下载文档
+ 当申请状态为通过时，可以 编辑,下载文档
+ 当申请状态为不通过时，可以 编辑,重新答辩，下载文档
  */
+
+
+
 -(void)ShiTiRuZhuGuanLiQuery
 {
-    {
-        NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
-        AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
-        manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-        NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/search?typeNumber=1&start=0&length=10000"];
-        
-        [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-            NSString* contenttype=[headers objectForKey:@"Content-Type"];
-            NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",data);
-            if([contenttype containsString:@"json"]){//返回json格式数据
-                NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-                NSArray* result=[jsondata objectForKey:@"obj"];
-                NSLog(@"%@",result);
+    NSMutableArray* ary=[NSMutableArray array];
+    [self ShiTiRuZhuGuanLiQuery:ary];
+    
+}
+
+-(void)ShiTiRuZhuGuanLiQuery:(NSMutableArray*)ary
+{
+    int start=(int)[ary count];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@%d",baseurl,@"/apply/search?typeNumber=1&length=10&start=",start];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            if(result==nil || [result count]<10){
                 //result: 保存查询到的结果
-                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
-                    [self.delegate  loadNetworkFinished :result];
+                if([result count]>0){
+                   [ary addObjectsFromArray:result];
                 }
+                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                    [self.delegate  loadNetworkFinished :ary];
+                }
+            }else{
+                [ary addObjectsFromArray:result];
+                [self ShiTiRuZhuGuanLiQuery:ary];
             }
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@",error);
-        }];
-        
-    }
+        }else{
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :ary];
+            }
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+            [self.delegate  loadNetworkFinished :ary];
+        }
+    }];
 }
 
 
@@ -127,6 +152,7 @@
  2.4.1 提交答辩
  post http://116.228.176.34:9002/chuangke-serve/applytreat/save
  参数
+ 记录id applyid
  评审专家id userIds
  答辩时间 defenceDateStr
  答辩地点 addr
@@ -163,7 +189,7 @@
 
 
 /*
- 2.4.2 获取评审专家列表
+ 2.4.2 答辩前，获取评审专家列表
  get http://116.228.176.34:9002/chuangke-serve/user/getselect?code=evaluationexpert
  [{"id":"5875a60bee19799d1cc83824","name"
  :"王俊","loginName":"admin"},{"id":"58e5c52c19eb26b288dc9753","name":"顾一琳","loginName":"guyilin"},{"id"
@@ -265,7 +291,6 @@
 
 /*
  2.7 修改请求
- 查询请求内容 http://116.228.176.34:9002/chuangke-serve/reviewinfo/list/?applytreatid=597c4d0280ab5e6790d528a2
  提交修改后的请求 http://116.228.176.34:9002/chuangke-serve/apply/update/apply
  参数：businessLine	电子信息
  companyName	克里斯蒂
@@ -275,32 +300,6 @@
  id	597af69d80ab5e6790d5243d
  */
 
--(void) ShiTiRuZhuQuery:(NSString*)ids
-{
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
-    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
-    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
-    NSString* url=[NSString stringWithFormat:@"%@%@?applytreatid=%@",baseurl,@"/reviewinfo/list/",ids];
-    
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
-        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
-            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
-            NSLog(@"%d",result);
-            //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
-                [self.delegate deleteData:[NSNumber numberWithInt:result]];
-            }
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
-}
 
 -(void) ShiTiRuZhuModify:(NSDictionary*)param
 {

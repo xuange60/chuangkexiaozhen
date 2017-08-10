@@ -15,7 +15,7 @@
 
 
 /*
- 2.1 实体入驻管理查询
+ 2.1 实体入驻管理查询 此查询用到分页
  请求 get  http://116.228.176.34:9002/chuangke-serve/apply/search?typeNumber=1&start=0&length=10000
  响应 [{"id":"597db10980ab5e6790d52d67","contact"
  :"小灰灰","contactType":"18554353465","companyName":"新时代","applyDate":"2017-07-30","applyStatus":"未处理","businessLine"
@@ -27,9 +27,13 @@
  
  
  申请状态有：未处理，处理中，通过，失败
- 当申请状态为：未处理或处理中时，可以编辑、添加答辩、审批通过，审批不通过，删除，下载文档
+ 当申请状态为未处理或处理中时，可以 编辑,添加答辩,审批通过,审批不通过,删除,下载文档
+ 当申请状态为通过时，可以 编辑,下载文档
+ 当申请状态为不通过时，可以 编辑,重新答辩，下载文档
  */
 -(void)ShiTiRuZhuGuanLiQuery;
+
+
 
 /*
  2.2 审批不通过
@@ -48,6 +52,7 @@
  2.4.1 提交答辩
  post http://116.228.176.34:9002/chuangke-serve/applytreat/save
  参数
+ 记录id applyid
  评审专家id userIds
  答辩时间 defenceDateStr
  答辩地点 addr
@@ -55,7 +60,7 @@
 -(void)TiJiaoDaBianShenQing:(NSDictionary*)param;
 
 /*
- 2.4.2 获取评审专家列表
+ 2.4.2 答辩前，获取评审专家列表
  get http://116.228.176.34:9002/chuangke-serve/user/getselect?code=evaluationexpert
  [{"id":"5875a60bee19799d1cc83824","name"
  :"王俊","loginName":"admin"},{"id":"58e5c52c19eb26b288dc9753","name":"顾一琳","loginName":"guyilin"},{"id"
@@ -88,7 +93,6 @@
  id	597af69d80ab5e6790d5243d
  */
 
--(void) ShiTiRuZhuQuery:(NSString*)ids;
 
 -(void) ShiTiRuZhuModify:(NSDictionary*)param;
 
