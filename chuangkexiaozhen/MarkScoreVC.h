@@ -9,6 +9,8 @@
 #import "BaseViewController.h"
 #import "DaBianGuanLi.h"
 #import "ComboViewController.h"
+#import "NSMutableDictionary+NSMutableDictory_Extend.h"
+
 @interface MarkScoreVC : BaseViewController<BussinessApiDelegate>
 
 @property(nonatomic,strong)DaBianGuanLi*dabian;
@@ -28,11 +30,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *textF5;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *btn;
 
 
+-(void)setShuJu:(NSString*)strId;
 
-
-
+@property(nonatomic,strong)NSString*strID;
 
 
 

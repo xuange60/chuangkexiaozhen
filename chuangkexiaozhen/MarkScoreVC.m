@@ -13,6 +13,10 @@
 @end
 
 @implementation MarkScoreVC
+-(void)setShuJu:(NSString*)strId
+{
+    _strID=[NSString stringWithString:strId];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,7 +61,7 @@
 - (IBAction)TiJiao:(id)sender {
     
     
-    NSDictionary*dic=@{};
+    NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     
     /*
      1.3 打分及文件上传
@@ -77,31 +81,34 @@
      scores	80
      scores	80
      */
-    
-    
-//    [dic  setObject:_bisaiName.text forKey:@"name"];
-//    [dic setObject:_rongyuName.text forKey:@"hornerName"];
-//    [dic setObject:_zuzhijigouName.text forKey:@"orgnizationUnit"];
-//    [dic setObject:_rongyuName forKey:@"ownerCompetition"];
-//    [dic setObject:_CompleteLevelBtn.currentTitle forKey:@"competeLevel"];
-//    [dic setObject:_prizeAwardsBtn.currentTitle forKey:@"prizeAwarded"];
-//    [dic setObject:_photosIDS forKey:@"resourceIds"];
-    
-
+   
+    NSArray*aryScore=[NSArray arrayWithObjects:_textF1.text,_textF2.text,_textF3.text,_textF4.text,_textF5.text ,nil];
+    NSArray*aryName=[NSArray arrayWithObjects:@"与园区方向切合度",@"项目创新性和独特性",@"项目团队运营能力",@"项目市场业务能力",@"项目产品技术研发能力", nil];
+   
+   
+     [dic setNotNullObject:aryScore forKey:@"scores"];
+     [dic setNotNullObject:aryName forKey:@"reasons"];
+     [dic setNotNullObject: _btn.currentTitle forKey:@"agreeApplyin"];
+     [dic setNotNullObject:_strID forKey:@"applyTreatId"];
+     [dic setNotNullObject:_photosIDS forKey:@"resourceIds"];
     [_dabian DaBianPingFenSubmit:dic];
     
     
 }
 
--(void)addData:(id)data
+-(void)deleteData:(id)data
 {
     NSNumber *num=(NSNumber*)data;
     int result=[num intValue];
     if (result==1) {
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDDABIANSUCCESS" object:nil];
-        [self.navigationController popViewControllerAnimated:YES];
-        
+    
     }
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDDABIANSUCCESS" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+
+    
+    
 }
 
 

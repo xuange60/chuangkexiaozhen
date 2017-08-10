@@ -7,8 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
-@interface EditShiTiVC : BaseViewController
+#import "ShiTiRuZhuGuanLi.h"
+#import "ComboViewController.h"
+@interface EditShiTiVC : BaseViewController<BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textF1;
 
@@ -20,8 +21,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *btn2;
 
 
-
-
-
+@property(nonatomic,strong)ShiTiRuZhuGuanLi*shiti;
+@property(nonatomic,strong)NSString*strID;
+-(void)setShuJu:(NSString*)strId;
 
 @end

@@ -94,7 +94,13 @@
         cell.succBtn.hidden=YES;
         cell.errorBtn.hidden=YES;
         cell.deleteBtn.hidden=YES;
+    }else if([cell.shenqingType.text isEqualToString:@"失败"]){
+        cell.addBtn.hidden=YES;
+        cell.succBtn.hidden=YES;
+        cell.deleteBtn.hidden=YES;
+//        [cell.errorBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     }else{
+        
         cell.addBtn.hidden=NO;
         cell.succBtn.hidden=NO;
         cell.errorBtn.hidden=NO;
@@ -115,6 +121,7 @@
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
     EditShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"EditShiTiVC"];
+    [vc setShuJu:strID];
     [self.navigationController pushViewController:vc animated:YES];
     
   }
@@ -173,6 +180,9 @@
    
     NSDictionary*dic=[_array objectAtIndex:path.row];
     NSString*strID=[dic objectForKey:@"id"];
+    
+    ShiTiRuZhuGuanLiCell*cell=[_tableView cellForRowAtIndexPath:path];
+ //   [cell.errorBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     
     [_shiti ShiTiRuZhuGuanLiJuJue:strID];
     
