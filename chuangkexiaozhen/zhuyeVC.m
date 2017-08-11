@@ -23,6 +23,9 @@
 #import "GenZongViewController.h"
 #import "PaiHangBangViewController.h"
 #import "HuoDongLuYanViewController.h"
+#import "DianZiHeTongVC.h"
+
+
 @interface zhuyeVC ()
 
 @end
@@ -279,6 +282,10 @@
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"电子合同管理"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"HeTongGuanLi" bundle:nil];
+        DianZiHeTongVC*vc=[board instantiateViewControllerWithIdentifier:@"DianZiHeTongVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if([data isEqualToString:@"开通主线管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"申诉申请管理"]){
