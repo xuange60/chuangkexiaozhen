@@ -13,6 +13,7 @@
 #import "KaoQinGuanLiVC.h"
 #import "DaBianGuanLiVC.h"
 #import "ShiTiRuZhuGuanLivc.h"
+#import "XuNiRuZhuVC.h"
 @interface zhuyeVC : UIViewController<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 

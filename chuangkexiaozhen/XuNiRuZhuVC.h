@@ -7,7 +7,29 @@
 //
 
 #import "BaseViewController.h"
+#import "XuNiRuZhuGuanLi.h"
+#import "XuNiRuZhuCell.h"
+#import "AddXuNiVC.h"
+@interface XuNiRuZhuVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
-@interface XuNiRuZhuVC : BaseViewController
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic,strong)XuNiRuZhuGuanLi*XuNi;
+
+@property(nonatomic,strong)NSArray*array;
+
+@property(nonatomic,strong)NSArray*InfoAry;
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
