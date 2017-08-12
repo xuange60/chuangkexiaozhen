@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "DuoXuanVC.h"
 @interface EditZiYuanPeiZhiVC : BaseViewController
 
 -(void)setStr:(NSString*)strId infoAry:(NSArray*)ary;

@@ -8,6 +8,19 @@
 
 #import "BaseViewController.h"
 
-@interface DuoXuanVC : BaseViewController
+@interface DuoXuanVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic,strong)NSMutableArray*array;
+@property(nonatomic,strong)UIButton*btn;
+@property(nonatomic,strong)NSMutableString*Mstr;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+
+
+-(void)setArray:(NSArray*)array  btn:(UIButton*)btn;
+
+
+
 
 @end

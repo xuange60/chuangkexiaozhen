@@ -857,6 +857,53 @@
             </objects>
             <point key="canvasLocation" x="766.875" y="13.732394366197184"/>
         </scene>
+        <!--Duo XuanVC-->
+        <scene sceneID="5SY-MK-Gmf">
+            <objects>
+                <viewController storyboardIdentifier="DuoXuanVC" id="BWm-Xa-Hze" customClass="DuoXuanVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H3W-GU-lTI"/>
+                        <viewControllerLayoutGuide type="bottom" id="fu2-Ni-CLH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sTP-rR-qcw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="225-Ne-cTP">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ER6-Bq-EXL">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ER6-Bq-EXL" id="JDA-3s-kud">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BWm-Xa-Hze" id="Gem-kL-GHz"/>
+                                    <outlet property="delegate" destination="BWm-Xa-Hze" id="krW-g1-X2d"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fu2-Ni-CLH" firstAttribute="top" secondItem="225-Ne-cTP" secondAttribute="bottom" id="EaV-D2-F0X"/>
+                            <constraint firstItem="225-Ne-cTP" firstAttribute="leading" secondItem="sTP-rR-qcw" secondAttribute="leading" id="N1w-H1-M39"/>
+                            <constraint firstAttribute="trailing" secondItem="225-Ne-cTP" secondAttribute="trailing" id="ldI-L0-StD"/>
+                            <constraint firstItem="225-Ne-cTP" firstAttribute="top" secondItem="H3W-GU-lTI" secondAttribute="bottom" id="tyz-nQ-apX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="225-Ne-cTP" id="QAu-k4-bQS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EwM-jc-9qC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546.875" y="13.732394366197184"/>
+        </scene>
     </scenes>
     <resources>
         <image name="filedelete.png" width="128" height="128"/>

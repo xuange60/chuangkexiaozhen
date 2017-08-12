@@ -85,8 +85,8 @@
 
 - (IBAction)tijiaoClick:(id)sender {
     
-    
-    
+    DuoXuanVC*vc=[[DuoXuanVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
