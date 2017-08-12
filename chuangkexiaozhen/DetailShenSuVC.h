@@ -10,4 +10,16 @@
 
 @interface DetailShenSuVC : BaseViewController
 
+@property (strong, nonatomic) IBOutlet UIButton *typeB;
+
+@property (strong, nonatomic) IBOutlet UITextView *contentTV;
+
+@property (strong, nonatomic) IBOutlet UITextView *reasonTV;
+
+
+
+@property(nonatomic,strong)NSArray*ary;
+
+
+-(void)setShuJu:(NSString*)str   infoAry:(NSArray*)ary;
 @end
