@@ -20,15 +20,36 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
-    [_api jiangLiQuery];//查询数据
+    
+    //modify
+    _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
+    _jiafencailiaoshenhe.delegate=self;
+    
+    
+    [self query];//查询数据
+    
     
     _ary=[NSArray array];
     
     self.navigationItem.title=@"奖励管理";
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+    /*
     
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    
+    */
     [self.navigationItem setRightBarButtonItem:RightBarItem];
+}
+
+-(void)query
+{
+    if([_isadmin isEqualToString:@"Y"])
+    {
+        [_jiafencailiaoshenhe jiaFenCaiLiaoQuerywithAdmin:@"award"];
+    }else{
+        [_api jiangLiQuery];
+    }
 }
 
 //查询数据里面的委托代理
@@ -63,7 +84,7 @@
 
 -(void)receiveInfomation
 {
-    [_api jiangLiQuery];//查询数据
+    [self query];//查询数据
 }
 
 #pragma mark
@@ -132,7 +153,8 @@
     
     if (result==1) {
         
-        [_api jiangLiQuery];
+        [self query];//查询数据
+
     }
 }
 
@@ -159,5 +181,27 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+
+- (IBAction)detailquery:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"jiafencailiaoshenhe" bundle:nil];
+    JiangLiGuanDetailVC*vc=[board instantiateViewControllerWithIdentifier:@"JiangLiGuanDetailVC"];
+    vc.isadmin=_isadmin;
+    vc.data=dic;
+    vc.navigationItem.title=@"详情";
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 
 @end

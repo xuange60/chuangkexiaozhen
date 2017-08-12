@@ -300,10 +300,22 @@
     }else if([data isEqualToString:@"资源配置管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"日常活跃度材料审核"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+        RiChangHuoYueVC*vc=[board instantiateViewControllerWithIdentifier:@"RiChangHuoYueVC"];
+        vc.isadmin=@"Y";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"科技创新材料审核"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
+        keJiChuanXinGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"keJiChuanXinGuanLiVC"];
+        vc.isadmin=@"Y";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"市场成熟度管理"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
+        ShiChangXiaoShouVC*vc=[board instantiateViewControllerWithIdentifier:@"ShiChangXiaoShouVC"];
+        vc.isadmin=@"Y";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"行政运营材料审核"]){
         NSLog(@"%@ 按钮被点击",data);

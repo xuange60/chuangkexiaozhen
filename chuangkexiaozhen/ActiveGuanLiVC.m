@@ -23,13 +23,20 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
-    [_api huoDongQueryNew];//查询数据
-   
-
-    self.navigationItem.title=@"活动管理";
     
+    _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
+    _jiafencailiaoshenhe.delegate=self;
+    [self query];//查询数据
+   
+    
+    self.navigationItem.title=@"活动管理";
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+    /*
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    [self.navigationItem setRightBarButtonItem:RightBarItem];
+    */
+     [self.navigationItem setRightBarButtonItem:RightBarItem];
     
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDACTIVESCUUESS" object:nil];
@@ -37,7 +44,17 @@
 
 -(void)receiveInfomation
 {
-    [_api huoDongQueryNew];//查询数据
+    [self query];//查询数据
+}
+
+-(void) query
+{
+    if([_isadmin isEqualToString:@"Y"])
+    {
+        [_jiafencailiaoshenhe jiaFenCaiLiaoQuerywithAdmin:@"activity"];
+    }else{
+        [_api huoDongQueryNew];
+    }
 }
 
 
@@ -92,14 +109,14 @@
     
     NSDictionary*dic= [_ary objectAtIndex:indexPath.row];
     
-    cell.activeName.text=[dic objectForKey:@"name"];
-    cell.activeLevel.text=[dic objectForKey:@"activityLevel"];
-    cell.danWei.text=[dic objectForKey:@"sponsor"];
+    cell.activeName.text=[dic objectNotNullForKey:@"name"];
+    cell.activeLevel.text=[dic objectNotNullForKey:@"activityLevel"];
+    cell.danWei.text=[dic objectNotNullForKey:@"sponsor"];
     
-    NSNumber*num=[dic objectForKey:@"participant"];
-    cell.renShu.text=[NSString stringWithFormat:@"%@",num];
-    cell.benYuanQu.text=[dic objectForKey:@"ownerActivity"];
-    cell.company.text=[dic objectForKey:@"company"];
+
+    cell.renShu.text=[dic objectNotNullForKey:@"participant"];
+    cell.benYuanQu.text=[dic objectNotNullForKey:@"ownerActivity"];
+    cell.company.text=[dic objectNotNullForKey:@"company"];
     
     return cell;
 }
@@ -131,7 +148,7 @@
     
     if (result==1) {
         
-        [_api huoDongQueryNew];
+       [self query];
     }
 }
 
@@ -154,6 +171,28 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+
+
+
+- (IBAction)detail:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"jiafencailiaoshenhe" bundle:nil];
+    HuoDongGuanLiDetailVC*vc=[board instantiateViewControllerWithIdentifier:@"HuoDongGuanLiDetailVC"];
+    vc.isadmin=_isadmin;
+    vc.data=dic;
+    vc.navigationItem.title=@"详情";
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 
 

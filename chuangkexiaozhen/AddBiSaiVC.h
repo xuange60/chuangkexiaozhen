@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *CompleteLevelBtn;
 
 @property (strong, nonatomic) IBOutlet UIButton *prizeAwardsBtn;
+@property (strong, nonatomic) IBOutlet UIButton *ownerCompetition;
 
 @property (strong, nonatomic) IBOutlet UIView *myView;
 

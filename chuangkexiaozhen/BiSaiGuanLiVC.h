@@ -10,6 +10,8 @@
 #import "BaseViewController.h"
 #import "BussinessApi.h"
 #import "FilelistViewController.h"
+#import "JiaFenCaiLiaoShenHe.h"
+#import "BiSaiGuanLiDetailVC.h"
 @interface BiSaiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 
@@ -17,6 +19,9 @@
 
 @property(nonatomic,strong)NSArray*array;
 @property(nonatomic,strong)BussinessApi*api;
+@property(nonatomic,strong) JiaFenCaiLiaoShenHe* jiafencailiaoshenhe;
+@property (nonatomic,strong) NSString* isadmin;
+
 -(void)ReceiveShuJu;
 
 

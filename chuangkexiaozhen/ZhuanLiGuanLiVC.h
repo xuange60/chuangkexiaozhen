@@ -8,12 +8,16 @@
 
 #import "BaseViewController.h"
 #import "FilelistViewController.h"
+#import "JiaFenCaiLiaoShenHe.h"
+#import "ZhiShiChanQuanDetailVC.h"
 @interface ZhuanLiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)BussinessApi*api;
+@property (nonatomic,strong) JiaFenCaiLiaoShenHe* jiafencailiaoshenhe;
 @property(nonatomic,strong)NSArray*ary;
 
+@property(nonatomic,strong) NSString* isadmin;
 
 @end

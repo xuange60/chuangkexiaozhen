@@ -22,14 +22,30 @@
     _FuHua=[[FuHusChengZhangGuanLi alloc]init];
     _FuHua.delegate=self;
     
-    [_FuHua NaShuiGuanLiQuery];//查询数据
+    _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
+    _jiafencailiaoshenhe.delegate=self;
+    
+    [self query];//查询数据
     
     self.navigationItem.title=@"纳税管理";
-    
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+    /*
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    
+    */
     [self.navigationItem setRightBarButtonItem:RightBarItem];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDNASHUISCUUESS" object:nil];
+}
+
+-(void)query
+{
+    if([_isadmin isEqualToString:@"Y"])
+    {
+        [_jiafencailiaoshenhe jiaFenCaiLiaoQuerywithAdmin:@"market/tax"];
+    }else{
+        [_FuHua NaShuiGuanLiQuery];
+    }
 }
 
 //查询数据里面的委托代理
@@ -63,7 +79,7 @@
 
 -(void)receiveInfomation
 {
-    [_FuHua NaShuiGuanLiQuery];//查询数据
+    [self query];//查询数据
 }
 
 #pragma mark
@@ -132,7 +148,7 @@
     
     if (result==1) {
         
-        [_FuHua NaShuiGuanLiQuery];
+        [self query];
     }
 }
 
@@ -153,5 +169,27 @@
     [self.navigationController pushViewController:filelist animated:YES];
     
 }
+
+
+- (IBAction)detailquery:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"jiafencailiaoshenhe" bundle:nil];
+    NaShuiShenHeDetailVC*vc=[board instantiateViewControllerWithIdentifier:@"NaShuiShenHeDetailVC"];
+    vc.isadmin=_isadmin;
+    vc.data=dic;
+    vc.navigationItem.title=@"详情";
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 
 @end

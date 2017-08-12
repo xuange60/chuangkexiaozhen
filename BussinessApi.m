@@ -972,6 +972,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     NSString* value2=[parameters objectForKey:@"prizeAwarded"];
     [parameters setObject: [prizeAwardeds objectForKey:value2] forKey:@"prizeAwarded"];
     
+    NSDictionary* ownerCompetitions=[NSDictionary dictionaryWithObjectsAndKeys:@"true",@"是",@"false",@"否", nil];
+    NSString* value3=[parameters objectForKey:@"ownerCompetition"];
+    [parameters setObject: [ownerCompetitions objectForKey:value3] forKey:@"ownerCompetition"];
+    
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/competition/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -1694,6 +1698,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
         NSLog(@"%@",error);
     }];
 }
+
+
 
 
 /*

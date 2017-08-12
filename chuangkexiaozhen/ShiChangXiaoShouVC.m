@@ -26,6 +26,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
     HeTongGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"HeTongGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -35,6 +36,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
     NaShuiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"NaShuiGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -43,9 +45,13 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
     ZhanYouLuGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ZhanYouLuGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+
+
 
 
 @end

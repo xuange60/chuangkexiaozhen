@@ -11,13 +11,17 @@
 #import "AddNaShuiVC.h"
 #import "NaShuiGuanLiCell.h"
 #import "FilelistViewController.h"
-@interface NaShuiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,FuHusChengZhangGuanLiDelegate>
+#import "JiaFenCaiLiaoShenHe.h"
+#import "NaShuiShenHeDetailVC.h"
+@interface NaShuiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,FuHusChengZhangGuanLiDelegate,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)BussinessApi*api;
 @property(nonatomic,strong)NSArray*ary;
 @property(nonatomic,strong)FuHusChengZhangGuanLi*FuHua;
-
+//modify
+@property(nonatomic,strong) JiaFenCaiLiaoShenHe* jiafencailiaoshenhe;
+@property(nonatomic,strong) NSString* isadmin;
 
 @end

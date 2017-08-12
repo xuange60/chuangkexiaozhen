@@ -27,6 +27,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
     ZhuanLiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ZhuanLiGuanLiVC"];
 //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -36,6 +37,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
     XiangMuGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"XiangMuGuanLiVC"];
 //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -44,6 +46,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
     JiangLiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"JiangLiGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

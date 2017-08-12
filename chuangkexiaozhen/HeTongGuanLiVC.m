@@ -21,16 +21,30 @@
     _ary=[NSArray array];
     _FuHua=[[FuHusChengZhangGuanLi alloc]init];
     _FuHua.delegate=self;
-    
-    [_FuHua XiaoShouHeTongQuery];//查询数据
+    _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
+    _jiafencailiaoshenhe.delegate=self;
+    [self query];//查询数据
     
 
     
     self.navigationItem.title=@"销售合同管理";
-    
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+    /*
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    
+    */
     [self.navigationItem setRightBarButtonItem:RightBarItem];
+}
+
+-(void)query
+{
+    if([_isadmin isEqualToString:@"Y"])
+    {
+        [_jiafencailiaoshenhe jiaFenCaiLiaoQuerywithAdmin:@"market/sale"];
+    }else{
+        [_FuHua XiaoShouHeTongQuery];
+    }
 }
 
 //查询数据里面的委托代理
@@ -60,14 +74,14 @@
     [super viewWillAppear:animated];
     
     NSLog(@"%s",__func__);
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDHETONGSCUUESS" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDHETONGSUCCESS" object:nil];
     NSLog(@"%s",__func__);
 }
 
 -(void)receiveInfomation
 {
     NSLog(@"%s",__func__);
-    [_FuHua XiaoShouHeTongQuery];//查询数据
+    [self query];
     NSLog(@"%s",__func__);
 }
 
@@ -142,7 +156,7 @@
     
     if (result==1) {
         
-        [_FuHua XiaoShouHeTongQuery];
+        [self query];
     }
 }
 
@@ -162,6 +176,27 @@
     FilelistViewController* filelist=[[FilelistViewController alloc] initView:strID withType:@"11"];
     [self.navigationController pushViewController:filelist animated:YES];
 
+}
+
+
+- (IBAction)detailquery:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"jiafencailiaoshenhe" bundle:nil];
+    XiaoShouHeTongDetailVC*vc=[board instantiateViewControllerWithIdentifier:@"XiaoShouHeTongDetailVC"];
+    vc.isadmin=_isadmin;
+    vc.data=dic;
+    vc.navigationItem.title=@"详情";
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 @end

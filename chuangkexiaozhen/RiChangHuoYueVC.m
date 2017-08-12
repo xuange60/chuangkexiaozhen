@@ -28,6 +28,7 @@
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     BiSaiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"BiSaiGuanLiVC"];
+    vc.isadmin=_isadmin;
     [vc ReceiveShuJu];
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -37,6 +38,7 @@
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     ChanXueYanGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanGuanLiVC"];
+    vc.isadmin=_isadmin;
     [vc ReceiveShuJu];
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -45,6 +47,7 @@
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     ActiveGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ActiveGuanLiVC"];
+    vc.isadmin=_isadmin;
 //    [vc ReceiveShuJu];
     [self.navigationController pushViewController:vc animated:YES];
     

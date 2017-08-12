@@ -23,7 +23,10 @@
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
     
-    [_api chanXueYanQuery];
+    _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
+    _jiafencailiaoshenhe.delegate=self;
+    
+    [self query];
 }
 
 -(void)loadNetworkFinished:(id)data
@@ -38,9 +41,13 @@
     [super viewDidLoad];
     
     self.navigationItem.title=@"产学研管理";
-    
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+    /*
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    [self.navigationItem setRightBarButtonItem:RightBarItem];
+   */
+     [self.navigationItem setRightBarButtonItem:RightBarItem];
     
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDCHANYEXUESCUUESS" object:nil];
@@ -48,9 +55,18 @@
 
 -(void)receiveInfomation
 {
-    [_api chanXueYanQuery];
+    [self query];
 }
 
+-(void) query
+{
+    if([_isadmin isEqualToString:@"Y"])
+    {
+        [_jiafencailiaoshenhe chanXueYanQueryWithAdmin];
+    }else{
+        [_api chanXueYanQuery];
+    }
+}
 
 //左边添加比赛事件
 -(void)RightBarItemClick:(UIBarButtonItem*)item
@@ -92,8 +108,8 @@
 
     cell.hezuoJine.text=[NSString stringWithFormat:@"%@",money];
     
-    cell.hezuoXiaoGuo.text=[dic objectForKey:@"effect"];
-    cell.suoshuGongSi.text=[dic objectForKey:@"company"];
+    cell.hezuoXiaoGuo.text=[dic objectNotNullForKey:@"effect"];
+    cell.suoshuGongSi.text=[dic objectNotNullForKey:@"company"];
     
     
     return cell;
@@ -126,7 +142,7 @@
     int result=[num intValue];
     if (result==1)
     {
-        [_api chanXueYanQuery];
+        [self query];
     }
 }
 
@@ -153,6 +169,24 @@
 
 
 
+- (IBAction)chanxueyandetailquery:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"jiafencailiaoshenhe" bundle:nil];
+    ChanXueYanDetailVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanDetailVC"];
+    vc.isadmin=_isadmin;
+    vc.data=dic;
+    vc.navigationItem.title=@"详情";
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 

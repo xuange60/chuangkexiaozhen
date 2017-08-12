@@ -10,4 +10,6 @@
 #import "BaseViewController.h"
 @interface RiChangHuoYueVC :BaseViewController
 
+@property(nonatomic,strong) NSString* isadmin;
+
 @end

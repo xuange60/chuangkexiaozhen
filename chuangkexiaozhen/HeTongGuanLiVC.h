@@ -10,14 +10,20 @@
 #import "FuHusChengZhangGuanLi.h"
 #import "AddHeTongVC.h"
 #import "FilelistViewController.h"
+#import "JiaFenCaiLiaoShenHe.h"
+#import "XiaoShouHeTongDetailVC.h"
 @interface HeTongGuanLiVC : BaseViewController
 
-<UITableViewDelegate,UITableViewDataSource,FuHusChengZhangGuanLiDelegate>
+<UITableViewDelegate,UITableViewDataSource,FuHusChengZhangGuanLiDelegate,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)BussinessApi*api;
 @property(nonatomic,strong)NSArray*ary;
 @property(nonatomic,strong)FuHusChengZhangGuanLi*FuHua;
+
+//modify
+@property(nonatomic,strong) JiaFenCaiLiaoShenHe* jiafencailiaoshenhe;
+@property(nonatomic,strong) NSString* isadmin;
 
 @end

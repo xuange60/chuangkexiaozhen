@@ -11,6 +11,8 @@
 #import "AddJiangLiVC.h"
 #import "BussinessApi.h"
 #import "FilelistViewController.h"
+#import "JiaFenCaiLiaoShenHe.h"
+#import "JiangLiGuanDetailVC.h"
 @interface JiangLiGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -18,5 +20,7 @@
 @property(nonatomic,strong)BussinessApi*api;
 @property(nonatomic,strong)NSArray*ary;
 
-
+//modify
+@property(nonatomic,strong) JiaFenCaiLiaoShenHe* jiafencailiaoshenhe;
+@property(nonatomic,strong) NSString* isadmin;
 @end
