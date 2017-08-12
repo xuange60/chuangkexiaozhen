@@ -107,6 +107,7 @@
         cell.succBtn.hidden=YES;
         cell.deleteBtn.hidden=YES;
         [cell.errorBtn setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
+//        cell.errorBtn.tag=888;
     }else{
         
         cell.addBtn.hidden=NO;
@@ -115,7 +116,7 @@
         cell.deleteBtn.hidden=NO;
     }
     
-    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
 //编辑的操作
@@ -171,10 +172,6 @@
     NSDictionary*dic=[_array objectAtIndex:path.row];
     NSString*strID=[dic objectForKey:@"id"];
     
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
-    DetailShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"DetailShiTiVC"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 //审核通过的操作
@@ -210,9 +207,36 @@
     ShiTiRuZhuGuanLiCell*cell=[_tableView cellForRowAtIndexPath:path];
  //   [cell.errorBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     
-    [_shiti ShiTiRuZhuGuanLiJuJue:strID];
+    
+    
+    UIButton*btn=(UIButton*)sender;
+    
+//    if ( btn.tag==888) {
+//        
+//        [_shiti ShiTiRuZhuGuanLiJuJueCancle:strID];
+//        
+//    }else{
+//        
+//       [_shiti ShiTiRuZhuGuanLiJuJue:strID];
+//    }
+//    
+    
     
 }
+//撤销恢复原样
+-(void)afternetwork2:(id)data
+{
+    [_shiti ShiTiRuZhuGuanLiQuery];
+}
+//拒绝按钮变样
+-(void)afternetwork1:(id)data
+{
+     [_shiti ShiTiRuZhuGuanLiQuery];
+}
+
+
+
+
 -(void)deleteData:(id)data
 {
     NSNumber*num=(NSNumber*)data;
@@ -235,6 +259,12 @@
     
     [_shiti ShiTiRuZhuDelete:strID];
 }
+
+-(void)afternetwork6:(id)data
+{
+    [_shiti ShiTiRuZhuGuanLiQuery];
+}
+
 
 //下载文档的操作
 - (IBAction)DownloadClick:(id)sender forEvent:(UIEvent *)event {

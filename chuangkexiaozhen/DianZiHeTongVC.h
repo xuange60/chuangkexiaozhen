@@ -8,12 +8,15 @@
 
 #import "BaseViewController.h"
 #import "FilelistViewController.h"
-@interface DianZiHeTongVC : BaseViewController
+#import "DianZiHeTongGuanLi.h"
+#import "DianZiHeTongCell.h"
+@interface DianZiHeTongVC : BaseViewController<BussinessApiDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-
+@property(nonatomic,strong)NSMutableArray*aryM;
+@property(nonatomic,strong)DianZiHeTongGuanLi*hetong;
 
 
 

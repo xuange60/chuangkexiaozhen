@@ -205,8 +205,8 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(deleteData:)]) {
-                [self.delegate deleteData:[NSNumber numberWithInt:result]];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork4:)]) {
+                [self.delegate afternetwork4:[NSNumber numberWithInt:result]];
             }
         }
         

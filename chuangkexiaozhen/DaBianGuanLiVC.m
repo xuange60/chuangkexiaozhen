@@ -80,9 +80,19 @@
              cell.scoreBtn.hidden=NO;
         }
     
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+
+
+
 
 
 - (IBAction)DeleteBtnClick:(id)sender forEvent:(UIEvent *)event {

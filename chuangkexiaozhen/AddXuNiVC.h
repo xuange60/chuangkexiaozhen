@@ -1,14 +1,16 @@
 //
-//  XuNiVC.h
+//  AddXuNiVC.h
 //  chuangkexiaozhen
 //
-//  Created by 小灰灰 on 2017/7/25.
+//  Created by 小灰灰 on 2017/8/12.
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-@interface XuNiVC : BaseViewController
+#import "XuNiRuZhuGuanLi.h"
+@interface AddXuNiVC : BaseViewController<BussinessApiDelegate>
+
+@property(nonatomic,strong)XuNiRuZhuGuanLi*XuNi;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *F1;
@@ -24,8 +26,10 @@
 - (IBAction)BtnClicked:(id)sender;
 
 
+@property(nonatomic,strong)NSString*strId;
+@property(nonatomic,strong)NSArray*infoAry;
 
-
+-(void) setShuJu:(NSString*)strId   infoAry:(NSArray*)infoAry;
 
 
 @end
