@@ -326,7 +326,7 @@
         ShiChangXiaoShouVC*vc=[board instantiateViewControllerWithIdentifier:@"ShiChangXiaoShouVC"];
         vc.isadmin=@"Y";
         [self.navigationController pushViewController:vc animated:YES];
-        NSLog(@"%@ 按钮被点击",data);
+        NSLog(@"%@ 按钮被点击..",data);
     }else if([data isEqualToString:@"行政运营材料审核"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"任务通告"]){
