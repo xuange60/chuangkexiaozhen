@@ -268,9 +268,9 @@
                                                                 <constraint firstAttribute="height" constant="30" id="af6-Rl-v66"/>
                                                                 <constraint firstAttribute="width" constant="30" id="q3f-Ap-oBD"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="filedetail.png"/>
+                                                            <state key="normal" title="Button" image="filerefresh.png"/>
                                                             <connections>
-                                                                <action selector="DetailClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="EoZ-FU-xwS"/>
+                                                                <action selector="RefreshBtnClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="qXE-SC-K8i"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -345,7 +345,6 @@
                                             <outlet property="addBtn" destination="NWw-qP-fkd" id="24Y-jo-WFZ"/>
                                             <outlet property="baodaoType" destination="tFW-NZ-lol" id="NeH-DN-zyI"/>
                                             <outlet property="deleteBtn" destination="5bt-mF-UGG" id="Gsi-dL-AQR"/>
-                                            <outlet property="detailBtn" destination="g2E-oC-1bW" id="Acr-NP-PCX"/>
                                             <outlet property="downloadBtn" destination="NaE-EU-VLf" id="Bec-Ka-bVk"/>
                                             <outlet property="editBtn" destination="8rJ-TA-c7a" id="snE-wg-y1J"/>
                                             <outlet property="errorBtn" destination="YrE-nL-zoZ" id="T7y-II-Tcs"/>
@@ -353,6 +352,7 @@
                                             <outlet property="jigouName" destination="Rez-QD-81m" id="8xe-lH-obb"/>
                                             <outlet property="lianxifangshi" destination="JZ3-yx-E80" id="CZQ-Kh-9Uu"/>
                                             <outlet property="lianxiren" destination="aKR-se-W9a" id="cj4-Zf-Vxe"/>
+                                            <outlet property="refreshBtn" destination="g2E-oC-1bW" id="wFL-VP-eZL"/>
                                             <outlet property="shenqingTime" destination="Ju6-MB-CSA" id="5uH-FM-YTD"/>
                                             <outlet property="shenqingType" destination="r1S-98-Iag" id="epd-La-Cd5"/>
                                             <outlet property="succBtn" destination="8TM-uS-6fs" id="cMw-QZ-5iF"/>
@@ -937,10 +937,10 @@
         <image name="calendar.png" width="128" height="128"/>
         <image name="fileadd.png" width="128" height="128"/>
         <image name="filedelete.png" width="128" height="128"/>
-        <image name="filedetail.png" width="128" height="128"/>
         <image name="filedownload.png" width="128" height="128"/>
         <image name="fileedit.png" width="128" height="128"/>
         <image name="fileerror.png" width="128" height="128"/>
+        <image name="filerefresh.png" width="128" height="128"/>
         <image name="filesucc.png" width="128" height="128"/>
         <image name="right.png" width="40" height="40"/>
     </resources>

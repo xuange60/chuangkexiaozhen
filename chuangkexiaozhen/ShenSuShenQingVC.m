@@ -1,0 +1,28 @@
+//
+//  ShenSuShenQingVC.m
+//  chuangkexiaozhen
+//
+//  Created by 小灰灰 on 2017/8/12.
+//  Copyright © 2017年 小灰灰. All rights reserved.
+//
+
+#import "ShenSuShenQingVC.h"
+
+@interface ShenSuShenQingVC ()
+
+@end
+
+@implementation ShenSuShenQingVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+   
+}
+
+
+
+
+
+
+
+@end

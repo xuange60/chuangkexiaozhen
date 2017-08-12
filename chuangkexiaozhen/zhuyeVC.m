@@ -276,7 +276,6 @@
         ShiTiRuZhuGuanLivc*vc=[board instantiateViewControllerWithIdentifier:@"ShiTiRuZhuGuanLivc"];
         [self.navigationController pushViewController:vc animated:YES];
         
-        
 
     }else if([data isEqualToString:@"虚拟入驻管理"]){
         NSLog(@"%@ 按钮被点击",data);
@@ -284,8 +283,6 @@
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"XuNiRuZhu" bundle:nil];
         XuNiRuZhuVC*vc=[board instantiateViewControllerWithIdentifier:@"XuNiRuZhuVC"];
         [self.navigationController pushViewController:vc animated:YES];
-        
-        
         
     }else if([data isEqualToString:@"电子合同管理"]){
         NSLog(@"%@ 按钮被点击",data);
@@ -295,6 +292,11 @@
         
     }else if([data isEqualToString:@"开通主线管理"]){
         NSLog(@"%@ 按钮被点击",data);
+        
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaiTongZhuXian" bundle:nil];
+        KaiTongZhuXianVC*vc=[board instantiateViewControllerWithIdentifier:@"KaiTongZhuXianVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if([data isEqualToString:@"申诉申请管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"资源配置管理"]){
