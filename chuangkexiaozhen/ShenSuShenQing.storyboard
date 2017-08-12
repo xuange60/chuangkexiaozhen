@@ -154,7 +154,7 @@
                                                         <constraint firstAttribute="width" constant="45" id="5Rl-Xz-NSj"/>
                                                         <constraint firstAttribute="height" constant="45" id="Vb9-Ld-Aaz"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="fileedit.png"/>
+                                                    <state key="normal" title="Button" image="filerefresh.png"/>
                                                     <connections>
                                                         <action selector="shouLiBtnClick:forEvent:" destination="Eoz-ws-Wz6" eventType="touchUpInside" id="SxV-Ka-ZOH"/>
                                                     </connections>
@@ -235,13 +235,7 @@
                                     <outlet property="content" destination="Hs8-B6-QOI" id="aNT-CI-vlP"/>
                                     <outlet property="deleteBtn" destination="4S7-xL-mrM" id="35j-3i-9uF"/>
                                     <outlet property="detailBtn" destination="ar5-zI-rh4" id="3Bk-jr-GoF"/>
-                                    <outlet property="hangye" destination="Eg5-2g-R30" id="Wiv-Vy-Imr"/>
-                                    <outlet property="jigouName" destination="Hs8-B6-QOI" id="GA9-fl-scQ"/>
-                                    <outlet property="lianxifangshi" destination="PqV-hb-Pef" id="b82-Xf-RD6"/>
-                                    <outlet property="lianxiren" destination="Yqa-tD-B2S" id="sG8-Oc-sWc"/>
                                     <outlet property="reason" destination="Eg5-2g-R30" id="oaE-WX-OcZ"/>
-                                    <outlet property="shenqingTime" destination="os1-uS-Dim" id="w7O-ss-KvY"/>
-                                    <outlet property="shenqingType" destination="eIL-XO-lDv" id="TX1-BV-tyQ"/>
                                     <outlet property="shouLiBtn" destination="N9j-Qu-GOF" id="Zhp-1T-e8H"/>
                                     <outlet property="statue" destination="eIL-XO-lDv" id="buy-wE-dQu"/>
                                     <outlet property="team" destination="Yqa-tD-B2S" id="y5q-Yv-1OM"/>
@@ -342,6 +336,6 @@
     <resources>
         <image name="filedelete.png" width="128" height="128"/>
         <image name="filedetail.png" width="128" height="128"/>
-        <image name="fileedit.png" width="128" height="128"/>
+        <image name="filerefresh.png" width="128" height="128"/>
     </resources>
 </document>

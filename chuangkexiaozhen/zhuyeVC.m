@@ -299,15 +299,15 @@
         
     }else if([data isEqualToString:@"申诉申请管理"]){
         NSLog(@"%@ 按钮被点击",data);
-        UIStoryboard*board=[UIStoryboard storyboardWithName:@" ShenSuShenQing" bundle:nil];
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShenSuShenQing" bundle:nil];
         ShenSuShenQingVC*vc=[board instantiateViewControllerWithIdentifier:@"ShenSuShenQingVC"];
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if([data isEqualToString:@"资源配置管理"]){
         NSLog(@"%@ 按钮被点击",data);
-//        UIStoryboard*board=[UIStoryboard storyboardWithName:@" ShenSuShenQing" bundle:nil];
-//        ShenSuShenQingVC*vc=[board instantiateViewControllerWithIdentifier:@"ShenSuShenQingVC"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"ZiYuanPeiZhi" bundle:nil];
+        ZiYuanPeiZhiVC*vc=[board instantiateViewControllerWithIdentifier:@"ZiYuanPeiZhiVC"];
+        [self.navigationController pushViewController:vc animated:YES];
  
     }else if([data isEqualToString:@"日常活跃度材料审核"]){
         NSLog(@"%@ 按钮被点击",data);
