@@ -786,6 +786,14 @@
                                     <action selector="ziyuanpeizhidelete:" destination="CIK-nD-AUu" eventType="touchUpInside" id="9ym-Yw-tSd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zou-vb-wQO">
+                                <rect key="frame" x="163" y="530" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="资源配置查询"/>
+                                <connections>
+                                    <action selector="ziyuanpeizhidetailquery:" destination="CIK-nD-AUu" eventType="touchUpInside" id="j7l-aI-QR6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

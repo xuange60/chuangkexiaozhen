@@ -743,8 +743,12 @@
 
 
 - (IBAction)ziyuanpeizhidelete:(id)sender {
+    [_ziyuanpeizhiguanli ZiYuanGuanLiDelete:@"58f9cfa419eb8cbffbb87b18"];
 }
 
+- (IBAction)ziyuanpeizhidetailquery:(id)sender {
+    [_ziyuanpeizhiguanli ZiYuanGuanLiDetailQuery:@"597d825c80ab5e6790d52d62"];
+}
 
 
 

@@ -12,10 +12,53 @@
 
 
 /*
- 2.13.0 资源管理修改前查询
+ 2.13.0 在修改资源时，可以下拉选择资产编号；查询到所有的资产编号
  */
--(void) ZiYuanGuanLiDetailQuery:(NSString*)id
+-(void) ZiYuanGuanLiDetailQuery:(NSString*)ids
 {
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/resourceallocation/edit?id=",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//select"];
+            NSMutableDictionary* datas=[[NSMutableDictionary alloc] init];
+            for (TFHppleElement *ele in arrays) {
+                NSString * name=[ele objectForKey:@"name"];
+                NSArray* options=[ele childrenWithTagName:@"option"];
+                if(name!=nil && options!=nil && [options count]>0){
+                    NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                    for (TFHppleElement *ele1 in options) {
+                        NSString* value1=[ele1 objectForKey:@"value"];
+                        NSString* key1=[ele1 content];
+                        if(value1!=nil && key1!=nil){
+                            [data setObject:value1 forKey:key1];
+                        }
+                    }
+                    [datas setObject:data forKey:name];
+                }
+            }
+            
+            //字典NSMutableDictionary* datas包含了查询到的数据
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
+                [self.delegate afternetwork3:[NSNumber numberWithInt:datas]];
+            }
+            
+            //打印查询到的数据
+            NSData *data = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 
 }
 
