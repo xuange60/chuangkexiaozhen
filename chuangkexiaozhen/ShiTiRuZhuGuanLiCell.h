@@ -31,7 +31,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *addBtn;
 
 @property (strong, nonatomic) IBOutlet UIButton *succBtn;
-@property (strong, nonatomic) IBOutlet UIButton *detailBtn;
+
+@property (strong, nonatomic) IBOutlet UIButton *refreshBtn;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *errorBtn;
 @property (strong, nonatomic) IBOutlet UIButton *deleteBtn;

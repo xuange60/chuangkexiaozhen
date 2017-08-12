@@ -102,18 +102,19 @@
         cell.succBtn.hidden=YES;
         cell.errorBtn.hidden=YES;
         cell.deleteBtn.hidden=YES;
+        cell.refreshBtn.hidden=YES;
     }else if([cell.shenqingType.text isEqualToString:@"失败"]){
         cell.addBtn.hidden=YES;
         cell.succBtn.hidden=YES;
         cell.deleteBtn.hidden=YES;
-        [cell.errorBtn setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
-//        cell.errorBtn.tag=888;
-    }else{
+        cell.refreshBtn.hidden=NO;
         
+    }else{
         cell.addBtn.hidden=NO;
         cell.succBtn.hidden=NO;
         cell.errorBtn.hidden=NO;
         cell.deleteBtn.hidden=NO;
+        cell.refreshBtn.hidden=YES;
     }
     
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -162,17 +163,6 @@
 
     
 }
-//详情查看的操作
-- (IBAction)DetailClick:(id)sender forEvent:(UIEvent *)event {
-    NSSet*touches=[event allTouches];
-    UITouch*touch=[touches anyObject];
-    CGPoint point=[touch locationInView:_tableView];
-    NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
-    
-    NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
-    
-}
 
 //审核通过的操作
 - (IBAction)SuccClick:(id)sender forEvent:(UIEvent *)event {
@@ -191,8 +181,25 @@
     [_shiti ShiTiRuZhuGuanLiQuery];
 }
 
+//撤销的操作
+- (IBAction)RefreshBtnClick:(id)sender forEvent:(UIEvent *)event {
+    
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    NSString*strID=[dic objectForKey:@"id"];
+    [_shiti ShiTiRuZhuGuanLiJuJueCancle:strID];
 
+}
 
+//撤销恢复原样
+-(void)afternetwork2:(id)data
+{
+    [_shiti ShiTiRuZhuGuanLiQuery];
+}
 
 //审核不通过的操作
 - (IBAction)ErrorClick:(id)sender forEvent:(UIEvent *)event {
@@ -203,30 +210,8 @@
    
     NSDictionary*dic=[_array objectAtIndex:path.row];
     NSString*strID=[dic objectForKey:@"id"];
+     [_shiti ShiTiRuZhuGuanLiJuJue:strID];
     
-    ShiTiRuZhuGuanLiCell*cell=[_tableView cellForRowAtIndexPath:path];
- //   [cell.errorBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    
-    
-    
-    UIButton*btn=(UIButton*)sender;
-    
-//    if ( btn.tag==888) {
-//        
-//        [_shiti ShiTiRuZhuGuanLiJuJueCancle:strID];
-//        
-//    }else{
-//        
-//       [_shiti ShiTiRuZhuGuanLiJuJue:strID];
-//    }
-//    
-    
-    
-}
-//撤销恢复原样
--(void)afternetwork2:(id)data
-{
-    [_shiti ShiTiRuZhuGuanLiQuery];
 }
 //拒绝按钮变样
 -(void)afternetwork1:(id)data
@@ -234,17 +219,6 @@
      [_shiti ShiTiRuZhuGuanLiQuery];
 }
 
-
-
-
--(void)deleteData:(id)data
-{
-    NSNumber*num=(NSNumber*)data;
-    int result=[num intValue];
-    if (result==1) {
-        [_shiti ShiTiRuZhuGuanLiQuery];
-    }
-}
 
 //删除的操作
 - (IBAction)DeleteClick:(id)sender forEvent:(UIEvent *)event {
