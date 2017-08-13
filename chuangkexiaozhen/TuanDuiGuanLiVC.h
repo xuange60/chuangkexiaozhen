@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+#import "RenYuanJieGouVC.h"
 @interface TuanDuiGuanLiVC : BaseViewController
+
+@property(nonatomic,strong) NSString* isadmin;
 
 @end

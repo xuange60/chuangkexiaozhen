@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"科技创新成熟度考核";
+    if([_isadmin isEqualToString:@"Y"]){
+        self.navigationItem.title=@"科技创新材料审核";
+    }
     
 }
 - (IBAction)btn1Clicked:(id)sender forEvent:(UIEvent *)event {

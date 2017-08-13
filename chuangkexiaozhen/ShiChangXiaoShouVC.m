@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"市场销售考核";
+    if([_isadmin isEqualToString:@"Y"]){
+        self.navigationItem.title=@"市场成熟度管理";
+    }
     
 }
 - (IBAction)btn1Clicked:(id)sender forEvent:(UIEvent *)event {

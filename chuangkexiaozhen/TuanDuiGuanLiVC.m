@@ -16,22 +16,74 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationItem.title=@"团队成熟度考核";
+    if([_isadmin isEqualToString:@"Y"]){
+        self.navigationItem.title=@"行政运营材料审核";
+    }
+    
+}
+- (IBAction)btn1Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)btn2Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
+}
+- (IBAction)btn3Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    RenYuanJieGouVC*vc=[board instantiateViewControllerWithIdentifier:@"RenYuanJieGouVC"];
+    //    [vc ReceiveShuJu];
+    vc.isadmin=_isadmin;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)btn4Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
 }
-*/
+
+- (IBAction)btn5Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
+}
+
+- (IBAction)btn6Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
+}
+
+- (IBAction)btn7Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
+}
+
+- (IBAction)btn8Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
+}
+
+- (IBAction)btn9Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
+}
+
+- (IBAction)btn10Clicked:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    
+}
+
+
 
 @end

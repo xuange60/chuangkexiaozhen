@@ -22,6 +22,9 @@
     [super viewDidLoad];
    
     self.navigationItem.title=@"日常活跃度考核";
+    if([_isadmin isEqualToString:@"Y"]){
+        self.navigationItem.title=@"日常活跃度材料审核";
+    }
     
 }
 - (IBAction)btn1Clicked:(id)sender forEvent:(UIEvent *)event {

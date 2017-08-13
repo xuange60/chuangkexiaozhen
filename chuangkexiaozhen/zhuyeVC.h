@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ShiChangXiaoShouVC.h"
 #import "TuanDuiGuanLiVC.h"
-#import "RenYuanJieGouVC.h"
+#import "TuanDuiGuanLiVC.h"
 #import "KaoQinGuanLiVC.h"
 #import "DaBianGuanLiVC.h"
 #import "ShiTiRuZhuGuanLivc.h"
