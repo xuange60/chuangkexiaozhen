@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *fuwustatus;
 
+@property (strong, nonatomic) IBOutlet UIButton *fuwusucc;
 
 
 @end

@@ -91,7 +91,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWT-q0-AZP">
-                                                    <rect key="frame" x="140" y="144" width="40" height="40"/>
+                                                    <rect key="frame" x="162" y="146" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.9464853406" green="0.95948415990000002" blue="0.96887427569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="delete" image="filedelete.png">
@@ -102,7 +102,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oG-ua-GGZ">
-                                                    <rect key="frame" x="212" y="144" width="40" height="40"/>
+                                                    <rect key="frame" x="234" y="146" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.9464853406" green="0.95948415990000002" blue="0.96887427569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="download" image="filedownload.png">
@@ -113,7 +113,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZa-9U-Edf">
-                                                    <rect key="frame" x="71" y="144" width="40" height="40"/>
+                                                    <rect key="frame" x="93" y="146" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.9464853406" green="0.95948415990000002" blue="0.96887427569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="detail" image="filedetail.png">
@@ -121,6 +121,17 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="ShenSuDetail:forEvent:" destination="oXP-qs-rPz" eventType="touchUpInside" id="37M-p6-L0o"/>
+                                                    </connections>
+                                                </button>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMd-4n-1HI">
+                                                    <rect key="frame" x="30" y="146" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.9464853406" green="0.95948415990000002" blue="0.96887427569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="succ" image="filesucc.png">
+                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="ShenQingSucc:forEvent:" destination="oXP-qs-rPz" eventType="touchUpInside" id="yRh-nE-4XT"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -133,6 +144,7 @@
                                 <connections>
                                     <outlet property="fuwucontent" destination="p5Q-US-atz" id="5QP-ZS-qmo"/>
                                     <outlet property="fuwustatus" destination="5EF-j4-ISI" id="AQa-4u-8td"/>
+                                    <outlet property="fuwusucc" destination="fMd-4n-1HI" id="qQo-Of-mMP"/>
                                     <outlet property="fuwutype" destination="9tP-54-iRM" id="4cr-72-38b"/>
                                     <outlet property="shenqinggongsi" destination="Df5-yK-GU7" id="nCo-8e-6dP"/>
                                 </connections>
@@ -318,6 +330,7 @@
         <image name="filedelete.png" width="128" height="128"/>
         <image name="filedetail.png" width="128" height="128"/>
         <image name="filedownload.png" width="128" height="128"/>
+        <image name="filesucc.png" width="128" height="128"/>
         <image name="right.png" width="40" height="40"/>
     </resources>
 </document>
