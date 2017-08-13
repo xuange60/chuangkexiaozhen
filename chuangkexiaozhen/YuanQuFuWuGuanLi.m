@@ -83,18 +83,23 @@
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
+        int result=0;
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
-            //result: 1,删除成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork1:)]) {
-                [self.delegate afternetwork1:[NSNumber numberWithInt:result]];
-            }
+
         }
-        
+        //result: 1,删除成功 不等于1,失败
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork1:)]) {
+            [self.delegate afternetwork1:[NSNumber numberWithInt:result]];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+        //result: 1,删除成功 不等于1,失败
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork1:)]) {
+            [self.delegate afternetwork1:[NSNumber numberWithInt:0]];
+        }
     }];
 }
 

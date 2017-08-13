@@ -22,13 +22,13 @@
     
     //modify
     self.navigationItem.title=@"园区服务申请";
-    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
-                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(add)];
-    self.navigationItem.rightBarButtonItem=rightBtnItem;
+
     
     self.yuanqufuwushenqing=[[YuanQuFuWuShenQing alloc] init];
     self.yuanqufuwushenqing.delegate=self;
+    
+    self.yuanqufuwuguanli=[[YuanQuFuWuGuanLi alloc] init];
+    _yuanqufuwuguanli.delegate=self;
     [self query];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(query) name:@"FuWuViewController" object:nil];
     
@@ -53,13 +53,27 @@
 //modify 查询数据，显示在tableview上时使用
 -(void)query
 {
-    [self.yuanqufuwushenqing YuanQuFuWuQuery];
+    if([_isadmin isEqualToString:@"Y"])
+    {
+        [_yuanqufuwuguanli YuanQuFuWuQuerywithAdmin];
+    }else{
+        [self.yuanqufuwushenqing YuanQuFuWuQuery];
+    }
+
 }
 
 
 - (void)loadNetworkFinished:(id)data
 {
     self.datas=(NSArray*)data;
+    if(![_isadmin isEqualToString:@"Y"])
+    {
+        UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                         style:UIBarButtonItemStylePlain target:self action:@selector(add)];
+        self.navigationItem.rightBarButtonItem=rightBtnItem;
+    }
+    
     [self.tableview reloadData];
 }
 
@@ -80,10 +94,17 @@
         cell=[[FuWuShenQingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str1];
     }
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
-    cell.fuwutype.text=[dic objectForKey:@"serveCategory"];
-    cell.shenqinggongsi.text=[dic objectForKey:@"tenantTitle"];
-    cell.fuwucontent.text=[dic objectForKey:@"content"];
-    cell.fuwustatus.text=[dic objectForKey:@"status"];
+    cell.fuwutype.text=[dic objectNotNullForKey:@"serveCategory"];
+    cell.shenqinggongsi.text=[dic objectNotNullForKey:@"tenantTitle"];
+    cell.fuwucontent.text=[dic objectNotNullForKey:@"content"];
+    NSString* status=[dic objectNotNullForKey:@"status"];
+    cell.fuwustatus.text=status;
+    if([_isadmin isEqualToString:@"Y"] && [status isEqualToString:@"未处理"])
+    {
+        [cell.fuwusucc setHidden:NO];
+    }else{
+        [cell.fuwusucc setHidden:YES];
+    }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
@@ -158,9 +179,33 @@
 
 
 
+- (IBAction)ShenQingSucc:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    
+    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    
+    [_yuanqufuwuguanli YuanQuFuWuSucc:ids];
+}
 
 
-
+-(void) afternetwork1:(id)data
+{
+    if(1==[(NSNumber*)data intValue]){
+        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"服务申请已受理" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+        [alertCon addAction:action2];
+        [self presentViewController:alertCon animated:YES completion:nil];
+    }
+    [self query];
+}
 
 /*
 #pragma mark - Navigation

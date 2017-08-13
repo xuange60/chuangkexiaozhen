@@ -56,8 +56,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray* arrays=[defaults objectForKey:@"chuangkexiaozhen.zhujiemian"];
 
-    
     self.datas=arrays;
+
     
 
 }
@@ -68,7 +68,15 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:75/255.0 green:76/255.0 blue:77/255.0 alpha:1];
     [self.navigationController.navigationBar setTitleTextAttributes: @{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController setNavigationBarHidden:YES];
-
+    for (NSDictionary* datamap in self.datas) {
+        NSArray* tmps=[datamap objectForKey:@"创客入驻管理"];
+        for (NSString* data in tmps) {
+            if([data isEqualToString:@"实体入驻管理"] || [data isEqualToString:@"虚拟入驻管理"]){
+                self.isadmin=@"Y";
+            }
+            break;
+        }
+    }
 }
 
 
@@ -203,9 +211,10 @@
         TuanDuiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"TuanDuiGuanLiVC"];
         [self.navigationController pushViewController:vc animated:YES];
         
-    }else if([data isEqualToString:@"服务申请"]){
+    }else if([data isEqualToString:@"服务申请"]){//普通用户 管理员都会返回服务申请
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"YuanQuFuWu" bundle:nil];
         FuWuViewController*vc=[board instantiateViewControllerWithIdentifier:@"FuWuViewController"];
+        vc.isadmin=_isadmin;
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"员工列表"]){

@@ -13,6 +13,7 @@
 #import "FuWuShenQingAddViewController.h"
 #import "FilelistViewController.h"
 #import "FuWuShenQingDetailViewController.h"
+#import "YuanQuFuWuGuanLi.h"
 @interface FuWuViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong,nonatomic) YuanQuFuWuShenQing* yuanqufuwushenqing;
@@ -20,5 +21,8 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
+//modify
+@property(nonatomic,strong) YuanQuFuWuGuanLi* yuanqufuwuguanli;
+@property(nonatomic,strong) NSString* isadmin;
 
 @end

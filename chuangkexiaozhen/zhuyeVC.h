@@ -23,4 +23,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 @property (strong, nonatomic) NSArray* datas;
+
+@property (strong,nonatomic) NSString* isadmin;
 @end
