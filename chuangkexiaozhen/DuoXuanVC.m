@@ -26,9 +26,6 @@
     self.navigationItem.title=@"选择资产编号";
     self.view.backgroundColor=[UIColor whiteColor];
     
-    
-    _array=[NSMutableArray arrayWithObjects:@"ggggg",@"ffffffff",@"yyyyyyyy",@"aaaaaa",@"xxxxxxx",@"bbbb",@"dddddd",@"wwwwww",@"qqqqqq",@"mmmmmmm",@"oooooooo",@"ppppppp",@"hhhhhhhh",@"uuuuuuuuuuu", nil];
-
     _tableView=[[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate=self;
     _tableView.dataSource=self;
@@ -63,20 +60,40 @@
     if (cell.accessoryType==UITableViewCellAccessoryNone)
     {
         cell.accessoryType=UITableViewCellAccessoryCheckmark;
-        [_Mstr appendString:[_array objectAtIndex:indexPath.row]];
+        if ([_Mstr isEqualToString:@""]) {
+             [_Mstr appendString:[_array objectAtIndex:indexPath.row]];
+        }else{
+            [_Mstr appendString:@","];
+            [_Mstr appendString:[_array objectAtIndex:indexPath.row]];
+        }
         NSLog(@"%@",_Mstr);
     }else{
         cell.accessoryType=UITableViewCellAccessoryNone;
-        [_Mstr replaceOccurrencesOfString:[_array objectAtIndex:indexPath.row] withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, _Mstr.length)];
+        if ([_Mstr containsString:@","])
+        {
+        NSString*ss=@",";
+        NSString*str= [ss stringByAppendingString:[_array objectAtIndex:indexPath.row]];
+        [_Mstr replaceOccurrencesOfString:str withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, _Mstr.length)];
+        }else{
+         [_Mstr replaceOccurrencesOfString:[_array objectAtIndex:indexPath.row] withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, _Mstr.length)];
+        }
          NSLog(@"%@",_Mstr);
-        
-        
-        
     }
     
+      [_btn setTitle:_Mstr forState:UIControlStateNormal];
 }
 
 
+//- (IBAction)btnclick:(id)sender {
+//    UIButton* btn=(UIButton*)sender;
+//    NSString* datas=btn.titleLabel.text;
+//    if(datas!=nil && datas.length>0 && [datas containsString:@","])
+//    {
+//        datas=[datas stringByReplacingOccurrencesOfString:@"[" withString:@""];
+//        datas=[datas stringByReplacingOccurrencesOfString:@"]" withString:@""];
+//        NSArray* array=[datas componentsSeparatedByString:@","];
+//    }
+// }
 
 
 

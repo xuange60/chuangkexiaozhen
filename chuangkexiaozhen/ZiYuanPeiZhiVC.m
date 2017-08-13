@@ -22,8 +22,13 @@
     _ziyuan.delegate=self;
     
     [_ziyuan ZiYuanGuanLiQuery];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(Refresh) name:@"XIUGAIZIYUANSUCCESS" object:nil];
 }
-
+-(void)Refresh
+{
+    [_ziyuan ZiYuanGuanLiQuery];
+}
 -(void)loadNetworkFinished:(id)data
 {
     _array=[NSMutableArray arrayWithArray:(NSArray*)data];
@@ -73,6 +78,9 @@
     cell.witerName.text=[dic objectNotNullForKey:@"name"];
     cell.witerPhone.text=[dic objectNotNullForKey:@"concatType"];
     
+    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
@@ -105,7 +113,7 @@
     
     NSArray*ary=[NSArray arrayWithObjects:
                  [dic objectNotNullForKey:@"numberOfOffice"],
-                 [dic objectNotNullForKey:@"ppppppppppppppppppppppppppppppppp"],
+                 [dic objectNotNullForKey:@"ppppppppp"],//没有正确的，暂代替
                  [dic objectNotNullForKey:@"numberOftc"],
                  [dic objectNotNullForKey:@"tcCodes"],
                  [dic objectNotNullForKey:@"numberOfoe"],
@@ -118,6 +126,7 @@
                  [dic objectNotNullForKey:@"plCodes"],
                  [dic objectNotNullForKey:@"name"],
                  [dic objectNotNullForKey:@"concatType"],
+                 [dic objectNotNullForKey:@"companyName"],
                  nil];
     
     
