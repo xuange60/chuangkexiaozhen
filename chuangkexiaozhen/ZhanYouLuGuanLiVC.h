@@ -11,7 +11,9 @@
 #import "AddZhanYouLuVC.h"
 #import "FilelistViewController.h"
 #import "FuHusChengZhangGuanLi.h"
-@interface ZhanYouLuGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,FuHusChengZhangGuanLiDelegate>
+#import "JiaFenCaiLiaoShenHe.h"
+#import "ShiChangZhanYouLvDetailVC.h"
+@interface ZhanYouLuGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,FuHusChengZhangGuanLiDelegate,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
@@ -20,7 +22,9 @@
 @property(nonatomic,strong)FuHusChengZhangGuanLi*FuHua;
 
 
-
+//modify
+@property(nonatomic,strong) JiaFenCaiLiaoShenHe* jiafencailiaoshenhe;
+@property(nonatomic,strong) NSString* isadmin;
 
 
 @end

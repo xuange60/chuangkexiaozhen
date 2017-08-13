@@ -10,4 +10,6 @@
 
 @interface ShiChangXiaoShouVC : BaseViewController
 
+@property(nonatomic,strong) NSString* isadmin;
+
 @end

@@ -24,8 +24,9 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
-    
-    [_api biSaiGuanLiQuery];
+    _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
+    _jiafencailiaoshenhe.delegate=self;
+    [self query];
 }
 
 //查询的委托代理
@@ -42,9 +43,12 @@
     [super viewDidLoad];
     
     self.navigationItem.title=@"比赛管理";
-    
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+    /*
     UIBarButtonItem*RightBarItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(RightBarItemClick:)];
-    
+    */
     [self.navigationItem setRightBarButtonItem:RightBarItem];
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfo) name:@"ADDBISAISUCCESS" object:nil];
@@ -53,7 +57,9 @@
 //左边添加后再次查询，刷新数据
 -(void)receiveInfo
 {
-    [_api biSaiGuanLiQuery];
+    [self query];
+
+    
 }
 
 
@@ -97,16 +103,16 @@
     
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     
-    cell.bisaiName.text= [dic objectForKey:@"name"];
-    cell.bisaiLevel.text=[dic objectForKey:@"competeLevel"];
-    cell.mingCi.text=[dic objectForKey:@"prizeAwarded"];
-    cell.rongyuMingCheng.text=[dic objectForKey:@"hornerName"];
-    cell.zuzhiDanWei.text=[dic objectForKey:@"orgnizationUnit"];
-    cell.faqiDate.text=[dic objectForKey:@"date"];
-    cell.benYuanQuzuzhi.text=[dic objectForKey:@"ownerCompetition"];
-    cell.suoShuCompany.text=[dic objectForKey:@"company"];
+    cell.bisaiName.text= [dic objectNotNullForKey:@"name"];
+    cell.bisaiLevel.text=[dic objectNotNullForKey:@"competeLevel"];
+    cell.mingCi.text=[dic objectNotNullForKey:@"prizeAwarded"];
+    cell.rongyuMingCheng.text=[dic objectNotNullForKey:@"hornerName"];
+    cell.zuzhiDanWei.text=[dic objectNotNullForKey:@"orgnizationUnit"];
+    cell.faqiDate.text=[dic objectNotNullForKey:@"ownerCompetition"];
+    cell.benYuanQuzuzhi.text=[dic objectNotNullForKey:@"date"];
+    cell.suoShuCompany.text=[dic objectNotNullForKey:@"company"];
    
-    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
@@ -134,11 +140,21 @@
     int result=[num intValue];
     if (result==1)//删除成功
     {
-         [_api biSaiGuanLiQuery];
+        [self query];
     }
     
 }
 
+
+-(void) query
+{
+    if([@"Y" isEqualToString:_isadmin]){
+        [_jiafencailiaoshenhe biSaiGuanLiQueryWithAdmin];
+    }else{
+        [_api biSaiGuanLiQuery];
+
+    }
+}
 
 //下载比赛事件的处理，进入
 - (IBAction)DownloadBtnClicked:(id)sender forEvent:(UIEvent *)event {
@@ -160,6 +176,30 @@
 
     
 }
+
+
+
+
+
+- (IBAction)detailclick:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableView];
+    
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"jiafencailiaoshenhe" bundle:nil];
+    BiSaiGuanLiDetailVC*vc=[board instantiateViewControllerWithIdentifier:@"BiSaiGuanLiDetailVC"];
+    vc.isadmin=_isadmin;
+    vc.data=dic;
+    vc.navigationItem.title=@"详情";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 
 @end

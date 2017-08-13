@@ -22,12 +22,16 @@
     [super viewDidLoad];
    
     self.navigationItem.title=@"日常活跃度考核";
+    if([_isadmin isEqualToString:@"Y"]){
+        self.navigationItem.title=@"日常活跃度材料审核";
+    }
     
 }
 - (IBAction)btn1Clicked:(id)sender forEvent:(UIEvent *)event {
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     BiSaiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"BiSaiGuanLiVC"];
+    vc.isadmin=_isadmin;
     [vc ReceiveShuJu];
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -37,6 +41,7 @@
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     ChanXueYanGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ChanXueYanGuanLiVC"];
+    vc.isadmin=_isadmin;
     [vc ReceiveShuJu];
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -45,6 +50,7 @@
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
     ActiveGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ActiveGuanLiVC"];
+    vc.isadmin=_isadmin;
 //    [vc ReceiveShuJu];
     [self.navigationController pushViewController:vc animated:YES];
     

@@ -16,6 +16,7 @@
 
 - (IBAction)Btn1Click:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITextField *name;
 
 @property (strong, nonatomic) IBOutlet UITextField *jinE;
 @property (strong, nonatomic) IBOutlet UITextField *xiaoYi;

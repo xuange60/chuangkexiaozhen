@@ -91,15 +91,14 @@
      金额级别 saleMoney 58c7c7324c1a83778c59df76
      社会效益 societyBenefit 100
 */
-    
+    [dic setNotNullObject:_name.text forKey:@"pactName"];
     [dic setNotNullObject:_btn1Title.currentTitle forKey:@"partnerLevel"];
-
     [dic setNotNullObject:_jinE.text forKey:@"partnerPrice"];
-    [dic setNotNullObject:_xiaoYi.text forKey:@"societyBenefit"];
-   
-    [dic setNotNullObject:_btn2Title.currentTitle forKey:@"saleMoney"];
     [dic setNotNullObject:_btn3Title.currentTitle forKey:@"saleBenefit"];
+    [dic setNotNullObject:_btn2Title.currentTitle forKey:@"saleMoney"];
+    [dic setNotNullObject:_xiaoYi.text forKey:@"societyBenefit"];  
     [dic setNotNullObject:_photosIDS forKey:@"arrivalResourceIds"];
+    [dic setNotNullObject:@"" forKey:@"benefitResourceIds"];
     
     [_fuHua XiaoShouHeTongSubmit:dic];
     
@@ -115,9 +114,9 @@
     
     if (result==1)
     {
-
-    [self.navigationController popViewControllerAnimated:YES];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDHETONGSUCCESS" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+
     }
     NSLog(@"%s",__func__);
 }

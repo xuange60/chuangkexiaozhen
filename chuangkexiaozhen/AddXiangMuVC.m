@@ -78,7 +78,7 @@
     [dic  setObject:_name.text forKey:@"name"];
     [dic setObject:_biMa.text forKey:@"code"];
     [dic setObject:_levelBtn.currentTitle forKey:@"projectLevel"];
-    [dic setObject:_danWei forKey:@"competentunit"];
+    [dic setObject:_danWei.text forKey:@"competentunit"];
     
     [dic setObject:_photosIDS forKey:@"resourceIds"];
     

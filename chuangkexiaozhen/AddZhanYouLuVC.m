@@ -73,7 +73,7 @@
    
     [dic setObject:_btn3Title.currentTitle forKey:@"percentLevel"];
     [dic setNotNullObject:_xifenshichang.text forKey:@"marketDetail"];
-    [dic setNotNullObject:_zhanyoulu.text forKey:@"marketPercent"];
+    [dic setNotNullObject:_zhanyoulu.text forKey:@"marketPercent"]; //录入数据时，20%要输如20
     [dic setNotNullObject:_renzhengjigou.text forKey:@"organizationName"];
     
     

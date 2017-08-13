@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"科技创新成熟度考核";
+    if([_isadmin isEqualToString:@"Y"]){
+        self.navigationItem.title=@"科技创新材料审核";
+    }
     
 }
 - (IBAction)btn1Clicked:(id)sender forEvent:(UIEvent *)event {
@@ -27,6 +30,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
     ZhuanLiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ZhuanLiGuanLiVC"];
 //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -36,6 +40,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
     XiangMuGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"XiangMuGuanLiVC"];
 //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -44,6 +49,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
     JiangLiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"JiangLiGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

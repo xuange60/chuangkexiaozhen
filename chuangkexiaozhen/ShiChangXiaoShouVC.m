@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"市场销售考核";
+    if([_isadmin isEqualToString:@"Y"]){
+        self.navigationItem.title=@"市场成熟度管理";
+    }
     
 }
 - (IBAction)btn1Clicked:(id)sender forEvent:(UIEvent *)event {
@@ -26,6 +29,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
     HeTongGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"HeTongGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -35,6 +39,7 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
     NaShuiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"NaShuiGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -43,9 +48,13 @@
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
     ZhanYouLuGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"ZhanYouLuGuanLiVC"];
     //    [vc ReceiveShuJu];
+        vc.isadmin=_isadmin;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+
+
 
 
 @end

@@ -12,15 +12,17 @@
 
 #import "AddActiveVC.h"
 #import "FilelistViewController.h"
-
-@interface ActiveGuanLiVC : UIViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
+#import "HuoDongGuanLiDetailVC.h"
+#import "JiaFenCaiLiaoShenHe.h"
+@interface ActiveGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)BussinessApi*api;
+@property (nonatomic,strong) JiaFenCaiLiaoShenHe* jiafencailiaoshenhe;
 @property(nonatomic,strong)NSArray*ary;
 
 
-
+@property(nonatomic,strong) NSString* isadmin;
 
 
 

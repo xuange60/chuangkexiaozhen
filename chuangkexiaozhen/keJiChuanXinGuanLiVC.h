@@ -10,4 +10,6 @@
 
 @interface keJiChuanXinGuanLiVC : BaseViewController
 
+@property(nonatomic,strong) NSString* isadmin;
+
 @end

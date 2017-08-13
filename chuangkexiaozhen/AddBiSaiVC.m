@@ -51,6 +51,18 @@
     
 }
 
+//是否本园区组织
+- (IBAction)ShiFouYuanQuZuZhiCiCkick:(id)sender forEvent:(UIEvent *)event {
+    
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Commons" bundle:nil];
+    ComboViewController*vc=[storyboard instantiateViewControllerWithIdentifier:@"ComboViewController"];
+    NSArray* array=[[NSArray alloc]initWithObjects:@"是",@"否", nil];
+    [vc setDatas:array withBtn:sender];
+    vc.navigationItem.title=@"是否本园区组织";
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 //上传图片的事件处理
 - (IBAction)shangChuanClick:(id)sender {
 
@@ -91,7 +103,7 @@
     [dic  setObject:_bisaiName.text forKey:@"name"];
     [dic setObject:_rongyuName.text forKey:@"hornerName"];
     [dic setObject:_zuzhijigouName.text forKey:@"orgnizationUnit"];
-    [dic setObject:_rongyuName forKey:@"ownerCompetition"];
+    [dic setObject:_ownerCompetition.currentTitle forKey:@"ownerCompetition"];
     [dic setObject:_CompleteLevelBtn.currentTitle forKey:@"competeLevel"];
     [dic setObject:_prizeAwardsBtn.currentTitle forKey:@"prizeAwarded"];
     [dic setObject:_photosIDS forKey:@"resourceIds"];

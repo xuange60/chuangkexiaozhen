@@ -200,7 +200,7 @@
     }else if([data isEqualToString:@"团队运营成熟度考核"]){
         NSLog(@"%@ 按钮被点击",data);
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
-        RenYuanJieGouVC*vc=[board instantiateViewControllerWithIdentifier:@"RenYuanJieGouVC"];
+        TuanDuiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"TuanDuiGuanLiVC"];
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if([data isEqualToString:@"服务申请"]){
@@ -310,13 +310,29 @@
         [self.navigationController pushViewController:vc animated:YES];
  
     }else if([data isEqualToString:@"日常活跃度材料审核"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"RiChangHuoYue" bundle:nil];
+        RiChangHuoYueVC*vc=[board instantiateViewControllerWithIdentifier:@"RiChangHuoYueVC"];
+        vc.isadmin=@"Y";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"科技创新材料审核"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
+        keJiChuanXinGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"keJiChuanXinGuanLiVC"];
+        vc.isadmin=@"Y";
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"市场成熟度管理"]){
-        NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiChangXiaoShou" bundle:nil];
+        ShiChangXiaoShouVC*vc=[board instantiateViewControllerWithIdentifier:@"ShiChangXiaoShouVC"];
+        vc.isadmin=@"Y";
+        [self.navigationController pushViewController:vc animated:YES];
+        NSLog(@"%@ 按钮被点击..",data);
     }else if([data isEqualToString:@"行政运营材料审核"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+        TuanDuiGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"TuanDuiGuanLiVC"];
+        vc.isadmin=@"Y";
+        [self.navigationController pushViewController:vc animated:YES];
     }else if([data isEqualToString:@"任务通告"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"路演发布管理"]){
