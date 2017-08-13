@@ -22,6 +22,8 @@
 #import "KaiTongZhuXianGuanLi.h"
 #import "ShenSuShenQingGuanLi.h"
 #import "ZiYuanPeiZhiGuanLi.h"
+#import "YuanQuFuWuGuanLi.h"
+#import "YuanQuRenWuTongGao.h"
 //接口测试文件
 @interface TestViewController : UIViewController<BussinessApiDelegate>
 
@@ -43,5 +45,9 @@
 @property (strong,nonatomic) ShenSuShenQingGuanLi* shensushenqingguanli;
 
 @property (strong,nonatomic) ZiYuanPeiZhiGuanLi* ziyuanpeizhiguanli;
+
+@property(strong,nonatomic) YuanQuFuWuGuanLi* yuanqufuwuguanli;
+
+@property (strong,nonatomic) YuanQuRenWuTongGao* yuanqurenwutonggao;
 
 @end

@@ -326,6 +326,9 @@
 		FBF77B711F322B60004F17C3 /* FuWuShenQingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF77B701F322B60004F17C3 /* FuWuShenQingCell.m */; };
 		FBF77B741F323729004F17C3 /* FuWuShenQingAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF77B731F323729004F17C3 /* FuWuShenQingAddViewController.m */; };
 		FBF831F31F4005CA0067ADBE /* RenYuanJieGouDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF831F21F4005CA0067ADBE /* RenYuanJieGouDetailVC.m */; };
+		FBF831F71F401DA70067ADBE /* YuanQuFuWuGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF831F61F401DA70067ADBE /* YuanQuFuWuGuanLi.m */; };
+		FBF831FB1F4020840067ADBE /* YuanQuRenWuTongGao.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF831FA1F4020840067ADBE /* YuanQuRenWuTongGao.m */; };
+		FBF831FE1F40226C0067ADBE /* CommNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF831FD1F40226C0067ADBE /* CommNetWork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -802,6 +805,12 @@
 		FBF77B731F323729004F17C3 /* FuWuShenQingAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuWuShenQingAddViewController.m; sourceTree = "<group>"; };
 		FBF831F11F4005CA0067ADBE /* RenYuanJieGouDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenYuanJieGouDetailVC.h; sourceTree = "<group>"; };
 		FBF831F21F4005CA0067ADBE /* RenYuanJieGouDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenYuanJieGouDetailVC.m; sourceTree = "<group>"; };
+		FBF831F51F401DA70067ADBE /* YuanQuFuWuGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanQuFuWuGuanLi.h; sourceTree = "<group>"; };
+		FBF831F61F401DA70067ADBE /* YuanQuFuWuGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanQuFuWuGuanLi.m; sourceTree = "<group>"; };
+		FBF831F91F4020840067ADBE /* YuanQuRenWuTongGao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuanQuRenWuTongGao.h; sourceTree = "<group>"; };
+		FBF831FA1F4020840067ADBE /* YuanQuRenWuTongGao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuanQuRenWuTongGao.m; sourceTree = "<group>"; };
+		FBF831FC1F40226C0067ADBE /* CommNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommNetWork.h; sourceTree = "<group>"; };
+		FBF831FD1F40226C0067ADBE /* CommNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommNetWork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -842,6 +851,8 @@
 		66411FFD1F1DF6BB002C2F36 /* chuangkexiaozhen */ = {
 			isa = PBXGroup;
 			children = (
+				FBF831F81F401FEC0067ADBE /* 园区任务通告 */,
+				FBF831F41F401D680067ADBE /* 园区服务管理 */,
 				FBBE67491F3EA62B00300FED /* 加分材料审核 */,
 				FBD655C41F38CA8300F9E4F4 /* 创客入驻管理 */,
 				FBD655C01F38C8F400F9E4F4 /* 答辩管理 */,
@@ -1650,6 +1661,8 @@
 				FB0A29E51F2F7BDF003F4C4E /* NSArray+NSArray_Extend.m */,
 				FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */,
 				FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */,
+				FBF831FC1F40226C0067ADBE /* CommNetWork.h */,
+				FBF831FD1F40226C0067ADBE /* CommNetWork.m */,
 			);
 			name = bussiness;
 			sourceTree = "<group>";
@@ -1678,6 +1691,24 @@
 				FB5F9DC91F33569900EED720 /* FuWuShenQingDetailViewController.m */,
 			);
 			name = "园区服务申请";
+			sourceTree = "<group>";
+		};
+		FBF831F41F401D680067ADBE /* 园区服务管理 */ = {
+			isa = PBXGroup;
+			children = (
+				FBF831F51F401DA70067ADBE /* YuanQuFuWuGuanLi.h */,
+				FBF831F61F401DA70067ADBE /* YuanQuFuWuGuanLi.m */,
+			);
+			name = "园区服务管理";
+			sourceTree = "<group>";
+		};
+		FBF831F81F401FEC0067ADBE /* 园区任务通告 */ = {
+			isa = PBXGroup;
+			children = (
+				FBF831F91F4020840067ADBE /* YuanQuRenWuTongGao.h */,
+				FBF831FA1F4020840067ADBE /* YuanQuRenWuTongGao.m */,
+			);
+			name = "园区任务通告";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1954,6 +1985,7 @@
 				FBDAA6B21F362D8300E28CF0 /* HuoDongLuYanViewController.m in Sources */,
 				66B938C71F3423FB006D73FB /* NaShuiGuanLiVC.m in Sources */,
 				FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */,
+				FBF831FE1F40226C0067ADBE /* CommNetWork.m in Sources */,
 				FBAEF7F91F3F5FB600497D37 /* ZhiShiChanQuanDetailVC.m in Sources */,
 				66A4D9131F336ABD00967C75 /* JiangLiGuanLiCell.m in Sources */,
 				FB0540FB1F2E283100548161 /* WoDeZiYuanViewController.m in Sources */,
@@ -1996,6 +2028,7 @@
 				FBA23C631F3C7A0C001FE5CF /* DianZiHeTongGuanLi.m in Sources */,
 				66A4D8FB1F33092600967C75 /* ZhuanLiGuanLiCell.m in Sources */,
 				66B59BC41F3F15E800E4CD2A /* ZiYuanPeiZhiCell.m in Sources */,
+				FBF831FB1F4020840067ADBE /* YuanQuRenWuTongGao.m in Sources */,
 				66B59BC11F3F158F00E4CD2A /* ZiYuanPeiZhiVC.m in Sources */,
 				FBDAA69B1F360D1700E28CF0 /* GenZongViewController.m in Sources */,
 				666561691F3DAEF400FB202C /* XuNiRuZhuVC.m in Sources */,
@@ -2067,6 +2100,7 @@
 				66B938DF1F34E67D006D73FB /* AddZhanYouLuVC.m in Sources */,
 				66F7CA5E1F2F8DFC009F9F84 /* AddChanXueYanVC.m in Sources */,
 				FBF557B01F28C332005AB0F4 /* TFHppleElement.m in Sources */,
+				FBF831F71F401DA70067ADBE /* YuanQuFuWuGuanLi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

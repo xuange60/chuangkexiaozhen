@@ -44,6 +44,13 @@
     _ziyuanpeizhiguanli=[[ZiYuanPeiZhiGuanLi alloc] init];
     _ziyuanpeizhiguanli.delegate=self;
     
+    
+    _yuanqufuwuguanli=[[YuanQuFuWuGuanLi alloc] init];
+    _yuanqufuwuguanli.delegate=self;
+    
+    _yuanqurenwutonggao=[[YuanQuRenWuTongGao alloc] init];
+    _yuanqurenwutonggao.delegate=self;
+    
     [super viewDidLoad];
 }
 
@@ -748,6 +755,61 @@
 
 - (IBAction)ziyuanpeizhidetailquery:(id)sender {
     [_ziyuanpeizhiguanli ZiYuanGuanLiDetailQuery:@"597d825c80ab5e6790d52d62"];
+}
+
+
+
+
+- (IBAction)fuwushenqingqueryadmin:(id)sender {
+    [_yuanqufuwuguanli YuanQuFuWuQuerywithAdmin];
+    
+}
+
+
+- (IBAction)fuwushenqingshouli:(id)sender {
+    [_yuanqufuwuguanli YuanQuFuWuSucc:@"5983509880ab5e6790d5401c"];
+}
+
+
+
+- (IBAction)renwutonggaochaxun:(id)sender {
+    [_yuanqurenwutonggao YuanQuRenWuQuery];
+}
+
+
+
+- (IBAction)renwutonggaoshanchu:(id)sender {
+    [_yuanqurenwutonggao YuanQuRenWuDelete:@"5969ecc580ab5e6790d4ebf7"];
+}
+
+- (IBAction)renwutonggaowancheng:(id)sender {
+    [_yuanqurenwutonggao YuanQuRenWuSucc:@"598ff9c822637b17beb31417"];
+}
+
+
+/*
+ 添加任务通告
+ 参数：
+ 通告类型 category 整理内务
+ 通告内容 content xxxx
+ 截止时间 enddate 2017-08-14 14:38:31
+ file
+ 紧急程度 levels 紧急
+ 通告主题 name ceshi
+ 文件id resourceIds 598ff39922637b17beb31415
+ 涉及人员 users 597d807680ab5e6790d52d45 users 597db39c80ab5e6790d52d6a
+ workId
+ */
+- (IBAction)renwutonggaoadd:(id)sender {
+    NSArray* ary=[NSArray arrayWithObjects:@"5966cdcc80ab5e6790d4e34d", nil];
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"整理内务",@"category",@"测试任务通知",@"content",@"2017-08-28 15:05:11",@"enddate",@"紧急",@"levels",@"任务通知",@"name",@"",@"resourceIds",ary,@"users", nil];
+    [_yuanqurenwutonggao YuanQuRenWuParamQuery];
+    [_yuanqurenwutonggao YuanQuRenWuAdd:param];
+}
+
+
+- (IBAction)renwutonggaodetailquery:(id)sender {
+    [_yuanqurenwutonggao YuanQuRenWuDetail:@"598ff9c822637b17beb31417"];
 }
 
 

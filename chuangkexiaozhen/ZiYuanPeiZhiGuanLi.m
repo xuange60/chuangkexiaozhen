@@ -47,7 +47,7 @@
             
             //字典NSMutableDictionary* datas包含了查询到的数据
             if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
-                [self.delegate afternetwork3:[NSNumber numberWithInt:datas]];
+                [self.delegate afternetwork3:datas];
             }
             
             //打印查询到的数据
