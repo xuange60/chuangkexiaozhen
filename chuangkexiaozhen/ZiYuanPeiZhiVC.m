@@ -62,6 +62,13 @@
      */
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     
+    
+    [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        
+        
+    }];
+    
+    
     cell.companyName.text=[dic objectNotNullForKey:@"companyName"];
     cell.workArea.text=[dic objectNotNullForKey:@"officeArea"];
     cell.zuoweiNum.text=[dic objectNotNullForKey:@"numberOfOffice"];
