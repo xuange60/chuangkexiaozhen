@@ -13,25 +13,40 @@
 @end
 
 @implementation DetailYuanQuRenWuVC
+-(void)setStrId:(NSString *)strId dict:(NSDictionary*)dic
+{
+    _strID=strId;
+    _dic=dic;
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _name.text=_dic[@"name"];
+    _type.text=_dic[@"category"];
+    _chengdu.text=_dic[@"level"];
+    NSArray*ary= _dic[@"userNames"];
+    _person.text=[ary componentsJoinedByString:@","];
+    _content.text=_dic[@"content"];
+    _time.text=_dic[@"endDate"];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

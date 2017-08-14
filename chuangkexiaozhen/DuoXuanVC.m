@@ -55,6 +55,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    
     UITableViewCell*cell=[tableView cellForRowAtIndexPath:indexPath];
     
     if (cell.accessoryType==UITableViewCellAccessoryNone)

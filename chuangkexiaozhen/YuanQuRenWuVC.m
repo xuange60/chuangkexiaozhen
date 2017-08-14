@@ -42,16 +42,6 @@
     [_tonggao YuanQuRenWuQuery];
 }
 
-//-(void) query
-//{
-//    if([_isadmin isEqualToString:@"Y"])
-//    {
-//        [_jiafencailiaoshenhe chanXueYanQueryWithAdmin];
-//    }else{
-//        [_api chanXueYanQuery];
-//    }
-//}
-
 //左边添加比赛事件
 -(void)RightBarItemClick:(UIBarButtonItem*)item
 {
@@ -145,8 +135,11 @@
     [_tonggao YuanQuRenWuDetail:strID];
     
     
-    
-    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"YuanQuRenWuTongGao" bundle:nil];
+    DetailYuanQuRenWuVC*vc=[board instantiateViewControllerWithIdentifier:@"DetailYuanQuRenWuVC"];
+    [vc setStrId:strID dict:dic];
+    [self.navigationController pushViewController:vc animated:YES];
+
     
     
 }
@@ -167,10 +160,9 @@
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
     NSString*strID=[dic objectForKey:@"id"];
    
-    
-    
-    
-    
+    FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"24"];
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 

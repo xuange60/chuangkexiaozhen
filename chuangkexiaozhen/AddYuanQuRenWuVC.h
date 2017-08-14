@@ -7,7 +7,28 @@
 //
 
 #import "BaseViewController.h"
+#import "YuanQuRenWuTongGao.h"
+#import "DuoXuanVC.h"
+@interface AddYuanQuRenWuVC : BaseViewController<BussinessApiDelegate>
 
-@interface AddYuanQuRenWuVC : BaseViewController
+@property(nonatomic,strong)YuanQuRenWuTongGao*tongGao;
+
+@property (strong, nonatomic) IBOutlet UITextField *zhuTi;
+
+@property (strong, nonatomic) IBOutlet UIButton *typeBtn;
+
+
+@property (strong, nonatomic) IBOutlet UIButton *chengDuBtn;
+
+@property (strong, nonatomic) IBOutlet UIButton *personBtn;
+
+@property (strong, nonatomic) IBOutlet UITextView *content;
+
+@property (strong, nonatomic) IBOutlet UIButton *date;
+
+
+
+
+
 
 @end

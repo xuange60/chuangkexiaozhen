@@ -7,7 +7,34 @@
 //
 
 #import "BaseViewController.h"
+#import "YuanQuRenWuTongGao.h"
+@interface DetailYuanQuRenWuVC : BaseViewController<BussinessApiDelegate>
 
-@interface DetailYuanQuRenWuVC : BaseViewController
+
+-(void)setStrId:(NSString*)strId  dict:(NSDictionary*)dic;
+@property(nonatomic,strong)NSString*strID;
+@property(nonatomic,strong)YuanQuRenWuTongGao*tonggao;
+@property(nonatomic,strong)NSDictionary*dic;
+
+@property (strong, nonatomic) IBOutlet UILabel *name;
+
+@property (strong, nonatomic) IBOutlet UILabel *type;
+
+@property (strong, nonatomic) IBOutlet UILabel *chengdu;
+
+@property (strong, nonatomic) IBOutlet UILabel *person;
+
+@property (strong, nonatomic) IBOutlet UITextView *content;
+
+
+
+@property (strong, nonatomic) IBOutlet UILabel *time;
+
+
+
+
+
+
+
 
 @end
