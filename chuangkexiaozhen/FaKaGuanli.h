@@ -15,6 +15,7 @@
 -(void)FaKaDelete:(NSString*)ids;
 
 -(void)FaKaParamMapQuery;
+-(void)QueryUsers:(NSString*)tenaid;
 
 -(void)FaKaAdd:(NSDictionary*)param;
 

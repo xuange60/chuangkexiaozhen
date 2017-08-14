@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "FaKaGuanli.h"
 #import "FaKaGuanLiCell.h"
+#import "FaKaAddVC.h"
 @interface FaKaGuanLiVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (nonatomic,strong) FaKaGuanli* fakaguanli;

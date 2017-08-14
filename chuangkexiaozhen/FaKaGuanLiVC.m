@@ -30,7 +30,7 @@
     self.fakaguanli=[[FaKaGuanli alloc] init];
     self.fakaguanli.delegate=self;
     [self query];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(query) name:@"FuWuViewController" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(query) name:@"FaKaGuanLiVC" object:nil];
     
     // Do any additional setup after loading the view.
 }
@@ -44,9 +44,9 @@
 //点击右上角+号时，添加申请时重写
 -(void)add
 {
-    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"YuanQuFuWu" bundle:nil];
-  //  FuWuShenQingAddViewController* add=[storyboard instantiateViewControllerWithIdentifier:@"FuWuShenQingAddViewController"];
-  //  [self.navigationController pushViewController:add animated:YES];
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"KaoQinGuanLi" bundle:nil];
+    FaKaAddVC* add=[storyboard instantiateViewControllerWithIdentifier:@"FaKaAddVC"];
+    [self.navigationController pushViewController:add animated:YES];
     NSLog(@"%@",@"add");
 }
 

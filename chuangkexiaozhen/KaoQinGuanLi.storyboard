@@ -281,10 +281,7 @@
                                             <outlet property="bindName" destination="UDp-sS-9Pr" id="vai-KZ-kyV"/>
                                             <outlet property="cardNumber" destination="o3J-hI-xI1" id="6J2-aH-wwj"/>
                                             <outlet property="companyName" destination="C9b-VJ-E55" id="hTh-od-MVq"/>
-                                            <outlet property="homeTime" destination="o3J-hI-xI1" id="rN3-S6-fdF"/>
-                                            <outlet property="kaoqinzhuangtai" destination="UDp-sS-9Pr" id="n8p-F3-HAF"/>
                                             <outlet property="name" destination="z9o-5Z-WVp" id="a1C-rP-fqQ"/>
-                                            <outlet property="workTime" destination="z9o-5Z-WVp" id="CoA-ir-Otz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -304,10 +301,10 @@
             </objects>
             <point key="canvasLocation" x="818" y="868"/>
         </scene>
-        <!--View Controller-->
+        <!--Fa Ka AddVC-->
         <scene sceneID="urE-cA-Nhn">
             <objects>
-                <viewController id="dVg-Co-WY5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FaKaAddVC" id="dVg-Co-WY5" customClass="FaKaAddVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BmS-iJ-RXq"/>
                         <viewControllerLayoutGuide type="bottom" id="HK8-uV-nt1"/>
@@ -334,6 +331,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="0.31761622430000003" green="0.31766673919999999" blue="0.31760513779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="teamclick:" destination="dVg-Co-WY5" eventType="touchUpInside" id="vPP-bm-7tg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLC-6N-Pai">
                                         <rect key="frame" x="253" y="7" width="25" height="23"/>
@@ -361,6 +361,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="0.31761622430000003" green="0.31766673919999999" blue="0.31760513779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nameclick:" destination="dVg-Co-WY5" eventType="touchUpInside" id="pLN-pP-oLu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCO-ey-BSv">
                                         <rect key="frame" x="253" y="7" width="25" height="23"/>
@@ -393,10 +396,18 @@
                                 <state key="normal" title="点击提交">
                                     <color key="titleColor" red="0.99991267920000004" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="add:" destination="dVg-Co-WY5" eventType="touchUpInside" id="bqJ-2x-6mv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94648534059524536" green="0.95948415994644165" blue="0.96887427568435669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="card" destination="xEo-yL-fw6" id="Zkh-Dn-VOd"/>
+                        <outlet property="name" destination="Xip-CY-b63" id="WFB-Rc-Xqx"/>
+                        <outlet property="tena" destination="cF0-if-Mwd" id="4Br-FX-75l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avJ-1i-6Q2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

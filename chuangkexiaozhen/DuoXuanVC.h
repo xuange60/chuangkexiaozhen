@@ -21,6 +21,15 @@
 -(void)setArray:(NSArray*)array  btn:(UIButton*)btn;
 
 
+-(void)setNavTitle:(NSString*)titlestr;
+-(void)setDanXuan;//Y指单选 否则为多选
+-(void)setSelectedData:(NSMutableArray*)datas;//以数组的形式传如默认选中数据
+
+@property (nonatomic,strong) NSString* titlestr;
+@property (nonatomic,strong) NSString* isDanXuan;
+
+@property (nonatomic,strong) NSMutableArray* currentSelected; //当前已经被选中的
+
 
 
 @end

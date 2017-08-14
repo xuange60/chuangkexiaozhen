@@ -18,13 +18,51 @@
 
 -(void)FaKaDelete:(NSString*)ids
 {
-    [super deleteWithId:ids andRelativeUrl:@"/hairpinaction/delete"];
+    NSString* param=[NSString stringWithFormat:@"id=%@",ids];
+    [super deleteWithParam:param andRelativeUrl:@"/hairpinaction/delete"];
 }
 
 -(void)FaKaParamMapQuery
 {
     [super queryParamMapwithRelativeUrl:@"/hairpinaction/add"];
 }
+
+-(void)QueryUsers:(NSString*)tenaid
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?tenantId=%@",baseurl,@"/hairpinaction/tenantmember",tenaid];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* ary=[jsondata objectForKey:@"obj"];
+            for (NSDictionary* dic in ary) {
+                NSString* name=[dic objectForKey:@"name"];
+                NSString* ids=[dic objectForKey:@"id"];
+                if(name!=nil && ids!=nil){
+                    [dic setValue:ids forKey:name];
+                }
+            }
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork8:)]) {
+            [self.delegate afternetwork8:dic];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork8:)]) {
+            [self.delegate afternetwork8:nil];
+        }
+    }];
+}
+
+
 
 -(void)FaKaAdd:(NSDictionary*)param
 {

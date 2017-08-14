@@ -23,14 +23,22 @@
 //删除某条记录
 -(void) deleteWithId:(NSString*)ids andRelativeUrl:(NSString*) relativeurl;
 
+//删除某条记录
+-(void) deleteWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl;
+
+
 //审批通过 或 完成操作
 -(void) succWithId:(NSString*)ids andRelativeUrl:(NSString*) relativeurl;
+
+//审批通过 或 完成操作
+-(void) succWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl;
+
 
 //提交操作
 -(void) addWithData:(NSDictionary*)param andRelativeUrl:(NSString*) relativeurl;
 
 //提交操作，自动转换参数  先查询所有参数，再将请求中的参数进行转换
--(void) addWithData:(NSDictionary*)param andParamMap:(NSDictionary*)parammap andRelativeUrl:(NSString*) relativeurl;
+//-(void) addWithData:(NSDictionary*)param andParamMap:(NSDictionary*)parammap andRelativeUrl:(NSString*) relativeurl;
 
 
 //查询参数映射
