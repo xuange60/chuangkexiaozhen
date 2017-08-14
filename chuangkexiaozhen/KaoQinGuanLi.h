@@ -35,4 +35,8 @@
 
 -(void)KaoQinDetailQuery:(NSString*)ids date:(NSString*)date;
 
+
+
+
+
 @end

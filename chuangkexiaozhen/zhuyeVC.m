@@ -222,7 +222,7 @@
         YuanGongViewController*vc=[board instantiateViewControllerWithIdentifier:@"YuanGongViewController"];
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"考勤统计"]){
+    }else if([data isEqualToString:@"考勤统计"]){//普通用户 管理员都会返回考勤统计
         NSLog(@"%@ 按钮被点击",data);
         
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaoQinGuanLi" bundle:nil];
@@ -273,7 +273,12 @@
         vc.paihangbangtype=@"XingZhengYunYing";
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"答辩管理"]){
+    }
+    
+    
+    //注意一下内容只有管理员用户才有
+    
+    else if([data isEqualToString:@"答辩管理"]){
         NSLog(@"%@ 按钮被点击",data);
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"DaBianGuanLi" bundle:nil];
         DaBianGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"DaBianGuanLiVC"];
@@ -349,6 +354,13 @@
         YuanQuRenWuVC*vc=[board instantiateViewControllerWithIdentifier:@"YuanQuRenWuVC"];
         [self.navigationController pushViewController:vc animated:YES];
         
+    }else if([data isEqualToString:@"发卡动作"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaoQinGuanLi" bundle:nil];
+        FaKaGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"FaKaGuanLiVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        NSLog(@"%@ 按钮被点击",data);
+    }else if([data isEqualToString:@"考勤逻辑"]){
+        NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"路演发布管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"签到统计管理"]){

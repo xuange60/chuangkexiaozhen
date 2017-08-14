@@ -23,7 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    self.navigationItem.title=@"选择资产编号";
+    if(_titlestr==nil || _titlestr.length==0){
+        self.navigationItem.title=@"选择资产编号";
+    }else{
+        self.navigationItem.title=_titlestr;
+    }
+
     self.view.backgroundColor=[UIColor whiteColor];
     
     _tableView=[[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -31,7 +36,14 @@
     _tableView.dataSource=self;
     [self.view addSubview:_tableView];
     
-    _Mstr=[NSMutableString string];
+    if(_Mstr==nil || [_Mstr length]==0){
+        _Mstr=[NSMutableString string];
+    }
+    
+    if(_currentSelected==nil || [_currentSelected count]==0)
+    {
+        _currentSelected=[NSMutableArray array];
+    }
 
 }
 
@@ -47,8 +59,18 @@
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     cell.accessoryType= UITableViewCellAccessoryNone;
-    cell.textLabel.text=[_array objectAtIndex:indexPath.row];
-   
+    NSString* text=[_array objectAtIndex:indexPath.row];
+    cell.textLabel.text=text;
+    
+    if([self isSelected:text]){//初始化数据可能被选中
+        if([_isDanXuan isEqualToString:@"Y"] && [_currentSelected count]==1){
+           cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        };
+        if(![_isDanXuan isEqualToString:@"Y"]){
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        };
+    }
+    
     return cell;
 }
 
@@ -64,25 +86,109 @@
         if ([_Mstr isEqualToString:@""]) {
              [_Mstr appendString:[_array objectAtIndex:indexPath.row]];
         }else{
-            [_Mstr appendString:@","];
-            [_Mstr appendString:[_array objectAtIndex:indexPath.row]];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self removeSelected:[_array objectAtIndex:indexPath.row]];
+
         }
+        _Mstr=[self getMStr];
         NSLog(@"%@",_Mstr);
-    }else{
-        cell.accessoryType=UITableViewCellAccessoryNone;
-        if ([_Mstr containsString:@","])
+        [_btn setTitle:_Mstr forState:UIControlStateNormal];
+    }else{ //单选
+        UITableViewCell*cell=[tableView cellForRowAtIndexPath:indexPath];
+        if (cell.accessoryType==UITableViewCellAccessoryNone)
         {
-        NSString*ss=@",";
-        NSString*str= [ss stringByAppendingString:[_array objectAtIndex:indexPath.row]];
-        [_Mstr replaceOccurrencesOfString:str withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, _Mstr.length)];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            for (NSString* data in _currentSelected) {
+                if([_array containsObject:data]){
+                    NSUInteger index1=[_array indexOfObject:data];
+                    NSIndexPath *tmpindexpath = [NSIndexPath indexPathForRow:index1 inSection:0];
+                    UITableViewCell*cell1=[tableView cellForRowAtIndexPath:tmpindexpath];
+                    cell1.accessoryType=UITableViewCellAccessoryNone;
+                    [self removeSelected:data];
+                }
+            }
+            [self dataSelected:[_array objectAtIndex:indexPath.row]];
         }else{
-         [_Mstr replaceOccurrencesOfString:[_array objectAtIndex:indexPath.row] withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, _Mstr.length)];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self removeSelected:[_array objectAtIndex:indexPath.row]];
         }
-         NSLog(@"%@",_Mstr);
+        
+        
+        _Mstr=[self getMStr];
+        NSLog(@"%@",_Mstr);
+        [_btn setTitle:_Mstr forState:UIControlStateNormal];
     }
     
-      [_btn setTitle:_Mstr forState:UIControlStateNormal];
+    
+
+    
 }
+
+
+
+
+
+-(void)setNavTitle:(NSString*)titlestr
+{
+    _titlestr=titlestr;
+}
+
+-(void)setDanXuan
+{
+    _isDanXuan=@"Y";
+}
+
+
+
+-(Boolean)isSelected:(NSString*)data
+{
+    return [_currentSelected containsObject:data];
+}
+
+
+-(void) dataSelected:(NSString*)data
+{
+    if(![self isSelected:data]){
+        [_currentSelected addObject:data];
+    }
+}
+
+-(void)removeSelected:(NSString*)data
+{
+    if(_currentSelected==nil || [_currentSelected count]==0)
+    {
+        _currentSelected=[NSMutableArray array];
+        return ;
+    }
+    [_currentSelected removeObject:data];
+}
+
+
+
+
+
+
+-(void)setSelectedData:(NSMutableArray*)datas
+{
+    _currentSelected=datas;
+    _Mstr=[self getMStr];
+
+}
+
+-(NSMutableString*) getMStr
+{
+    NSMutableString* tmp=[NSMutableString string];
+    if(_currentSelected!=nil && [_currentSelected count]>0){
+        for (int i=0; i<[_currentSelected count]; i++) {
+            [tmp appendString:[_currentSelected objectAtIndex:i]];
+            if(i<[_currentSelected count]-1){
+                [tmp appendString:@","];
+            }
+        }
+    }
+    return tmp;
+}
+
 
 
 //- (IBAction)btnclick:(id)sender {

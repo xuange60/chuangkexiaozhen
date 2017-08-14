@@ -306,6 +306,10 @@
 		FBDAA6B21F362D8300E28CF0 /* HuoDongLuYanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6B11F362D8300E28CF0 /* HuoDongLuYanViewController.m */; };
 		FBDAA6B51F362DA400E28CF0 /* HuoDongLuYanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6B41F362DA400E28CF0 /* HuoDongLuYanCell.m */; };
 		FBDAA6B81F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDAA6B71F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m */; };
+		FBE9B6081F41CA9300E098D4 /* FaKaGuanli.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B6071F41CA9300E098D4 /* FaKaGuanli.m */; };
+		FBE9B60B1F41D55B00E098D4 /* FaKaGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B60A1F41D55B00E098D4 /* FaKaGuanLiVC.m */; };
+		FBE9B60E1F41D59500E098D4 /* FaKaGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B60D1F41D59500E098D4 /* FaKaGuanLiCell.m */; };
+		FBE9B6111F41EA5B00E098D4 /* FaKaAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B6101F41EA5B00E098D4 /* FaKaAddVC.m */; };
 		FBF557941F28C30E005AB0F4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */; };
 		FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578B1F28C30E005AB0F4 /* AFNetworkReachabilityManager.m */; };
 		FBF557961F28C30E005AB0F4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578D1F28C30E005AB0F4 /* AFSecurityPolicy.m */; };
@@ -773,6 +777,14 @@
 		FBDAA6B41F362DA400E28CF0 /* HuoDongLuYanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuoDongLuYanCell.m; sourceTree = "<group>"; };
 		FBDAA6B61F3633C400E28CF0 /* HuoDongLuYanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuoDongLuYanDetailViewController.h; sourceTree = "<group>"; };
 		FBDAA6B71F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuoDongLuYanDetailViewController.m; sourceTree = "<group>"; };
+		FBE9B6061F41CA9300E098D4 /* FaKaGuanli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaKaGuanli.h; sourceTree = "<group>"; };
+		FBE9B6071F41CA9300E098D4 /* FaKaGuanli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaKaGuanli.m; sourceTree = "<group>"; };
+		FBE9B6091F41D55B00E098D4 /* FaKaGuanLiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaKaGuanLiVC.h; sourceTree = "<group>"; };
+		FBE9B60A1F41D55B00E098D4 /* FaKaGuanLiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaKaGuanLiVC.m; sourceTree = "<group>"; };
+		FBE9B60C1F41D59500E098D4 /* FaKaGuanLiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaKaGuanLiCell.h; sourceTree = "<group>"; };
+		FBE9B60D1F41D59500E098D4 /* FaKaGuanLiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaKaGuanLiCell.m; sourceTree = "<group>"; };
+		FBE9B60F1F41EA5B00E098D4 /* FaKaAddVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaKaAddVC.h; sourceTree = "<group>"; };
+		FBE9B6101F41EA5B00E098D4 /* FaKaAddVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaKaAddVC.m; sourceTree = "<group>"; };
 		FBF557871F28C30E005AB0F4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FBF557891F28C30E005AB0F4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1196,6 +1208,14 @@
 				66AB84511F362AB1008B6B15 /* KaoQinDetailCell.m */,
 				66AB844D1F361200008B6B15 /* KaoQinDetailVC.h */,
 				66AB844E1F361200008B6B15 /* KaoQinDetailVC.m */,
+				FBE9B6061F41CA9300E098D4 /* FaKaGuanli.h */,
+				FBE9B6071F41CA9300E098D4 /* FaKaGuanli.m */,
+				FBE9B6091F41D55B00E098D4 /* FaKaGuanLiVC.h */,
+				FBE9B60A1F41D55B00E098D4 /* FaKaGuanLiVC.m */,
+				FBE9B60C1F41D59500E098D4 /* FaKaGuanLiCell.h */,
+				FBE9B60D1F41D59500E098D4 /* FaKaGuanLiCell.m */,
+				FBE9B60F1F41EA5B00E098D4 /* FaKaAddVC.h */,
+				FBE9B6101F41EA5B00E098D4 /* FaKaAddVC.m */,
 			);
 			name = "无感考勤管理";
 			sourceTree = "<group>";
@@ -1975,6 +1995,7 @@
 				66CC4C711F358C86008A08FD /* HuoDong.m in Sources */,
 				661CE39E1F3C9F4A009E374D /* DianZiHeTongVC.m in Sources */,
 				FB0541011F2E40B500548161 /* ShenSuViewController.m in Sources */,
+				FBF831FE1F40226C0067ADBE /* CommNetWork.m in Sources */,
 				FBB182631F2834B900550227 /* TestViewController.m in Sources */,
 				FB1AABB21F3CD77B009C94CA /* ZiYuanPeiZhiGuanLi.m in Sources */,
 				661CE3991F3C9EE4009E374D /* DianZiHeTongCell.m in Sources */,
@@ -2009,7 +2030,6 @@
 				FBDAA6B21F362D8300E28CF0 /* HuoDongLuYanViewController.m in Sources */,
 				66B938C71F3423FB006D73FB /* NaShuiGuanLiVC.m in Sources */,
 				FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */,
-				FBF831FE1F40226C0067ADBE /* CommNetWork.m in Sources */,
 				FBAEF7F91F3F5FB600497D37 /* ZhiShiChanQuanDetailVC.m in Sources */,
 				66A4D9131F336ABD00967C75 /* JiangLiGuanLiCell.m in Sources */,
 				FB0540FB1F2E283100548161 /* WoDeZiYuanViewController.m in Sources */,
@@ -2080,6 +2100,7 @@
 				66A5124C1F30702900498E12 /* ActiveGuanLiVC.m in Sources */,
 				66918C161F41C2DA002419D4 /* YuanQuRenWuVC.m in Sources */,
 				664E509E1F25B1E800824063 /* RegeistVC.m in Sources */,
+				FBE9B6111F41EA5B00E098D4 /* FaKaAddVC.m in Sources */,
 				66814A2D1F1FBE5300322620 /* CustomCell.m in Sources */,
 				66B938D01F3425B4006D73FB /* NaShuiGuanLiCell.m in Sources */,
 				66814A1E1F1E64CE00322620 /* zhuyeVC.m in Sources */,
@@ -2126,7 +2147,10 @@
 				FBDAA6AA1F3626BB00E28CF0 /* PingFenDetailCell.m in Sources */,
 				FBDAA6AD1F3626D200E28CF0 /* PingFenDetailViewController.m in Sources */,
 				66B938DF1F34E67D006D73FB /* AddZhanYouLuVC.m in Sources */,
+				FBE9B60E1F41D59500E098D4 /* FaKaGuanLiCell.m in Sources */,
 				66F7CA5E1F2F8DFC009F9F84 /* AddChanXueYanVC.m in Sources */,
+				FBE9B60B1F41D55B00E098D4 /* FaKaGuanLiVC.m in Sources */,
+				FBE9B6081F41CA9300E098D4 /* FaKaGuanli.m in Sources */,
 				FBF557B01F28C332005AB0F4 /* TFHppleElement.m in Sources */,
 				FBF831F71F401DA70067ADBE /* YuanQuFuWuGuanLi.m in Sources */,
 			);

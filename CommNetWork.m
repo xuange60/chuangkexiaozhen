@@ -114,18 +114,55 @@
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
+        int result=0;
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
-                [self.delegate afternetwork2:[NSNumber numberWithInt:result]];
-            }
+
         }
-        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+            [self.delegate afternetwork2:[NSNumber numberWithInt:result]];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+            [self.delegate afternetwork2:[NSNumber numberWithInt:0]];
+        }
+    }];
+}
+
+
+//删除某条记录
+-(void) deleteWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?%@",baseurl,relativeurl,str];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        int result=0;
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,成功 不等于1,失败
+            
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+            [self.delegate afternetwork2:[NSNumber numberWithInt:result]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+            [self.delegate afternetwork2:[NSNumber numberWithInt:0]];
+        }
     }];
 }
 
@@ -142,22 +179,55 @@
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
+        int result=0;
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
-            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,成功 不等于1,失败
-            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
-                [self.delegate afternetwork3:[NSNumber numberWithInt:result]];
-            }
+
         }
-        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
+            [self.delegate afternetwork3:[NSNumber numberWithInt:result]];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
+            [self.delegate afternetwork3:[NSNumber numberWithInt:0]];
+        }
     }];
 }
 
-
+-(void) succWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?%@",baseurl,relativeurl,str];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        int result=0;
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,成功 不等于1,失败
+            
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
+            [self.delegate afternetwork3:[NSNumber numberWithInt:result]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork3:)]) {
+            [self.delegate afternetwork3:[NSNumber numberWithInt:0]];
+        }
+    }];
+}
 
 -(void) addWithData:(NSDictionary*)param andRelativeUrl:(NSString*) relativeurl
 {
@@ -182,8 +252,8 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
-        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
-            [self.delegate afternetwork2:[NSNumber numberWithInt:0]];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork4:)]) {
+            [self.delegate afternetwork4:[NSNumber numberWithInt:0]];
         }
     }];
     
@@ -191,5 +261,136 @@
 
 
 
+
+-(void) queryParamMapWithId:(NSString*)ids andRelativeUrl:(NSString*) relativeurl;
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,relativeurl,ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//select"];
+            NSMutableDictionary* datas=[[NSMutableDictionary alloc] init];
+            for (TFHppleElement *ele in arrays) {
+                NSString * name=[ele objectForKey:@"name"];
+                NSArray* options=[ele childrenWithTagName:@"option"];
+                if(name!=nil && options!=nil && [options count]>0){
+                    NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                    for (TFHppleElement *ele1 in options) {
+                        NSString* value1=[ele1 objectForKey:@"value"];
+                        NSString* key1=[ele1 content];
+                        if(value1!=nil && key1!=nil){
+                            [data setObject:value1 forKey:key1];
+                        }
+                    }
+                    [datas setObject:data forKey:name];
+                }
+            }
+            
+            //字典NSMutableDictionary* datas包含了查询到的数据
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork5:)]) {
+                [self.delegate afternetwork5:datas];
+            }
+            
+            //打印查询到的数据
+            NSData *data = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
+
+
+-(void) queryParamMapwithRelativeUrl:(NSString*) relativeurl
+{
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,relativeurl];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        
+        if([contenttype containsString:@"html"]){
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//select"];
+            NSMutableDictionary* datas=[[NSMutableDictionary alloc] init];
+            for (TFHppleElement *ele in arrays) {
+                NSString * name=[ele objectForKey:@"name"];
+                NSArray* options=[ele childrenWithTagName:@"option"];
+                if(name!=nil && options!=nil && [options count]>0){
+                    NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                    for (TFHppleElement *ele1 in options) {
+                        NSString* value1=[ele1 objectForKey:@"value"];
+                        NSString* key1=[ele1 content];
+                        if(value1!=nil && key1!=nil){
+                            [data setObject:value1 forKey:key1];
+                        }
+                    }
+                    [datas setObject:data forKey:name];
+                }
+            }
+            
+            //字典NSMutableDictionary* datas包含了查询到的数据
+            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork6:)]) {
+                [self.delegate afternetwork6:datas];
+            }
+            
+            //打印查询到的数据
+            NSData *data = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
+
+
+
+-(void) updateWithData:(NSDictionary*)param andRelativeUrl:(NSString*) relativeurl
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,relativeurl];
+    [manager POST:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        int result=0;
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork7:)]) {
+            [self.delegate afternetwork7:[NSNumber numberWithInt:result]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork7:)]) {
+            [self.delegate afternetwork7:[NSNumber numberWithInt:0]];
+        }
+    }];
+    
+}
 
 @end
