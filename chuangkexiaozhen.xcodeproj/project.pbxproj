@@ -310,6 +310,7 @@
 		FBE9B60B1F41D55B00E098D4 /* FaKaGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B60A1F41D55B00E098D4 /* FaKaGuanLiVC.m */; };
 		FBE9B60E1F41D59500E098D4 /* FaKaGuanLiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B60D1F41D59500E098D4 /* FaKaGuanLiCell.m */; };
 		FBE9B6111F41EA5B00E098D4 /* FaKaAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B6101F41EA5B00E098D4 /* FaKaAddVC.m */; };
+		FBE9B6151F4207F100E098D4 /* QianDaoTongJi.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE9B6141F4207F100E098D4 /* QianDaoTongJi.m */; };
 		FBF557941F28C30E005AB0F4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */; };
 		FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578B1F28C30E005AB0F4 /* AFNetworkReachabilityManager.m */; };
 		FBF557961F28C30E005AB0F4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF5578D1F28C30E005AB0F4 /* AFSecurityPolicy.m */; };
@@ -785,6 +786,8 @@
 		FBE9B60D1F41D59500E098D4 /* FaKaGuanLiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaKaGuanLiCell.m; sourceTree = "<group>"; };
 		FBE9B60F1F41EA5B00E098D4 /* FaKaAddVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaKaAddVC.h; sourceTree = "<group>"; };
 		FBE9B6101F41EA5B00E098D4 /* FaKaAddVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaKaAddVC.m; sourceTree = "<group>"; };
+		FBE9B6131F4207F100E098D4 /* QianDaoTongJi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QianDaoTongJi.h; sourceTree = "<group>"; };
+		FBE9B6141F4207F100E098D4 /* QianDaoTongJi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QianDaoTongJi.m; sourceTree = "<group>"; };
 		FBF557871F28C30E005AB0F4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FBF557881F28C30E005AB0F4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FBF557891F28C30E005AB0F4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1223,6 +1226,7 @@
 		FB5186E11F34E18D00C9705A /* 活动路演管理 */ = {
 			isa = PBXGroup;
 			children = (
+				FBE9B6121F42078400E098D4 /* 签到统计管理 */,
 				FB5186E21F34E23500C9705A /* HuoDong.h */,
 				FB5186E31F34E23500C9705A /* HuoDong.m */,
 				FBDAA6AE1F362CAD00E28CF0 /* huodongluyan.storyboard */,
@@ -1652,6 +1656,15 @@
 				66BE608D1F2DBC9900D55309 /* xiazaiPhotoVC.m */,
 			);
 			name = "初始申请";
+			sourceTree = "<group>";
+		};
+		FBE9B6121F42078400E098D4 /* 签到统计管理 */ = {
+			isa = PBXGroup;
+			children = (
+				FBE9B6131F4207F100E098D4 /* QianDaoTongJi.h */,
+				FBE9B6141F4207F100E098D4 /* QianDaoTongJi.m */,
+			);
+			name = "签到统计管理";
 			sourceTree = "<group>";
 		};
 		FBF557861F28C2CB005AB0F4 /* bussiness */ = {
@@ -2140,6 +2153,7 @@
 				FBDAA69F1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m in Sources */,
 				FBDAA6951F360AD100E28CF0 /* GenZongCell.m in Sources */,
 				FBF77B741F323729004F17C3 /* FuWuShenQingAddViewController.m in Sources */,
+				FBE9B6151F4207F100E098D4 /* QianDaoTongJi.m in Sources */,
 				FB5186D61F34C3E300C9705A /* YuanGongViewController.m in Sources */,
 				FBAEF8021F3F70D100497D37 /* XiaoShouHeTongDetailVC.m in Sources */,
 				66A4D8F21F32EF1F00967C75 /* ZhuanLiGuanLiVC.m in Sources */,

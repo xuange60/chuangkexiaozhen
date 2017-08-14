@@ -91,7 +91,7 @@
 
         }
         _Mstr=[self getMStr];
-        NSLog(@"%@",_Mstr);
+        NSLog(@"多选，%@",_Mstr);
         [_btn setTitle:_Mstr forState:UIControlStateNormal];
     }else{ //单选
         UITableViewCell*cell=[tableView cellForRowAtIndexPath:indexPath];
@@ -115,7 +115,7 @@
         
         
         _Mstr=[self getMStr];
-        NSLog(@"%@",_Mstr);
+        NSLog(@"单选，%@",_Mstr);
         [_btn setTitle:_Mstr forState:UIControlStateNormal];
     }
     
