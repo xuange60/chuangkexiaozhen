@@ -17,18 +17,18 @@
 {
     _array=[NSMutableArray arrayWithArray:array];
     _btn=btn;
-
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     if(_titlestr==nil || _titlestr.length==0){
         self.navigationItem.title=@"选择资产编号";
     }else{
         self.navigationItem.title=_titlestr;
     }
-
+    
     self.view.backgroundColor=[UIColor whiteColor];
     
     _tableView=[[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -44,7 +44,7 @@
     {
         _currentSelected=[NSMutableArray array];
     }
-
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -64,7 +64,7 @@
     
     if([self isSelected:text]){//初始化数据可能被选中
         if([_isDanXuan isEqualToString:@"Y"] && [_currentSelected count]==1){
-           cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
         };
         if(![_isDanXuan isEqualToString:@"Y"]){
             cell.accessoryType=UITableViewCellAccessoryCheckmark;
@@ -76,19 +76,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
-    UITableViewCell*cell=[tableView cellForRowAtIndexPath:indexPath];
-    
-    if (cell.accessoryType==UITableViewCellAccessoryNone)
-    {
-        cell.accessoryType=UITableViewCellAccessoryCheckmark;
-        if ([_Mstr isEqualToString:@""]) {
-             [_Mstr appendString:[_array objectAtIndex:indexPath.row]];
+    if(![_isDanXuan isEqualToString:@"Y"]){//多选
+        UITableViewCell*cell=[tableView cellForRowAtIndexPath:indexPath];
+        
+        if (cell.accessoryType==UITableViewCellAccessoryNone)
+        {
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self dataSelected:[_array objectAtIndex:indexPath.row]];
         }else{
             cell.accessoryType=UITableViewCellAccessoryNone;
             [self removeSelected:[_array objectAtIndex:indexPath.row]];
-
+            
         }
         _Mstr=[self getMStr];
         NSLog(@"多选，%@",_Mstr);
@@ -120,7 +118,7 @@
     }
     
     
-
+    
     
 }
 
@@ -172,7 +170,7 @@
 {
     _currentSelected=datas;
     _Mstr=[self getMStr];
-
+    
 }
 
 -(NSMutableString*) getMStr
