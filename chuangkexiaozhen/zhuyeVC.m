@@ -344,6 +344,11 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if([data isEqualToString:@"任务通告"]){
         NSLog(@"%@ 按钮被点击",data);
+        
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"YuanQuRenWuTongGao" bundle:nil];
+        YuanQuRenWuVC*vc=[board instantiateViewControllerWithIdentifier:@"YuanQuRenWuVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if([data isEqualToString:@"路演发布管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"签到统计管理"]){

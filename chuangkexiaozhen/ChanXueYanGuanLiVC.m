@@ -41,6 +41,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title=@"产学研管理";
+    
     UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
                                                                      style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];

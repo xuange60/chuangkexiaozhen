@@ -17,6 +17,7 @@
 #import "KaiTongZhuXianVC.h"
 #import "ShenSuShenQingVC.h"
 #import "ZiYuanPeiZhiVC.h"
+#import "YuanQuRenWuVC.h"
 @interface zhuyeVC : UIViewController<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
