@@ -39,7 +39,7 @@
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
-        NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+        NSMutableDictionary* dics=[NSMutableDictionary dictionary];
         if([contenttype containsString:@"json"]){//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
             NSArray* ary=[jsondata objectForKey:@"obj"];
@@ -47,12 +47,12 @@
                 NSString* name=[dic objectForKey:@"name"];
                 NSString* ids=[dic objectForKey:@"id"];
                 if(name!=nil && ids!=nil){
-                    [dic setValue:ids forKey:name];
+                    [dics setValue:ids forKey:name];
                 }
             }
         }
         if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork8:)]) {
-            [self.delegate afternetwork8:dic];
+            [self.delegate afternetwork8:dics];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
