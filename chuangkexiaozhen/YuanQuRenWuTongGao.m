@@ -160,10 +160,10 @@
     }
     
     //result: 1,删除成功 不等于1,失败
-    if(result==1){
+   
         if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork5:)]) {
             [self.delegate afternetwork5:[NSNumber numberWithInt:result]];
-        }
+        
     }
     
     

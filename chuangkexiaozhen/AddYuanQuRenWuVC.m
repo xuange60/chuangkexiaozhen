@@ -21,7 +21,7 @@
     _tongGao=[[YuanQuRenWuTongGao alloc]init];
     _tongGao.delegate=self;
     
-    
+    [_tongGao YuanQuRenWuParamQuery];
     
     
     //添加任务通告前，查询到任务通告参数
@@ -34,7 +34,96 @@
      ceshigongsi = 598495bc80ab5e6790d54493;
      }
      */
-//    -(void)YuanQuRenWuParamQuery;
+    
+}
+
+-(void)afternetwork6:(id)data
+{
+    _dic=(NSDictionary*)data;
+    
+}
+
+- (IBAction)typeBtnClick:(id)sender {
+    
+    NSDictionary*dic=_dic[@"category"];
+    NSArray*ary=[dic allKeys];
+    DuoXuanVC*vc=[[DuoXuanVC alloc]init];
+    [vc setArray:ary btn:(UIButton*)sender];
+    [vc setDanXuan];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)chengduBtnClick:(id)sender {
+    
+    NSDictionary*dic=_dic[@"levels"];
+    NSArray*ary=[dic allKeys];
+    
+//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"ZiYuanPeiZhi" bundle:nil];
+//    DuoXuanVC*vc=[board instantiateViewControllerWithIdentifier:@"DuoXuanVC"];
+    
+    DuoXuanVC*vc=[[DuoXuanVC alloc]init];
+    [vc setArray:ary btn:(UIButton*)sender];
+    [vc setDanXuan];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+- (IBAction)personBtnClick:(id)sender {
+    
+    NSDictionary*dic=_dic[@"users"];
+    NSArray*ary=[dic allKeys];
+    
+     DuoXuanVC*vc=[[DuoXuanVC alloc]init];
+    [vc setArray:ary btn:(UIButton*)sender];
+    [vc setDanXuan];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+- (IBAction)shangchuanBtnClick:(id)sender {
+    
+    ImgeUpViewController* imgup=[[ImgeUpViewController alloc] initView];
+    [imgup setNotifyName:@"ADDYUANQURENWUVCFileUp" AndTitle:@"文档上传"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"ADDYUANQURENWUVCFileUp" object:nil];
+    [self.navigationController pushViewController:imgup animated:YES];
+}
+
+-(void)getfile:(id)data
+{
+    if(data!=nil){
+        NSNotification* tmp=(NSNotification*)data;
+        
+       _photoIds=(NSString*)tmp.object;
+    }
+    
+}
+
+- (IBAction)dateBtnClick:(id)sender {
+    
+    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(60, 400, 300, 200)];
+    picker.backgroundColor=[UIColor whiteColor];
+    picker.datePickerMode=UIDatePickerModeDate;
+    picker.minimumDate=[NSDate dateWithTimeIntervalSince1970:0];
+    picker.maximumDate=[NSDate date];
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置为中文
+    picker.locale = locale;
+    
+    [self.view addSubview:picker];
+    [picker addTarget:self action:@selector(pickerStart:) forControlEvents:UIControlEventValueChanged];
+}
+-(void)pickerStart:(UIDatePicker*)picker
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:MM:ss"];
+    NSString*time= [dateFormatter stringFromDate:picker.date];
+    [_date setTitle:time forState:UIControlStateNormal];
+    [picker removeFromSuperview];
+
+}
+
+
+- (IBAction)tijiaoBtnClick:(id)sender {
     
     /*
      添加任务通告
@@ -49,46 +138,36 @@
      涉及人员 users 597d807680ab5e6790d52d45 users 597db39c80ab5e6790d52d6a
      workId
      */
- //   -(void)YuanQuRenWuAdd:(NSDictionary*)param;
-    
-
     
     
+    NSDictionary*dicC=_dic[@"users"];
+   
+    NSMutableDictionary*dic=[NSMutableDictionary dictionary];
+    [dic setNotNullObject:_zhuTi.text forKey:@"name"];
+     [dic setNotNullObject:_typeBtn.currentTitle forKey:@"category"];
+     [dic setNotNullObject:_chengDuBtn.currentTitle forKey:@"levels"];
+    NSArray*ary=[_personBtn.currentTitle componentsSeparatedByString:@","];
     
-}
-
-- (IBAction)typeBtnClick:(id)sender {
+    NSMutableArray*array=[NSMutableArray array];
     
+    for (NSString*ss in ary)
+    {
+        NSString*value=[dicC objectNotNullForKey:ss];
+        [array addObject:value];
+    }
     
-    NSArray*ary=[NSArray arrayWithObjects:@"整理内务",@"安全检查",@"工商涉税",@"其他", nil];
-    
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"ZiYuanPeiZhi" bundle:nil];
-    DuoXuanVC*vc=[board instantiateViewControllerWithIdentifier:@"DuoXuanVC"];
-    [vc setArray:ary btn:(UIButton*)sender];
-//    [vc setDanXuan];
-    [self.navigationController pushViewController:vc animated:YES];
+     [dic setNotNullObject:array forKey:@"users"];
+     [dic setNotNullObject:_content.text forKey:@"content"];
+     [dic setNotNullObject:_photoIds forKey:@"resourceIds"];
+
+    [_tongGao YuanQuRenWuAdd:dic];
 }
 
-- (IBAction)chengduBtnClick:(id)sender {
+-(void)afternetwork5:(id)data
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDTONGGAOSCUUESS" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
-
-- (IBAction)personBtnClick:(id)sender {
-}
-
-
-- (IBAction)shangchuanBtnClick:(id)sender {
-}
-
-- (IBAction)dateBtnClick:(id)sender {
-}
-
-
-
-- (IBAction)tijiaoBtnClick:(id)sender {
-}
-
-
 
 
 

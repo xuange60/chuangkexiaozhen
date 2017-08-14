@@ -9,9 +9,12 @@
 #import "BaseViewController.h"
 #import "YuanQuRenWuTongGao.h"
 #import "DuoXuanVC.h"
+#import "ImgeUpViewController.h"
 @interface AddYuanQuRenWuVC : BaseViewController<BussinessApiDelegate>
 
 @property(nonatomic,strong)YuanQuRenWuTongGao*tongGao;
+@property(nonatomic,strong)NSDictionary*dic;
+@property(nonatomic,strong)NSString*photoIds;
 
 @property (strong, nonatomic) IBOutlet UITextField *zhuTi;
 
