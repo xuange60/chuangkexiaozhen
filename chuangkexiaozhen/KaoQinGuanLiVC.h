@@ -9,12 +9,12 @@
 #import "BaseViewController.h"
 #import "KaoQinGuanLi.h"
 #import "KaoQinDetailVC.h"
-@interface KaoQinGuanLiVC : BaseViewController<UIPickerViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface KaoQinGuanLiVC : BaseViewController<UIPickerViewDelegate,UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property(nonatomic,strong)KaoQinGuanLi*kaoQin;
 
 @property (strong, nonatomic) IBOutlet UITextField *startTime;
-@property (strong, nonatomic) IBOutlet UITextField *endTime;
+
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

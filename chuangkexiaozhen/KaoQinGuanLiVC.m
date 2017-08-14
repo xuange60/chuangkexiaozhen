@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     _ary=[NSArray array];
-    self.navigationController.title=@"考勤管理";
+    self.navigationItem.title=@"考勤统计";
     _kaoQin=[[KaoQinGuanLi alloc]init];
     _kaoQin.delegate=self;
 
@@ -28,7 +28,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString*time=[dateFormatter stringFromDate:date];
     
-    
+    _startTime.text=time;
     NSString*start=[NSString stringWithFormat:@"%@ %@",time,@"00:00:00"];
     NSString*end=[NSString stringWithFormat:@"%@ %@",time,@"23:59:59"];
     
@@ -58,18 +58,18 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     _startTime.text = [dateFormatter stringFromDate:picker.date];
     [picker removeFromSuperview];
+    [self ChaXunKaoQin];
 }
 
-
-
-- (IBAction)ChaXunBtnClick:(id)sender {
-
+-(void)ChaXunKaoQin
+{
     NSString*start=[NSString stringWithFormat:@"%@ %@",_startTime.text,@"00:00:00"];
     NSString*end=[NSString stringWithFormat:@"%@ %@",_startTime.text,@"23:59:59"];
     
- [_kaoQin KaoQinQueryStart:start End:end];
-    
+    [_kaoQin KaoQinQueryStart:start End:end];
 }
+
+
 
 -(void)loadNetworkFinished:(id)data
 {

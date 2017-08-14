@@ -29,10 +29,11 @@
     NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/userattendance/search"];
     NSMutableDictionary* param=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"0",@"start",@"10000",@"length", nil];
-    [param setObject:starttime forKey:@"starttime"];
-    [param setObject:endtime forKey:@"endtime"];
+    [param setObject:starttime forKey:@"startTime"];
+    [param setObject:endtime forKey:@"endTime"];
     
     [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
