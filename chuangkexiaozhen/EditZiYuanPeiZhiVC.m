@@ -292,14 +292,6 @@
     }
     [dic setNotNullObject:EgcAry forKey:@"egcCodes"];
 
-    
-    [dicEgc enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        
-    }];
-    
-    
-    
-    
     /*
      2.13.2 资源管理查询
      http://116.228.176.34:9002/chuangke-serve/resourceallocation/search?length=1000&start=0
