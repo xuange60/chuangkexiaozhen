@@ -51,7 +51,25 @@
  */
 -(void)QianDaoTongJiQueryParam
 {
-    [self queryParamMapwithRelativeUrl:@"/sign/add"];
+    [super queryParamMapwithRelativeUrl:@"/sign/add"];
+}
+
+
+/**
+ 5.添加签到统计数据
+ http://116.228.176.34:9002/chuangke-serve/sign/save
+ 参数： 注意单选路演活动后，需要先进行参数转换
+ 实到人数 actualNum 30
+ 文档id otherResourceIds 5991d4e0a92b0b6e2c92dfdd
+ 出席率 percent 75.00%
+ 备注 remark xxx
+ 路演活动 roadshows 593620bc075910c2d60d079a
+ 应到人数 shouldNum 40
+ 签到文档 signResourceIds 5991d4d8a92b0b6e2c92dfdc
+ */
+-(void)QianDaoTongJiAdd:(NSDictionary*) dic
+{
+    [super addWithData:dic andRelativeUrl:@"/sign/save"];
 }
 
 @end
