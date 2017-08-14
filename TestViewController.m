@@ -814,6 +814,24 @@
 
 
 
+- (IBAction)qiandaotongji:(id)sender {
+    QianDaoTongJi* qiandaotongji=[[QianDaoTongJi alloc] init];
+    qiandaotongji.delegate=self;
+    
+    [qiandaotongji QianDaoTongJiQuery];
+    [qiandaotongji QianDaoTongJiDelete:@"5991dacfa92b0b6e2c92dfdf"];
+    
+    [qiandaotongji QianDaoTongJiQueryParam];
+
+    NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:@"30",@"actualNum",@"75.00%",@"percent",@"xxxxxx",@"remark",@"596b820b80ab5e6790d4f05a",@"roadshows",@"80",@"shouldNum",@"",@"otherResourceIds",@"",@"signResourceIds", nil];
+//    [qiandaotongji QianDaoTongJiAdd:dic];
+    
+}
+
+
+
+
+
 /*
 #pragma mark - Navigation
 

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *card;
 
 @property (strong,nonatomic) NSDictionary* tenanids;
+@property (strong,nonatomic) NSDictionary* names;
 
 @property FaKaGuanli* fakaguanli;
 
