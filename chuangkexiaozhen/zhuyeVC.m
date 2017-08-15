@@ -306,7 +306,6 @@
         
     }else if([data isEqualToString:@"开通主线管理"]){
         NSLog(@"%@ 按钮被点击",data);
-        
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaiTongZhuXian" bundle:nil];
         KaiTongZhuXianVC*vc=[board instantiateViewControllerWithIdentifier:@"KaiTongZhuXianVC"];
         [self.navigationController pushViewController:vc animated:YES];
@@ -363,13 +362,17 @@
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"路演发布管理"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"huodongluyan" bundle:nil];
+        HuoDongLuYanViewController* vc=[board instantiateViewControllerWithIdentifier:@"HuoDongLuYanViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
     }else if([data isEqualToString:@"签到统计管理"]){
         NSLog(@"%@ 按钮被点击",data);
         
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"QianDaoTongJi" bundle:nil];
         QianDaoTongJiVC*vc=[board instantiateViewControllerWithIdentifier:@"QianDaoTongJiVC"];
         [self.navigationController pushViewController:vc animated:YES];
-        
 
     }else if([data isEqualToString:@"活动报销管理"]){
         NSLog(@"%@ 按钮被点击",data);
