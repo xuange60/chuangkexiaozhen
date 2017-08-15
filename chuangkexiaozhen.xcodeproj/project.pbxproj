@@ -146,6 +146,10 @@
 		FB0A29EC1F2F8E1F003F4C4E /* DianZiHeTongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A29EB1F2F8E1F003F4C4E /* DianZiHeTongViewController.m */; };
 		FB1AABB21F3CD77B009C94CA /* ZiYuanPeiZhiGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1AABB11F3CD77B009C94CA /* ZiYuanPeiZhiGuanLi.m */; };
 		FB219D781F2A4ACE0044F3AC /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FB219D771F2A4ACE0044F3AC /* right.png */; };
+		FB2BB3BD1F4356BD00ED7A56 /* KaoQinLuoJi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2BB3BC1F4356BD00ED7A56 /* KaoQinLuoJi.m */; };
+		FB2BB3C01F43587500ED7A56 /* KaoQinLuoJiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2BB3BF1F43587400ED7A56 /* KaoQinLuoJiVC.m */; };
+		FB2BB3C31F43588C00ED7A56 /* KaoQinLuoJiUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2BB3C21F43588C00ED7A56 /* KaoQinLuoJiUpdateVC.m */; };
+		FB2BB3C61F4358F500ED7A56 /* KaoQinLuoJiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2BB3C51F4358F500ED7A56 /* KaoQinLuoJiCell.m */; };
 		FB4BDE8B1F30BA8600290046 /* ImgeUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */; };
 		FB4BDE901F30E01C00290046 /* FuHusChengZhangGuanLi.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4BDE8F1F30E01C00290046 /* FuHusChengZhangGuanLi.m */; };
 		FB503BD01F3A20E900FC6150 /* notify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB503BCA1F3A20E900FC6150 /* notify@2x.png */; };
@@ -582,6 +586,14 @@
 		FB1AABB01F3CD77B009C94CA /* ZiYuanPeiZhiGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZiYuanPeiZhiGuanLi.h; sourceTree = "<group>"; };
 		FB1AABB11F3CD77B009C94CA /* ZiYuanPeiZhiGuanLi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZiYuanPeiZhiGuanLi.m; sourceTree = "<group>"; };
 		FB219D771F2A4ACE0044F3AC /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		FB2BB3BB1F4356BD00ED7A56 /* KaoQinLuoJi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaoQinLuoJi.h; sourceTree = "<group>"; };
+		FB2BB3BC1F4356BD00ED7A56 /* KaoQinLuoJi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaoQinLuoJi.m; sourceTree = "<group>"; };
+		FB2BB3BE1F43587400ED7A56 /* KaoQinLuoJiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaoQinLuoJiVC.h; sourceTree = "<group>"; };
+		FB2BB3BF1F43587400ED7A56 /* KaoQinLuoJiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaoQinLuoJiVC.m; sourceTree = "<group>"; };
+		FB2BB3C11F43588C00ED7A56 /* KaoQinLuoJiUpdateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaoQinLuoJiUpdateVC.h; sourceTree = "<group>"; };
+		FB2BB3C21F43588C00ED7A56 /* KaoQinLuoJiUpdateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaoQinLuoJiUpdateVC.m; sourceTree = "<group>"; };
+		FB2BB3C41F4358F500ED7A56 /* KaoQinLuoJiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaoQinLuoJiCell.h; sourceTree = "<group>"; };
+		FB2BB3C51F4358F500ED7A56 /* KaoQinLuoJiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaoQinLuoJiCell.m; sourceTree = "<group>"; };
 		FB4BDE891F30BA8600290046 /* ImgeUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgeUpViewController.h; sourceTree = "<group>"; };
 		FB4BDE8A1F30BA8600290046 /* ImgeUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgeUpViewController.m; sourceTree = "<group>"; };
 		FB4BDE8E1F30E01C00290046 /* FuHusChengZhangGuanLi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuHusChengZhangGuanLi.h; sourceTree = "<group>"; };
@@ -1235,6 +1247,14 @@
 				FBE9B60D1F41D59500E098D4 /* FaKaGuanLiCell.m */,
 				FBE9B60F1F41EA5B00E098D4 /* FaKaAddVC.h */,
 				FBE9B6101F41EA5B00E098D4 /* FaKaAddVC.m */,
+				FB2BB3BB1F4356BD00ED7A56 /* KaoQinLuoJi.h */,
+				FB2BB3BC1F4356BD00ED7A56 /* KaoQinLuoJi.m */,
+				FB2BB3BE1F43587400ED7A56 /* KaoQinLuoJiVC.h */,
+				FB2BB3BF1F43587400ED7A56 /* KaoQinLuoJiVC.m */,
+				FB2BB3C11F43588C00ED7A56 /* KaoQinLuoJiUpdateVC.h */,
+				FB2BB3C21F43588C00ED7A56 /* KaoQinLuoJiUpdateVC.m */,
+				FB2BB3C41F4358F500ED7A56 /* KaoQinLuoJiCell.h */,
+				FB2BB3C51F4358F500ED7A56 /* KaoQinLuoJiCell.m */,
 			);
 			name = "无感考勤管理";
 			sourceTree = "<group>";
@@ -2040,6 +2060,7 @@
 				FB1AABB21F3CD77B009C94CA /* ZiYuanPeiZhiGuanLi.m in Sources */,
 				661CE3991F3C9EE4009E374D /* DianZiHeTongCell.m in Sources */,
 				FBBE674C1F3EA65D00300FED /* JiaFenCaiLiaoShenHe.m in Sources */,
+				FB2BB3C31F43588C00ED7A56 /* KaoQinLuoJiUpdateVC.m in Sources */,
 				664120061F1DF6BB002C2F36 /* ViewController.m in Sources */,
 				66170E6C1F2E4AD9007C3C76 /* BiSaiCell.m in Sources */,
 				66A4D91C1F336B0F00967C75 /* AddJiangLiVC.m in Sources */,
@@ -2107,6 +2128,7 @@
 				FBC982191F35889900CFDE01 /* GenZongFuWu.m in Sources */,
 				FBF557B71F28CA92005AB0F4 /* MainViewController.m in Sources */,
 				66F489AC1F39991F00F025F1 /* MarkScoreVC.m in Sources */,
+				FB2BB3BD1F4356BD00ED7A56 /* KaoQinLuoJi.m in Sources */,
 				66B938C41F3423E5006D73FB /* HeTongGuanLiVC.m in Sources */,
 				FBDAA6B51F362DA400E28CF0 /* HuoDongLuYanCell.m in Sources */,
 				6620D62E1F2D02D200118DCE /* XiaZaiCell.m in Sources */,
@@ -2183,6 +2205,8 @@
 				FBDAA69F1F3612ED00E28CF0 /* GenZongFuWuAddViewController.m in Sources */,
 				FBDAA6951F360AD100E28CF0 /* GenZongCell.m in Sources */,
 				FBF77B741F323729004F17C3 /* FuWuShenQingAddViewController.m in Sources */,
+				FB2BB3C61F4358F500ED7A56 /* KaoQinLuoJiCell.m in Sources */,
+				FB2BB3C01F43587500ED7A56 /* KaoQinLuoJiVC.m in Sources */,
 				FBE9B6151F4207F100E098D4 /* QianDaoTongJi.m in Sources */,
 				FB5186D61F34C3E300C9705A /* YuanGongViewController.m in Sources */,
 				FBAEF8021F3F70D100497D37 /* XiaoShouHeTongDetailVC.m in Sources */,

@@ -24,7 +24,7 @@
 #import "PaiHangBangViewController.h"
 #import "HuoDongLuYanViewController.h"
 #import "DianZiHeTongVC.h"
-
+#import "KaoQinLuoJiVC.h"
 
 @interface zhuyeVC ()
 
@@ -359,6 +359,9 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"考勤逻辑"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaoQinGuanLi" bundle:nil];
+        KaoQinLuoJiVC*vc=[board instantiateViewControllerWithIdentifier:@"KaoQinLuoJiVC"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"路演发布管理"]){
         NSLog(@"%@ 按钮被点击",data);
