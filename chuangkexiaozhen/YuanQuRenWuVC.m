@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.title=@"园区任务通告";
     
     _tonggao=[[YuanQuRenWuTongGao alloc]init];
