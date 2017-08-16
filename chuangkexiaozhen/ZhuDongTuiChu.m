@@ -42,7 +42,7 @@
  2.17.6 主动性退出资源下载
  typeIndex	36
  
- 
+ ceshigaidong
  
  */
 -(void) ZhuDongTuiChuQuery
