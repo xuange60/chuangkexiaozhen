@@ -35,6 +35,11 @@
 		667A262E1F42E18200E88A11 /* QianDaoTongJiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 667A262D1F42E18200E88A11 /* QianDaoTongJiCell.m */; };
 		667A26301F42F5D300E88A11 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 667A262F1F42F5D300E88A11 /* plus.png */; };
 		667A26321F42F5DD00E88A11 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 667A26311F42F5DD00E88A11 /* minus.png */; };
+		667A26341F43692500E88A11 /* Multiple-Select-Save.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 667A26331F43692500E88A11 /* Multiple-Select-Save.tiff */; };
+		667A26361F436BE000E88A11 /* endYes.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 667A26351F436BE000E88A11 /* endYes.tiff */; };
+		667A26381F436DB300E88A11 /* PlayerDownloadBtnPush.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 667A26371F436DB300E88A11 /* PlayerDownloadBtnPush.tiff */; };
+		667A263A1F436EA500E88A11 /* localVideoListAddFileBtn_h.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 667A26391F436EA500E88A11 /* localVideoListAddFileBtn_h.tiff */; };
+		667A263C1F436F3E00E88A11 /* download(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 667A263B1F436F3E00E88A11 /* download(1).png */; };
 		66814A1B1F1E643200322620 /* jieshaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66814A1A1F1E643200322620 /* jieshaoVC.m */; };
 		66814A1E1F1E64CE00322620 /* zhuyeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66814A1D1F1E64CE00322620 /* zhuyeVC.m */; };
 		66814A211F1E64E000322620 /* wodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66814A201F1E64E000322620 /* wodeVC.m */; };
@@ -408,6 +413,11 @@
 		667A262D1F42E18200E88A11 /* QianDaoTongJiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QianDaoTongJiCell.m; sourceTree = "<group>"; };
 		667A262F1F42F5D300E88A11 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		667A26311F42F5DD00E88A11 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
+		667A26331F43692500E88A11 /* Multiple-Select-Save.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Multiple-Select-Save.tiff"; sourceTree = "<group>"; };
+		667A26351F436BE000E88A11 /* endYes.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = endYes.tiff; sourceTree = "<group>"; };
+		667A26371F436DB300E88A11 /* PlayerDownloadBtnPush.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = PlayerDownloadBtnPush.tiff; sourceTree = "<group>"; };
+		667A26391F436EA500E88A11 /* localVideoListAddFileBtn_h.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = localVideoListAddFileBtn_h.tiff; sourceTree = "<group>"; };
+		667A263B1F436F3E00E88A11 /* download(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download(1).png"; sourceTree = "<group>"; };
 		66814A191F1E643200322620 /* jieshaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jieshaoVC.h; sourceTree = "<group>"; };
 		66814A1A1F1E643200322620 /* jieshaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jieshaoVC.m; sourceTree = "<group>"; };
 		66814A1C1F1E64CE00322620 /* zhuyeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhuyeVC.h; sourceTree = "<group>"; };
@@ -1703,6 +1713,10 @@
 		FBD655C51F38CA9900F9E4F4 /* 实体入驻管理 */ = {
 			isa = PBXGroup;
 			children = (
+				667A263B1F436F3E00E88A11 /* download(1).png */,
+				667A26371F436DB300E88A11 /* PlayerDownloadBtnPush.tiff */,
+				667A26351F436BE000E88A11 /* endYes.tiff */,
+				667A26331F43692500E88A11 /* Multiple-Select-Save.tiff */,
 				FBA23C8A1F3CA96B001FE5CF /* ShiTiRuZhuGuanLi.h */,
 				FBA23C8B1F3CA96B001FE5CF /* ShiTiRuZhuGuanLi.m */,
 				66DC63E91F39C63A0022D830 /* ShiTiRuZhuGuanLi.storyboard */,
@@ -1714,6 +1728,7 @@
 				661CE37C1F3AF8C5009E374D /* EditShiTiVC.m */,
 				661CE37E1F3AF8E0009E374D /* AddShiTiVC.h */,
 				661CE37F1F3AF8E0009E374D /* AddShiTiVC.m */,
+				667A26391F436EA500E88A11 /* localVideoListAddFileBtn_h.tiff */,
 			);
 			name = "实体入驻管理";
 			sourceTree = "<group>";
@@ -1945,9 +1960,11 @@
 				FBB182E81F28A12F00550227 /* 孵化成长管理.png in Resources */,
 				FBB182C71F2879AA00550227 /* 签到统计管理.gif in Resources */,
 				FBB183081F28AF1A00550227 /* 科技创新成熟度考核.gif in Resources */,
+				667A263C1F436F3E00E88A11 /* download(1).png in Resources */,
 				FBB182C11F28799000550227 /* 路演发布管理.gif in Resources */,
 				FBB1831B1F28B39900550227 /* 市场成熟度管理.gif in Resources */,
 				FBB182F81F28A60700550227 /* 退出机制.png in Resources */,
+				667A263A1F436EA500E88A11 /* localVideoListAddFileBtn_h.tiff in Resources */,
 				FBD7A82F1F27B21B00B9251D /* file@3x.png in Resources */,
 				FBF557AE1F28C332005AB0F4 /* testxml in Resources */,
 				FBD7A8111F27AF8400B9251D /* user@3x.png in Resources */,
@@ -1975,6 +1992,7 @@
 				FB0A29D51F2F6691003F4C4E /* add@1x.png in Resources */,
 				FBB182CD1F287A6500550227 /* 公告通知.gif in Resources */,
 				FBD7A81D1F27B17100B9251D /* home_@3x.png in Resources */,
+				667A26381F436DB300E88A11 /* PlayerDownloadBtnPush.tiff in Resources */,
 				FBB182EC1F28A54A00550227 /* 员工管理.png in Resources */,
 				FBB1830C1F28AF4C00550227 /* 团队运营成熟度考核.gif in Resources */,
 				FBD7A82C1F27B21B00B9251D /* file_@3x.png in Resources */,
@@ -2005,6 +2023,7 @@
 				6641200B1F1DF6BB002C2F36 /* Assets.xcassets in Resources */,
 				664E50AD1F25F41E00824063 /* MyStoryboard1.storyboard in Resources */,
 				FBB182E61F28A05400550227 /* 报道入驻.png in Resources */,
+				667A26361F436BE000E88A11 /* endYes.tiff in Resources */,
 				FBB182791F28727400550227 /* 电子合同.gif in Resources */,
 				FB503BD11F3A20E900FC6150 /* notify@3x.png in Resources */,
 				FBB1829B1F2875B900550227 /* 综合能力排行.gif in Resources */,
@@ -2091,6 +2110,7 @@
 				FB503BD21F3A20E900FC6150 /* setting@2x.png in Resources */,
 				667A26321F42F5DD00E88A11 /* minus.png in Resources */,
 				FBA23C911F3CAB7B001FE5CF /* xuNiView.xib in Resources */,
+				667A26341F43692500E88A11 /* Multiple-Select-Save.tiff in Resources */,
 				FBB182D71F287BD500550227 /* 模块.gif in Resources */,
 				FBB182B51F28778500550227 /* 资源配置管理.gif in Resources */,
 				66170E661F2E41BD007C3C76 /* trash.png in Resources */,

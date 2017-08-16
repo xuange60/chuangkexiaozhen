@@ -57,8 +57,12 @@
    ShiTiRuZhuGuanLiCell *cell=[tableView dequeueReusableCellWithIdentifier:str];
     if (!cell) {
         cell=[[ShiTiRuZhuGuanLiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-    }
-    
+        
+          }
+//    cell.myView.layer.borderWidth=1;
+//    cell.myView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    cell.myView.layer.cornerRadius=10;
+
     /*
      2.1 实体入驻管理查询
      请求 get  http://116.228.176.34:9002/chuangke-serve/apply/search?typeNumber=1&start=0&length=10000

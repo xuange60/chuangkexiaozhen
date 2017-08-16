@@ -15,6 +15,8 @@
 
 @interface ShiTiRuZhuGuanLivc : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
+
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)ShiTiRuZhuGuanLi*shiti;
