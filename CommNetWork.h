@@ -13,6 +13,17 @@
 @property(nonatomic,assign)id <BussinessApiDelegate> delegate;
 
 
+//通用查询 多条记录查询
+-(void) queryWithParam:(NSString*)param RelativeUrl:(NSString*) relativeurl;
+
+//删除某条记录
+-(void) deleteWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl;
+
+//审批通过 或 完成操作
+-(void) succWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl;
+
+
+
 //role为用户种类 relativeurl为相对url 查询所有记录
 -(void) querylistWithRole:(NSString*)role andRelativeUrl:(NSString*) relativeurl;
 
@@ -20,18 +31,18 @@
 -(void) queryDetailWithId:(NSString*)ids andRelativeUrl:(NSString*) relativeurl;
 
 
+
+
 //删除某条记录
 -(void) deleteWithId:(NSString*)ids andRelativeUrl:(NSString*) relativeurl;
 
-//删除某条记录
--(void) deleteWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl;
+
 
 
 //审批通过 或 完成操作
 -(void) succWithId:(NSString*)ids andRelativeUrl:(NSString*) relativeurl;
 
-//审批通过 或 完成操作
--(void) succWithParam:(NSString*)str andRelativeUrl:(NSString*) relativeurl;
+
 
 
 //提交操作

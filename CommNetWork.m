@@ -63,6 +63,55 @@
 }
 
 
+-(void) queryWithParam:(NSString*)param RelativeUrl:(NSString*) relativeurl
+{
+    NSMutableArray* ary=[NSMutableArray array];
+    [self queryWithParam:param andRelativeUrl:relativeurl amdTmp:ary];
+}
+
+
+-(void) queryWithParam:(NSString*)param andRelativeUrl:(NSString*) relativeurl amdTmp:(NSMutableArray*)ary
+{
+    int start=(int)[ary count];
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?%@&length=50&start=%d",baseurl,relativeurl,param,start];
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            if(result==nil || [result count]<10){
+                //result: 保存查询到的结果
+                if([result count]>0){
+                    [ary addObjectsFromArray:result];
+                }
+                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                    [self.delegate  loadNetworkFinished :ary];
+                }
+            }else{
+                [ary addObjectsFromArray:result];
+                [self queryWithParam:param andRelativeUrl:relativeurl amdTmp:ary];
+            }
+        }else{
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :ary];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+            [self.delegate  loadNetworkFinished :ary];
+        }
+    }];
+}
 
 
 
@@ -132,6 +181,9 @@
         }
     }];
 }
+
+
+
 
 
 //删除某条记录

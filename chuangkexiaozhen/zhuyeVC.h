@@ -20,6 +20,8 @@
 #import "YuanQuRenWuVC.h"
 #import "FaKaGuanLiVC.h"
 #import "QianDaoTongJiVC.h"
+#import "YuanQuZiYuanVC.h"
+#import "ZhuDongTuiChuVC.h"
 @interface zhuyeVC : UIViewController<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 

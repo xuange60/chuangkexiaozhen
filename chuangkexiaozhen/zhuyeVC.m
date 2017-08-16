@@ -235,6 +235,10 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"主动性退出管理"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"tuichujizhi" bundle:nil];
+        ZhuDongTuiChuVC*vc=[board instantiateViewControllerWithIdentifier:@"ZhuDongTuiChuVC"];
+        vc.isadmin=_isadmin;
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"被动性退出管理"]){
         NSLog(@"%@ 按钮被点击",data);
@@ -274,6 +278,8 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }
+    
+    
     
     
     //注意一下内容只有管理员用户才有
@@ -382,12 +388,9 @@
     }else if([data isEqualToString:@"成果跟踪管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"资源编辑"]){
-        NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"主动性退出管理"]){
-        NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"被动性退出管理"]){
-        NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"跟踪服务管理"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"yuanquziyuanguanli" bundle:nil];
+        YuanQuZiYuanVC*vc=[board instantiateViewControllerWithIdentifier:@"YuanQuZiYuanVC"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"模块"]){
         NSLog(@"%@ 按钮被点击",data);
