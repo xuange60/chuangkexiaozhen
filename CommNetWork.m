@@ -445,4 +445,102 @@
     
 }
 
+
+-(void)getUserinfo:(NSString *)name
+{
+    NSString* baseurl=@"http://116.228.176.34:3000/serverroute";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?name=%@",baseurl,@"/getuserinfo",name];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        int result=0;
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            result=[((NSNumber*)[jsondata objectForKey:@"ret"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,成功 不等于1,失败
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:[jsondata objectForKey:@"obj"] forKey:@"chuangkexiaozhen.userinfo"];
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+            [self.delegate afternetwork2:[NSNumber numberWithInt:result]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork2:)]) {
+            [self.delegate afternetwork2:[NSNumber numberWithInt:0]];
+        }
+    }];
+}
+
+
+
+
+
+//查询主动退出
+-(void)getActiveQuit:(NSString *)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:3000/serverroute";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/getactivequit",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        NSArray* result=[NSArray array];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            result=[jsondata objectForKey:@"obj"];
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+            [self.delegate loadNetworkFinished:result];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+//查询被动退出
+-(void)getUnActiveQuit:(NSString *)ids
+{
+    NSString* baseurl=@"http://116.228.176.34:3000/serverroute";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/getunactivequit",ids];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        NSArray* result=[NSArray array];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            result=[jsondata objectForKey:@"obj"];
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+            [self.delegate loadNetworkFinished:result];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
+
+
+
 @end

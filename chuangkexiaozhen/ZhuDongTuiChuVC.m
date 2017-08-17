@@ -23,9 +23,13 @@
     //modify
     self.navigationItem.title=@"主动退出管理";
     UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+    _rightBtnItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
                                                                      style:UIBarButtonItemStylePlain target:self action:@selector(add)];
-    self.navigationItem.rightBarButtonItem=rightBtnItem;
+    if(_isadmin==nil || ![_isadmin isEqualToString:@"Y"]){
+
+        self.navigationItem.rightBarButtonItem=_rightBtnItem;
+    }
+
     
     _zhudongtuichu=[[ZhuDongTuiChu alloc] init];
     _zhudongtuichu.delegate=self;
@@ -46,8 +50,6 @@
 {
     UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"tuichujizhi" bundle:nil];
     ZhuDongTuiChuAddVC* add=[storyboard instantiateViewControllerWithIdentifier:@"ZhuDongTuiChuAddVC"];
-    add.company=@"测试机构zhangxuan";
-    add.tenants=@"597d7aba80ab5e6790d52d37";
     [self.navigationController pushViewController:add animated:YES];
     NSLog(@"%@",@"add");
 }
@@ -55,8 +57,15 @@
 //modify 查询数据，显示在tableview上时使用
 -(void)query
 {
-    [_zhudongtuichu ZhuDongTuiChuQuery];
-    
+    if([_isadmin isEqualToString:@"Y"]){
+        [_zhudongtuichu ZhuDongTuiChuQuery];
+    }else{
+        NSUserDefaults* userdefault=[NSUserDefaults standardUserDefaults];
+        NSDictionary* userdic=[userdefault objectForKey:@"chuangkexiaozhen.userinfo"];
+        NSString* companyid=[userdic objectNotNullForKey:@"companyid"];
+        [_zhudongtuichu getActiveQuit:companyid];
+    }
+
 }
 
 
@@ -70,6 +79,11 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSUInteger num=[self.datas count];
+    if((_isadmin==nil || [_isadmin length]<1) && num>0){
+        self.navigationItem.rightBarButtonItem=nil;
+    }else{
+        self.navigationItem.rightBarButtonItem=_rightBtnItem;
+    }
     return num;
 }
 
@@ -82,22 +96,43 @@
     if(!cell){
         cell=[[ZhuDOngTuiChuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str1];
     }
+
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
     cell.quitCompany.text=[dic objectNotNullForKey:@"quitCompany"];
     cell.quitCause.text=[dic objectNotNullForKey:@"quitCause"];
     cell.quitDate.text=[dic objectNotNullForKey:@"quitDate"];
     cell.quitType.text=[dic objectNotNullForKey:@"quitType"];
+    
     NSString* status=[dic objectNotNullForKey:@"status"];
+
+    if([status isEqualToString:@"untreated"]){
+        status=@"未处理";
+    }else if([status isEqualToString:@"success"]){
+        status=@"通过";
+    }else if([status isEqualToString:@"fail"]){
+        status=@"失败";
+    }
     cell.status.text=status;
-    if([status isEqualToString:@"未处理"]){
-        [cell.download setHidden:NO];
-        [cell.succ setHidden:NO];
-        [cell.nobtn setHidden:NO];
+    if([_isadmin isEqualToString:@"Y"]){
+        if([status isEqualToString:@"未处理"]){
+            [cell.download setHidden:NO];
+            [cell.succ setHidden:NO];
+            [cell.nobtn setHidden:NO];
+        }else{
+            [cell.download setHidden:NO];
+            [cell.succ setHidden:YES];
+            [cell.nobtn setHidden:YES];
+        }
     }else{
-        [cell.download setHidden:YES];
+        NSUserDefaults* userdefault=[NSUserDefaults standardUserDefaults];
+        NSDictionary* userdic=[userdefault objectForKey:@"chuangkexiaozhen.userinfo"];
+        cell.quitCompany.text=[userdic objectNotNullForKey:@"companytitle"];
+        [cell.download setHidden:NO];
         [cell.succ setHidden:YES];
         [cell.nobtn setHidden:YES];
+        [cell.deletebtn setHidden:NO];
     }
+
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;

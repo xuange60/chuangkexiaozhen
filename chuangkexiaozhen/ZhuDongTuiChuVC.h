@@ -18,6 +18,6 @@
 @property (nonatomic,strong) NSArray* datas;
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
-
+@property (strong,nonatomic)  UIBarButtonItem *rightBtnItem;
 @property (strong,nonatomic) NSString* isadmin;
 @end

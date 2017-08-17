@@ -73,6 +73,10 @@
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        
+        CommNetWork* comnetwork=[[CommNetWork alloc] init];
+        [comnetwork getUserinfo:name];
+        
         if([contenttype containsString:@"json"])
         {//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
@@ -126,6 +130,8 @@
             NSData *data = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];
             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);//datas包含了主界面相关数据
+            
+
             
             UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
             MainViewController* mainViewController=[storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];

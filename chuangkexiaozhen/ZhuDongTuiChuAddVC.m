@@ -18,6 +18,10 @@
     [super viewDidLoad];
     _zhudongtuichu=[[ZhuDongTuiChu alloc] init];
     _zhudongtuichu.delegate=self;
+    NSUserDefaults* userdefault=[NSUserDefaults standardUserDefaults];
+    NSDictionary* userdic=[userdefault objectForKey:@"chuangkexiaozhen.userinfo"];
+    _company=[userdic objectNotNullForKey:@"companytitle"];
+    _tenants=[userdic objectNotNullForKey:@"companyid"];
     _quitCompany.text=_company;
     
     // Do any additional setup after loading the view.

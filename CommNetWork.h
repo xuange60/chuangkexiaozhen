@@ -62,4 +62,14 @@
 //修改操作
 -(void) updateWithData:(NSDictionary*)param andRelativeUrl:(NSString*) relativeurl;
 
+//获取用户信息
+-(void)getUserinfo:(NSString *)name;
+
+//查询主动退出
+-(void)getActiveQuit:(NSString *)ids;
+
+
+//查询被动退出
+-(void)getUnActiveQuit:(NSString *)ids;
+
 @end
