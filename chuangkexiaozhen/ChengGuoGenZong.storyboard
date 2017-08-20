@@ -126,8 +126,6 @@
                                         <connections>
                                             <outlet property="baogaoName" destination="5DJ-eU-A3L" id="Qg0-vn-Zkj"/>
                                             <outlet property="createDate" destination="bal-Ue-JO1" id="cOh-Am-Z7x"/>
-                                            <outlet property="luyan" destination="5DJ-eU-A3L" id="bPw-pe-wgX"/>
-                                            <outlet property="shenpiPerson" destination="bal-Ue-JO1" id="vdb-ql-z8A"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -166,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路演活动" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjF-QG-Ufs">
-                                <rect key="frame" x="15" y="82" width="300" height="20"/>
+                                <rect key="frame" x="15" y="60" width="300" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="6QX-fX-uCw"/>
                                 </constraints>
@@ -175,7 +173,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报告名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJb-Zx-Zbc">
-                                <rect key="frame" x="15" y="150" width="300" height="20"/>
+                                <rect key="frame" x="15" y="128" width="300" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="HuF-Fi-Bdq"/>
                                 </constraints>
@@ -184,7 +182,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAq-rF-qVf">
-                                <rect key="frame" x="5" y="111" width="310" height="30"/>
+                                <rect key="frame" x="5" y="89" width="310" height="30"/>
                                 <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="591-0T-gfG"/>
@@ -195,14 +193,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right.png" translatesAutoresizingMaskIntoConstraints="NO" id="aXR-vq-jMZ">
-                                <rect key="frame" x="285" y="112" width="20" height="20"/>
+                                <rect key="frame" x="285" y="90" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="EdY-fv-f2Z"/>
                                     <constraint firstAttribute="height" constant="20" id="HFc-Qu-Orm"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传签到单：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1J-dD-IOr">
-                                <rect key="frame" x="15" y="258" width="100" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传附件：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1J-dD-IOr">
+                                <rect key="frame" x="15" y="236" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="YMs-pu-OKC"/>
                                     <constraint firstAttribute="height" constant="30" id="fWa-qG-GH2"/>
@@ -212,7 +210,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H2-FY-yL3">
-                                <rect key="frame" x="147" y="258" width="90" height="30"/>
+                                <rect key="frame" x="147" y="236" width="90" height="30"/>
                                 <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="P82-m1-FFW"/>
@@ -224,7 +222,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLg-ER-SVe">
-                                <rect key="frame" x="5" y="178" width="310" height="30"/>
+                                <rect key="frame" x="5" y="156" width="310" height="30"/>
                                 <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="R4y-7H-SR6"/>
@@ -234,7 +232,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD2-dg-mFC">
-                                <rect key="frame" x="110" y="352" width="100" height="30"/>
+                                <rect key="frame" x="110" y="330" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.076685495670000006" green="0.47192865610000001" blue="0.96561425919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="oOj-VB-xgz"/>
@@ -256,7 +254,7 @@
                             <constraint firstItem="aXR-vq-jMZ" firstAttribute="top" secondItem="VjF-QG-Ufs" secondAttribute="bottom" constant="10" id="BFW-OO-2ob"/>
                             <constraint firstItem="5H2-FY-yL3" firstAttribute="leading" secondItem="F1J-dD-IOr" secondAttribute="trailing" constant="32" id="Bos-6W-rHw"/>
                             <constraint firstItem="gJb-Zx-Zbc" firstAttribute="top" secondItem="JAq-rF-qVf" secondAttribute="bottom" constant="9" id="JfH-tv-dZK"/>
-                            <constraint firstItem="VjF-QG-Ufs" firstAttribute="top" secondItem="4f3-K0-C78" secondAttribute="bottom" constant="62" id="ONs-Oz-67x"/>
+                            <constraint firstItem="VjF-QG-Ufs" firstAttribute="top" secondItem="4f3-K0-C78" secondAttribute="bottom" constant="40" id="ONs-Oz-67x"/>
                             <constraint firstAttribute="trailing" secondItem="KLg-ER-SVe" secondAttribute="trailing" constant="5" id="PdD-Z7-t9C"/>
                             <constraint firstItem="JAq-rF-qVf" firstAttribute="top" secondItem="VjF-QG-Ufs" secondAttribute="bottom" constant="9" id="UZn-L6-fB3"/>
                             <constraint firstItem="JAq-rF-qVf" firstAttribute="leading" secondItem="C60-sJ-sjf" secondAttribute="leading" constant="5" id="cj4-eg-PBe"/>
@@ -274,9 +272,7 @@
                     </view>
                     <connections>
                         <outlet property="baogaoName" destination="KLg-ER-SVe" id="J9c-1a-lNU"/>
-                        <outlet property="luyanBtn" destination="JAq-rF-qVf" id="Hnb-OF-c7l"/>
                         <outlet property="luyanName" destination="JAq-rF-qVf" id="cDu-Wl-zlr"/>
-                        <outlet property="money" destination="KLg-ER-SVe" id="3bn-OD-dob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGt-NY-62a" userLabel="First Responder" sceneMemberID="firstResponder"/>
