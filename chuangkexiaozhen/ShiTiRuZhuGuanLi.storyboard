@@ -202,7 +202,7 @@
                                                                 <constraint firstAttribute="width" constant="35" id="F4m-oW-flb"/>
                                                                 <constraint firstAttribute="height" constant="35" id="FQU-jq-9UE"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="fileedit.png"/>
+                                                            <state key="normal" title="Button" image="edit.png"/>
                                                             <connections>
                                                                 <action selector="EditClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="zXH-E5-Plt"/>
                                                             </connections>
@@ -213,7 +213,7 @@
                                                                 <constraint firstAttribute="width" constant="35" id="2o0-B3-sd6"/>
                                                                 <constraint firstAttribute="height" constant="35" id="gky-Yp-Vl2"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="localVideoListAddFileBtn_h.tiff"/>
+                                                            <state key="normal" title="Button" image="plus-button.png"/>
                                                             <connections>
                                                                 <action selector="AddClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="apN-yM-e10"/>
                                                             </connections>
@@ -224,7 +224,7 @@
                                                                 <constraint firstAttribute="width" constant="35" id="2lo-Qn-2L5"/>
                                                                 <constraint firstAttribute="height" constant="35" id="BJ7-nu-ks1"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="endYes.tiff"/>
+                                                            <state key="normal" title="Button" image="correct.png"/>
                                                             <connections>
                                                                 <action selector="SuccClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="Xx7-AW-raE"/>
                                                             </connections>
@@ -235,7 +235,7 @@
                                                                 <constraint firstAttribute="height" constant="35" id="3Ay-OI-L21"/>
                                                                 <constraint firstAttribute="width" constant="35" id="WxP-KF-aFz"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="fileerror.png"/>
+                                                            <state key="normal" title="Button" image="cancel.png"/>
                                                             <connections>
                                                                 <action selector="ErrorClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="MAq-L3-rmg"/>
                                                             </connections>
@@ -246,7 +246,7 @@
                                                                 <constraint firstAttribute="height" constant="35" id="Bnf-Sm-Q6I"/>
                                                                 <constraint firstAttribute="width" constant="35" id="esk-qX-E5R"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="filedelete.png"/>
+                                                            <state key="normal" title="Button" image="minus-symbol.png"/>
                                                             <connections>
                                                                 <action selector="DeleteClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="O3E-Ig-U5p"/>
                                                             </connections>
@@ -257,7 +257,7 @@
                                                                 <constraint firstAttribute="height" constant="35" id="yyB-76-vVa"/>
                                                                 <constraint firstAttribute="width" constant="35" id="zP2-7H-Htk"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="download(1).png"/>
+                                                            <state key="normal" title="Button" image="download(2).png"/>
                                                             <connections>
                                                                 <action selector="DownloadClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="qYD-xh-osX"/>
                                                             </connections>
@@ -268,7 +268,7 @@
                                                                 <constraint firstAttribute="height" constant="35" id="af6-Rl-v66"/>
                                                                 <constraint firstAttribute="width" constant="35" id="q3f-Ap-oBD"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="filerefresh.png"/>
+                                                            <state key="normal" title="Button" image="refresh.png"/>
                                                             <connections>
                                                                 <action selector="RefreshBtnClick:forEvent:" destination="gvk-Zr-mek" eventType="touchUpInside" id="qXE-SC-K8i"/>
                                                             </connections>
@@ -397,7 +397,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRA-kH-Tym">
                                 <rect key="frame" x="20" y="40" width="290" height="30"/>
-                                <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93681472539901733" green="0.93847984075546265" blue="0.95513194799423218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="O1V-1P-sSg"/>
                                 </constraints>
@@ -529,7 +529,7 @@
                                 <state key="normal" image="right.png"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93681472539901733" green="0.93847984075546265" blue="0.95513194799423218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bfZ-6e-Vkr" firstAttribute="top" secondItem="fWq-pY-BK5" secondAttribute="bottom" constant="10" id="4i8-M9-hQn"/>
                             <constraint firstItem="uoa-Lu-5Fc" firstAttribute="leading" secondItem="opS-Z0-jyK" secondAttribute="leading" constant="20" id="5tE-2z-Oqn"/>
@@ -598,7 +598,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评审人员选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiQ-Io-iG6">
                                         <rect key="frame" x="20" y="65" width="290" height="30"/>
-                                        <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.93681472539901733" green="0.93847984075546265" blue="0.95513194799423218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="l2E-qu-hEa"/>
                                         </constraints>
@@ -693,7 +693,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93681472539901733" green="0.93847984075546265" blue="0.95513194799423218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="vlG-9A-7wT" secondAttribute="trailing" constant="18" id="3wZ-LY-ahn"/>
                                     <constraint firstItem="oO5-So-tsX" firstAttribute="leading" secondItem="4sR-W9-8da" secondAttribute="leading" constant="15" id="4hs-Bd-QL3"/>
@@ -754,7 +754,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vOJ-7O-J0n">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93681472539901733" green="0.93847984075546265" blue="0.95513194799423218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailShiTiCell" id="wuk-IJ-z74" customClass="DetailShiTiCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="250"/>
@@ -778,7 +778,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09K-9l-Svi">
                                                             <rect key="frame" x="90" y="5" width="215" height="30"/>
-                                                            <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="HrX-Qo-Oi6"/>
                                                             </constraints>
@@ -798,7 +798,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQa-FF-MW7">
                                                             <rect key="frame" x="90" y="45" width="215" height="30"/>
-                                                            <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="aI9-og-Bxb"/>
                                                             </constraints>
@@ -828,7 +828,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRw-5w-gSG">
                                                             <rect key="frame" x="90" y="85" width="215" height="30"/>
-                                                            <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="NkH-9a-z0T"/>
                                                             </constraints>
@@ -838,7 +838,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gr-av-osM">
                                                             <rect key="frame" x="90" y="125" width="215" height="30"/>
-                                                            <color key="backgroundColor" red="0.94400280709999995" green="0.96053904290000003" blue="0.96723371739999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="Swp-AJ-0pI"/>
                                                             </constraints>
@@ -905,7 +905,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="tzF-jn-bPn" secondAttribute="bottom" constant="5" id="rdS-oQ-XRL"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.94400280714035034" green="0.96053904294967651" blue="0.96723371744155884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.93681472539901733" green="0.93847984075546265" blue="0.95513194799423218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="dabianAddress" destination="dRw-5w-gSG" id="qws-Qp-nCp"/>
                                             <outlet property="dabianTime" destination="FQa-FF-MW7" id="32D-mF-Kna"/>
@@ -936,13 +936,13 @@
     </scenes>
     <resources>
         <image name="calendar.png" width="128" height="128"/>
-        <image name="download(1).png" width="64" height="64"/>
-        <image name="endYes.tiff" width="96" height="96"/>
-        <image name="filedelete.png" width="128" height="128"/>
-        <image name="fileedit.png" width="128" height="128"/>
-        <image name="fileerror.png" width="128" height="128"/>
-        <image name="filerefresh.png" width="128" height="128"/>
-        <image name="localVideoListAddFileBtn_h.tiff" width="11" height="11"/>
+        <image name="cancel.png" width="64" height="64"/>
+        <image name="correct.png" width="64" height="64"/>
+        <image name="download(2).png" width="64" height="64"/>
+        <image name="edit.png" width="64" height="64"/>
+        <image name="minus-symbol.png" width="64" height="64"/>
+        <image name="plus-button.png" width="64" height="64"/>
+        <image name="refresh.png" width="64" height="64"/>
         <image name="right.png" width="40" height="40"/>
     </resources>
 </document>
