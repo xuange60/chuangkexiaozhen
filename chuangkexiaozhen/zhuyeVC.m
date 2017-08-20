@@ -385,6 +385,11 @@
 
     }else if([data isEqualToString:@"活动报销管理"]){
         NSLog(@"%@ 按钮被点击",data);
+        
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"HuoDongBaoXiao" bundle:nil];
+        BaoXiaoVC*vc=[board instantiateViewControllerWithIdentifier:@"BaoXiaoVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if([data isEqualToString:@"成果跟踪管理"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"资源编辑"]){
