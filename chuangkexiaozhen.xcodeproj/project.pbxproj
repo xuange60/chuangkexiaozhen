@@ -285,6 +285,8 @@
 		FBB1831E1F28BB5100550227 /* 任务通告.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBB1831D1F28BB5100550227 /* 任务通告.gif */; };
 		FBB183201F28BB9B00550227 /* 园区任务通告.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB1831F1F28BB9B00550227 /* 园区任务通告.png */; };
 		FBB183221F28BC0400550227 /* 活动报销管理.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBB183211F28BC0400550227 /* 活动报销管理.gif */; };
+		FBBDA2361F498D9D000FF4B9 /* HuoDongBaoXiao.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBDA2351F498D9D000FF4B9 /* HuoDongBaoXiao.m */; };
+		FBBDA2391F498E67000FF4B9 /* ChengGuoGenZong.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBDA2381F498E67000FF4B9 /* ChengGuoGenZong.m */; };
 		FBBE674C1F3EA65D00300FED /* JiaFenCaiLiaoShenHe.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBE674B1F3EA65D00300FED /* JiaFenCaiLiaoShenHe.m */; };
 		FBBE674E1F3EA67100300FED /* jiafencailiaoshenhe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBBE674D1F3EA67100300FED /* jiafencailiaoshenhe.storyboard */; };
 		FBBE67511F3EE27D00300FED /* BiSaiGuanLiDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBE67501F3EE27D00300FED /* BiSaiGuanLiDetailVC.m */; };
@@ -783,6 +785,10 @@
 		FBB1831D1F28BB5100550227 /* 任务通告.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "任务通告.gif"; sourceTree = "<group>"; };
 		FBB1831F1F28BB9B00550227 /* 园区任务通告.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "园区任务通告.png"; sourceTree = "<group>"; };
 		FBB183211F28BC0400550227 /* 活动报销管理.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "活动报销管理.gif"; sourceTree = "<group>"; };
+		FBBDA2341F498D9D000FF4B9 /* HuoDongBaoXiao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuoDongBaoXiao.h; sourceTree = "<group>"; };
+		FBBDA2351F498D9D000FF4B9 /* HuoDongBaoXiao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuoDongBaoXiao.m; sourceTree = "<group>"; };
+		FBBDA2371F498E67000FF4B9 /* ChengGuoGenZong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChengGuoGenZong.h; sourceTree = "<group>"; };
+		FBBDA2381F498E67000FF4B9 /* ChengGuoGenZong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChengGuoGenZong.m; sourceTree = "<group>"; };
 		FBBE674A1F3EA65D00300FED /* JiaFenCaiLiaoShenHe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaFenCaiLiaoShenHe.h; sourceTree = "<group>"; };
 		FBBE674B1F3EA65D00300FED /* JiaFenCaiLiaoShenHe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaFenCaiLiaoShenHe.m; sourceTree = "<group>"; };
 		FBBE674D1F3EA67100300FED /* jiafencailiaoshenhe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = jiafencailiaoshenhe.storyboard; sourceTree = "<group>"; };
@@ -1343,6 +1349,10 @@
 				FBDAA6B41F362DA400E28CF0 /* HuoDongLuYanCell.m */,
 				FBDAA6B61F3633C400E28CF0 /* HuoDongLuYanDetailViewController.h */,
 				FBDAA6B71F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m */,
+				FBBDA2341F498D9D000FF4B9 /* HuoDongBaoXiao.h */,
+				FBBDA2351F498D9D000FF4B9 /* HuoDongBaoXiao.m */,
+				FBBDA2371F498E67000FF4B9 /* ChengGuoGenZong.h */,
+				FBBDA2381F498E67000FF4B9 /* ChengGuoGenZong.m */,
 			);
 			name = "活动路演管理";
 			sourceTree = "<group>";
@@ -2227,6 +2237,7 @@
 				66A4D8FB1F33092600967C75 /* ZhuanLiGuanLiCell.m in Sources */,
 				66B59BC41F3F15E800E4CD2A /* ZiYuanPeiZhiCell.m in Sources */,
 				FBF831FB1F4020840067ADBE /* YuanQuRenWuTongGao.m in Sources */,
+				FBBDA2361F498D9D000FF4B9 /* HuoDongBaoXiao.m in Sources */,
 				66B59BC11F3F158F00E4CD2A /* ZiYuanPeiZhiVC.m in Sources */,
 				FBDAA69B1F360D1700E28CF0 /* GenZongViewController.m in Sources */,
 				666561691F3DAEF400FB202C /* XuNiRuZhuVC.m in Sources */,
@@ -2258,6 +2269,7 @@
 				66814A2D1F1FBE5300322620 /* CustomCell.m in Sources */,
 				66B938D01F3425B4006D73FB /* NaShuiGuanLiCell.m in Sources */,
 				FB33424C1F44672700E88116 /* YuanQuZiYuanUpdateVC.m in Sources */,
+				FBBDA2391F498E67000FF4B9 /* ChengGuoGenZong.m in Sources */,
 				66814A1E1F1E64CE00322620 /* zhuyeVC.m in Sources */,
 				FBA23C671F3C7DF2001FE5CF /* XuNiRuZhuGuanLi.m in Sources */,
 				66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */,
