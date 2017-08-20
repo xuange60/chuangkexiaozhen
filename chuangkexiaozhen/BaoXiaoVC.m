@@ -76,9 +76,115 @@
     cell.shenqingPerson.text=[dic objectNotNullForKey:@"proposer"];
     cell.statue.text=[dic objectNotNullForKey:@"agree"];
     cell.totalMoney.text=[dic objectNotNullForKey:@"totalPrice"];
+    if ([cell.statue.text isEqualToString:@"同意"]) {
+        cell.succBtn.hidden=YES;
+    }else{
+        cell.succBtn.hidden=NO;
+    }
 
     return cell;
 }
+
+
+- (IBAction)succBtnClick:(id)sender forEvent:(UIEvent *)event {
+    
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    NSString*strId=[dic objectForKey:@"id"];
+    [_baoxiao HuoDongBaoXiaoSucc:strId];
+    
+}
+-(void)afternetwork3:(id)data{
+
+    [_baoxiao HuoDongBaoXiaoQuery];
+}
+
+- (IBAction)detailBtnClick:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    /*
+     2.18.1 报销申请管理查询
+     http://116.228.176.34:9002/chuangke-serve/expense/search?start=0&length=1000
+     [{"id":"596b82d180ab5e6790d4f05b","totalPrice"
+     :100.0,"approver":"王俊","proposer":"王俊","agree":"未同意","category":"餐饮","remark":null,"roadshowName":"123"
+     ,"content":"餐饮"},{"id":"5949f1c9075910c2d60d08c8","totalPrice":10000.0,"approver":"王俊","proposer":null
+     ,"agree":"未同意","category":"餐饮","remark":null,"roadshowName":"123","content":"***\r\n***\r\n***"}]
+     */
+
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"HuoDongBaoXiao" bundle:nil];
+    DetailBaoXiaoVC*vc=[board instantiateViewControllerWithIdentifier:@"DetailBaoXiaoVC"];
+    NSArray*arry=[NSArray arrayWithObjects:[dic objectNotNullForKey:@"roadshowName"],[dic objectNotNullForKey:@"category"],[dic objectNotNullForKey:@"content"],[dic objectNotNullForKey:@"totalPrice"],[dic objectNotNullForKey:@"approver"],[dic objectNotNullForKey:@"proposer"], nil];
+    
+    [vc setArray:arry];
+    [self.navigationController pushViewController:vc animated:YES];
+
+    
+    
+}
+
+
+- (IBAction)deleteVBtnClick:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    NSString*strId=[dic objectForKey:@"id"];
+    [_baoxiao HuoDongBaoXiaoDelete:strId];
+}
+
+-(void)afternetwork2:(id)data
+{
+    [_baoxiao HuoDongBaoXiaoQuery];
+}
+
+
+
+- (IBAction)downloadBtnClick:(id)sender forEvent:(UIEvent *)event {
+    
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    NSString*strId=[dic objectForKey:@"id"];
+   
+    
+    
+    FilelistViewController*vc=[[FilelistViewController alloc]initView:strId withType:@"3"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

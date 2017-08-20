@@ -95,8 +95,8 @@
 
 - (IBAction)shangchuan:(id)sender {
     ImgeUpViewController* imgup=[[ImgeUpViewController alloc] initView];
-    [imgup setNotifyName:@"ADDQIANDAODANFileUp" AndTitle:@"文档上传"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"ADDQIANDAODANFileUp" object:nil];
+    [imgup setNotifyName:@"ADDBAOXIAOFileUp" AndTitle:@"文档上传"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"ADDBAOXIAOFileUp" object:nil];
     [self.navigationController pushViewController:imgup animated:YES];
 }
 
@@ -115,7 +115,6 @@
     NSDictionary*dic=[_dic objectForKey:@"approver"];
     NSArray*aryKey=[dic allKeys];
     DuoXuanVC*vc=[[DuoXuanVC alloc]init];
-    [vc setDanXuan];
     [vc setArray:aryKey btn:(UIButton*)sender];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -126,7 +125,6 @@
     NSDictionary*dic=[_dic objectForKey:@"proposer"];
     NSArray*aryKey=[dic allKeys];
     DuoXuanVC*vc=[[DuoXuanVC alloc]init];
-    [vc setDanXuan];
     [vc setArray:aryKey btn:(UIButton*)sender];
     [self.navigationController pushViewController:vc animated:YES];
 }

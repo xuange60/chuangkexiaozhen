@@ -396,6 +396,10 @@
         
     }else if([data isEqualToString:@"成果跟踪管理"]){
         NSLog(@"%@ 按钮被点击",data);
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"ChengGuoGenZong" bundle:nil];
+        GenZongVC*vc=[board instantiateViewControllerWithIdentifier:@"GenZongVC"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if([data isEqualToString:@"资源编辑"]){
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"yuanquziyuanguanli" bundle:nil];
         YuanQuZiYuanVC*vc=[board instantiateViewControllerWithIdentifier:@"YuanQuZiYuanVC"];
