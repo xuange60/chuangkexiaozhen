@@ -72,4 +72,7 @@
 //查询被动退出
 -(void)getUnActiveQuit:(NSString *)ids;
 
+//查询所有公司
+-(void)getAllCompany;
+
 @end

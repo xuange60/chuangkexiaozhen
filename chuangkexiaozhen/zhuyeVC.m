@@ -241,6 +241,10 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"被动性退出管理"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"tuichujizhi" bundle:nil];
+        BeiDongTuiChuVC*vc=[board instantiateViewControllerWithIdentifier:@"BeiDongTuiChuVC"];
+        vc.isadmin=_isadmin;
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"跟踪服务管理"]){
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"tuichu" bundle:nil];

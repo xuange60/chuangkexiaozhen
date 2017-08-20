@@ -537,8 +537,42 @@
 }
 
 
+//查询所有公司
+-(void)getAllCompany
+{
+    NSString* baseurl=@"http://116.228.176.34:3000/serverroute";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/getcompany"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        NSMutableDictionary* result=[NSMutableDictionary dictionary];
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* tmp=[jsondata objectForKey:@"obj"];
+            if(tmp!=nil && [tmp count]>0){
+                for (NSDictionary* dic in tmp) {
+                    NSString* companyid=[dic objectNotNullForKey:@"_id"];
+                    NSString* companyname=[dic objectNotNullForKey:@"title"];
+                    if(companyid!=nil && [companyid length]>0 && companyname!=nil){
+                        [result setNotNullStrObject:companyid forKey:companyname];
+                    }
+                }
+            }
+        }
 
-
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork6:)]) {
+            [self.delegate afternetwork6:result];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 
 
