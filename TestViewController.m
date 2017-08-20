@@ -853,7 +853,7 @@
 - (IBAction)huodongbaoxiaoadd:(id)sender {
     HuoDongBaoXiao* huodongbaoxiao=[[HuoDongBaoXiao alloc] init];
     huodongbaoxiao.delegate=self;
-    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"", nil];
+ //   NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"", nil];
     
 }
 
@@ -886,6 +886,17 @@
 
 
 
+- (IBAction)yonghuclick:(id)sender {
+    YongHuXinXi* yonghu=[[YongHuXinXi alloc] init];
+    yonghu.delegate=self;
+    //[yonghu YongHuQuery];
+    [yonghu YongHuDetailQuery:@"5999a120a92b0b6e2c92fb7b"];
+    
+}
+
+
+- (IBAction)yuangongclick:(id)sender {
+}
 
 
 

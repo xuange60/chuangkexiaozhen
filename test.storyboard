@@ -942,6 +942,22 @@
                                     <action selector="chengguogenzongguanli:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="XAM-GR-mnJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4M-sY-ovm">
+                                <rect key="frame" x="202" y="216" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="用户查询"/>
+                                <connections>
+                                    <action selector="yonghuclick:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="nCI-D3-dYg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTG-CX-8oa">
+                                <rect key="frame" x="210" y="269" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="员工"/>
+                                <connections>
+                                    <action selector="yuangongclick:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="i21-vI-bw0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
