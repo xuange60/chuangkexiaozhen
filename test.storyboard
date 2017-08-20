@@ -887,11 +887,51 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SL4-to-u2R">
-                                <rect key="frame" x="26" y="381" width="165" height="30"/>
+                                <rect key="frame" x="16" y="381" width="165" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="签到统计管理"/>
                                 <connections>
                                     <action selector="qiandaotongji:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="4go-Ba-jah"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS0-lA-Csj">
+                                <rect key="frame" x="16" y="433" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="活动报销查询"/>
+                                <connections>
+                                    <action selector="huodongbaoxiaoquery:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="stA-bc-O2y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDA-sE-wnP">
+                                <rect key="frame" x="24" y="471" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="活动报销参数查询"/>
+                                <connections>
+                                    <action selector="huodongbaoxiaoparamquery:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="Ijx-mw-R4T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppl-v3-sUt">
+                                <rect key="frame" x="14" y="509" width="148" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="活动报销添加"/>
+                                <connections>
+                                    <action selector="huodongbaoxiaoadd:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="Rjm-My-f7c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F2-0T-EfP">
+                                <rect key="frame" x="168" y="69" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="活动报销审批通过"/>
+                                <connections>
+                                    <action selector="huodongbaoxiaosucc:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="oQp-qo-PVe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcV-LJ-Cuo">
+                                <rect key="frame" x="168" y="107" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="活动报销审批删除"/>
+                                <connections>
+                                    <action selector="huodongbaoxiaodelete:" destination="QSJ-aH-6O0" eventType="touchUpInside" id="Zyw-7v-Sc8"/>
                                 </connections>
                             </button>
                         </subviews>

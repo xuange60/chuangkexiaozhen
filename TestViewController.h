@@ -24,7 +24,8 @@
 #import "ZiYuanPeiZhiGuanLi.h"
 #import "YuanQuFuWuGuanLi.h"
 #import "YuanQuRenWuTongGao.h"
-#import "QianDaoTongJi.h";
+#import "QianDaoTongJi.h"
+#import "HuoDongBaoXiao.h"
 //接口测试文件
 @interface TestViewController : UIViewController<BussinessApiDelegate>
 
