@@ -874,6 +874,18 @@
 }
 
 
+- (IBAction)chengguogenzongguanli:(id)sender {
+    ChengGuoGenZong* chengguogenzong=[[ChengGuoGenZong alloc] init];
+    chengguogenzong.delegate=self;
+    [chengguogenzong ChengGuoGenZongQuery];
+    
+    [chengguogenzong ChengGuoGenZongParamQuery];
+    [chengguogenzong ChengGuoGenZongDelete:@"59995f44a92b0b6e2c92fb6d"];
+    
+}
+
+
+
 
 
 
