@@ -824,8 +824,53 @@
     [qiandaotongji QianDaoTongJiQueryParam];
 
     NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:@"30",@"actualNum",@"75.00%",@"percent",@"xxxxxx",@"remark",@"596b820b80ab5e6790d4f05a",@"roadshows",@"80",@"shouldNum",@"",@"otherResourceIds",@"",@"signResourceIds", nil];
-//    [qiandaotongji QianDaoTongJiAdd:dic];
+    [qiandaotongji QianDaoTongJiAdd:dic];
     
+}
+
+
+
+
+- (IBAction)huodongbaoxiaoquery:(id)sender {
+    HuoDongBaoXiao* huodongbaoxiao=[[HuoDongBaoXiao alloc] init];
+    huodongbaoxiao.delegate=self;
+    [huodongbaoxiao HuoDongBaoXiaoQuery];
+    
+}
+
+
+
+
+- (IBAction)huodongbaoxiaoparamquery:(id)sender {
+    HuoDongBaoXiao* huodongbaoxiao=[[HuoDongBaoXiao alloc] init];
+    huodongbaoxiao.delegate=self;
+    [huodongbaoxiao HuoDongBaoXiaoParamQuery];
+}
+
+
+
+
+- (IBAction)huodongbaoxiaoadd:(id)sender {
+    HuoDongBaoXiao* huodongbaoxiao=[[HuoDongBaoXiao alloc] init];
+    huodongbaoxiao.delegate=self;
+    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"", nil];
+    
+}
+
+
+
+- (IBAction)huodongbaoxiaosucc:(id)sender {
+    HuoDongBaoXiao* huodongbaoxiao=[[HuoDongBaoXiao alloc] init];
+    huodongbaoxiao.delegate=self;
+    [huodongbaoxiao HuoDongBaoXiaoSucc:@"59995d5ca92b0b6e2c92fb6c"];
+}
+
+
+
+- (IBAction)huodongbaoxiaodelete:(id)sender {
+    HuoDongBaoXiao* huodongbaoxiao=[[HuoDongBaoXiao alloc] init];
+    huodongbaoxiao.delegate=self;
+    [huodongbaoxiao HuoDongBaoXiaoDelete:@"5949f1c9075910c2d60d08c8"];
 }
 
 
