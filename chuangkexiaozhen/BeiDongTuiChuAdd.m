@@ -18,7 +18,7 @@
     [super viewDidLoad];
     _beidongtuichu=[[BeiDongTuiChu alloc] init];
     _beidongtuichu.delegate=self;
-
+    [self tenantparamQuery];
     
     // Do any additional setup after loading the view.
 }
@@ -56,7 +56,11 @@
 
 -(void)tenantparamQuery
 {
-    [_beidongtuichu BeiDongTuiChuParamQuery];
+    if(_companys==nil || [[_companys allKeys] count]==0)
+    {
+        [_beidongtuichu BeiDongTuiChuParamQuery];
+    }
+
 }
 
 

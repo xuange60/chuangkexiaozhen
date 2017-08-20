@@ -20,5 +20,5 @@
 
 @property (strong,nonatomic)  UIBarButtonItem *rightBtnItem;
 @property (strong,nonatomic) NSString* isadmin;
-
+@property (strong,nonatomic) NSMutableDictionary* allcompanys;
 @end

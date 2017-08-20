@@ -17,10 +17,10 @@
    [super queryWithParam:@"quitProperty=unactive" RelativeUrl:@"/quit/search"];
 }
 
-//http://116.228.176.34:9002/chuangke-serve/quit/add
+
 -(void)BeiDongTuiChuParamQuery
 {
-    [super queryParamMapwithRelativeUrl:@"/quit/add"];
+    [super getAllCompany];
 }
 
 /*

@@ -33,6 +33,7 @@
     _beidongtuichu=[[BeiDongTuiChu alloc] init];
     _beidongtuichu.delegate=self;
     [self query];
+    [self tenantparamQuery];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(query) name:@"BeiDongTuiChuVC" object:nil];
     
     // Do any additional setup after loading the view.
@@ -47,8 +48,15 @@
 //点击右上角+号时，添加申请时重写
 -(void)add
 {
+    if([_datas count]>0){
+        for (NSDictionary* data in _datas) {
+            NSString* companyname=[data objectNotNullForKey:@"quitCompany"];
+            [_allcompanys removeObjectForKey:companyname];
+        }
+    }
     UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"tuichujizhi" bundle:nil];
     BeiDongTuiChuAdd* add=[storyboard instantiateViewControllerWithIdentifier:@"BeiDongTuiChuAdd"];
+    add.companys=_allcompanys;
     [self.navigationController pushViewController:add animated:YES];
     NSLog(@"%@",@"add");
 }
@@ -56,7 +64,15 @@
 //modify 查询数据，显示在tableview上时使用
 -(void)query
 {
-    [_beidongtuichu BeiDongTuiChuQuery];
+    if(_isadmin!=nil && [_isadmin isEqualToString:@"Y"]){
+        [_beidongtuichu BeiDongTuiChuQuery];
+    }else{
+        NSUserDefaults* userdefault=[NSUserDefaults standardUserDefaults];
+        NSDictionary* userdic=[userdefault objectForKey:@"chuangkexiaozhen.userinfo"];
+        NSString* companyid=[userdic objectNotNullForKey:@"companyid"];
+        [_beidongtuichu getUnActiveQuit:companyid];
+    }
+
 }
 
 
@@ -99,7 +115,7 @@
         status=@"失败";
     }
     cell.status.text=status;
-    if([_isadmin isEqualToString:@"Y"]){
+    if(_isadmin!=nil && [_isadmin isEqualToString:@"Y"]){
         if([status isEqualToString:@"未处理"]){
             [cell.download setHidden:NO];
             [cell.succ setHidden:NO];
@@ -110,7 +126,10 @@
             [cell.nobtn setHidden:YES];
         }
     }else{
-        [cell.download setHidden:YES];
+        NSUserDefaults* userdefault=[NSUserDefaults standardUserDefaults];
+        NSDictionary* userdic=[userdefault objectForKey:@"chuangkexiaozhen.userinfo"];
+        cell.quitCompany.text=[userdic objectNotNullForKey:@"companytitle"];
+        [cell.download setHidden:NO];
         [cell.succ setHidden:YES];
         [cell.nobtn setHidden:YES];
         [cell.deletebtn setHidden:YES];
@@ -213,6 +232,17 @@
     
 }
 
+
+-(void)tenantparamQuery
+{
+     [_beidongtuichu BeiDongTuiChuParamQuery];
+}
+
+
+-(void)afternetwork6:(id)data
+{
+    _allcompanys=(NSDictionary*)data;
+}
 
 
 /*
