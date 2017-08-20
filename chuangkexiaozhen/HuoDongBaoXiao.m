@@ -89,9 +89,87 @@
  */
 -(void)HuoDongBaoXiaoAdd:(NSDictionary*)param
 {
-    [super addWithData:param andRelativeUrl:@"/expense/save"];
-}
+    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/expense/save"];
 
+    
+    NSMutableString* approvers=[NSMutableString string];
+    NSArray* ary1=(NSArray*)[param objectForKey:@"approver"];
+    if([ary1 count]>0){
+        approvers=[NSMutableString stringWithString:@"&"];
+        for (int i=0; i<[ary1 count]; i++) {
+            NSString* data=[ary1 objectAtIndex:i];
+            [approvers appendFormat:@"approver=%@",data];
+            if(i<([ary1 count]-1)){
+                [approvers appendString:@"&"];
+            }
+        }
+    }
+    
+    NSMutableString* proposers=[NSMutableString string];
+    NSArray* ary2=(NSArray*)[param objectForKey:@"proposer"];
+    if([ary2 count]>0){
+        proposers=[NSMutableString stringWithString:@"&"];
+        for (int i=0; i<[ary2 count]; i++) {
+            NSString* data=[ary2 objectAtIndex:i];
+            [proposers appendFormat:@"proposer=%@",data];
+            if(i<([ary2 count]-1)){
+                [proposers appendString:@"&"];
+            }
+        }
+    }
+    
+    NSString* category=[param objectNotNullForKey:@"category"];
+    NSString* content=[param objectNotNullForKey:@"content"];
+    NSString* resourceIds=[param objectNotNullForKey:@"resourceIds"];
+    NSString* roadshows=[param objectNotNullForKey:@"roadshows"];
+    NSString* totalPrice=[param objectNotNullForKey:@"totalPrice"];
+    
+    
+    
+    NSString* post=[NSString stringWithFormat:@"category=%@%@&content=%@%@&resourceIds=%@&roadshows=%@&totalPrice=%@",category,approvers,content,proposers,resourceIds,roadshows,totalPrice];
+    
+    
+    NSData* postdate=[post dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* length=[NSString stringWithFormat:@"%lu",(unsigned long)[postdate length]];
+    NSMutableURLRequest* req=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
+    [req setHTTPMethod:@"POST"];
+    [req setValue:length forHTTPHeaderField:@"Content-Length"];
+    [req setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray<NSHTTPCookie *> *cookies=[cookieJar cookies];
+    NSHTTPCookie* cookie1=[cookies objectAtIndex:0];
+    NSString* cookiename=[cookie1 valueForKey:NSHTTPCookieName];
+    NSString* cookievalue=[cookie1 valueForKey:NSHTTPCookieValue];
+    NSString* cookiestr=[NSString stringWithFormat:@"%@=%@",cookiename,cookievalue];
+    [req setValue:cookiestr forHTTPHeaderField:@"Cookie"];
+    [req setHTTPBody:postdate];
+    
+    
+    
+    NSURLResponse* resp=nil;
+    NSError* err=nil;
+    NSData* respdata=[NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&err];
+    int result=-1;
+    
+    @try {
+        NSString* datastr= [[NSString alloc] initWithData:respdata  encoding:NSUTF8StringEncoding];
+        NSDictionary* jsondata=(NSDictionary*) [datastr objectFromJSONString];
+        result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+        NSLog(@"%d",result);
+    } @catch (NSException *exception) {
+        result=-1;
+    }
+    
+    //result: 1,删除成功 不等于1,失败
+    if(result==1){
+        if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork4:)]) {
+            [self.delegate afternetwork4:[NSNumber numberWithInt:result]];
+        }
+    }
+    
+    
+}
 
 /*
  2.18.4 查询可下载的文件
