@@ -120,6 +120,10 @@
 		66C24FD11F499459008A6754 /* BaoXiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C24FD01F499459008A6754 /* BaoXiaoVC.m */; };
 		66C24FD41F49A400008A6754 /* AddBaoXiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C24FD31F49A400008A6754 /* AddBaoXiaoVC.m */; };
 		66C24FD71F49DE57008A6754 /* DetailBaoXiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C24FD61F49DE57008A6754 /* DetailBaoXiaoVC.m */; };
+		66C24FD91F49EAD2008A6754 /* ChengGuoGenZong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66C24FD81F49EAD2008A6754 /* ChengGuoGenZong.storyboard */; };
+		66C24FDC1F49EAFC008A6754 /* GenZongVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C24FDB1F49EAFC008A6754 /* GenZongVC.m */; };
+		66C24FDF1F49EB50008A6754 /* AddGenZong.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C24FDE1F49EB50008A6754 /* AddGenZong.m */; };
+		66C24FE21F49EB92008A6754 /* ChengGuoGenZongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C24FE11F49EB92008A6754 /* ChengGuoGenZongCell.m */; };
 		66C43F5C1F26E069002B1E8F /* XuNiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C43F5B1F26E069002B1E8F /* XuNiVC.m */; };
 		66CC4C641F3580CC008A08FD /* TuanDuiYunYing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CC4C631F3580CC008A08FD /* TuanDuiYunYing.storyboard */; };
 		66CC4C671F3581C3008A08FD /* TuanDuiGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CC4C661F3581C3008A08FD /* TuanDuiGuanLiVC.m */; };
@@ -573,6 +577,13 @@
 		66C24FD31F49A400008A6754 /* AddBaoXiaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBaoXiaoVC.m; sourceTree = "<group>"; };
 		66C24FD51F49DE57008A6754 /* DetailBaoXiaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBaoXiaoVC.h; sourceTree = "<group>"; };
 		66C24FD61F49DE57008A6754 /* DetailBaoXiaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBaoXiaoVC.m; sourceTree = "<group>"; };
+		66C24FD81F49EAD2008A6754 /* ChengGuoGenZong.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChengGuoGenZong.storyboard; sourceTree = "<group>"; };
+		66C24FDA1F49EAFC008A6754 /* GenZongVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenZongVC.h; sourceTree = "<group>"; };
+		66C24FDB1F49EAFC008A6754 /* GenZongVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenZongVC.m; sourceTree = "<group>"; };
+		66C24FDD1F49EB50008A6754 /* AddGenZong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGenZong.h; sourceTree = "<group>"; };
+		66C24FDE1F49EB50008A6754 /* AddGenZong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGenZong.m; sourceTree = "<group>"; };
+		66C24FE01F49EB92008A6754 /* ChengGuoGenZongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChengGuoGenZongCell.h; sourceTree = "<group>"; };
+		66C24FE11F49EB92008A6754 /* ChengGuoGenZongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChengGuoGenZongCell.m; sourceTree = "<group>"; };
 		66C43F5A1F26E069002B1E8F /* XuNiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuNiVC.h; sourceTree = "<group>"; };
 		66C43F5B1F26E069002B1E8F /* XuNiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XuNiVC.m; sourceTree = "<group>"; };
 		66CC4C631F3580CC008A08FD /* TuanDuiYunYing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TuanDuiYunYing.storyboard; sourceTree = "<group>"; };
@@ -1153,6 +1164,13 @@
 			children = (
 				FBBDA2371F498E67000FF4B9 /* ChengGuoGenZong.h */,
 				FBBDA2381F498E67000FF4B9 /* ChengGuoGenZong.m */,
+				66C24FD81F49EAD2008A6754 /* ChengGuoGenZong.storyboard */,
+				66C24FE01F49EB92008A6754 /* ChengGuoGenZongCell.h */,
+				66C24FE11F49EB92008A6754 /* ChengGuoGenZongCell.m */,
+				66C24FDA1F49EAFC008A6754 /* GenZongVC.h */,
+				66C24FDB1F49EAFC008A6754 /* GenZongVC.m */,
+				66C24FDD1F49EB50008A6754 /* AddGenZong.h */,
+				66C24FDE1F49EB50008A6754 /* AddGenZong.m */,
 			);
 			name = "成果跟踪管理";
 			sourceTree = "<group>";
@@ -2173,6 +2191,7 @@
 				66B59BA81F3EAFE000E4CD2A /* KaiTongZhuXian.storyboard in Resources */,
 				FBB1828C1F2873C900550227 /* 员工列表.gif in Resources */,
 				FBD7A81B1F27B17100B9251D /* home_@1x.png in Resources */,
+				66C24FD91F49EAD2008A6754 /* ChengGuoGenZong.storyboard in Resources */,
 				661CE39B1F3C9F36009E374D /* HeTongGuanLi.storyboard in Resources */,
 				FBB1826F1F285B8300550227 /* 文档下载.gif in Resources */,
 				FBB182FE1F28A67E00550227 /* 加分材料审核.png in Resources */,
@@ -2287,6 +2306,7 @@
 				FB3342501F44916C00E88116 /* ZhuDongTuiChu.m in Sources */,
 				FBF557A21F28C327005AB0F4 /* GDataXMLNode.m in Sources */,
 				FBCE6CFC1F49A23500717C04 /* BeiDongTuiChuCell.m in Sources */,
+				66C24FDF1F49EB50008A6754 /* AddGenZong.m in Sources */,
 				FBAEF7FF1F3F6B4300497D37 /* JiangLiGuanDetailVC.m in Sources */,
 				FBF77B651F321890004F17C3 /* YuanQuFuWuShenQing.m in Sources */,
 				66C24FD71F49DE57008A6754 /* DetailBaoXiaoVC.m in Sources */,
@@ -2360,6 +2380,7 @@
 				66B59BBC1F3EC8EB00E4CD2A /* DetailShenSuVC.m in Sources */,
 				66A5124C1F30702900498E12 /* ActiveGuanLiVC.m in Sources */,
 				FB3342411F4460A400E88116 /* YuanQuZiYuanGuanLi.m in Sources */,
+				66C24FDC1F49EAFC008A6754 /* GenZongVC.m in Sources */,
 				66918C161F41C2DA002419D4 /* YuanQuRenWuVC.m in Sources */,
 				664E509E1F25B1E800824063 /* RegeistVC.m in Sources */,
 				FBE9B6111F41EA5B00E098D4 /* FaKaAddVC.m in Sources */,
@@ -2423,6 +2444,7 @@
 				FBE9B60B1F41D55B00E098D4 /* FaKaGuanLiVC.m in Sources */,
 				FBE9B6081F41CA9300E098D4 /* FaKaGuanli.m in Sources */,
 				FBF557B01F28C332005AB0F4 /* TFHppleElement.m in Sources */,
+				66C24FE21F49EB92008A6754 /* ChengGuoGenZongCell.m in Sources */,
 				FB33425B1F44A07B00E88116 /* ZhuDongTuiChuAddVC.m in Sources */,
 				FBF831F71F401DA70067ADBE /* YuanQuFuWuGuanLi.m in Sources */,
 			);

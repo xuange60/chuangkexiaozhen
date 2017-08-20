@@ -21,5 +21,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *shenpi;
 @property (strong, nonatomic) IBOutlet UILabel *shenqingren;
 
+-(void)setArray:(NSArray*)ary;
+@property(nonatomic,strong)NSArray*ary;
+
 
 @end

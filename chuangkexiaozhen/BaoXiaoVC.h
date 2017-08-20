@@ -11,6 +11,7 @@
 #import "BaoXiaoCell.h"
 #import "FilelistViewController.h"
 #import "AddBaoXiaoVC.h"
+#import "DetailBaoXiaoVC.h"
 @interface BaoXiaoVC : BaseViewController<BussinessApiDelegate,UITableViewDelegate,UITableViewDataSource>
 
 

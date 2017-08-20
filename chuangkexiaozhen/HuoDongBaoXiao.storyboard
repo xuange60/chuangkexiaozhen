@@ -92,6 +92,9 @@
                                                                 <constraint firstAttribute="width" constant="35" id="zYY-q9-Mpo"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="filesucc.png"/>
+                                                            <connections>
+                                                                <action selector="succBtnClick:forEvent:" destination="QWv-8o-UC5" eventType="touchUpInside" id="rd2-d7-OlA"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5r-HW-DFS">
                                                             <rect key="frame" x="120" y="147" width="35" height="35"/>
@@ -100,6 +103,9 @@
                                                                 <constraint firstAttribute="height" constant="35" id="vFe-Wb-rSi"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="filedetail.png"/>
+                                                            <connections>
+                                                                <action selector="detailBtnClick:forEvent:" destination="QWv-8o-UC5" eventType="touchUpInside" id="ra7-7C-q4O"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovj-v4-lZr">
                                                             <rect key="frame" x="180" y="147" width="35" height="35"/>
@@ -108,6 +114,9 @@
                                                                 <constraint firstAttribute="height" constant="35" id="A34-81-GI9"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="filedelete.png"/>
+                                                            <connections>
+                                                                <action selector="deleteVBtnClick:forEvent:" destination="QWv-8o-UC5" eventType="touchUpInside" id="PIZ-s1-Bcd"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4P-IS-ymj">
                                                             <rect key="frame" x="93" y="5" width="218" height="25"/>
@@ -161,6 +170,9 @@
                                                                 <constraint firstAttribute="width" constant="35" id="rOk-N3-rcb"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="filedownload.png"/>
+                                                            <connections>
+                                                                <action selector="downloadBtnClick:forEvent:" destination="QWv-8o-UC5" eventType="touchUpInside" id="sLB-3e-sa0"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -499,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1Y-6M-2rU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="152.11267605633802"/>
+            <point key="canvasLocation" x="598" y="83"/>
         </scene>
         <!--Detail Bao XiaoVC-->
         <scene sceneID="wC2-wE-O96">
