@@ -56,6 +56,8 @@
 		6697ABCE1F2101D500FC9346 /* event-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6697ABCD1F2101D500FC9346 /* event-3.png */; };
 		6697ABD01F2101DE00FC9346 /* event-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6697ABCF1F2101DE00FC9346 /* event-4.png */; };
 		669E9ECE1F395CA500D50690 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 669E9ECD1F395CA500D50690 /* scoreboard.png */; };
+		669F9C9F1F4A7ED6007CF084 /* liugeCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9C9E1F4A7ED6007CF084 /* liugeCommonCell.m */; };
+		669F9CA21F4A7EF6007CF084 /* liugeCommonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9CA11F4A7EF6007CF084 /* liugeCommonVC.m */; };
 		66A401781F21B1D100C4396C /* MyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A401771F21B1D100C4396C /* MyView.xib */; };
 		66A4D8EC1F32ED1500967C75 /* KeJiChuanXin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A4D8EB1F32ED1500967C75 /* KeJiChuanXin.storyboard */; };
 		66A4D8EF1F32EDE700967C75 /* keJiChuanXinGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D8EE1F32EDE700967C75 /* keJiChuanXinGuanLiVC.m */; };
@@ -469,6 +471,10 @@
 		6697ABCF1F2101DE00FC9346 /* event-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "event-4.png"; sourceTree = "<group>"; };
 		669E9ECB1F39574700D50690 /* DaBianGuanLi.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DaBianGuanLi.storyboard; sourceTree = "<group>"; };
 		669E9ECD1F395CA500D50690 /* scoreboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreboard.png; sourceTree = "<group>"; };
+		669F9C9D1F4A7ED6007CF084 /* liugeCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liugeCommonCell.h; sourceTree = "<group>"; };
+		669F9C9E1F4A7ED6007CF084 /* liugeCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = liugeCommonCell.m; sourceTree = "<group>"; };
+		669F9CA01F4A7EF6007CF084 /* liugeCommonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liugeCommonVC.h; sourceTree = "<group>"; };
+		669F9CA11F4A7EF6007CF084 /* liugeCommonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = liugeCommonVC.m; sourceTree = "<group>"; };
 		66A401771F21B1D100C4396C /* MyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyView.xib; sourceTree = "<group>"; };
 		66A4D8EB1F32ED1500967C75 /* KeJiChuanXin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeJiChuanXin.storyboard; sourceTree = "<group>"; };
 		66A4D8ED1F32EDE700967C75 /* keJiChuanXinGuanLiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keJiChuanXinGuanLiVC.h; sourceTree = "<group>"; };
@@ -1284,9 +1290,6 @@
 		66F724A31F2E25DD00773F66 /* 团队运营成熟度考核 */ = {
 			isa = PBXGroup;
 			children = (
-				66CC4C631F3580CC008A08FD /* TuanDuiYunYing.storyboard */,
-				66CC4C651F3581C3008A08FD /* TuanDuiGuanLiVC.h */,
-				66CC4C661F3581C3008A08FD /* TuanDuiGuanLiVC.m */,
 				66CC4C6B1F3583AA008A08FD /* RenYuanJieGouCell.h */,
 				66CC4C6C1F3583AA008A08FD /* RenYuanJieGouCell.m */,
 				66CC4C681F358220008A08FD /* RenYuanJieGouVC.h */,
@@ -1295,6 +1298,13 @@
 				66CC4C6F1F3587AB008A08FD /* AddRenYuanVC.m */,
 				FBC0F4091F49F6E600282806 /* TuanDuiYunYing.h */,
 				FBC0F40A1F49F6E600282806 /* TuanDuiYunYing.m */,
+				66CC4C631F3580CC008A08FD /* TuanDuiYunYing.storyboard */,
+				66CC4C651F3581C3008A08FD /* TuanDuiGuanLiVC.h */,
+				66CC4C661F3581C3008A08FD /* TuanDuiGuanLiVC.m */,
+				669F9C9D1F4A7ED6007CF084 /* liugeCommonCell.h */,
+				669F9C9E1F4A7ED6007CF084 /* liugeCommonCell.m */,
+				669F9CA01F4A7EF6007CF084 /* liugeCommonVC.h */,
+				669F9CA11F4A7EF6007CF084 /* liugeCommonVC.m */,
 			);
 			name = "团队运营成熟度考核";
 			sourceTree = "<group>";
@@ -2321,6 +2331,7 @@
 				FBDAA6B21F362D8300E28CF0 /* HuoDongLuYanViewController.m in Sources */,
 				FBC0F40B1F49F6E600282806 /* TuanDuiYunYing.m in Sources */,
 				66B938C71F3423FB006D73FB /* NaShuiGuanLiVC.m in Sources */,
+				669F9CA21F4A7EF6007CF084 /* liugeCommonVC.m in Sources */,
 				FBF557B11F28C332005AB0F4 /* XPathQuery.m in Sources */,
 				FBAEF7F91F3F5FB600497D37 /* ZhiShiChanQuanDetailVC.m in Sources */,
 				66A4D9131F336ABD00967C75 /* JiangLiGuanLiCell.m in Sources */,
@@ -2470,6 +2481,7 @@
 				FBE9B60B1F41D55B00E098D4 /* FaKaGuanLiVC.m in Sources */,
 				FBE9B6081F41CA9300E098D4 /* FaKaGuanli.m in Sources */,
 				FBF557B01F28C332005AB0F4 /* TFHppleElement.m in Sources */,
+				669F9C9F1F4A7ED6007CF084 /* liugeCommonCell.m in Sources */,
 				66C24FE21F49EB92008A6754 /* ChengGuoGenZongCell.m in Sources */,
 				FB33425B1F44A07B00E88116 /* ZhuDongTuiChuAddVC.m in Sources */,
 				FBF831F71F401DA70067ADBE /* YuanQuFuWuGuanLi.m in Sources */,

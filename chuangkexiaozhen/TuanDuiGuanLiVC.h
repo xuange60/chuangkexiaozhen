@@ -8,8 +8,15 @@
 
 #import "BaseViewController.h"
 #import "RenYuanJieGouVC.h"
-@interface TuanDuiGuanLiVC : BaseViewController
+#import "liugeCommonVC.h"
+#import "TuanDuiYunYing.h"
+@interface TuanDuiGuanLiVC : BaseViewController<BussinessApiDelegate>
 
 @property(nonatomic,strong) NSString* isadmin;
+@property(nonatomic,strong) TuanDuiYunYing* yunying;
+
+@property(nonatomic,strong) NSArray* array;
+
+@property(nonatomic,strong) NSString* strIds;
 
 @end
