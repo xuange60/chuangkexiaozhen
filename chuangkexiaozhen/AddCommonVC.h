@@ -9,11 +9,12 @@
 #import "BaseViewController.h"
 #import "TuanDuiYunYing.h"
 #import "DuoXuanVC.h"
+#import "ImgeUpViewController.h"
 @interface AddCommonVC : BaseViewController<BussinessApiDelegate>
 
 
 @property(nonatomic,strong)NSString*strTitle;
-
+@property(nonatomic,strong)NSString*photosIDS;
 @property (strong, nonatomic) IBOutlet UILabel *lab1;
 
 @property (strong, nonatomic) IBOutlet UILabel *lab2;

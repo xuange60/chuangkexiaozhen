@@ -34,7 +34,7 @@
                                                                      style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
        [self.navigationItem setRightBarButtonItem:RightBarItem];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDRENYUANJIEGOUSUCCESS" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"COMMONVCADDSUCCESS" object:nil];
 }
 
 
@@ -47,8 +47,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 
 }
-
-
+-(void)receiveInfomation
+{
+    [_yunying queryData:_strTitle];
+}
 
 -(void)loadNetworkFinished:(id)data
 {
