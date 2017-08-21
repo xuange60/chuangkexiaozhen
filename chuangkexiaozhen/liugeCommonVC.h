@@ -10,6 +10,8 @@
 #import "liugeCommonCell.h"
 #import "TuanDuiYunYing.h"
 #import "FilelistViewController.h"
+#import "detailCommonVC.h"
+#import "AddCommonVC.h"
 @interface liugeCommonVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -17,6 +19,10 @@
 @property(nonatomic,strong)NSString*strTitle;
 @property(nonatomic,strong)NSArray*ary;
 @property(nonatomic,strong)NSArray*array;
+
+
+
+@property(nonatomic,strong)NSDictionary*dic;
 
 -(void)setStr:(NSString*)str array:(NSArray*)ary  shujuAry:(NSArray*)array;
 

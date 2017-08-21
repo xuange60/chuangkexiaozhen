@@ -18,7 +18,6 @@
 {
     _strTitle=str;
     _ary=ary;
-//    _array=array;
 }
 
 - (void)viewDidLoad {
@@ -30,12 +29,26 @@
     [_yunying queryData:_strTitle];
     
     
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon
+                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+       [self.navigationItem setRightBarButtonItem:RightBarItem];
     
-    
-    
-    
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDRENYUANJIEGOUSUCCESS" object:nil];
 }
+
+
+//左边添加比赛事件
+-(void)RightBarItemClick:(UIBarButtonItem*)item
+{
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    AddCommonVC*vc=[board instantiateViewControllerWithIdentifier:@"AddCommonVC"];
+    vc.strTitle=_strTitle;
+    [self.navigationController pushViewController:vc animated:YES];
+
+}
+
+
 
 -(void)loadNetworkFinished:(id)data
 {
@@ -122,9 +135,7 @@
     CGPoint point=[touch locationInView:_tableView];
     NSIndexPath*path=[_tableView indexPathForRowAtPoint:point];
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    
     NSString*strID=[dic objectForKey:@"id"];
-    
     [_yunying deleteData:strID withType:_strTitle];
 }
 
@@ -135,11 +146,40 @@
 
 
 - (IBAction)detailBtnClicked:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath*path=[_tableView indexPathForRowAtPoint:point];
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    NSString*strID=[dic objectForKey:@"id"];
     
     
+    
+    
+//    [_yunying queryDataAdmin:_strTitle];
+
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    detailCommonVC*vc=[board instantiateViewControllerWithIdentifier:@"detailCommonVC"];
+    
+    
+//    if ([_strTitle isEqualToString:@"高学历人才"]) {
+//         [vc shuJu:@[@"人员姓名",@"毕业学校",@"学校级别",@"学位级别",@"提交时间",@"所属公司"] array:nil];
+//    }else if ([_strTitle isEqualToString:@"社保缴纳"]){
+//        [vc shuJu:@[@"职工人数",@"投保人数",@"公司账号",@"新增人员名称",@"身份证号",@"所属公司"] array:nil];
+//        
+//    }
+    
+
+    [vc shuJu:_ary array:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+
+}
+-(void)afternetwork6:(id)data
+{
+    _dic=(NSDictionary*)data;
     
 }
-
 
 - (IBAction)downloadBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
@@ -151,7 +191,7 @@
     
     NSString*strID=[dic objectForKey:@"id"];
     
-    
+    ///?//??????/////////?////??????????//
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:_strTitle];
     [self.navigationController pushViewController:vc animated:YES];
     

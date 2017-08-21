@@ -58,6 +58,8 @@
 		669E9ECE1F395CA500D50690 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 669E9ECD1F395CA500D50690 /* scoreboard.png */; };
 		669F9C9F1F4A7ED6007CF084 /* liugeCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9C9E1F4A7ED6007CF084 /* liugeCommonCell.m */; };
 		669F9CA21F4A7EF6007CF084 /* liugeCommonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9CA11F4A7EF6007CF084 /* liugeCommonVC.m */; };
+		669F9CA51F4AD357007CF084 /* detailCommonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9CA41F4AD357007CF084 /* detailCommonVC.m */; };
+		669F9CA81F4AE1CD007CF084 /* AddCommonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F9CA71F4AE1CD007CF084 /* AddCommonVC.m */; };
 		66A401781F21B1D100C4396C /* MyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A401771F21B1D100C4396C /* MyView.xib */; };
 		66A4D8EC1F32ED1500967C75 /* KeJiChuanXin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A4D8EB1F32ED1500967C75 /* KeJiChuanXin.storyboard */; };
 		66A4D8EF1F32EDE700967C75 /* keJiChuanXinGuanLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A4D8EE1F32EDE700967C75 /* keJiChuanXinGuanLiVC.m */; };
@@ -475,6 +477,10 @@
 		669F9C9E1F4A7ED6007CF084 /* liugeCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = liugeCommonCell.m; sourceTree = "<group>"; };
 		669F9CA01F4A7EF6007CF084 /* liugeCommonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liugeCommonVC.h; sourceTree = "<group>"; };
 		669F9CA11F4A7EF6007CF084 /* liugeCommonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = liugeCommonVC.m; sourceTree = "<group>"; };
+		669F9CA31F4AD357007CF084 /* detailCommonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailCommonVC.h; sourceTree = "<group>"; };
+		669F9CA41F4AD357007CF084 /* detailCommonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailCommonVC.m; sourceTree = "<group>"; };
+		669F9CA61F4AE1CD007CF084 /* AddCommonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommonVC.h; sourceTree = "<group>"; };
+		669F9CA71F4AE1CD007CF084 /* AddCommonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommonVC.m; sourceTree = "<group>"; };
 		66A401771F21B1D100C4396C /* MyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyView.xib; sourceTree = "<group>"; };
 		66A4D8EB1F32ED1500967C75 /* KeJiChuanXin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeJiChuanXin.storyboard; sourceTree = "<group>"; };
 		66A4D8ED1F32EDE700967C75 /* keJiChuanXinGuanLiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keJiChuanXinGuanLiVC.h; sourceTree = "<group>"; };
@@ -1305,6 +1311,10 @@
 				669F9C9E1F4A7ED6007CF084 /* liugeCommonCell.m */,
 				669F9CA01F4A7EF6007CF084 /* liugeCommonVC.h */,
 				669F9CA11F4A7EF6007CF084 /* liugeCommonVC.m */,
+				669F9CA31F4AD357007CF084 /* detailCommonVC.h */,
+				669F9CA41F4AD357007CF084 /* detailCommonVC.m */,
+				669F9CA61F4AE1CD007CF084 /* AddCommonVC.h */,
+				669F9CA71F4AE1CD007CF084 /* AddCommonVC.m */,
 			);
 			name = "团队运营成熟度考核";
 			sourceTree = "<group>";
@@ -2315,6 +2325,7 @@
 				FB8DEF2F1F2A09A900636704 /* ComboViewController.m in Sources */,
 				66B59BAE1F3EB03100E4CD2A /* AddKaiTongVC.m in Sources */,
 				FB5186E01F34DD4300C9705A /* KaoQinGuanLi.m in Sources */,
+				669F9CA51F4AD357007CF084 /* detailCommonVC.m in Sources */,
 				FBF557BA1F28DC51005AB0F4 /* BaseViewController.m in Sources */,
 				FBF557991F28C30E005AB0F4 /* AFURLSessionManager.m in Sources */,
 				664E50731F227CA100824063 /* MyView.m in Sources */,
@@ -2347,6 +2358,7 @@
 				66C24FD71F49DE57008A6754 /* DetailBaoXiaoVC.m in Sources */,
 				FBA23C6F1F3C93C8001FE5CF /* ShenSuShenQingGuanLi.m in Sources */,
 				FBF557951F28C30E005AB0F4 /* AFNetworkReachabilityManager.m in Sources */,
+				669F9CA81F4AE1CD007CF084 /* AddCommonVC.m in Sources */,
 				667A26281F42E11E00E88A11 /* QianDaoTongJiVC.m in Sources */,
 				FBDAA6A41F36185600E28CF0 /* PaiHangBangViewController.m in Sources */,
 				FBDAA6B81F3633C400E28CF0 /* HuoDongLuYanDetailViewController.m in Sources */,
