@@ -79,52 +79,85 @@
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     
     if ([_strTitle isEqualToString:@"高学历人才"]) {
-        cell.lab7.text=[dic objectForKey:@"name"];
-        cell.lab8.text=dic[@"graduateSchool"];
-        cell.lab9.text=dic[@"schoolLevel"];
-        cell.lab10.text=dic[@"degreeLevel"];
-        cell.lab11.text=dic[@"date"];
-        cell.lab12.text=dic[@"company"];
+        cell.lab7.text=[dic objectNotNullForKey:@"name"];
+        cell.lab8.text=[dic objectNotNullForKey:@"graduateSchool"];
+        cell.lab9.text=[dic objectNotNullForKey:@"schoolLevel"];
+        cell.lab10.text=[dic objectNotNullForKey:@"degreeLevel"];
+        cell.lab11.text=[dic objectNotNullForKey:@"date"];
+        cell.lab12.text=[dic objectNotNullForKey:@"company"];
     }
     
     if ([_strTitle isEqualToString:@"社保缴纳"]) {
-        cell.lab7.text= [NSString stringWithFormat:@"%@", dic[@"employeeNumber"]];
-        cell.lab8.text= [ NSString stringWithFormat:@"%@",dic[@"insureNumber"]];
-        cell.lab9.text=dic[@"companyAccount"];
-        cell.lab10.text=dic[@"newEmployeeNames"];
-        cell.lab11.text=dic[@"idCards"];
-        cell.lab12.text=dic[@"company"];
+        cell.lab7.text= [dic objectNotNullForKey:@"employeeNumber"];
+        cell.lab8.text= [dic objectNotNullForKey:@"insureNumber"];
+        cell.lab9.text=[dic objectNotNullForKey:@"companyAccount"];
+        cell.lab10.text=[dic objectNotNullForKey:@"newEmployeeNames"];
+        cell.lab11.text=[dic objectNotNullForKey:@"idCards"];
+        cell.lab12.text=[dic objectNotNullForKey:@"company"];
     }
     
     if ([_strTitle isEqualToString:@"社会责任履行"]) {
-        cell.lab7.text= dic[@"name"];
-        cell.lab8.text=dic[@"type"];
-        cell.lab9.text= [ NSString stringWithFormat:@"%@",dic[@"employeeNumber"]];
-        cell.lab10.text=dic[@"date"];
-        cell.lab11.text=dic[@"company"];
+        cell.lab7.text= [dic objectNotNullForKey:@"name"];
+        cell.lab8.text=[dic objectNotNullForKey:@"type"];
+        cell.lab9.text= [dic objectNotNullForKey:@"employeeNumber"];
+        cell.lab10.text=[dic objectNotNullForKey:@"date"];
+        cell.lab11.text=[dic objectNotNullForKey:@"company"];
         cell.lab12.hidden=YES;
     }
     
     
     if ([_strTitle isEqualToString:@"税务正规化"]) {
-        cell.lab7.text= dic[@"taxNo"];
-        cell.lab8.text=dic[@"accountName"];
-        cell.lab9.text= dic[@"accountIdentityUS"];
-        cell.lab10.text=dic[@"date"];
-        cell.lab11.text=dic[@"company"];
+        cell.lab7.text= [dic objectNotNullForKey:@"taxNo"];
+        cell.lab8.text=[dic objectNotNullForKey:@"accountName"];
+        cell.lab9.text= [dic objectNotNullForKey:@"accountIdentityUS"];
+        cell.lab10.text=[dic objectNotNullForKey:@"date"];
+        cell.lab11.text=[dic objectNotNullForKey:@"company"];
         cell.lab12.hidden=YES;
     }
 
     if ([_strTitle isEqualToString:@"员工福利"]) {
-        cell.lab7.text= dic[@"name"];
-        cell.lab8.text= [ NSString stringWithFormat:@"%@",dic[@"totalBenefitMoney"]];
-        cell.lab9.text=dic[@"benefitPercent"];
-        cell.lab10.text=[ NSString stringWithFormat:@"%@",dic[@"benefitPerson"]];
-        cell.lab11.text=dic[@"company"];
+        cell.lab7.text=[dic objectNotNullForKey:@"name"];
+        cell.lab8.text=[dic objectNotNullForKey:@"totalBenefitMoney"];
+        cell.lab9.text=[dic objectNotNullForKey:@"benefitPercent"];
+        cell.lab10.text=[dic objectNotNullForKey:@"benefitPerson"];
+        cell.lab11.text=[dic objectNotNullForKey:@"company"];
+        cell.lab12.hidden=YES;
+    }
+    
+    
+    if ([_strTitle isEqualToString:@"高技能人才"]) {
+        cell.lab7.text=[dic objectNotNullForKey:@"name"];
+        cell.lab8.text=[dic objectNotNullForKey:@"jobTitle"];
+        cell.lab9.text=[dic objectNotNullForKey:@"date"];
+        cell.lab10.text=[dic objectNotNullForKey:@"company"];
+        cell.lab11.hidden=YES;
+        cell.lab12.hidden=YES;
+    }
+    if ([_strTitle isEqualToString:@"规划目标"]) {
+        cell.lab7.text=[dic objectNotNullForKey:@"shortTermGoal"];
+        cell.lab8.text=[dic objectNotNullForKey:@"mediumTermGoal"];
+        cell.lab9.text=[dic objectNotNullForKey:@"longTermGoal"];
+        cell.lab10.text=[dic objectNotNullForKey:@"company"];
+        cell.lab11.hidden=YES;
+        cell.lab12.hidden=YES;
+    }
+    if ([_strTitle isEqualToString:@"规模制度"]) {
+        cell.lab7.text=[dic objectNotNullForKey:@"bylawsFileType"];
+        cell.lab8.text=[dic objectNotNullForKey:@"bylawsFileName"];
+        cell.lab9.text=[dic objectNotNullForKey:@"date"];
+        cell.lab10.text=[dic objectNotNullForKey:@"company"];
+        cell.lab11.hidden=YES;
+        cell.lab12.hidden=YES;
+    }
+    if ([_strTitle isEqualToString:@"投融资情况"]) {
+        cell.lab7.text=[dic objectNotNullForKey:@"investmentAmount"];
+        cell.lab8.text=[dic objectNotNullForKey:@"investmentWheel"];
+        cell.lab9.text=[dic objectNotNullForKey:@"investmentInstitutions"];
+        cell.lab10.text=[dic objectNotNullForKey:@"company"];
+        cell.lab11.hidden=YES;
         cell.lab12.hidden=YES;
     }
 
-    
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -156,9 +189,7 @@
     
     NSString*strID=[dic objectForKey:@"id"];
     
-    
-    
-    
+
 //    [_yunying queryDataAdmin:_strTitle];
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
@@ -190,13 +221,40 @@
     CGPoint point=[touch locationInView:_tableView];
     NSIndexPath*path=[_tableView indexPathForRowAtPoint:point];
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    
     NSString*strID=[dic objectForKey:@"id"];
     
-    ///?//??????/////////?////??????????//
-    FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:_strTitle];
-    [self.navigationController pushViewController:vc animated:YES];
-    
+    if ([_strTitle isEqualToString:@"高学历人才"]) {
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"18"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([_strTitle isEqualToString:@"高技能人才"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"19"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([_strTitle isEqualToString:@"人员结构"]){
+        
+    }else if ([_strTitle isEqualToString:@"规划目标"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"15"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([_strTitle isEqualToString:@"规模制度"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"17"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([_strTitle isEqualToString:@"投融资情况"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"20"];
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }else if ([_strTitle isEqualToString:@"社保缴纳"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"16"];
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }else if ([_strTitle isEqualToString:@"社会责任履行"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"22"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([_strTitle isEqualToString:@"税务正规化"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"23"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([_strTitle isEqualToString:@"员工福利"]){
+        FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"14"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
