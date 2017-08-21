@@ -38,6 +38,16 @@
 @property (strong, nonatomic) IBOutlet UILabel *lab7;
 @property (strong, nonatomic) IBOutlet UIButton *btn1;
 @property (strong, nonatomic) IBOutlet UIButton *btn2;
+@property (strong, nonatomic) IBOutlet UIImageView *btn11;
+@property (strong, nonatomic) IBOutlet UIImageView *btn12;
+
+@property (strong, nonatomic) IBOutlet UIButton *chuanBtn;
+
+@property (strong, nonatomic) IBOutlet UILabel *fujian;
+
+
+
+
 
 
 @property(nonatomic,strong)TuanDuiYunYing*yunying;
