@@ -38,7 +38,11 @@
 -(void)YongHuStop:(NSString*)ids;
 
 
-
+/*
+ 2.20.3 用户停用
+ http://116.228.176.34:9002/chuangke-serve/user/upuserstatus?id=59849a3280ab5e6790d54495&flagStr=false
+ */
+-(void)YongHuStart:(NSString*)ids;
 
 /*
  2.20.4 查询用户

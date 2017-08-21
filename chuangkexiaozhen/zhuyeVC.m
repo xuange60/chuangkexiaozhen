@@ -412,8 +412,11 @@
     }else if([data isEqualToString:@"角色"]){
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"用户"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"xitongpeizhi" bundle:nil];
+        YongHuVC*vc=[board instantiateViewControllerWithIdentifier:@"YongHuVC"];
+        [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"数据字典"]){
+    }else if([data isEqualToString:@"员工列表"]){
         NSLog(@"%@ 按钮被点击",data);
     }
     

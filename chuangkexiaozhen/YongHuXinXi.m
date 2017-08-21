@@ -49,6 +49,12 @@
 }
 
 
+-(void)YongHuStart:(NSString*)ids
+{
+    NSString* paramstr=[NSString stringWithFormat:@"id=%@&flagStr=false",ids];
+    [super succWithParam:paramstr andRelativeUrl:@"/user/upuserstatus"];
+}
+
 
 
 /*
