@@ -188,30 +188,101 @@
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
     NSString*strID=[dic objectForKey:@"id"];
-    
+    [_yunying queryDetail:strID withType:_strTitle];
 
-//    [_yunying queryDataAdmin:_strTitle];
-
-    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
-    detailCommonVC*vc=[board instantiateViewControllerWithIdentifier:@"detailCommonVC"];
-    
-    
-//    if ([_strTitle isEqualToString:@"高学历人才"]) {
-//         [vc shuJu:@[@"人员姓名",@"毕业学校",@"学校级别",@"学位级别",@"提交时间",@"所属公司"] array:nil];
-//    }else if ([_strTitle isEqualToString:@"社保缴纳"]){
-//        [vc shuJu:@[@"职工人数",@"投保人数",@"公司账号",@"新增人员名称",@"身份证号",@"所属公司"] array:nil];
-//        
-//    }
-    
-
-    [vc shuJu:_ary array:nil];
-    [self.navigationController pushViewController:vc animated:YES];
-
-}
--(void)afternetwork6:(id)data
+ }
+-(void)afternetwork1:(id)data
 {
     _dic=(NSDictionary*)data;
     
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
+    detailCommonVC*vc=[board instantiateViewControllerWithIdentifier:@"detailCommonVC"];
+    if ([_strTitle isEqualToString:@"高学历人才"]) {
+        NSArray*ary=@[@"人员姓名",@"毕业学校",@"学校级别",@"学位级别",@"状态",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"name"],
+                       [_dic objectNotNullForKey:@"graduateSchool"],
+                       [_dic objectNotNullForKey:@"schoolLevel"],
+                       [_dic objectNotNullForKey:@"degreeLevel"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                        nil];
+         [vc shuJu:ary array:array];
+    }else if ([_strTitle isEqualToString:@"高技能人才"]){
+        NSArray*ary=@[@"人员姓名:",@"职称级别",@"职称",@"状态",@"",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"name"],
+                       [_dic objectNotNullForKey:@"jobTitleLevel"],
+                       [_dic objectNotNullForKey:@"jobTitle"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }else if ([_strTitle isEqualToString:@"规划目标"]){
+        NSArray*ary=@[@"短期发展目标",@"中期发展目标",@"长期发展目标",@"状态",@"",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"shortTermGoal"],
+                       [_dic objectNotNullForKey:@"mediumTermGoal"],
+                       [_dic objectNotNullForKey:@"longTermGoal"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }else if ([_strTitle isEqualToString:@"规模制度"]){
+        NSArray*ary=@[@"制度文件类别",@"制度文件名称",@"状态",@"",@"",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"bylawsFileType"],
+                       [_dic objectNotNullForKey:@"bylawsFileName"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }else if ([_strTitle isEqualToString:@"投融资情况"]){
+        NSArray*ary=@[@"投资金额",@"投资轮别",@"投资机构(前三)",@"状态",@"",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"investmentAmount"],
+                       [_dic objectNotNullForKey:@"investmentWheel"],
+                       [_dic objectNotNullForKey:@"investmentInstitutions"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }else if ([_strTitle isEqualToString:@"社保缴纳"]){
+        NSArray*ary=@[@"职工人数",@"投保人数",@"公司账号",@"新增人员名称",@"身份证号码",@"状态"];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"employeeNumber"],
+                       [_dic objectNotNullForKey:@"insureNumber"],
+                       [_dic objectNotNullForKey:@"companyAccount"],
+                       [_dic objectNotNullForKey:@"newEmployeeNames"],
+                       [_dic objectNotNullForKey:@"idCards"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }else if ([_strTitle isEqualToString:@"社会责任履行"]){
+        NSArray*ary=@[@"履行名称",@"类别",@"参与人数",@"状态",@"",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"name"],
+                       [_dic objectNotNullForKey:@"type"],
+                       [_dic objectNotNullForKey:@"employeeNumber"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }else if ([_strTitle isEqualToString:@"税务正规化"]){
+        NSArray*ary=@[@"税号",@"会计名",@"会计身份US",@"状态",@"",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"taxNo"],
+                       [_dic objectNotNullForKey:@"accountName"],
+                       [_dic objectNotNullForKey:@"accountIdentityUS"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }else if ([_strTitle isEqualToString:@"员工福利"]){
+        NSArray*ary=@[@"福利名称",@"福利总金额",@"福利占比收入",@"福利人数",@"状态",@""];
+        NSArray*array=[NSArray arrayWithObjects:
+                       [_dic objectNotNullForKey:@"name"],
+                       [_dic objectNotNullForKey:@"totalBenefitMoney"],
+                       [_dic objectNotNullForKey:@"benefitPercent"],
+                       [_dic objectNotNullForKey:@"benefitPerson"],
+                       [_dic objectNotNullForKey:@"statusRead"],
+                       nil];
+        [vc shuJu:ary  array:array];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)downloadBtnClicked:(id)sender forEvent:(UIEvent *)event {

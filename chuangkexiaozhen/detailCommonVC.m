@@ -29,12 +29,39 @@
      _lab2.text=_ary[1];
      _lab3.text=_ary[2];
      _lab4.text=_ary[3];
-//     _lab5.text=_ary[4];
-//     _lab6.text=_ary[5];
-//     _lab7.text=_ary[6];
+     _lab5.text=_ary[4];
+     _lab6.text=_ary[5];
 
     
-
+    if (_array.count==6) {
+        _lab11.text=_array[0];
+        _lab12.text=_array[1];
+        _lab13.text=_array[2];
+        _lab14.text=_array[3];
+        _lab15.text=_array[4];
+        _lab16.text=_array[5];
+    }else if (_array.count==5){
+        _lab11.text=_array[0];
+        _lab12.text=_array[1];
+        _lab13.text=_array[2];
+        _lab14.text=_array[3];
+        _lab15.text=_array[4];
+        _lab16.hidden=YES;
+    }else if (_array.count==4){
+        _lab11.text=_array[0];
+        _lab12.text=_array[1];
+        _lab13.text=_array[2];
+        _lab14.text=_array[3];
+        _lab15.hidden=YES;
+        _lab16.hidden=YES;
+    }else if (_array.count==3){
+        _lab11.text=_array[0];
+        _lab12.text=_array[1];
+        _lab13.text=_array[2];
+        _lab14.hidden=YES;
+        _lab15.hidden=YES;
+        _lab16.hidden=YES;
+    }
 }
 
 

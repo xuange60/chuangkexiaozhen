@@ -15,7 +15,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lab3;
 
-
 @property (strong, nonatomic) IBOutlet UILabel *lab4;
 
 @property (strong, nonatomic) IBOutlet UILabel *lab5;
@@ -23,26 +22,23 @@
 @property (strong, nonatomic) IBOutlet UILabel *lab6;
 
 
-@property (strong, nonatomic) IBOutlet UILabel *lab7;
+
 
 
 @property (strong, nonatomic) IBOutlet UILabel *lab11;
 
 @property (strong, nonatomic) IBOutlet UILabel *lab12;
 
-
 @property (strong, nonatomic) IBOutlet UILabel *lab13;
 
 @property (strong, nonatomic) IBOutlet UILabel *lab14;
-
-
 
 @property (strong, nonatomic) IBOutlet UILabel *lab15;
 
 @property (strong, nonatomic) IBOutlet UILabel *lab16;
 
 
-@property (strong, nonatomic) IBOutlet UILabel *lab17;
+
 
 
 
