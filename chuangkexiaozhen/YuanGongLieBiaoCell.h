@@ -10,4 +10,22 @@
 
 @interface YuanGongLieBiaoCell : UITableViewCell
 
+
+
+@property (strong, nonatomic) IBOutlet UILabel *loginName;
+
+@property (strong, nonatomic) IBOutlet UILabel *phone;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *email;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *createDate;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *manager;
+
+
+
+
 @end

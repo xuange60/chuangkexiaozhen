@@ -7,7 +7,17 @@
 //
 
 #import "BaseViewController.h"
+#import "YuanGongXinXi.h"
+#import "YuanGongLieBiaoCell.h"
+#import "YuanGongLieBiaoModifyVC.h"
+#import "YuanGongAddVC.h"
+@interface YuanGongLieBiaoVC:BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
-@interface YuanGongLieBiaoVC : BaseViewController
+@property (nonatomic,strong) YuanGongXinXi* yuangongxinxi;
+
+@property (nonatomic,strong) NSArray* datas;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableview;
+
 
 @end

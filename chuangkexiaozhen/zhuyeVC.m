@@ -218,9 +218,16 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"员工列表"]){
-        UIStoryboard*board=[UIStoryboard storyboardWithName:@"yuangongguanli" bundle:nil];
-        YuanGongViewController*vc=[board instantiateViewControllerWithIdentifier:@"YuanGongViewController"];
-        [self.navigationController pushViewController:vc animated:YES];
+        if([_isadmin isEqualToString:@"Y"]){
+            UIStoryboard*board=[UIStoryboard storyboardWithName:@"xitongpeizhi" bundle:nil];
+            YuanGongLieBiaoVC*vc=[board instantiateViewControllerWithIdentifier:@"YuanGongLieBiaoVC"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            UIStoryboard*board=[UIStoryboard storyboardWithName:@"yuangongguanli" bundle:nil];
+            YuanGongViewController*vc=[board instantiateViewControllerWithIdentifier:@"YuanGongViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"考勤统计"]){//普通用户 管理员都会返回考勤统计
         NSLog(@"%@ 按钮被点击",data);
@@ -415,8 +422,6 @@
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"xitongpeizhi" bundle:nil];
         YongHuVC*vc=[board instantiateViewControllerWithIdentifier:@"YongHuVC"];
         [self.navigationController pushViewController:vc animated:YES];
-        NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"员工列表"]){
         NSLog(@"%@ 按钮被点击",data);
     }
     
