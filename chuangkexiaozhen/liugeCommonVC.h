@@ -12,6 +12,7 @@
 #import "FilelistViewController.h"
 #import "detailCommonVC.h"
 #import "AddCommonVC.h"
+#import "XingZhengShenHeVC.h"
 @interface liugeCommonVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -29,7 +30,7 @@
 
 
 
-
+@property(nonatomic,strong) NSString* isadmin;
 
 
 

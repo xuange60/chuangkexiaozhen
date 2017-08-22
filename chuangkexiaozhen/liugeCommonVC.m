@@ -25,8 +25,13 @@
    
     _yunying=[[TuanDuiYunYing alloc]init];
     _yunying.delegate=self;
+    
+    if([_isadmin isEqualToString:@"Y"]){
+        [_yunying queryDataAdmin:_strTitle];
+    }else{
+        [_yunying queryData:_strTitle];
+    }
 
-    [_yunying queryData:_strTitle];
     
     
     UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -188,7 +193,15 @@
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
     NSString*strID=[dic objectForKey:@"id"];
-    [_yunying queryDetail:strID withType:_strTitle];
+    if([_isadmin isEqualToString:@"Y"]){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"jiafencailiaoshenhe" bundle:nil];
+        XingZhengShenHeVC*vc=[board instantiateViewControllerWithIdentifier:@"XingZhengShenHeVC"];
+        vc.strTitle=_strTitle;
+        vc.strid=strID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        [_yunying queryDetail:strID withType:_strTitle];
+    }
 
  }
 -(void)afternetwork1:(id)data
@@ -197,6 +210,8 @@
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"TuanDuiYunYing" bundle:nil];
     detailCommonVC*vc=[board instantiateViewControllerWithIdentifier:@"detailCommonVC"];
+    
+    
     if ([_strTitle isEqualToString:@"高学历人才"]) {
         NSArray*ary=@[@"人员姓名",@"毕业学校",@"学校级别",@"学位级别",@"状态",@""];
         NSArray*array=[NSArray arrayWithObjects:
