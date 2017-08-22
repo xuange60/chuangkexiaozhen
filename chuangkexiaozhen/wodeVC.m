@@ -62,10 +62,12 @@
 
 
 - (IBAction)tuichuClick:(id)sender {
-    
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController*vc=[board instantiateViewControllerWithIdentifier:@"ViewController"];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self presentViewController:vc animated:YES completion:nil];
+
     
 }
 
