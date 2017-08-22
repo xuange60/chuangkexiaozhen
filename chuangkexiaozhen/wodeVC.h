@@ -7,7 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 @interface wodeVC : UIViewController
+
+
+@property (strong, nonatomic) IBOutlet UILabel *userName;
+
+
+
+@property (strong, nonatomic) IBOutlet UILabel *mobile;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *email;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *companyName;
+
+@property (strong, nonatomic) IBOutlet UILabel *type;
+
+
+
+
+
+
+
+
+
 
 
 @end
