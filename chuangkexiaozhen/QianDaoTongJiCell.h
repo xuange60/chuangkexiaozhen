@@ -22,5 +22,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *beizhu;
 
 
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
+
+
+
 
 @end

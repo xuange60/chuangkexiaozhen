@@ -18,6 +18,9 @@
     [super viewDidLoad];
 
     
+    
+    
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary*dic=[defaults dictionaryForKey:@"chuangkexiaozhen.userinfo"];
    
