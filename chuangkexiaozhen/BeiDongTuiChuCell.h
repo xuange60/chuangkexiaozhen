@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BeiDongTuiChuCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIView *MyView;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *quitCompany;

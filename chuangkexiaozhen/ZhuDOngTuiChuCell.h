@@ -11,6 +11,9 @@
 @interface ZhuDOngTuiChuCell : UITableViewCell
 
 
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *quitCompany;
 
 @property (strong, nonatomic) IBOutlet UILabel *quitCause;
