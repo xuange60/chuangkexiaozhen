@@ -153,7 +153,7 @@
 
 -(void) deleteWithId:(NSString*)ids andRelativeUrl:(NSString*) relativeurl
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,relativeurl,ids];
@@ -575,6 +575,33 @@
 }
 
 
+-(void)getBaseUrl
+{
+    NSString* baseurl=@"http://116.228.176.34:3000/serverroute";
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/getbaseurl"];
+    
+    NSUserDefaults* defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"http://116.228.176.34:9001/chuangke-serve" forKey:@"baseurl"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSString* tmp=[(NSDictionary*)[jsondata objectForKey:@"data"] objectForKey:@"addr"];
+            if(tmp!=nil && [tmp length]>0){
+                [defaults setObject:tmp forKey:@"baseurl"];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 
 @end
