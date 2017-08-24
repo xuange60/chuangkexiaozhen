@@ -46,8 +46,13 @@
     }
     
     
-    
     CustomCell*cell=[tableView dequeueReusableCellWithIdentifier:ss];
+    if(cell==nil){
+        UINib* nib=[UINib nibWithNibName:@"CustomCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:ss];
+        cell=[tableView dequeueReusableCellWithIdentifier:ss];
+    }
+    
     [cell setShuJu:[_array objectAtIndex:indexPath.row]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone]; //设置单元格被点击时，无特效
     return cell;

@@ -125,6 +125,32 @@
                 
             }
             
+            if([datas count]>0){
+                int index=-1;
+                for (int i=0; i<[datas count]; i++) {
+                    NSDictionary* tmp=[datas objectAtIndex:i];
+                    if([tmp objectForKey:@"内部审核管理"] !=nil){
+                        index=i;
+                        break;
+                    }
+                }
+                if(index>0){
+                    [datas removeObjectAtIndex:index];
+                }
+                
+                for (int i=0; i<[datas count]; i++) {
+                    NSDictionary* tmp=[datas objectAtIndex:i];
+                    NSMutableArray* ary=(NSMutableArray*)[tmp objectForKey:@"系统配置"];
+                    if(ary!=nil){
+                        [ary removeObject:@"模块"];
+                        [ary removeObject:@"权限"];
+                        [ary removeObject:@"角色"];
+                        [ary removeObject:@"数据字典"];
+                    }
+                }
+                
+            }
+            
             [defaults setObject:datas forKey:@"chuangkexiaozhen.zhujiemian"];
             
             NSData *data = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];

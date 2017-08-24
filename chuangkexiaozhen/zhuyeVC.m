@@ -111,11 +111,23 @@
     UITableViewCell* cell;
     if([values count]>4){
         MyView2*cell2=[tableView dequeueReusableCellWithIdentifier:str2];
+        if(cell2==nil){
+            UINib* nib=[UINib nibWithNibName:@"MyView2" bundle:nil];
+            [tableView registerNib:nib forCellReuseIdentifier:str2];
+            cell2=[tableView dequeueReusableCellWithIdentifier:str2];
+        }
+        
         [cell2 initWithTitle:key andValues:values];
         cell=cell2;
     }else{
         MyView* cell1=[tableView dequeueReusableCellWithIdentifier:str1];
-        [cell1 initWithTitle:key andValues:values];
+
+        if(cell1==nil){
+            UINib* nib=[UINib nibWithNibName:@"MyView" bundle:nil];
+            [tableView registerNib:nib forCellReuseIdentifier:str1];
+            cell1=[tableView dequeueReusableCellWithIdentifier:str1];
+        }
+        [cell1 initWithTitle:key andValues:values];        
         cell=cell1;
     }
 

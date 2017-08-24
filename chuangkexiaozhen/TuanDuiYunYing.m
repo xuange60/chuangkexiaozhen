@@ -238,7 +238,7 @@
 
 
 //审批记录
--(void)shenpiData:(NSDictionary*)param withType:(NSString*)type
+-(void)shenpiData:(NSMutableDictionary*)param withType:(NSString*)type
 {
     NSString* str=@"";
     if([type isEqualToString:@"高学历人才"]){
@@ -260,6 +260,9 @@
     }else if([type isEqualToString:@"员工福利"]){
         str=@"benefit";
     }
+    NSDictionary* statuss=[NSDictionary dictionaryWithObjectsAndKeys:@"success",@"审核通过",@"fail",@"审核不通过", nil];
+    NSString* value3=[param objectForKey:@"status"];
+    [param setObject: [statuss objectForKey:value3] forKey:@"status"];
     [super updateWithData:param andRelativeUrl:[NSString stringWithFormat:@"/%@/status",str]];
 }
 
