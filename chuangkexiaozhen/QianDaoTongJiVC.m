@@ -67,6 +67,13 @@
         cell=[[QianDaoTongJiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
+    cell.MyView.layer.cornerRadius=10;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
+    
+    
+    
     
     /**
      1.查询签到统计列表
