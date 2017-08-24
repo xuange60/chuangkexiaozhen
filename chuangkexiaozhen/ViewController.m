@@ -28,6 +28,8 @@
     self.pwd.delegate=self;
     self.pwd.returnKeyType = UIReturnKeyDone;
     
+    CommNetWork* comm=[[CommNetWork alloc] init];
+    [comm getBaseUrl];
 }
 - (IBAction)loginClick:(id)sender {
     NSString* namestr=self.username.text;
@@ -47,7 +49,7 @@
 //返回数组数据 [{"初始申请",["实体入驻","虚拟入驻","文档下载"]}]
 -(void) loginWithName:(NSString*) name andPwd:(NSString*) pwd
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     //清除cookie缓存
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *cookieArray = [NSArray arrayWithArray:[cookieJar cookies]];
