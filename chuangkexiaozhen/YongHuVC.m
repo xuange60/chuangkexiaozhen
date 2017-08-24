@@ -85,11 +85,11 @@
     NSString* flag=[dic objectNotNullForKey:@"stopflag"];
     if([flag isEqualToString:@"1"]){
         cell.stopflag.text=@"已停用";
-        UIImage* img=[UIImage imageNamed:@"filesucc"];
+        UIImage* img=[UIImage imageNamed:@"newsucc1"];
         [cell.stopbutton setImage:img forState:UIControlStateNormal];
     }else{
         cell.stopflag.text=@"已启用";
-        UIImage* img=[UIImage imageNamed:@"fileerror"];
+        UIImage* img=[UIImage imageNamed:@"newerror1"];
         [cell.stopbutton setImage:img forState:UIControlStateNormal];
     }
     
