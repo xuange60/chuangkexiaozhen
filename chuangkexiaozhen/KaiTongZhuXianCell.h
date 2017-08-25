@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface KaiTongZhuXianCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
 @property (strong, nonatomic) IBOutlet UILabel *companyName;
 
 @property (strong, nonatomic) IBOutlet UILabel *personNum;

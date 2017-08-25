@@ -10,6 +10,13 @@
 
 @interface DianZiHeTongCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
+
+
+
+
+
 
 @property (strong, nonatomic) IBOutlet UILabel *teamName;
 

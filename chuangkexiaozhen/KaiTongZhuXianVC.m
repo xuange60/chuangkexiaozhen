@@ -44,6 +44,11 @@
         cell=[[KaiTongZhuXianCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
+    
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor whiteColor].CGColor;
+    
     /*
      2.11.1 开通主线管理 查询
      http://116.228.176.34:9002/chuangke-serve/mainline/search?start=0&length=10000
@@ -57,6 +62,7 @@
      :"需要","applyNetAlone":"否","applyNetShare":"是","reformDecoration":"否","companyStatus":"创业团队，工商未注册","companyName"
      :"测试公司zhangxuan3","uniNumber":"","tenantInit":"inited"}]
      */
+    
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     cell.companyName.text=[dic objectNotNullForKey:@"companyName"];
     cell.personNum.text=[dic objectNotNullForKey:@"reportedBodys"];
@@ -82,6 +88,11 @@
 }
 
 - (IBAction)editBtnClick:(id)sender forEvent:(UIEvent *)event {
+    
+//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaiTongZhuXian" bundle:nil];
+//    AddKaiTongVC*vc=[board instantiateViewControllerWithIdentifier:@"AddKaiTongVC"];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (IBAction)deleteBtnClick:(id)sender forEvent:(UIEvent *)event {

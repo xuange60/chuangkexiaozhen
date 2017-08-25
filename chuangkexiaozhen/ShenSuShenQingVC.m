@@ -50,6 +50,10 @@
         cell=[[ShenSuShenQingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
     /*
      2.12.1 申诉申请查询
      http://116.228.176.34:9002/chuangke-serve/stateapply/search?start=0&length=10000

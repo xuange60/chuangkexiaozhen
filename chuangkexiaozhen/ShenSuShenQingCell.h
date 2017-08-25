@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ShenSuShenQingCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *team;
 @property (strong, nonatomic) IBOutlet UILabel *type;
 

@@ -67,6 +67,11 @@
         cell=[[YuanQuRenWuCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
+    
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
     cell.zhuti.text=[dic objectForKey:@"name"];
     cell.neirong.text=[dic objectForKey:@"content"];

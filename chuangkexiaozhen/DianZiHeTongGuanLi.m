@@ -35,29 +35,36 @@
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@%d",baseurl,@"/electroniccontract/search?length=10&start=",start];
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
-        if([contenttype containsString:@"json"]){//返回json格式数据
+        if([contenttype containsString:@"json"])
+        {//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
             NSArray* result=[jsondata objectForKey:@"obj"];
             NSLog(@"%@",result);
-            if(result==nil || [result count]<10){
+            if(result==nil || [result count]<10)
+            {
                 //result: 保存查询到的结果
-                if([result count]>0){
+                if([result count]>0)
+                {
                     [ary addObjectsFromArray:result];
                 }
-                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)])
+                {
                     [self.delegate  loadNetworkFinished :ary];
                 }
             }else{
                 [ary addObjectsFromArray:result];
                 [self DianZiHeTongQuery:ary];
             }
-        }else{
-            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+        }else
+        {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)])
+            {
                 [self.delegate  loadNetworkFinished :ary];
             }
         }

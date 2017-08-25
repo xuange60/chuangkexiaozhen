@@ -47,6 +47,12 @@
     if (!cell) {
         cell=[[ZiYuanPeiZhiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
+    
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
+
     /*
      2.13.2 资源管理查询
      http://116.228.176.34:9002/chuangke-serve/resourceallocation/search?length=1000&start=0

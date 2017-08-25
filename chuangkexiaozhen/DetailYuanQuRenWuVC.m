@@ -24,13 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _name.text=_dic[@"name"];
-    _type.text=_dic[@"category"];
-    _chengdu.text=_dic[@"level"];
-    NSArray*ary= _dic[@"userNames"];
+    _name.text=[_dic  objectNotNullForKey:@"name"];
+    _type.text=[_dic  objectNotNullForKey:@"category"];
+    _chengdu.text=[_dic  objectNotNullForKey:@"level"];
+    NSArray*ary= [_dic  objectForKey:@"userNames"];
     _person.text=[ary componentsJoinedByString:@","];
-    _content.text=_dic[@"content"];
-    _time.text=_dic[@"endDate"];
+    _content.text=[_dic  objectNotNullForKey:@"content"];
+    _time.text=[_dic  objectNotNullForKey:@"endDate"];
 
 }
 

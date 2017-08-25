@@ -10,6 +10,9 @@
 
 @interface XuNiRuZhuCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *lianxiren;
 
 @property (strong, nonatomic) IBOutlet UILabel *lianxifangshi;

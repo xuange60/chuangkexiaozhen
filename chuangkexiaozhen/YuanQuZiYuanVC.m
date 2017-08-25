@@ -120,6 +120,11 @@
     if(!cell){
         cell=[[YuanQuZiYuanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str1];
     }
+    
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
     cell.category.text=[dic objectNotNullForKey:@"category"];
     cell.code.text=[dic objectNotNullForKey:@"code"];

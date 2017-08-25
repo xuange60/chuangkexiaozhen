@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ZiYuanPeiZhiCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
+
+
+
+
 @property (strong, nonatomic) IBOutlet UILabel *companyName;
 @property (strong, nonatomic) IBOutlet UILabel *workArea;
 @property (strong, nonatomic) IBOutlet UILabel *zuoweiNum;

@@ -10,6 +10,10 @@
 
 @interface DaBianGuanLiCell : UITableViewCell
 
+
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *name;
 
 @property (strong, nonatomic) IBOutlet UILabel *shijian;

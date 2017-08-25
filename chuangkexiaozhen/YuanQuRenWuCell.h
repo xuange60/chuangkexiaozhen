@@ -11,6 +11,8 @@
 @interface YuanQuRenWuCell : UITableViewCell
 
 
+@property (strong, nonatomic) IBOutlet UIView *MyView;
+
 @property (strong, nonatomic) IBOutlet UILabel *zhuti;
 
 @property (strong, nonatomic) IBOutlet UILabel *neirong;

@@ -49,6 +49,10 @@
         cell=[[DianZiHeTongCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
     /*
      2.9.1 电子合同管理查询
      http://116.228.176.34:9002/chuangke-serve/electroniccontract/search?start=0&length=10

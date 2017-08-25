@@ -54,6 +54,11 @@
         cell=[[DaBianGuanLiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
+    
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
     /*
      1.1 答辩管理查询
      请求 get  http://116.228.176.34:9002/chuangke-serve/applytreat/search?start=0&length=10000

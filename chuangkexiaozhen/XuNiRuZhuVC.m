@@ -57,6 +57,9 @@
     if (!cell) {
         cell=[[XuNiRuZhuCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
+    cell.MyView.layer.cornerRadius=5;
+    cell.MyView.layer.borderWidth=0.5;
+    cell.MyView.layer.borderColor=[UIColor whiteColor].CGColor;
     
     /*
      2.10.1 虚拟入驻管理查询
