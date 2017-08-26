@@ -58,8 +58,6 @@
 -(void)receiveInfo
 {
     [self query];
-
-    
 }
 
 
@@ -128,7 +126,7 @@
    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_api biSaiGuanLiDelete:strID];
     
@@ -168,7 +166,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
 
     FilelistViewController* filelist=[[FilelistViewController alloc] initView:strID withType:@"5"];

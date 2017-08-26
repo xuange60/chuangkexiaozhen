@@ -78,11 +78,11 @@
 
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     
-    [dic  setObject:_activeName.text forKey:@"name"];
-    [dic setObject:_renShu.text forKey:@"participant"];
-    [dic setObject:_danWei.text forKey:@"sponsor"];
-    [dic setObject:_activeLevelBtn.currentTitle forKey:@"activityLevel"];
-    [dic setObject:_photosIDS forKey:@"resourceIds"];
+    [dic  setNotNullStrObject:_activeName.text forKey:@"name"];
+    [dic setNotNullStrObject:_renShu.text forKey:@"participant"];
+    [dic setNotNullStrObject:_danWei.text forKey:@"sponsor"];
+    [dic setNotNullStrObject:_activeLevelBtn.currentTitle forKey:@"activityLevel"];
+    [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
     [_api huoDongSubmitNew:dic];
 
