@@ -11,7 +11,8 @@
 #import "ComboViewController.h"
 #import "ImgeUpViewController.h"
 
-@interface AddZhanYouLuVC : BaseViewController@property (strong, nonatomic) IBOutlet UIButton *btn1Title;
+@interface AddZhanYouLuVC : BaseViewController<FuHusChengZhangGuanLiDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *btn1Title;
 @property(nonatomic,strong)FuHusChengZhangGuanLi*fuHua;
 
 

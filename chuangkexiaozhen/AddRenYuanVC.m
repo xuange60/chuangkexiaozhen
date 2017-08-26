@@ -62,13 +62,13 @@
      :0,"recordsFiltered":0,"totalPages":0}
      */
     
-    [dic setNotNullObject:_totalNum.text forKey:@"toltalPerson"];
-    [dic setNotNullObject:_shichangNum.text forKey:@"marketPerson"];
-    [dic setNotNullObject:_shichangPercent.text forKey:@"marketPersonPercent"];
-    [dic setNotNullObject:_jishuNum.text forKey:@"techniquePerson"];
-    [dic setNotNullObject:_jishuPercent.text forKey:@"techniquePersonPercent"];
-    [dic setNotNullObject:_yunyingNum.text forKey:@"operatePerson"];
-    [dic setNotNullObject:_yunyingPercent.text forKey:@"operatePersonPercent"];
+    [dic setNotNullStrObject:_totalNum.text forKey:@"toltalPerson"];
+    [dic setNotNullStrObject:_shichangNum.text forKey:@"marketPerson"];
+    [dic setNotNullStrObject:_shichangPercent.text forKey:@"marketPersonPercent"];
+    [dic setNotNullStrObject:_jishuNum.text forKey:@"techniquePerson"];
+    [dic setNotNullStrObject:_jishuPercent.text forKey:@"techniquePersonPercent"];
+    [dic setNotNullStrObject:_yunyingNum.text forKey:@"operatePerson"];
+    [dic setNotNullStrObject:_yunyingPercent.text forKey:@"operatePersonPercent"];
     
     
 

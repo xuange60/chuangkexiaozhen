@@ -71,14 +71,14 @@
      */
     
    
-    [dic setObject:_btn3Title.currentTitle forKey:@"percentLevel"];
-    [dic setNotNullObject:_xifenshichang.text forKey:@"marketDetail"];
-    [dic setNotNullObject:_zhanyoulu.text forKey:@"marketPercent"]; //录入数据时，20%要输如20
-    [dic setNotNullObject:_renzhengjigou.text forKey:@"organizationName"];
+    [dic setNotNullStrObject:_btn3Title.currentTitle forKey:@"percentLevel"];
+    [dic setNotNullStrObject:_xifenshichang.text forKey:@"marketDetail"];
+    [dic setNotNullStrObject:_zhanyoulu.text forKey:@"marketPercent"]; //录入数据时，20%要输如20
+    [dic setNotNullStrObject:_renzhengjigou.text forKey:@"organizationName"];
     
     
 
-    [dic setObject:_photosIDS forKey:@"investigateResourceIds"];
+    [dic setNotNullStrObject:_photosIDS forKey:@"investigateResourceIds"];
     
     [_fuHua ShiChangZhanYouSubmit:dic];
     

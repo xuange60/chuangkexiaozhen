@@ -121,12 +121,8 @@
      cell.name.text=[dic objectNotNullForKey:@"pactName"];
      cell.level.text=[dic objectNotNullForKey:@"partnerLevel"];
     
-    
-     NSNumber* price=[dic objectForKey:@"partnerPrice"];
-     cell.JinE.text=[NSString stringWithFormat:@"%@",price];
-     NSNumber*xiaoYi=[dic objectForKey:@"benefitPrice"];
-     cell.XiaoYi.text=[NSString stringWithFormat:@"%@",xiaoYi];
-    
+     cell.JinE.text=[dic objectNotNullForKey:@"partnerPrice"];
+     cell.XiaoYi.text=[dic objectNotNullForKey:@"benefitPrice"];
     return cell;
 }
 
@@ -140,7 +136,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     
     [_FuHua XiaoShouHeTongDelete:strID];
@@ -170,7 +166,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     
     FilelistViewController* filelist=[[FilelistViewController alloc] initView:strID withType:@"11"];
