@@ -144,7 +144,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [self.yuanqufuwushenqing YuanQuFuWuDelete:ids];
     
@@ -170,7 +170,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     FilelistViewController* filelist=[[FilelistViewController alloc] initView:ids withType:@"35"];
     [self.navigationController pushViewController:filelist animated:YES];
@@ -190,7 +190,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [_yuanqufuwuguanli YuanQuFuWuSucc:ids];
 }

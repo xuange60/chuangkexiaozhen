@@ -28,14 +28,14 @@
 
 - (IBAction)submit:(id)sender {
     NSMutableDictionary* param=[NSMutableDictionary dictionary];
-    [param setObject:self.loginName.text forKey:@"loginName"];
-    [param setObject:self.department.text forKey:@"department"];
-    [param setObject:self.email.text forKey:@"email"];
-    [param setObject:self.mobilePhone.text forKey:@"mobilePhone"];
-    [param setObject:self.name.text forKey:@"name"];
-    [param setObject:self.password.text forKey:@"password"];
-    [param setObject:self.rank.text forKey:@"rank"];
-    [param setObject:self.remark.text forKey:@"remark"];
+    [param setNotNullStrObject:self.loginName.text forKey:@"loginName"];
+    [param setNotNullStrObject:self.department.text forKey:@"department"];
+    [param setNotNullStrObject:self.email.text forKey:@"email"];
+    [param setNotNullStrObject:self.mobilePhone.text forKey:@"mobilePhone"];
+    [param setNotNullStrObject:self.name.text forKey:@"name"];
+    [param setNotNullStrObject:self.password.text forKey:@"password"];
+    [param setNotNullStrObject:self.rank.text forKey:@"rank"];
+    [param setNotNullStrObject:self.remark.text forKey:@"remark"];
     [_yuangongguanli YuanGongSubmit:param];
     
 }
