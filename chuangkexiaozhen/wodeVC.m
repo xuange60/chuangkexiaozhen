@@ -58,7 +58,7 @@
     
     _companyName.text=[NSString stringWithFormat:@"%@ %@",@"公司名称：",[dic objectNotNullForKey:@"companytitle"]];
     
-    _type.text=[NSString stringWithFormat:@"%@ %@",@"用户类型：",[dic objectNotNullForKey:@"companyType"]];
+    _type.text=[NSString stringWithFormat:@"%@ %@",@"公司类型：",[dic objectNotNullForKey:@"companyType"]];
 
 }
 
