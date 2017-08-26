@@ -99,7 +99,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_shensu ShenSuShenQingSucc:strID];
 }
@@ -147,7 +147,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_shensu ShenSuShenQingDelete:strID];
 }

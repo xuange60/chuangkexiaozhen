@@ -26,7 +26,7 @@
 
 -(void)ShenSuShenQingQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/stateapply/search?role=admin&start=0&length=10000"];
@@ -62,7 +62,7 @@
  */
 -(void)ShenSuShenQingDelete:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/stateapply/delete",ids];
@@ -96,7 +96,7 @@
  */
 -(void)ShenSuShenQingSucc:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/stateapply/batchsuccess",ids];

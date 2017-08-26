@@ -112,7 +112,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     [_qiandao QianDaoTongJiDelete:strID];
 }
 -(void)afternetwork2:(id)data{
@@ -131,7 +131,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"2"];
     [self.navigationController pushViewController:vc animated:YES];

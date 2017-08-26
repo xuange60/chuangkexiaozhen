@@ -119,7 +119,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     FilelistViewController* filelist=[[FilelistViewController alloc] initView:ids withType:@"1"];
     [self.navigationController pushViewController:filelist animated:YES];

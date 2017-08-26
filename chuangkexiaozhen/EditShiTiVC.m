@@ -85,12 +85,12 @@
      */
 
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-     [dic setNotNullObject:_textF1.text forKey:@"contact"];
-     [dic setNotNullObject:_textF2.text forKey:@"contactType"];
-     [dic setNotNullObject:_textF3.text forKey:@"companyName"];
-     [dic setNotNullObject:_btn1.currentTitle forKey:@"businessLine"];
-     [dic setNotNullObject:_btn2.currentTitle forKey:@"description"];
-     [dic setNotNullObject:_strID forKey:@"id"];
+     [dic setNotNullStrObject:_textF1.text forKey:@"contact"];
+     [dic setNotNullStrObject:_textF2.text forKey:@"contactType"];
+     [dic setNotNullStrObject:_textF3.text forKey:@"companyName"];
+     [dic setNotNullStrObject:_btn1.currentTitle forKey:@"businessLine"];
+     [dic setNotNullStrObject:_btn2.currentTitle forKey:@"description"];
+     [dic setNotNullStrObject:_strID forKey:@"id"];
 
     [_shiti ShiTiRuZhuModify:dic];
 }

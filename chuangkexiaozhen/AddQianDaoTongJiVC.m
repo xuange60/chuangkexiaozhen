@@ -149,11 +149,11 @@
      */
 
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setNotNullObject:_shidaoNum.text forKey:@"actualNum"];
-    [dic setNotNullObject:_yingdaoNum.text forKey:@"shouldNum"];
-    [dic setNotNullObject:_bilv.text forKey:@"percent"];
-    [dic setNotNullObject:_beizhu.text forKey:@"remark"];
-    [dic setNotNullObject:_photoIds forKey:@"signResourceIds"];
+    [dic setNotNullStrObject:_shidaoNum.text forKey:@"actualNum"];
+    [dic setNotNullStrObject:_yingdaoNum.text forKey:@"shouldNum"];
+    [dic setNotNullStrObject:_bilv.text forKey:@"percent"];
+    [dic setNotNullStrObject:_beizhu.text forKey:@"remark"];
+    [dic setNotNullStrObject:_photoIds forKey:@"signResourceIds"];
 
     [_dicM objectForKey:@"roadshows"];
     
@@ -166,7 +166,7 @@
         }
     }];
     
-    [dic setNotNullObject:ss forKey:@"signResourceIds"];
+    [dic setNotNullStrObject:ss forKey:@"signResourceIds"];
     
     
     [_qiandao QianDaoTongJiAdd:dic];

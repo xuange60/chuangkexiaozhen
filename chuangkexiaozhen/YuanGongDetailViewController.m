@@ -35,15 +35,15 @@
 
 - (IBAction)modify:(id)sender {
     NSMutableDictionary* param=[NSMutableDictionary dictionary];
-    [param setObject:self.department.text forKey:@"department"];
-    [param setObject:self.email.text forKey:@"email"];
-    [param setObject:[_data objectNotNullForKey:@"id"]  forKey:@"id"];
-    [param setObject:[_data objectNotNullForKey:@"loginName"] forKey:@"loginName"];
-    [param setObject:[_data objectNotNullForKey:@"phone"] forKey:@"mobile"];
-    [param setObject:self.name.text forKey:@"name"];
-    [param setObject:self.loginName.text forKey:@"newLoginName"];
-    [param setObject:self.mobilePhone.text forKey:@"newMobilePhone"];
-    [param setObject:self.rank.text forKey:@"rank"];
+    [param setNotNullStrObject:self.department.text forKey:@"department"];
+    [param setNotNullStrObject:self.email.text forKey:@"email"];
+    [param setNotNullStrObject:[_data objectNotNullForKey:@"id"]  forKey:@"id"];
+    [param setNotNullStrObject:[_data objectNotNullForKey:@"loginName"] forKey:@"loginName"];
+    [param setNotNullStrObject:[_data objectNotNullForKey:@"phone"] forKey:@"mobile"];
+    [param setNotNullStrObject:self.name.text forKey:@"name"];
+    [param setNotNullStrObject:self.loginName.text forKey:@"newLoginName"];
+    [param setNotNullStrObject:self.mobilePhone.text forKey:@"newMobilePhone"];
+    [param setNotNullStrObject:self.rank.text forKey:@"rank"];
 
     [_yuangongguanli YuanGongUpdate:param];
     

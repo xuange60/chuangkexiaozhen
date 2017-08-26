@@ -111,7 +111,7 @@
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_dabian DaBianDelete:strID];//删除的网络请求
 }
@@ -138,7 +138,7 @@
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
 
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"DaBianGuanLi" bundle:nil];
