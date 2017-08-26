@@ -33,13 +33,14 @@
 }
 
 - (IBAction)tijiaoClicked:(id)sender {
+    
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setNotNullObject:_tenants forKey:@"tenants"];
-    [dic setNotNullObject:_quitDate.text forKey:@"quitDateStr"];
-    [dic setNotNullObject:_quitCause.text forKey:@"quitCause"];
-    [dic setNotNullObject:@"active" forKey:@"quitProperty"];
-    [dic setNotNullObject:[_quitType currentTitle] forKey:@"quitType"];
-    [dic setNotNullObject:_resourceIds forKey:@"resourceIds"];
+    [dic setNotNullStrObject:_tenants forKey:@"tenants"];
+    [dic setNotNullStrObject:_quitDate.text forKey:@"quitDateStr"];
+    [dic setNotNullStrObject:_quitCause.text forKey:@"quitCause"];
+    [dic setNotNullStrObject:@"active" forKey:@"quitProperty"];
+    [dic setNotNullStrObject:[_quitType currentTitle] forKey:@"quitType"];
+    [dic setNotNullStrObject:_resourceIds forKey:@"resourceIds"];
 
     
     [_zhudongtuichu ZhuDongTuiChuAdd:dic];

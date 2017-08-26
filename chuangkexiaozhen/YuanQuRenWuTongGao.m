@@ -35,7 +35,7 @@
 
 -(void)YuanQuRenWuParamQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/task/add"];
@@ -96,7 +96,7 @@
  */
 -(void)YuanQuRenWuAdd:(NSDictionary*)param
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/task/save"];
     NSString* category=[param objectNotNullForKey:@"category"];
     NSString* content=[param objectNotNullForKey:@"content"];

@@ -167,7 +167,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [_beidongtuichu BeiDongTuiChuDelete:ids];
     
@@ -185,7 +185,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [_beidongtuichu BeiDongTuiChuSucc:ids];
     
@@ -203,7 +203,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [_beidongtuichu BeiDongTuiChuNo:ids];
     
@@ -234,7 +234,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:ids withType:@"36"];
     [self.navigationController pushViewController:vc animated:YES];
@@ -250,7 +250,7 @@
 
 -(void)afternetwork6:(id)data
 {
-    _allcompanys=(NSDictionary*)data;
+    _allcompanys=(NSMutableDictionary*)data;
 }
 
 

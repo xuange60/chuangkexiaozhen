@@ -73,8 +73,8 @@
     
     
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
-    cell.zhuti.text=[dic objectForKey:@"name"];
-    cell.neirong.text=[dic objectForKey:@"content"];
+    cell.zhuti.text=[dic objectNotNullForKey:@"name"];
+    cell.neirong.text=[dic objectNotNullForKey:@"content"];
     cell.shijian.text=[dic objectNotNullForKey:@"endDate"];
     cell.zhuangtai.text=[dic objectNotNullForKey:@"status"];
     
@@ -99,7 +99,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
 
     [_tonggao YuanQuRenWuSucc:strID];
 }
@@ -118,7 +118,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     [_tonggao YuanQuRenWuDelete:strID];
 }
 -(void)afternetwork2:(id)data{
@@ -136,7 +136,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_tonggao YuanQuRenWuDetail:strID];
     
@@ -164,7 +164,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_aryM objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
    
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"24"];
     [self.navigationController pushViewController:vc animated:YES];

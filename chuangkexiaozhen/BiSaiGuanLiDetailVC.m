@@ -43,9 +43,9 @@
 -(void)afternetwork1:(id)data
 {
     NSDictionary* result=(NSDictionary*)data;
-    NSString* score=[result objectForKey:@"score"];
+    NSString* score=[result objectNotNullForKey:@"score"];
     if(score==nil || [score length]<1){
-        score=[result objectForKey:@"scoreRead"];
+        score=[result objectNotNullForKey:@"scoreRead"];
     }
     _score.text=score;
     if(score==nil || [score length]<1){

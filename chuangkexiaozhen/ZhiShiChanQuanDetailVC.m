@@ -45,9 +45,9 @@
     
     
     
-    NSString* score=[_detaildata objectForKey:@"score"];
+    NSString* score=[_detaildata objectNotNullForKey:@"score"];
     if(score==nil || [score length]<1){
-        score=[_detaildata objectForKey:@"scoreRead"];
+        score=[_detaildata objectNotNullForKey:@"scoreRead"];
     }
     _score.text=score;
     if(score==nil || [score length]<1){

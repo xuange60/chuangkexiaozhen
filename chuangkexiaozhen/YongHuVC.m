@@ -196,7 +196,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     NSString* flag=[dic objectNotNullForKey:@"stopflag"];
     if([flag isEqualToString:@"1"]){
         [_yonghuxinxi YongHuStart:ids];

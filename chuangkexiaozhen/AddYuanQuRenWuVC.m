@@ -143,9 +143,9 @@
     NSDictionary*dicC=_dic[@"users"];
    
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setNotNullObject:_zhuTi.text forKey:@"name"];
-     [dic setNotNullObject:_typeBtn.currentTitle forKey:@"category"];
-     [dic setNotNullObject:_chengDuBtn.currentTitle forKey:@"levels"];
+    [dic setNotNullStrObject:_zhuTi.text forKey:@"name"];
+     [dic setNotNullStrObject:_typeBtn.currentTitle forKey:@"category"];
+     [dic setNotNullStrObject:_chengDuBtn.currentTitle forKey:@"levels"];
     NSArray*ary=[_personBtn.currentTitle componentsSeparatedByString:@","];
     
     NSMutableArray*array=[NSMutableArray array];
@@ -157,8 +157,8 @@
     }
     
      [dic setNotNullObject:array forKey:@"users"];
-     [dic setNotNullObject:_content.text forKey:@"content"];
-     [dic setNotNullObject:_photoIds forKey:@"resourceIds"];
+     [dic setNotNullStrObject:_content.text forKey:@"content"];
+     [dic setNotNullStrObject:_photoIds forKey:@"resourceIds"];
 
     [_tongGao YuanQuRenWuAdd:dic];
 }

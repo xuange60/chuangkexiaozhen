@@ -108,7 +108,7 @@
 {
     NSDictionary* _dic=(NSDictionary*)data;
     _data=_dic;
-    NSString* score=[_dic objectForKey:@"score"];
+    NSString* score=[_dic objectNotNullForKey:@"score"];
     if(score==nil || [score length]<1){
         score=[_dic objectNotNullForKey:@"scoreRead"];
     }

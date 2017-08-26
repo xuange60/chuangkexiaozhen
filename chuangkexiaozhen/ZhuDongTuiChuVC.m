@@ -162,7 +162,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [_zhudongtuichu ZhuDongTuiChuDelete:ids];
     
@@ -180,7 +180,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [_zhudongtuichu ZhuDongTuiChuSucc:ids];
     
@@ -198,7 +198,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [_zhudongtuichu ZhuDongTuiChuNo:ids];
     
@@ -229,23 +229,12 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:ids withType:@"36"];
     [self.navigationController pushViewController:vc animated:YES];
     
 }
 
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

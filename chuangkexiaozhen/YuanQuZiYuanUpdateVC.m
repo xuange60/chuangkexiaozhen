@@ -62,22 +62,20 @@
     if(_isModify!=nil && [_isModify isEqualToString:@"Y"]){
         NSString* categorystr=[_categorys objectNotNullForKey:[_category currentTitle]];
         NSMutableDictionary* param=[NSMutableDictionary dictionary];
-        [param setNotNullObject:categorystr forKey:@"category"];
-        
-        [param setNotNullObject:_code.text forKey:@"code"];
-        [param setNotNullObject:_content.text forKey:@"content"];
-        [param setNotNullObject:[_curdata objectForKey:@"resourceIds"] forKey:@"resourceIds"];
-        [param setNotNullObject:[_curdata objectForKey:@"id"] forKey:@"id"];
+        [param setNotNullStrObject:categorystr forKey:@"category"];
+        [param setNotNullStrObject:_code.text forKey:@"code"];
+        [param setNotNullStrObject:_content.text forKey:@"content"];
+        [param setNotNullStrObject:[_curdata objectNotNullForKey:@"resourceIds"] forKey:@"resourceIds"];
+        [param setNotNullStrObject:[_curdata objectForKey:@"id"] forKey:@"id"];
         [_yuanquziyuanguanli YuanQuZiYuanModify:param];
     }else{
         NSString* categorystr=[_categorys objectNotNullForKey:[_category currentTitle]];
         NSMutableDictionary* param=[NSMutableDictionary dictionary];
-        [param setNotNullObject:categorystr forKey:@"category"];
+        [param setNotNullStrObject:categorystr forKey:@"category"];
         
-        [param setNotNullObject:_code.text forKey:@"code"];
-        [param setNotNullObject:_content.text forKey:@"content"];
-        [param setNotNullObject:[_curdata objectForKey:@"resourceIds"] forKey:@"resourceIds"];
-
+        [param setNotNullStrObject:_code.text forKey:@"code"];
+        [param setNotNullStrObject:_content.text forKey:@"content"];
+        [param setNotNullStrObject:[_curdata objectForKey:@"resourceIds"] forKey:@"resourceIds"];
         [_yuanquziyuanguanli YuanQuZiYuanAdd:param];
     }
     

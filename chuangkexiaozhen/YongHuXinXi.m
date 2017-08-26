@@ -79,7 +79,7 @@
 //查询所有岗位
 -(void)YongHuDetailQuery:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/user/edit",ids];
@@ -135,7 +135,7 @@
 }
 -(void)yongHuModify:(NSDictionary*)param
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/user/update"];
     
     NSString* comanyname=[param objectNotNullForKey:@"comanyname"];

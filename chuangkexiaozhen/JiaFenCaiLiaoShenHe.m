@@ -28,7 +28,7 @@
 -(void)biSaiGuanLiQueryWithAdmin:(NSMutableArray*)ary
 {
     int start=(int)[ary count];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@%d",baseurl,@"/competition/search?length=50&role=admin&start=",start];
@@ -76,7 +76,7 @@
 //http://116.228.176.34:9002/chuangke-serve/competition/detail?id=598eaa0722637b17beb30f4b
 -(void)biSaiGuanLiShenHeQuery:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/competition/detail?id=",ids];
@@ -143,7 +143,7 @@ http://116.228.176.34:9002/chuangke-serve/competition/status
     NSString* value3=[parameters objectForKey:@"status"];
     [parameters setObject: [statuss objectForKey:value3] forKey:@"status"];
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/competition/status"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -193,7 +193,7 @@ http://116.228.176.34:9002/chuangke-serve/competition/status
 -(void)chanXueYanQueryWithAdmin:(NSMutableArray*)ary
 {
     int start=(int)[ary count];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@%d",baseurl,@"/cooperatorunitInfo/search?length=50&role=admin&start=",start];
@@ -238,7 +238,7 @@ http://116.228.176.34:9002/chuangke-serve/competition/status
 //http://116.228.176.34:9002/chuangke-serve/cooperatorunitInfo/detail?id=598ef60c22637b17beb30f50
 -(void)chanXueYanShenHeQuery:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@%@",baseurl,@"/cooperatorunitInfo/detail?id=",ids];
@@ -319,7 +319,7 @@ http://116.228.176.34:9002/chuangke-serve/competition/status
     [parameters setObject: [statuss objectForKey:value3] forKey:@"status"];
     
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/cooperatorunitInfo/status"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -367,7 +367,7 @@ http://116.228.176.34:9002/chuangke-serve/competition/status
 -(void)jiaFenCaiLiaoQuerywithAdmin:(NSMutableArray*)ary andType:(NSString*) type;
 {
     int start=(int)[ary count];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@/%@%@%d",baseurl,type,@"/search?length=50&role=admin&start=",start];
@@ -411,7 +411,7 @@ http://116.228.176.34:9002/chuangke-serve/competition/status
 
 -(void)jiaFenCaiLiaoShenHeQuery:(NSString*)ids withType:(NSString*)type
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@/%@%@%@",baseurl,type,@"/detail?id=",ids];
