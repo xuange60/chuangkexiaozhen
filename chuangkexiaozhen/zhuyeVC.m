@@ -151,7 +151,7 @@
     NSString* key=[ary objectAtIndex:0];
     NSArray* values=[dic objectForKey:key];
     if([values count]>4){
-        return 250;
+        return 221;
     }
     return 147;
 }
