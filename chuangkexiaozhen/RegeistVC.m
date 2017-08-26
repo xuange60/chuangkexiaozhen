@@ -27,17 +27,19 @@
    // _zhuceBtn.layer.borderWidth=1;
    // _zhuceBtn.layer.cornerRadius=10;
     
-
+/*
     self.username.layer.borderWidth = 1.0f;
     self.username.layer.cornerRadius = 2;
     self.username.layer.borderColor = [UIColor colorWithRed:235/255.0 green:234/255.0 blue:234/255.0 alpha:1].CGColor;
-    self.username.tag=666;
-    
+ */
+ self.username.tag=666;
+    /*
     self.mobile.layer.borderWidth = 1.0f;
     self.mobile.layer.cornerRadius = 4;
     self.mobile.layer.borderColor = [UIColor colorWithRed:235/255.0 green:234/255.0 blue:234/255.0 alpha:1].CGColor;
+     */
     self.mobile.tag=667;
-    
+    /*
     self.email.layer.borderWidth = 1.0f;
     self.email.layer.cornerRadius = 4;
     self.email.layer.borderColor = [UIColor colorWithRed:235/255.0 green:234/255.0 blue:234/255.0 alpha:1].CGColor;
@@ -53,6 +55,7 @@
     self.usertype.layer.borderWidth = 1.0f;
     self.usertype.layer.cornerRadius = 4;
     self.usertype.layer.borderColor = [UIColor colorWithRed:235/255.0 green:234/255.0 blue:234/255.0 alpha:1].CGColor;
+     */
     self.usertype.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
 }
@@ -113,7 +116,7 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:name,@"loginname", nil];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/register/check"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -147,7 +150,7 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:mobile,@"mobile", nil];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/register/check"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -180,7 +183,7 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:mobile,@"mobile",[NSNumber numberWithInt:1],@"type", nil];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/auth/code"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -217,7 +220,7 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:checkcode,@"mcode",name,@"loginName",mobile,@"mobilePhone",email,@"email",pwd,@"plainPassword",type,@"typeidx", nil];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/register"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
