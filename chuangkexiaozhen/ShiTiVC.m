@@ -132,15 +132,15 @@
     // resourceids=597a213880ab5e6790d51fde,597a214a80ab5e6790d51fdf
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setObject:_textField1.text forKey:@"contact"];
-    [dic setObject:_textField2.text forKey:@"contacttype"];
-    [dic setObject:_textField3.text forKey:@"companyname"];
-    [dic setObject:_btn1.currentTitle forKey:@"businessline"];
-    [dic setObject:_btn2.currentTitle forKey:@"description"];
+    [dic setNotNullStrObject:_textField1.text forKey:@"contact"];
+    [dic setNotNullStrObject:_textField2.text forKey:@"contacttype"];
+    [dic setNotNullStrObject:_textField3.text forKey:@"companyname"];
+    [dic setNotNullStrObject:_btn1.currentTitle forKey:@"businessline"];
+    [dic setNotNullStrObject:_btn2.currentTitle forKey:@"description"];
     if(_resourceID==nil){
         _resourceID=@"";
     }
-    [dic setObject:_resourceID forKey:@"resourceids"];
+    [dic setNotNullStrObject:_resourceID forKey:@"resourceids"];
     
     [self shiTiRuZhuSubmitWithParam:dic];
     
@@ -157,7 +157,7 @@
  */
 -(void) shiTiRuZhuQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/add"];
@@ -187,7 +187,7 @@
             NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);
-            if([dic objectForKey:@"submit"]!=nil){
+            if([dic objectNotNullForKey:@"submit"]!=nil){
                 dic=nil;
             }
             
@@ -198,12 +198,12 @@
                 
             }else{
                 
-                _textField1.text=[dic objectForKey:@"contact"];
-                _textField2.text=[dic objectForKey:@"contactType"];
-                _textField3.text=[dic objectForKey:@"companyName"];
-                [_btn1 setTitle:[dic objectForKey:@"businessline"] forState:UIControlStateNormal];
-                [_btn2 setTitle:[dic objectForKey:@"description"] forState:UIControlStateNormal];
-                _statueF.text=[dic objectForKey:@"applyStatus"];
+                _textField1.text=[dic objectNotNullForKey:@"contact"];
+                _textField2.text=[dic objectNotNullForKey:@"contactType"];
+                _textField3.text=[dic objectNotNullForKey:@"companyName"];
+                [_btn1 setTitle:[dic objectNotNullForKey:@"businessline"] forState:UIControlStateNormal];
+                [_btn2 setTitle:[dic objectNotNullForKey:@"description"] forState:UIControlStateNormal];
+                _statueF.text=[dic objectNotNullForKey:@"applyStatus"];
                 
                 _view3.hidden=YES;
                 _btn3.hidden=YES;
@@ -233,8 +233,9 @@
     NSString *fileName = [NSString stringWithFormat:@"实体入驻_%@.%@", str,type];
     NSLog(@"%@",fileName);
     
-    NSDictionary *dict = @{@"":@""};
-    NSString *urlString = @"http://116.228.176.34:9002/chuangke-serve/upload/save";
+    NSDictionary *dict = [NSDictionary dictionary];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"],@"/upload/save"];
+    
     [manager POST:urlString parameters:dict
 constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     //[formData appendPartWithFileURL:[NSURLfileURLWithPath:@"文件地址"] name:@"file"fileName:@"1234.png"mimeType:@"application/octet-stream"error:nil];
@@ -271,7 +272,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithDictionary:param];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];

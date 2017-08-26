@@ -51,11 +51,11 @@
 - (IBAction)BtnClicked:(id)sender {
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setObject:_F1.text forKey:@"contact"];
-    [dic setObject:_F2.text forKey:@"contacttype"];
-    [dic setObject:_F3.text forKey:@"branchname"];
-    [dic setObject :_duoxuan.currentTitle    forKey:@"coopcategories"];
-    [dic setObject:_textView.text forKey:@"desc"];
+    [dic setNotNullStrObject:_F1.text forKey:@"contact"];
+    [dic setNotNullStrObject:_F2.text forKey:@"contacttype"];
+    [dic setNotNullStrObject:_F3.text forKey:@"branchname"];
+    [dic setNotNullStrObject :_duoxuan.currentTitle    forKey:@"coopcategories"];
+    [dic setNotNullStrObject:_textView.text forKey:@"desc"];
     
     [self xuniRuZhuSubmitWithParam:dic];
 }
@@ -70,7 +70,7 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithDictionary:param];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/saveresapply"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];

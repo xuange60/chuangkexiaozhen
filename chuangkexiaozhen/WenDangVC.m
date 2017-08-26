@@ -31,7 +31,7 @@
 //初始申请上传的所有文件查询
 -(void) chushishenqingFileQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/search"];
@@ -78,22 +78,9 @@
         cell=(XiaZaiCell*)[[XiaZaiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ss];
     }
     
-    //5.5 初始申请时上传的所有文件查询
-    /*返回值为数组，其中id为文件id
-     [
-     {"id":"5974ccc080ab5e6790d50e90",
-     "name":"fuwiimg.jpg",
-     "path":"gaogaihui/busiplan/20170723/1500855616000.jpg",
-     "date":"2017-07-23"},
-     {"id":"597a0a0280ab5e6790d51fd9"
-     ,"name":"Snip20170703_1.png","path":"gaogaihui/busiplan/20170727/1501198978000.png","date":"2017-07-27"
-     }
-     ]
-     */
-
     NSDictionary*dic=[_Marray objectAtIndex:indexPath.row];
-    NSString*str1=[dic objectForKey:@"name"];
-    NSString*str2=[dic objectForKey:@"date"];
+    NSString*str1=[dic objectNotNullForKey:@"name"];
+    NSString*str2=[dic objectNotNullForKey:@"date"];
     NSArray*ary=[NSArray arrayWithObjects:str1,str2, nil];
 
     [cell setCellShuJu:ary];
@@ -140,7 +127,7 @@
 {
 
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/down"];

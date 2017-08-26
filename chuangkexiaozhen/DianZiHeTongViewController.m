@@ -112,8 +112,8 @@
     NSString *fileName = [NSString stringWithFormat:@"文件上传_%@.%@", str,type];
     NSLog(@"%@",fileName);
     
-    NSDictionary *dict = @{@"":@""};
-    NSString *urlString = @"http://116.228.176.34:9002/chuangke-serve/upload/save";
+    NSDictionary *dict =[NSDictionary dictionary];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"],@"/upload/save"];
     [manager POST:urlString parameters:dict
 constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     //[formData appendPartWithFileURL:[NSURLfileURLWithPath:@"文件地址"] name:@"file"fileName:@"1234.png"mimeType:@"application/octet-stream"error:nil];
@@ -195,11 +195,11 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters setNotNullStrObject:[NSString stringWithString:_resourceids] forKey:@"resourceIds"];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/electroniccontract/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* contenttype=[headers objectNotNullForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         NSLog(@"%@",data);
         if([contenttype containsString:@"json"]){//返回json格式数据

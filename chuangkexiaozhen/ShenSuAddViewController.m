@@ -44,11 +44,11 @@
 -(void) initWithData
 {
     if(self.data!=nil){
-        [self.type setTitle:[self.data objectForKey:@"stateType"] forState:UIControlStateNormal];
+        [self.type setTitle:[self.data objectNotNullForKey:@"stateType"] forState:UIControlStateNormal];
         [self.type setUserInteractionEnabled:NO];
-        self.detail.text=[self.data objectForKey:@"stateContent"];
+        self.detail.text=[self.data objectNotNullForKey:@"stateContent"];
         self.detail.editable=NO;
-        self.liyou.text=[self.data objectForKey:@"stateReason"];
+        self.liyou.text=[self.data objectNotNullForKey:@"stateReason"];
         self.liyou.editable=NO;
         [self.shensuSubmit setHidden:YES];
     }
@@ -64,7 +64,7 @@
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/stateapply/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];

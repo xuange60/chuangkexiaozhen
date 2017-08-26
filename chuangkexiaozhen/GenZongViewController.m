@@ -84,8 +84,8 @@
     }
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
 
-    cell.title.text=[dic objectForKey:@"title"];
-    cell.content.text=[dic objectForKey:@"content"];
+    cell.title.text=[dic objectNotNullForKey:@"title"];
+    cell.content.text=[dic objectNotNullForKey:@"content"];
 
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
@@ -104,7 +104,7 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     
-    NSString* ids=(NSString*)[dic objectForKey:@"id"];
+    NSString* ids=(NSString*)[dic objectNotNullForKey:@"id"];
     
     [self.genzongfuwu GenZongFuWuDelete:ids];
 }

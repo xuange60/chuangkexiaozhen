@@ -55,14 +55,14 @@
 //我的资源配置
 -(void)woDeZiYuanPeizhiQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resourceallocation/owner"];
     
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
-        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* contenttype=[headers objectNotNullForKey:@"Content-Type"];
         
         if([contenttype containsString:@"html"]){
             TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
@@ -78,8 +78,8 @@
             
             
             //查询到的我的资源配置信息
-            _numberOfOffice.text=[dic objectForKey:@"numberOfOffice"];
-            NSString* ofoCodesstr=[dic objectForKey:@"ofoCodes"];
+            _numberOfOffice.text=[dic objectNotNullForKey:@"numberOfOffice"];
+            NSString* ofoCodesstr=[dic objectNotNullForKey:@"ofoCodes"];
             [_ofoCodes setTitle:ofoCodesstr forState:UIControlStateNormal];
             if(_numberOfOffice.text==nil || _numberOfOffice.text.length==0){
                 if([ofoCodesstr containsString:@"["] && [ofoCodesstr containsString:@"]"]){
@@ -89,8 +89,8 @@
             }
             
             
-            _numberOftc.text=[dic objectForKey:@"numberOftc"];
-            NSString* TcCodes=[dic objectForKey:@"TcCodes"];
+            _numberOftc.text=[dic objectNotNullForKey:@"numberOftc"];
+            NSString* TcCodes=[dic objectNotNullForKey:@"TcCodes"];
             [_TcCodes setTitle:[dic objectForKey:@"TcCodes"] forState:UIControlStateNormal];
             if(_numberOftc.text==nil || _numberOftc.text.length==0){
                 if([TcCodes containsString:@"["] && [TcCodes containsString:@"]"]){
@@ -100,8 +100,8 @@
             }
             
             
-            _numberOfoe.text=[dic objectForKey:@"numberOfoe"];
-            NSString* OeCodes=[dic objectForKey:@"OeCodes"];
+            _numberOfoe.text=[dic objectNotNullForKey:@"numberOfoe"];
+            NSString* OeCodes=[dic objectNotNullForKey:@"OeCodes"];
             [_OeCodes setTitle:[dic objectForKey:@"OeCodes"] forState:UIControlStateNormal];
             if(_numberOfoe.text==nil || _numberOfoe.text.length==0){
                 if([OeCodes containsString:@"["] && [OeCodes containsString:@"]"]){
@@ -112,8 +112,8 @@
             
             
             
-            _numberOfegc.text=[dic objectForKey:@"numberOfegc"];
-            NSString* EgcCodes=[dic objectForKey:@"EgcCodes"];
+            _numberOfegc.text=[dic objectNotNullForKey:@"numberOfegc"];
+            NSString* EgcCodes=[dic objectNotNullForKey:@"EgcCodes"];
             [_EgcCodes setTitle:[dic objectForKey:@"EgcCodes"] forState:UIControlStateNormal];
             if(_numberOfegc.text==nil || _numberOfegc.text.length==0){
                 if([EgcCodes containsString:@"["] && [EgcCodes containsString:@"]"]){
@@ -124,8 +124,8 @@
             
             
             
-            _numberOfpl.text=[dic objectForKey:@"numberOfpl"];
-            NSString* PlCodes=[dic objectForKey:@"PlCodes"];
+            _numberOfpl.text=[dic objectNotNullForKey:@"numberOfpl"];
+            NSString* PlCodes=[dic objectNotNullForKey:@"PlCodes"];
             [_PlCodes setTitle:[dic objectForKey:@"PlCodes"] forState:UIControlStateNormal];
             if(_numberOfpl.text==nil || _numberOfpl.text.length==0){
                 if([PlCodes containsString:@"["] && [PlCodes containsString:@"]"]){
@@ -136,10 +136,10 @@
             
             
             
-            _printAccount.text=[dic objectForKey:@"printAccount"];
-            _printPassword.text=[dic objectForKey:@"printPassword"];
-            _name.text=[dic objectForKey:@"name"];
-            _concatType.text=[dic objectForKey:@"concatType"];
+            _printAccount.text=[dic objectNotNullForKey:@"printAccount"];
+            _printPassword.text=[dic objectNotNullForKey:@"printPassword"];
+            _name.text=[dic objectNotNullForKey:@"name"];
+            _concatType.text=[dic objectNotNullForKey:@"concatType"];
             
             
 
