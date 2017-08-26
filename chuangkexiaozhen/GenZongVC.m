@@ -93,7 +93,7 @@ UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButt
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
-    NSString*strId=[dic objectForKey:@"id"];
+    NSString*strId=[dic objectNotNullForKey:@"id"];
     [_genzong ChengGuoGenZongDelete:strId];
 }
     
@@ -111,7 +111,7 @@ UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButt
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
-    NSString*strId=[dic objectForKey:@"id"];
+    NSString*strId=[dic objectNotNullForKey:@"id"];
     
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strId withType:@"4"];

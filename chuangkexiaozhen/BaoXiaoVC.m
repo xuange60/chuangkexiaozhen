@@ -95,7 +95,7 @@
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
-    NSString*strId=[dic objectForKey:@"id"];
+    NSString*strId=[dic objectNotNullForKey:@"id"];
     [_baoxiao HuoDongBaoXiaoSucc:strId];
     
 }
@@ -142,7 +142,7 @@
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
-    NSString*strId=[dic objectForKey:@"id"];
+    NSString*strId=[dic objectNotNullForKey:@"id"];
     [_baoxiao HuoDongBaoXiaoDelete:strId];
 }
 
@@ -162,7 +162,7 @@
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
     
-    NSString*strId=[dic objectForKey:@"id"];
+    NSString*strId=[dic objectNotNullForKey:@"id"];
    
     
     

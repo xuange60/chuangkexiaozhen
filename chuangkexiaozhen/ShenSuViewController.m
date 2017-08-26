@@ -59,10 +59,10 @@
         cell=[[ShenSuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str1];
     }
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
-    cell.tenantTitle.text=[dic objectForKey:@"tenantTitle"];
-    cell.status.text=[dic objectForKey:@"status"];
-    cell.createDate.text=[dic objectForKey:@"createDate"];
-    cell.stateType.text=[dic objectForKey:@"stateType"];
+    cell.tenantTitle.text=[dic objectNotNullForKey:@"tenantTitle"];
+    cell.status.text=[dic objectNotNullForKey:@"status"];
+    cell.createDate.text=[dic objectNotNullForKey:@"createDate"];
+    cell.stateType.text=[dic objectNotNullForKey:@"stateType"];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
@@ -70,7 +70,7 @@
 
 -(void)shenSuShenQingQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/stateapply/search?start=0&length=1000"];
@@ -131,7 +131,7 @@
 //申诉请求删除
 -(void)shenSuShenQingDelete:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/stateapply/batchdelete",ids];

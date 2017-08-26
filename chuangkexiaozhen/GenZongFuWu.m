@@ -21,7 +21,7 @@
 
 -(void)GenZongFuWuQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/track/search?start=0&length=10000"];
@@ -65,7 +65,7 @@
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/track/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -96,7 +96,7 @@
 
 -(void)GenZongFuWuDelete:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?id=%@",baseurl,@"/track/delete",ids];

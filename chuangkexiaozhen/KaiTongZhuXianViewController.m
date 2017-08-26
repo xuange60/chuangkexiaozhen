@@ -38,7 +38,7 @@
 
 -(void)kaiTongZhuXianQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/mainline/add"];
@@ -75,17 +75,17 @@
                 dic=nil;
                 [self setNoReadOnly];
             }else{
-                _companyname.text=[dic objectForKey:@"companyname"];
-                _reportedbodies.text=[dic objectForKey:@"reportedbodies"];
-                _leasearea.text=[dic objectForKey:@"leasearea"];
-                _floor.text=[dic objectForKey:@"floor"];
-                _communications.text=[dic objectForKey:@"communications"];
-                _parkingLot.text=[dic objectForKey:@"parkingLot"];
-                _repastbodies.text=[dic objectForKey:@"repastbodies"];
-                _businessneeds.text=[dic objectForKey:@"businessneeds"];
-                _legalneeds.text=[dic objectForKey:@"legalneeds"];
-                _printneeds.text=[dic objectForKey:@"printneeds"];
-                _companystatus.text=[dic objectForKey:@"companystatus"];
+                _companyname.text=[dic objectNotNullForKey:@"companyname"];
+                _reportedbodies.text=[dic objectNotNullForKey:@"reportedbodies"];
+                _leasearea.text=[dic objectNotNullForKey:@"leasearea"];
+                _floor.text=[dic objectNotNullForKey:@"floor"];
+                _communications.text=[dic objectNotNullForKey:@"communications"];
+                _parkingLot.text=[dic objectNotNullForKey:@"parkingLot"];
+                _repastbodies.text=[dic objectNotNullForKey:@"repastbodies"];
+                _businessneeds.text=[dic objectNotNullForKey:@"businessneeds"];
+                _legalneeds.text=[dic objectNotNullForKey:@"legalneeds"];
+                _printneeds.text=[dic objectNotNullForKey:@"printneeds"];
+                _companystatus.text=[dic objectNotNullForKey:@"companystatus"];
                 [self setReadOnly];
             }
             
@@ -104,18 +104,18 @@
 
 - (IBAction)kaiTongZhuXian:(id)sender {
     NSMutableDictionary* param=[NSMutableDictionary dictionary];
-    [param setObject:self.companyname.text forKey:@"companyname"];
-    [param setObject:@"" forKey:@"uninumber"];
-    [param setObject:_reportedbodies.text forKey:@"reportedbodies"];
-    [param setObject:_leasearea.text forKey:@"leasearea"];
-    [param setObject:_floor.text forKey:@"floor"];
-    [param setObject:_communications.text forKey:@"communications"];
-    [param setObject:_parkingLot.text forKey:@"parkingLot"];
-    [param setObject:_repastbodies.text forKey:@"repastbodies"];
-    [param setObject:_businessneeds.text forKey:@"businessneeds"];
-    [param setObject:_legalneeds.text forKey:@"legalneeds"];
-    [param setObject:_printneeds.text forKey:@"printneeds"];
-    [param setObject:_companystatus.text forKey:@"companystatus"];
+    [param setNotNullStrObject:self.companyname.text forKey:@"companyname"];
+    [param setNotNullStrObject:@"" forKey:@"uninumber"];
+    [param setNotNullStrObject:_reportedbodies.text forKey:@"reportedbodies"];
+    [param setNotNullStrObject:_leasearea.text forKey:@"leasearea"];
+    [param setNotNullStrObject:_floor.text forKey:@"floor"];
+    [param setNotNullStrObject:_communications.text forKey:@"communications"];
+    [param setNotNullStrObject:_parkingLot.text forKey:@"parkingLot"];
+    [param setNotNullStrObject:_repastbodies.text forKey:@"repastbodies"];
+    [param setNotNullStrObject:_businessneeds.text forKey:@"businessneeds"];
+    [param setNotNullStrObject:_legalneeds.text forKey:@"legalneeds"];
+    [param setNotNullStrObject:_printneeds.text forKey:@"printneeds"];
+    [param setNotNullStrObject:_companystatus.text forKey:@"companystatus"];
     
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -125,7 +125,7 @@
                                      @"",@"master",@"",@"returnees",@"",@"spts",@"",@"undergraduate",@"",@"other",@"无特殊需求",@"electricity",@"无特殊需求",@"water",@"false",@"reformdecoration", nil];
     [parameters addEntriesFromDictionary:param];
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/mainline/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
