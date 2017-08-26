@@ -115,11 +115,13 @@
     
     NSDictionary*dic= [_ary objectAtIndex:indexPath.row];
     
-    cell.name.text=[dic objectForKey:@"name"];
-    cell.bianMa.text=[dic objectForKey:@"code"];
-    cell.leiXing.text=[dic objectForKey:@"type"];
-    cell.shiJian.text=[dic objectForKey:@"date"];
-    cell.gongSi.text=[dic objectForKey:@"company"];
+    cell.name.text=[dic objectNotNullForKey:@"name"];
+    cell.bianMa.text=[dic objectNotNullForKey:@"code"];
+    cell.leiXing.text=[dic objectNotNullForKey:@"type"];
+    cell.shiJian.text=[dic objectNotNullForKey:@"date"];
+    cell.gongSi.text=[dic objectNotNullForKey:@"company"];
+    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -134,7 +136,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     
     [_api zhuanYeZhiShiDelete:strID];
@@ -164,7 +166,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     
 //    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KeJiChuanXin" bundle:nil];
