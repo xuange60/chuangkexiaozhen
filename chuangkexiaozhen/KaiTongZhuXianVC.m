@@ -83,7 +83,8 @@
     cell.gaiZao.text=[dic objectNotNullForKey:@"reformDecoration"];
     cell.qingKuang.text=[dic objectNotNullForKey:@"companyStatus"];
     cell.tonYiHao.text=[dic objectNotNullForKey:@"uniNumber"];
-  
+    
+   [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 

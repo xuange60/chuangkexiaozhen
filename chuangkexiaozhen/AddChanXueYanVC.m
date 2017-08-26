@@ -99,12 +99,12 @@
      <option value="58be6e72cfdfdf03086a8835">100万元</option>
      */
 
-        [dic  setObject:_name.text forKey:@"name"];
-        [dic setObject:_effct.text forKey:@"effect"];
-        [dic setObject:_money.text forKey:@"money"];
-        [dic setObject:_moneyLevel.currentTitle forKey:@"moneyLevel"];
-        [dic setObject:_jiGouLevel.currentTitle forKey:@"level"];
-        [dic setObject:_photosIDS forKey:@"resourceIds"];
+        [dic  setNotNullStrObject:_name.text forKey:@"name"];
+        [dic setNotNullStrObject:_effct.text forKey:@"effect"];
+        [dic setNotNullStrObject:_money.text forKey:@"money"];
+        [dic setNotNullStrObject:_moneyLevel.currentTitle forKey:@"moneyLevel"];
+        [dic setNotNullStrObject:_jiGouLevel.currentTitle forKey:@"level"];
+        [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
         [_api chanXueYanSubmit:dic];
 

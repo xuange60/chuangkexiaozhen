@@ -103,7 +103,7 @@
     
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
         
-    cell.hezuoJiGouName.text=[dic objectForKey:@"name"];
+    cell.hezuoJiGouName.text=[dic objectNotNullForKey:@"name"];
     
     NSNumber* money= [dic objectForKey:@"money"];
 
@@ -112,7 +112,7 @@
     cell.hezuoXiaoGuo.text=[dic objectNotNullForKey:@"effect"];
     cell.suoshuGongSi.text=[dic objectNotNullForKey:@"company"];
     
-    
+     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
@@ -131,7 +131,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_api chanXueYanDelete:strID];
 
@@ -160,7 +160,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"6"];

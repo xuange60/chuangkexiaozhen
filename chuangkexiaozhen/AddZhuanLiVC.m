@@ -75,10 +75,10 @@
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     
-    [dic  setObject:_name.text forKey:@"name"];
-    [dic setObject:_biMa.text forKey:@"code"];
-    [dic setObject:_leiBieBtn.currentTitle forKey:@"type"];
-    [dic setObject:_photosIDS forKey:@"resourceIds"];
+    [dic  setNotNullStrObject:_name.text forKey:@"name"];
+    [dic setNotNullStrObject:_biMa.text forKey:@"code"];
+    [dic setNotNullStrObject:_leiBieBtn.currentTitle forKey:@"type"];
+    [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
     [_api zhuanYeZhiShiSubmit:dic];
     

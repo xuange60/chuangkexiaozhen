@@ -76,12 +76,12 @@
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     
-    [dic  setObject:_name.text forKey:@"name"];
-    [dic setObject:_biMa.text forKey:@"code"];
-    [dic setObject:_levelBtn.currentTitle forKey:@"awardLevel"];
-    [dic setObject:_danWei.text forKey:@"awardunit"];
+    [dic  setNotNullStrObject:_name.text forKey:@"name"];
+    [dic setNotNullStrObject:_biMa.text forKey:@"code"];
+    [dic setNotNullStrObject:_levelBtn.currentTitle forKey:@"awardLevel"];
+    [dic setNotNullStrObject:_danWei.text forKey:@"awardunit"];
     
-    [dic setObject:_photosIDS forKey:@"resourceIds"];
+    [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
     [_api jiangLiSubmit:dic];
     

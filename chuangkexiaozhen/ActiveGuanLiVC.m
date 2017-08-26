@@ -118,6 +118,7 @@
     cell.benYuanQu.text=[dic objectNotNullForKey:@"ownerActivity"];
     cell.company.text=[dic objectNotNullForKey:@"company"];
     
+     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
@@ -133,7 +134,7 @@
     NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_ary objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     
     [_api huoDongDeleteNew:strID];

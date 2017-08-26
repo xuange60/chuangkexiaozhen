@@ -100,13 +100,13 @@
      */
 
     
-    [dic  setObject:_bisaiName.text forKey:@"name"];
-    [dic setObject:_rongyuName.text forKey:@"hornerName"];
-    [dic setObject:_zuzhijigouName.text forKey:@"orgnizationUnit"];
-    [dic setObject:_ownerCompetition.currentTitle forKey:@"ownerCompetition"];
-    [dic setObject:_CompleteLevelBtn.currentTitle forKey:@"competeLevel"];
-    [dic setObject:_prizeAwardsBtn.currentTitle forKey:@"prizeAwarded"];
-    [dic setObject:_photosIDS forKey:@"resourceIds"];
+    [dic  setNotNullStrObject:_bisaiName.text forKey:@"name"];
+    [dic setNotNullStrObject:_rongyuName.text forKey:@"hornerName"];
+    [dic setNotNullStrObject:_zuzhijigouName.text forKey:@"orgnizationUnit"];
+    [dic setNotNullStrObject:_ownerCompetition.currentTitle forKey:@"ownerCompetition"];
+    [dic setNotNullStrObject:_CompleteLevelBtn.currentTitle forKey:@"competeLevel"];
+    [dic setNotNullStrObject:_prizeAwardsBtn.currentTitle forKey:@"prizeAwarded"];
+    [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
     [_api biSaiGuanLiSubmit:dic];
     
