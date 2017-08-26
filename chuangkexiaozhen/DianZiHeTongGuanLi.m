@@ -30,7 +30,7 @@
 -(void)DianZiHeTongQuery:(NSMutableArray*)ary
 {
     int start=(int)[ary count];
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@%d",baseurl,@"/electroniccontract/search?length=10&start=",start];

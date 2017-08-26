@@ -250,13 +250,13 @@
     NSDictionary*dicOFO=[_dicM objectForKey:@"ofoCodes"];
 
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setNotNullObject:_chushiDuiXiang.text forKey:@"companyName"];
+    [dic setNotNullStrObject:_chushiDuiXiang.text forKey:@"companyName"];
     
-    [dic setNotNullObject:_numberOfOffice.text forKey:@"numberOfOffice"];
+    [dic setNotNullStrObject:_numberOfOffice.text forKey:@"numberOfOffice"];
 //  [dic setNotNullObject:_ofoCodes.currentTitle forKey:@"ofoCodes"];
     
     
-    [dic setNotNullObject:_numberOftc.text forKey:@"numberOftc"];
+    [dic setNotNullStrObject:_numberOftc.text forKey:@"numberOftc"];
     NSArray*TcKey=[_TcCodes.currentTitle componentsSeparatedByString:@","];
     NSMutableArray*TcAry=[NSMutableArray array];
     for (NSString*ss in TcKey )
@@ -267,7 +267,7 @@
     [dic setNotNullObject:TcAry forKey:@"tcCodes"];
     
     
-    [dic setNotNullObject:_numberOfoe.text forKey:@"numberOfoe"];
+    [dic setNotNullStrObject:_numberOfoe.text forKey:@"numberOfoe"];
     NSArray*OeKey=[_OeCodes.currentTitle componentsSeparatedByString:@","];
     NSMutableArray*OeAry=[NSMutableArray array];
     for (NSString*ss in OeKey )
@@ -278,11 +278,11 @@
     [dic setNotNullObject:OeAry forKey:@"oeCodes"];
     
    
-    [dic setNotNullObject:_printAccount.text forKey:@"printAccount"];
-    [dic setNotNullObject:_printPassword.text forKey:@"printPassword"];
+    [dic setNotNullStrObject:_printAccount.text forKey:@"printAccount"];
+    [dic setNotNullStrObject:_printPassword.text forKey:@"printPassword"];
     
     
-    [dic setNotNullObject:_numberOfegc.text forKey:@"numberOfegc"];
+    [dic setNotNullStrObject:_numberOfegc.text forKey:@"numberOfegc"];
     NSArray*EgcKey=[_EgcCodes.currentTitle componentsSeparatedByString:@","];
     NSMutableArray*EgcAry=[NSMutableArray array];
     for (NSString*ss in EgcKey )
@@ -315,7 +315,7 @@
      "desc":""}]
      */
     
-    [dic setNotNullObject:_numberOfpl.text forKey:@"numberOfpl"];
+    [dic setNotNullStrObject:_numberOfpl.text forKey:@"numberOfpl"];
     NSArray*PLKey=[_PlCodes.currentTitle componentsSeparatedByString:@","];
     NSMutableArray*PLAry=[NSMutableArray array];
     for (NSString*ss in PLKey )
@@ -325,10 +325,10 @@
     }
     [dic setNotNullObject:PLAry forKey:@"plCodes"];
 
-    [dic setNotNullObject:_name.text forKey:@"name"];
-    [dic setNotNullObject:_concatType.text forKey:@"concatType"];
-    [dic setNotNullObject: _beizhu.text forKey:@"desc"];
-    [dic setNotNullObject:_strID forKey:@"id"];
+    [dic setNotNullStrObject:_name.text forKey:@"name"];
+    [dic setNotNullStrObject:_concatType.text forKey:@"concatType"];
+    [dic setNotNullStrObject: _beizhu.text forKey:@"desc"];
+    [dic setNotNullStrObject:_strID forKey:@"id"];
     
     [_ziyuan ZiYuanGuanLiModify:dic];
     

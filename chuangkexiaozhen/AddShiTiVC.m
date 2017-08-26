@@ -110,10 +110,10 @@
     }
 
      NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-     [dic setNotNullObject: str forKey:@"userIds"];
-     [dic setNotNullObject:_textField.text forKey:@"defenceDateStr"];
-     [dic setNotNullObject:_address.text forKey:@"addr"];
-     [dic setNotNullObject:_strID forKey:@"applyid"];
+     [dic setNotNullStrObject: str forKey:@"userIds"];
+     [dic setNotNullStrObject:_textField.text forKey:@"defenceDateStr"];
+     [dic setNotNullStrObject:_address.text forKey:@"addr"];
+     [dic setNotNullStrObject:_strID forKey:@"applyid"];
 
     [_shiti TiJiaoDaBianShenQing:dic];
 }

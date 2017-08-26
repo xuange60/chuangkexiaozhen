@@ -111,7 +111,7 @@
               [dic objectNotNullForKey:@"desc"],
               nil];
     
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"XuNiRuZhu" bundle:nil];
     AddXuNiVC*vc=[board instantiateViewControllerWithIdentifier:@"AddXuNiVC"];
@@ -129,7 +129,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_XuNi XuNiRuZhuGuanLiYes:strID];
 }
@@ -146,7 +146,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_XuNi XuNiRuZhuGuanLiNo:strID];
 }
@@ -164,7 +164,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_XuNi XuNiRuZhuGuanLiDelete:strID];
 }

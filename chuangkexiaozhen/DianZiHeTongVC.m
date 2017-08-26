@@ -83,7 +83,7 @@
     NSIndexPath*path=[_tableView indexPathForRowAtPoint:point];
     NSDictionary*dic=[_aryM objectAtIndex:path.row];
     
-    NSString*strId=[dic objectForKey:@"id"];
+    NSString*strId=[dic objectNotNullForKey:@"id"];
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strId withType:@"29"];
     [self.navigationController pushViewController:vc animated:YES];

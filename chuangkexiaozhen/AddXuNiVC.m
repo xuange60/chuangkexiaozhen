@@ -71,12 +71,12 @@
      */
 
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setObject:_F1.text forKey:@"contact"];
-    [dic setObject:_F2.text forKey:@"contacttype"];
-    [dic setObject:_F3.text forKey:@"branchname"];
-    [dic setObject :_duoxuan.currentTitle    forKey:@"coopcategories"];
-    [dic setObject:_textView.text forKey:@"desc"];
-    [dic setNotNullObject:_strId forKey:@"id"];
+    [dic setNotNullStrObject:_F1.text forKey:@"contact"];
+    [dic setNotNullStrObject:_F2.text forKey:@"contacttype"];
+    [dic setNotNullStrObject:_F3.text forKey:@"branchname"];
+    [dic setNotNullStrObject :_duoxuan.currentTitle    forKey:@"coopcategories"];
+    [dic setNotNullStrObject:_textView.text forKey:@"desc"];
+    [dic setNotNullStrObject:_strId forKey:@"id"];
     
     [_XuNi XuNiRuZhuGuanLiModify:dic];
 }

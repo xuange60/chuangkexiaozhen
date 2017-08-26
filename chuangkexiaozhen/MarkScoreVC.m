@@ -95,9 +95,9 @@
     }else{
         agreeApplyin=@"false";
     }
-     [dic setNotNullObject: agreeApplyin forKey:@"agreeApplyin"];
-     [dic setNotNullObject:_strID forKey:@"applyTreatId"];
-     [dic setNotNullObject:_photosIDS forKey:@"resourceIds"];
+     [dic setNotNullStrObject: agreeApplyin forKey:@"agreeApplyin"];
+     [dic setNotNullStrObject:_strID forKey:@"applyTreatId"];
+     [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     [_dabian DaBianPingFenAdd:dic];
     
     

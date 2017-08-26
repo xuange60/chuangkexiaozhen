@@ -24,7 +24,7 @@
 -(void)DaBianGuanLiQuery
 {
     {
-        NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+        NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
         AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
         manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
         NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/applytreat/search?start=0&length=10000"];
@@ -58,7 +58,7 @@
  */
 -(void)DaBianDelete:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/applytreat/batchdelete",ids];
@@ -110,7 +110,7 @@
 {
     
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/reviewinfo/save"];
     NSString* agreeApplyin=[param objectNotNullForKey:@"agreeApplyin"];
     NSString* applyTreatId=[param objectNotNullForKey:@"applyTreatId"];

@@ -141,7 +141,7 @@
               [dic objectNotNullForKey:@"description"],
               nil];
     
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
 
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
     EditShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"EditShiTiVC"];
@@ -158,7 +158,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"ShiTiRuZhuGuanLi" bundle:nil];
     AddShiTiVC*vc=[board instantiateViewControllerWithIdentifier:@"AddShiTiVC"];
@@ -176,7 +176,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_shiti ShiTiRuZhuGuanLiTongGuo:strID];
 }
@@ -194,7 +194,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     [_shiti ShiTiRuZhuGuanLiJuJueCancle:strID];
 
 }
@@ -213,7 +213,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
    
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
      [_shiti ShiTiRuZhuGuanLiJuJue:strID];
     
 }
@@ -233,7 +233,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     [_shiti ShiTiRuZhuDelete:strID];
 }
@@ -253,7 +253,7 @@
     NSIndexPath *path=[_tableView indexPathForRowAtPoint:point];
     
     NSDictionary*dic=[_array objectAtIndex:path.row];
-    NSString*strID=[dic objectForKey:@"id"];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
     
     FilelistViewController*vc=[[FilelistViewController alloc]initView:strID withType:@"26"];
     [self.navigationController pushViewController:vc animated:YES];
