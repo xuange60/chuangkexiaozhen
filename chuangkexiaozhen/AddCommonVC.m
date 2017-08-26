@@ -260,12 +260,12 @@
 //        投保人数 insureNumber	2
 //        职工姓名 newEmployeeNames	小明
 //        resourceIds	、
-        [dic setNotNullObject:_textF1.text forKey:@"employeeNumber"];
-        [dic setNotNullObject:_textF2.text forKey:@"insureNumber"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
-        [dic setNotNullObject:_textF3.text forKey:@"companyAccount"];
-        [dic setNotNullObject:_textF4.text forKey:@"newEmployeeNames"];
-        [dic setNotNullObject:_textF5.text forKey:@"idCards"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"employeeNumber"];
+        [dic setNotNullStrObject:_textF2.text forKey:@"insureNumber"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setNotNullStrObject:_textF3.text forKey:@"companyAccount"];
+        [dic setNotNullStrObject:_textF4.text forKey:@"newEmployeeNames"];
+        [dic setNotNullStrObject:_textF5.text forKey:@"idCards"];
     }else if ([_strTitle isEqualToString:@"社会责任履行"]){
 //        添加时参数
 //        参加人数 employeeNumber	2
@@ -273,20 +273,20 @@
 //        resourceIds
 //        活动类型 type	慈善募捐、
         
-        [dic setNotNullObject:_textF1.text forKey:@"name"];
-        [dic setNotNullObject:_textF2.text forKey:@"employeeNumber"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
-        [dic setNotNullObject:_btn1.currentTitle forKey:@"type"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"name"];
+        [dic setNotNullStrObject:_textF2.text forKey:@"employeeNumber"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setNotNullStrObject:_btn1.currentTitle forKey:@"type"];
     } else if ([_strTitle isEqualToString:@"税务正规化"]){
 //        添加时参数
 //        会计证书 accountIdentityUS	23434523453
 //        会计名 accountName	小红
 //        resourceIds
 //        税号 taxNo	24789237489ew
-        [dic setNotNullObject:_textF1.text forKey:@"taxNo"];
-        [dic setNotNullObject:_textF2.text forKey:@"accountName"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
-        [dic setNotNullObject:_textF3.text forKey:@"accountIdentityUS"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"taxNo"];
+        [dic setNotNullStrObject:_textF2.text forKey:@"accountName"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setNotNullStrObject:_textF3.text forKey:@"accountIdentityUS"];
     }else if ([_strTitle isEqualToString:@"员工福利"]){
 //        添加时参数
 //        福利占收入比 benefitPercent	50
@@ -295,20 +295,20 @@
 //        resourceIds
 //        福利金额 totalBenefitMoney	30000
 
-        [dic setNotNullObject:_textF1.text forKey:@"name"];
-        [dic setNotNullObject:_textF2.text forKey:@"totalBenefitMoney"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
-        [dic setNotNullObject:_textF3.text forKey:@"benefitPercent"];
-        [dic setNotNullObject:_textF4.text forKey:@"benefitPerson"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"name"];
+        [dic setNotNullStrObject:_textF2.text forKey:@"totalBenefitMoney"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setNotNullStrObject:_textF3.text forKey:@"benefitPercent"];
+        [dic setNotNullStrObject:_textF4.text forKey:@"benefitPerson"];
     }else if ([_strTitle isEqualToString:@"高技能人才"]){
 //        添加时参数
 //        职称 jobTitle	1级
 //        职称级别 jobTitleLevel	58c7c83e4c1aca850999b3d8
 //        人员姓名 name	小红
 //        resourceIds
-        [dic setNotNullObject:_textF1.text forKey:@"name"];
-        [dic setNotNullObject:_textF2.text forKey:@"jobTitle"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"name"];
+        [dic setNotNullStrObject:_textF2.text forKey:@"jobTitle"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
         NSString*str=[_dic[@"jobTitleLevel"]objectForKey:_btn1.currentTitle];
         [dic setNotNullObject:str forKey:@"jobTitleLevel"];
     }else if ([_strTitle isEqualToString:@"规划目标"]){
@@ -317,19 +317,19 @@
 //        mediumTermGoal	100万
 //        resourceIds
 //        shortTermGoal	10万
-        [dic setNotNullObject:_textF1.text forKey:@"shortTermGoal"];
-        [dic setNotNullObject:_textF2.text forKey:@"mediumTermGoal"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
-        [dic setNotNullObject:_textF3.text forKey:@"longTermGoal"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"shortTermGoal"];
+        [dic setNotNullStrObject:_textF2.text forKey:@"mediumTermGoal"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setNotNullStrObject:_textF3.text forKey:@"longTermGoal"];
     }else if ([_strTitle isEqualToString:@"规模制度"]){
 //        添加时参数
 //        制度文件名称 bylawsFileName	工商证书
 //        制度文件类别 bylawsFileType	工商
 //        resourceIds
 
-        [dic setNotNullObject:_textF1.text forKey:@"bylawsFileName"];
-        [dic setNotNullObject:_btn1.currentTitle forKey:@"bylawsFileType"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"bylawsFileName"];
+        [dic setNotNullStrObject:_btn1.currentTitle forKey:@"bylawsFileType"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
     }else if ([_strTitle isEqualToString:@"投融资情况"]){
         
 //        添加数据： 此时提交时investmentInstitutions需要传数组
@@ -341,11 +341,11 @@
 //        投资轮次 investmentWheel	A
 //        resourceIds
 
-        [dic setNotNullObject:_textF1.text forKey:@"investmentAmount"];
+        [dic setNotNullStrObject:_textF1.text forKey:@"investmentAmount"];
         NSArray*ary=[NSArray arrayWithObjects:_textF2.text,_textF3.text,_textF4.text, nil];
-        [dic setNotNullObject:ary forKey:@"investmentInstitutions"];
-        [dic setNotNullObject:_btn1.currentTitle forKey:@"investmentWheel"];
-        [dic setNotNullObject:_photosIDS  forKey:@"resourceIds"];
+        [dic setObject:ary forKey:@"investmentInstitutions"];
+        [dic setNotNullStrObject:_btn1.currentTitle forKey:@"investmentWheel"];
+        [dic setNotNullStrObject:_photosIDS  forKey:@"resourceIds"];
     }
 
     

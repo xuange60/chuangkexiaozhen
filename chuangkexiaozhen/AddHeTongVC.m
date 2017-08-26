@@ -91,14 +91,14 @@
      金额级别 saleMoney 58c7c7324c1a83778c59df76
      社会效益 societyBenefit 100
 */
-    [dic setNotNullObject:_name.text forKey:@"pactName"];
-    [dic setNotNullObject:_btn1Title.currentTitle forKey:@"partnerLevel"];
-    [dic setNotNullObject:_jinE.text forKey:@"partnerPrice"];
-    [dic setNotNullObject:_btn3Title.currentTitle forKey:@"saleBenefit"];
-    [dic setNotNullObject:_btn2Title.currentTitle forKey:@"saleMoney"];
-    [dic setNotNullObject:_xiaoYi.text forKey:@"societyBenefit"];  
-    [dic setNotNullObject:_photosIDS forKey:@"arrivalResourceIds"];
-    [dic setNotNullObject:@"" forKey:@"benefitResourceIds"];
+    [dic setNotNullStrObject:_name.text forKey:@"pactName"];
+    [dic setNotNullStrObject:_btn1Title.currentTitle forKey:@"partnerLevel"];
+    [dic setNotNullStrObject:_jinE.text forKey:@"partnerPrice"];
+    [dic setNotNullStrObject:_btn3Title.currentTitle forKey:@"saleBenefit"];
+    [dic setNotNullStrObject:_btn2Title.currentTitle forKey:@"saleMoney"];
+    [dic setNotNullStrObject:_xiaoYi.text forKey:@"societyBenefit"];
+    [dic setNotNullStrObject:_photosIDS forKey:@"arrivalResourceIds"];
+    [dic setNotNullStrObject:@"" forKey:@"benefitResourceIds"];
     
     [_fuHua XiaoShouHeTongSubmit:dic];
     

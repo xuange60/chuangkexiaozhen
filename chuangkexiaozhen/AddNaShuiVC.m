@@ -81,17 +81,15 @@
      纳税类别 taxType 111
      */
     
-    [dic setObject:_btn2Title.currentTitle forKey:@"dateType"];
-    [dic setObject:_btn3Title.currentTitle forKey:@"taxLevel"];
+    [dic setNotNullStrObject:_btn2Title.currentTitle forKey:@"dateType"];
+    [dic setNotNullStrObject:_btn3Title.currentTitle forKey:@"taxLevel"];
     
-    int value1=[_jinE.text intValue];
-    NSNumber*jinE= [NSNumber numberWithInt:value1];
-    [dic setObject:jinE forKey:@"taxPrice"];
+    [dic setNotNullStrObject:_jinE.text forKey:@"taxPrice"];
     
-    [dic setObject:_duiXiang.text forKey:@"taxTarget"];
-    [dic setObject:_leiBie.text forKey:@"taxTarget"];
+    [dic setNotNullStrObject:_duiXiang.text forKey:@"taxTarget"];
+    [dic setNotNullStrObject:_leiBie.text forKey:@"taxTarget"];
 
-    [dic setObject:_photosIDS forKey:@"taxResourceIds"];
+    [dic setNotNullStrObject:_photosIDS forKey:@"taxResourceIds"];
     
     [_fuHua NaShuiGuanLiSubmit:dic];
     
