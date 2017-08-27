@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CustomButton.h"
 @interface RegeistVC : UIViewController<UITextFieldDelegate>
 
 
-@property (strong, nonatomic) IBOutlet UIButton *yzmBtn;
+@property(nonatomic,strong)NSTimer*timer;
+@property(nonatomic)int i;
+@property(nonatomic,strong)UIGestureRecognizer*ges;
+
+
+
+
+@property (strong, nonatomic) IBOutlet CustomButton *yzmBtn;
 
 @property (strong, nonatomic) IBOutlet UIButton *xzlxBtn;
 @property (strong, nonatomic) IBOutlet UIButton *zhuceBtn;
@@ -25,8 +32,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *pwd2;
 
 @property (strong, nonatomic) IBOutlet UIButton *usertype;
-
-
 
 - (IBAction)yzmBtnClick:(id)sender;
 
