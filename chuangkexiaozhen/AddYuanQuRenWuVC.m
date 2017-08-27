@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"添加通告";
+    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoBtnClick:)];
+    //rightbutton.title=@"提交";
     
+    rightbutton.tintColor=[UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem=rightbutton;
     _tongGao=[[YuanQuRenWuTongGao alloc]init];
     _tongGao.delegate=self;
     
