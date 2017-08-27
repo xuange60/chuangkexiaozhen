@@ -13,6 +13,9 @@
 
 @property (strong,nonatomic) NSString* navtitle;
 
+@property (strong, nonatomic) UIBarButtonItem* rightbutton;
+
+
 -(void) setNavigationItemTitle:(NSString*) title;
 -(void) backvc;
 @end

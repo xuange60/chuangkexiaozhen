@@ -16,10 +16,10 @@
 
 - (void)viewDidLoad {
     self.navigationItem.title=@"被动退出";
-    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoClicked:)];
-    rightbutton.tintColor=[UIColor whiteColor];
-    rightbutton.enabled=NO;    
-    self.navigationItem.rightBarButtonItem=rightbutton;
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoClicked:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     
     [super viewDidLoad];
     _beidongtuichu=[[BeiDongTuiChu alloc] init];

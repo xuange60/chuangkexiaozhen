@@ -22,10 +22,10 @@
     _yonghuxinxi.delegate=self;
     self.navigationItem.title=@"修改用户信息";
     
-    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
-    rightbutton.tintColor=[UIColor whiteColor];
-    rightbutton.enabled=NO;
-    self.navigationItem.rightBarButtonItem=rightbutton;
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     
     
     [super viewDidLoad];

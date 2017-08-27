@@ -19,10 +19,10 @@
     _yuangongxinxi=[[YuanGongXinXi alloc] init];
     _yuangongxinxi.delegate=self;
     self.navigationItem.title=@"添加员工";
-    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
-    rightbutton.tintColor=[UIColor whiteColor];
-    rightbutton.enabled=NO;
-    self.navigationItem.rightBarButtonItem=rightbutton;
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     // Do any additional setup after loading the view.
 }
 

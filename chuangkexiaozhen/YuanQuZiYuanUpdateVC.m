@@ -19,10 +19,10 @@
     _yuanquziyuanguanli=[[YuanQuZiYuanGuanLi alloc] init];
     _yuanquziyuanguanli.delegate=self;
     self.navigationItem.title=@"添加资源";
-    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
-    rightbutton.tintColor=[UIColor whiteColor];
-    rightbutton.enabled=NO;
-    self.navigationItem.rightBarButtonItem=rightbutton;
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     
     if(_isModify!=nil && [_isModify isEqualToString:@"Y"]){
         self.navigationItem.title=@"修改资源";

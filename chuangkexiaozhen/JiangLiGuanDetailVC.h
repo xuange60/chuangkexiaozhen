@@ -29,7 +29,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *status;
 
 
-@property (strong, nonatomic) UIBarButtonItem* rightbutton;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *approvecombo;
 

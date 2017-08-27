@@ -60,6 +60,7 @@
     }
     cell.accessoryType= UITableViewCellAccessoryNone;
     NSString* text=[_array objectAtIndex:indexPath.row];
+    cell.textLabel.font=[UIFont systemFontOfSize:13];
     cell.textLabel.text=text;
     
     if([self isSelected:text]){//初始化数据可能被选中
@@ -70,7 +71,7 @@
             cell.accessoryType=UITableViewCellAccessoryCheckmark;
         };
     }
-    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
 
