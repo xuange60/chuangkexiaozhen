@@ -18,6 +18,10 @@
     _yuangongxinxi=[[YuanGongXinXi alloc] init];
     _yuangongxinxi.delegate=self;
     self.navigationItem.title=@"修改信息";
+    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    rightbutton.tintColor=[UIColor whiteColor];
+    rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=rightbutton;
     [super viewDidLoad];
     _LoginName.text=[_datas objectNotNullForKey:@"loginName"];
     _department.text=[_datas objectNotNullForKey:@"department"];

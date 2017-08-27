@@ -16,6 +16,11 @@
 
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"详情";
+    _rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(approvesubmitclick:)];
+    _rightbutton.tintColor=[UIColor whiteColor];
+    _rightbutton.enabled=NO;
+    
     [super viewDidLoad];
     _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
     _jiafencailiaoshenhe.delegate=self;
@@ -59,6 +64,7 @@
     NSString* status1=[_detaildata objectNotNullForKey:@"statusRead"];
     if([status1 isEqualToString:@"审核中"] && [_isadmin  isEqualToString:@"Y"]){
         [_approveview setHidden:NO];
+        self.navigationItem.rightBarButtonItem=_rightbutton;        
     }
 }
 

@@ -15,6 +15,11 @@
 @implementation BiSaiGuanLiDetailVC
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"详情";
+    _rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(approvesubmitclick:)];
+    _rightbutton.tintColor=[UIColor whiteColor];
+    _rightbutton.enabled=NO;
+    
     [super viewDidLoad];
     _company.text=[_data objectNotNullForKey:@"name"];
     _hornerName.text=[_data objectNotNullForKey:@"hornerName"];
@@ -56,6 +61,7 @@
     NSString* status1=[result objectNotNullForKey:@"statusRead"];
     _status.text=status1;
     if([status1 isEqualToString:@"审核中"] && [_isadmin  isEqualToString:@"Y"]){
+        self.navigationItem.rightBarButtonItem=_rightbutton;
         [_approveview setHidden:NO];
     }
 }

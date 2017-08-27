@@ -15,6 +15,12 @@
 @implementation BeiDongTuiChuAdd
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"被动退出";
+    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoClicked:)];
+    rightbutton.tintColor=[UIColor whiteColor];
+    rightbutton.enabled=NO;    
+    self.navigationItem.rightBarButtonItem=rightbutton;
+    
     [super viewDidLoad];
     _beidongtuichu=[[BeiDongTuiChu alloc] init];
     _beidongtuichu.delegate=self;

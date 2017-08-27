@@ -21,6 +21,13 @@
     _yonghuxinxi=[[YongHuXinXi alloc] init];
     _yonghuxinxi.delegate=self;
     self.navigationItem.title=@"修改用户信息";
+    
+    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
+    rightbutton.tintColor=[UIColor whiteColor];
+    rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=rightbutton;
+    
+    
     [super viewDidLoad];
     _comanyname.text=[_datas objectNotNullForKey:@"companyName"];
     _department.text=[_datas objectNotNullForKey:@"department"];
@@ -123,7 +130,9 @@
  roleIds	589d240277c87dfcad569547
  username	ceshi12222
  */
-- (IBAction)submit:(id)sender {
+
+-(void)submit
+{
     NSMutableDictionary* param=[NSMutableDictionary dictionary];
     [param setNotNullStrObject:_comanyname.text forKey:@"comanyname"];
     [param setNotNullStrObject:[_companytype currentTitle] forKey:@"companytype"];
@@ -148,7 +157,6 @@
     [param setObject:ary2 forKey:@"roleIds"];
     
     [_yonghuxinxi yongHuModify:param];
-    
 }
 
 

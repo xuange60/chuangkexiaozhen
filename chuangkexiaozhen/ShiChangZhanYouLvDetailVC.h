@@ -37,8 +37,8 @@
 
 @property (strong, nonatomic) IBOutlet UIView *approveview;
 
-@property (strong, nonatomic) IBOutlet UIButton *approvesubmit;
 
+@property (strong, nonatomic) UIBarButtonItem* rightbutton;
 
 @property (strong,nonatomic) NSString* isadmin;
 

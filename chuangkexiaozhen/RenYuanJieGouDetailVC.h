@@ -32,14 +32,14 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *status;
 
-
+@property (strong, nonatomic) UIBarButtonItem* rightbutton;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *approvecombo;
 
 @property (strong, nonatomic) IBOutlet UIView *approveview;
 
-@property (strong, nonatomic) IBOutlet UIButton *approvesubmit;
+
 
 
 @property (strong,nonatomic) NSString* isadmin;
