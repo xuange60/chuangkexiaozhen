@@ -24,6 +24,7 @@
     
     UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
     rightbutton.tintColor=[UIColor whiteColor];
+    rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=rightbutton;
     
     
