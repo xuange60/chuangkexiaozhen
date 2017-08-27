@@ -44,7 +44,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *approveview;
 
-
+@property (strong, nonatomic) UIBarButtonItem* rightbutton;
 
 
 @property (strong,nonatomic) TuanDuiYunYing* tuanduiyunying;

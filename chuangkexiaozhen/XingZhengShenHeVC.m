@@ -62,10 +62,10 @@
 
 - (void)viewDidLoad {
     self.navigationItem.title=@"详情";
-    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(approvesubmitclick:)];
-    rightbutton.tintColor=[UIColor whiteColor];
-    rightbutton.enabled=NO;
-    self.navigationItem.rightBarButtonItem=rightbutton;
+    _rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(approvesubmitclick:)];
+    _rightbutton.tintColor=[UIColor whiteColor];
+    _rightbutton.enabled=NO;
+    
     [super viewDidLoad];
     _tuanduiyunying=[[TuanDuiYunYing alloc] init];
     _tuanduiyunying.delegate=self;
@@ -119,6 +119,7 @@
     NSString* statusRead=[_dic objectNotNullForKey:@"statusRead"];
     if([statusRead isEqualToString:@"审核中"] ){
         [_approveview setHidden:NO];
+        self.navigationItem.rightBarButtonItem=_rightbutton;        
     }
 
     if ([_strTitle isEqualToString:@"高学历人才"]) {
