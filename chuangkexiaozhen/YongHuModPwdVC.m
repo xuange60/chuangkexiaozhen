@@ -18,6 +18,9 @@
     _yonghuxinxi=[[YongHuXinXi alloc] init];
     _yonghuxinxi.delegate=self;
     self.navigationItem.title=@"重置用户密码";
+    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    rightbutton.tintColor=[UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem=rightbutton;
     [super viewDidLoad];
     _username.text=[_datas objectNotNullForKey:@"loginName"];
     // Do any additional setup after loading the view.
