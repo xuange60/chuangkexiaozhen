@@ -16,6 +16,11 @@
 
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"详情";
+    UIBarButtonItem* rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(approvesubmitclick:)];
+    rightbutton.tintColor=[UIColor whiteColor];
+    rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=rightbutton;
     [super viewDidLoad];
     _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
     _jiafencailiaoshenhe.delegate=self;
