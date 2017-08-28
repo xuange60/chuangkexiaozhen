@@ -18,7 +18,10 @@
     [super viewDidLoad];
     
     self.navigationItem.title=@"添加";
-    
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiao:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     
     /*
      2.18.2 活动报销前查询所有活动，查询审批人，查询申请人
