@@ -86,9 +86,19 @@
     
 //    self.autoresizesSubviews=YES;
 
-    UITapGestureRecognizer*ges=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gesClick:)];
-    [self addGestureRecognizer:ges];
+//    UITapGestureRecognizer*ges=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gesClick:)];
+//    [self addGestureRecognizer:ges];
 
+}
+
+//-(void)gesClick:(UIGestureRecognizer*)ges
+//{
+//    
+//}
+
+-(void)clicked:(CustomButton*)btn
+{
+    
 }
 
 - (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event
@@ -137,28 +147,60 @@
      return self;
 }
 
--(void)gesClick:(UIGestureRecognizer*)ges
+
+
+
+
+
+
+
+
+
+
+//UIRespond的触摸事件响应方法
+
+//这些方法系统会自动调用，不需要手动调用
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
 {
-    
+    NSLog(@"%s",__func__);
+}
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+     NSLog(@"%s",__func__);
+}
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+     NSLog(@"%s",__func__);
+}
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+     NSLog(@"%s",__func__);
+}
+- (void)touchesEstimatedPropertiesUpdated:(NSSet<UITouch *> *)touches
+{
+     NSLog(@"%s",__func__);
 }
 
--(void)clicked:(CustomButton*)btn
+
+//UIRespond的加速计（摇一摇）事件响应方法
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(nullable UIEvent *)event
 {
-    
+     NSLog(@"%s",__func__);
+}
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(nullable UIEvent *)event
+{
+     NSLog(@"%s",__func__);
+}
+- (void)motionCancelled:(UIEventSubtype)motion withEvent:(nullable UIEvent *)event
+{
+     NSLog(@"%s",__func__);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+//UIRespond的远程控制事件响应方法
+- (void)remoteControlReceivedWithEvent:(nullable UIEvent *)event
+{
+     NSLog(@"%s",__func__);
+}
 
 
 

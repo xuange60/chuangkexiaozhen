@@ -23,16 +23,37 @@
     self.rightbutton.tintColor=[UIColor whiteColor];
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
-    // Do any additional setup after loading the view.
+   
+    
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    _HUD=[[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:_HUD];
+    _HUD.mode=MBProgressHUDModeText;
+    _HUD.labelText=@"提交成功";
+    _HUD.margin=10;
+    _HUD.yOffset=self.view.center.y-80;
+    [_HUD show:YES];
+    [_HUD hide:YES afterDelay:3];
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (IBAction)submit:(id)sender {
     NSMutableDictionary* param=[NSMutableDictionary dictionary];
+    
     [param setNotNullObject:self.loginName.text forKey:@"loginName"];
     [param setNotNullObject:self.department.text forKey:@"department"];
     [param setNotNullObject:self.email.text forKey:@"email"];
@@ -42,7 +63,6 @@
     [param setNotNullObject:self.rank.text forKey:@"rank"];
     [param setNotNullObject:self.remark.text forKey:@"remark"];
     [_yuangongxinxi YuanGongAdd:param];
-    
 }
 
 -(void)afternetwork4:(id)data
@@ -51,16 +71,5 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

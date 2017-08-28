@@ -77,12 +77,37 @@
           _yzmBtn.frame.origin.y,
           _yzmBtn.frame.size.width,
           _yzmBtn.frame.size.height );
-    
 
-    
    _ges=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click:)];
     [_yzmBtn addGestureRecognizer:_ges];
+
 }
+-(void)click:(UIGestureRecognizer*)ges
+{
+    _i=60;
+    if ([_yzmBtn.lab1.text isEqualToString:@"获取验证码"])
+    {
+        [self registerGetCode:_mobile.text];
+        
+        [_yzmBtn setContent:@"10" attributeStr:@"s后重新获取"];
+        _yzmBtn.lab2.hidden=NO;
+        
+        
+        _timer=[NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer)
+                {
+                    _i--;
+                    NSString*str=[NSString stringWithFormat:@"%d",_i];
+                    [_yzmBtn setContent:str attributeStr:@"s后重新获取"];
+                    if (_i==0){
+                        _i=60;
+                        [_yzmBtn setContent:@"获取验证码" attributeStr:@"s后重新获取"];
+                        _yzmBtn.lab2.hidden=YES;
+                        [_timer invalidate];
+                    }
+                }];
+    }
+}
+
 
 
 
@@ -110,61 +135,11 @@
     
 }
 
--(void)click:(UIGestureRecognizer*)ges
-{
-    _i=10;
-    if ([_yzmBtn.lab1.text isEqualToString:@"获取验证码"])
-    {
-        [self registerGetCode:_mobile.text];
-        
-         [_yzmBtn setContent:@"10" attributeStr:@"s后重新获取"];
-         _yzmBtn.lab2.hidden=NO;
-        
-        
-    _timer=[NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer)
-                {
-                   _i--;
-                   NSString*str=[NSString stringWithFormat:@"%d",_i];
-                   [_yzmBtn setContent:str attributeStr:@"s后重新获取"];
-                  if (_i==0){
-                      _i=120;
-                      [_yzmBtn setContent:@"获取验证码" attributeStr:@"s后重新获取"];
-                      _yzmBtn.lab2.hidden=YES;
-                      [_timer invalidate];
-                    }
-                }];
-    }
-}
-
 
 //点击获取验证码按钮的事件处理
 - (IBAction)yzmBtnClick:(id)sender
 {
-//    _i=120;
-//    
-//    UIButton*btn=(UIButton*)sender;
-//    if ([btn.currentTitle isEqualToString:@"获取验证码"])
-//    {
-//         [self registerGetCode:_mobile.text];
-//        [btn setTitle:@"120" forState:UIControlStateNormal];
-//         _yzmBtn.titleLabel.attributedText=[[NSAttributedString alloc]initWithString:@"s后重新获取"];
-//        
-//        _timer=[NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer)
-//                {
-//                    _i--;
-//                    NSString*str=[NSString stringWithFormat:@"%d",_i];
-//                    [_yzmBtn setTitle:str forState:UIControlStateNormal];
-//                    if (_i==0)
-//                    {
-//                        _i=120;
-//                        [btn setTitle:@"获取验证码" forState:UIControlStateNormal];
-//                    }
-//                    
-//                }];
-//    }
-//    
     
- 
 }
 //选择用户类型按钮的事件处理
 - (IBAction)xzlxBtnClick:(id)sender {
@@ -202,7 +177,7 @@
             NSLog(@"%@",result);
             //result:  false,用户名已被占用 非false，用户名可用
             if ([result isEqualToString: @"false"]) {
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"用户名已被注册，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"用户名已被注册，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
                  UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
                 [alertCon addAction:action2];
                 [self presentViewController:alertCon animated:YES completion:nil];
