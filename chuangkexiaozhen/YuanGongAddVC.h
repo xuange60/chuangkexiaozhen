@@ -8,7 +8,13 @@
 
 #import "BaseViewController.h"
 #import "YuanGongXinXi.h"
+#import "MBProgressHUD.h"
 @interface YuanGongAddVC : BaseViewController<BussinessApiDelegate>
+
+
+
+@property(nonatomic,strong)MBProgressHUD*HUD;
+
 @property (strong,nonatomic) YuanGongXinXi* yuangongxinxi;
 
 @property (strong, nonatomic) IBOutlet UITextField *loginName;
