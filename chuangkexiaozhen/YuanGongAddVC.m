@@ -36,7 +36,7 @@
     _HUD.mode=MBProgressHUDModeText;
     _HUD.labelText=@"提交成功";
     _HUD.margin=10;
-    _HUD.yOffset=self.view.center.y-80;
+    _HUD.yOffset=self.view.center.y-100;
     [_HUD show:YES];
     [_HUD hide:YES afterDelay:3];
     
