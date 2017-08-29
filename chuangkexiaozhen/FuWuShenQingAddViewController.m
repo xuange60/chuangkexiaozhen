@@ -18,6 +18,11 @@
     self.resourids=@"";
     self.yuanqufuwushenqing=[[YuanQuFuWuShenQing alloc] init];
     self.yuanqufuwushenqing.delegate=self;
+    self.navigationItem.title=@"服务申请";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

@@ -18,7 +18,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextView *liyou;
 
-@property (strong, nonatomic) IBOutlet UIButton *shensuSubmit;
+
 
 @property (strong,nonatomic) NSDictionary* data;
 
