@@ -19,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"申诉申请";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+
     [self initWithData];
     // Do any additional setup after loading the view.
 }
@@ -35,7 +39,7 @@
 }
 
 
-- (IBAction)submit:(id)sender {
+- (void)submit:(id)sender {
     NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:self.type.currentTitle,@"stateType",self.detail.text,@"stateContent",self.liyou.text,@"stateReason", nil];
     [self shenSuShenQingSubmit:param];
 }
@@ -50,7 +54,8 @@
         self.detail.editable=NO;
         self.liyou.text=[self.data objectNotNullForKey:@"stateReason"];
         self.liyou.editable=NO;
-        [self.shensuSubmit setHidden:YES];
+    }else{
+        self.navigationItem.rightBarButtonItem=self.rightbutton;
     }
 
 }

@@ -17,8 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.readonly=NO;
-    self.btn.hidden=YES;
     self.navigationItem.title=@"开通主线";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(kaiTongZhuXian:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+
     [self kaiTongZhuXianQuery];
     // Do any additional setup after loading the view.
 }
@@ -161,13 +164,12 @@
 -(void) setReadOnly
 {
     self.readonly=YES;
-    self.btn.hidden=YES;
 }
 
 -(void) setNoReadOnly
 {
     self.readonly=NO;
-    self.btn.hidden=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
 }
 
 

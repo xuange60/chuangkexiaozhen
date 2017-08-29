@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"发卡";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(add:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     _fakaguanli=[[FaKaGuanli alloc] init];
     _fakaguanli.delegate=self;
     [self queryParam];

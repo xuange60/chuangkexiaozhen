@@ -19,6 +19,11 @@
     [super viewDidLoad];
 
     self.navigationItem.title=@"添加比赛";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(commitedClick:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
+    
      _mArray=[NSMutableArray array];//保存展示数据
      _Mstr=[NSMutableString string];//用于图片id连接
     _photosIDS=[NSString string];
@@ -83,7 +88,7 @@
 }
 
 
-- (IBAction)commitedClick:(id)sender {
+- (void)commitedClick:(id)sender {
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     

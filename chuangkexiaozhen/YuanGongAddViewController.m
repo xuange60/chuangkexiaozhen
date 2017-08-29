@@ -15,6 +15,11 @@
 @implementation YuanGongAddViewController
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"添加";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     [super viewDidLoad];
     _yuangongguanli=[[YuanGongGuanLi alloc] init];
     _yuangongguanli.delegate=self;

@@ -36,6 +36,6 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *companystatus;
 
-@property (strong, nonatomic) IBOutlet UIButton *btn;
+
 
 @end
