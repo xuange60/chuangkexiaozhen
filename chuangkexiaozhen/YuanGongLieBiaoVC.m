@@ -118,6 +118,12 @@
     
 }
 
+-(void)afternetwork2:(id)data
+{
+    [self tiShiKuangDisplay:deleteStr viewController:self];
+    [self query];
+}
+
 
 
 
@@ -138,11 +144,6 @@
 }
 
 
-
--(void)afternetwork2:(id)data
-{
-    [self query];
-}
 
 
 

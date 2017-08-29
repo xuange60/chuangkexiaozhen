@@ -240,6 +240,7 @@
 
 -(void)afternetwork6:(id)data
 {
+    [self tiShiKuangDisplay:deleteStr viewController:self];
     [_shiti ShiTiRuZhuGuanLiQuery];
 }
 

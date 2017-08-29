@@ -101,28 +101,36 @@
     
 }
 
-- (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event
-{
-    UIView*view;
-    return view;
-}
+//该方法作用： 寻找并返回最合适的view来处理触摸响应事件
+
+//- (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event
+//{
+//    NSLog(@"%s",__func__);
+//    UIView*view;
+//    return view;
+//}
 - (BOOL)pointInside:(CGPoint)point withEvent:(nullable UIEvent *)event
 {
+    NSLog(@"%s",__func__);
     return YES;
 }
 - (CGPoint)convertPoint:(CGPoint)point toView:(nullable UIView *)view
 {
+    NSLog(@"%s",__func__);
     return point;
 }
 - (CGPoint)convertPoint:(CGPoint)point fromView:(nullable UIView *)view
 {
+    NSLog(@"%s",__func__);
     return point;
 }
 - (CGRect)convertRect:(CGRect)rect toView:(nullable UIView *)view
 {
+    NSLog(@"%s",__func__);
     return rect;
 }
 - (CGRect)convertRect:(CGRect)rect fromView:(nullable UIView *)view{
+    NSLog(@"%s",__func__);
     return rect;
 }
 

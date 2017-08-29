@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "BussinessApi.h"
+#import "MBProgressHUD.h"
+@interface BaseViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>
 
-@interface BaseViewController : UIViewController
+@property(nonatomic,strong)MBProgressHUD*HUD;
 
 @property (strong,nonatomic) NSString* navtitle;
 
@@ -18,4 +20,12 @@
 
 -(void) setNavigationItemTitle:(NSString*) title;
 -(void) backvc;
+-(void)tiShiKuangDisplay:(NSString*)text  viewController:(UIViewController*)vc;
+
+-(void)receiveCurrentViewController:(UIViewController*)viewController;
+
+
+@property(nonatomic,strong)UIViewController*currentVC;
+
+
 @end

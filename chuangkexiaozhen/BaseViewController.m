@@ -53,16 +53,119 @@
 {
     self.navtitle=title;
 }
+-(void)receiveCurrentViewController:(UIViewController*)viewController
+{
+    _currentVC=viewController;
+    
+    //用来设置特殊控件的delegate
+    NSArray*ary=_currentVC.view.subviews;
+    for (  id obj in ary) {
+        
+        if ([obj isKindOfClass:[UITextField class]])
+        {
+            UITextField*text=(UITextField*)obj;
+            text.delegate=self;
+        }else if ([obj isKindOfClass:[UITextView class]])
+        {
+            UITextView*textView=(UITextView*)obj;
+            textView.delegate=self;
+        }
+    }
+
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSArray*ary=_currentVC.view.subviews;
+    
+    BOOL isNull=NO;
+    
+    for (id obj in ary)
+    {
+        if ([obj  isKindOfClass:[UITextField class]])
+        {
+            UITextField*field=(UITextField*)obj;
+            if (field.text !=nil && field.text.length>0)
+            {
+                
+            }else{
+                isNull=YES;//有空跳出循环
+                break;
+            }
+        }else if ([obj isKindOfClass:[UITextView class]]){
+            UITextView*textView=(UITextView*)obj;
+            if (textView.text!=nil && textView.text.length>0) {
+                
+            }else{
+                isNull=YES;
+                break;
+            }
+        }
+    }
+    
+    
+    if (isNull==YES) {//有空不启用
+        self.rightbutton.enabled=NO;
+    }else{
+        self.rightbutton.enabled=YES;
+    }
+
+    
+}
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    NSArray*ary=_currentVC.view.subviews;
+    
+    BOOL isNull=NO;
+    
+    for (id obj in ary)
+    {
+        if ([obj  isKindOfClass:[UITextField class]])
+        {
+            UITextField*field=(UITextField*)obj;
+            if (field.text !=nil && field.text.length>0)
+            {
+                
+            }else{
+                isNull=YES;//有空跳出循环
+                break;
+            }
+        }else if ([obj isKindOfClass:[UITextView class]]){
+            UITextView*textView=(UITextView*)obj;
+            if (textView.text!=nil && textView.text.length>0) {
+                
+            }else{
+                isNull=YES;
+                break;
+            }
+        }
+    }
+    
+    
+    if (isNull==YES) {//有空不启用
+        self.rightbutton.enabled=NO;
+    }else{
+        self.rightbutton.enabled=YES;
+    }
+
+
+}
+
+-(void)tiShiKuangDisplay:(NSString*)text viewController:(UIViewController*)vc;
+{
+    _HUD=[[MBProgressHUD alloc]initWithView:vc.view];
+    [vc.view  addSubview:_HUD];
+    
+    _HUD.mode=MBProgressHUDModeText;
+    _HUD.labelText=text;
+    _HUD.margin=10;
+    _HUD.yOffset=vc.view.center.y-100;
+    [_HUD show:YES];
+    [_HUD hide:YES afterDelay:2];
+    
+}
+
 
 @end

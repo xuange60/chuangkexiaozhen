@@ -24,6 +24,8 @@
     _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
     _jiafencailiaoshenhe.delegate=self;
     [self shengequery];
+    
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
@@ -101,6 +103,7 @@
 
 -(void)afternetwork2:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDACTIVESCUUESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
     

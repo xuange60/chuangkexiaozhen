@@ -89,7 +89,7 @@
     {
         [self registerGetCode:_mobile.text];
         
-        [_yzmBtn setContent:@"10" attributeStr:@"s后重新获取"];
+        [_yzmBtn setContent:@"60" attributeStr:@"s后重新获取"];
         _yzmBtn.lab2.hidden=NO;
         
         

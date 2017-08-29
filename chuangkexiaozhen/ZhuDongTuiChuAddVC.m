@@ -30,6 +30,7 @@
     _tenants=[userdic objectNotNullForKey:@"companyid"];
     _quitCompany.text=_company;
     
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
@@ -58,6 +59,7 @@
     
     if (result==1)
     {
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ZhuDongTuiChuVC" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }

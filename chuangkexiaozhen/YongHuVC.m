@@ -97,13 +97,6 @@
     return cell;
 }
 
-
-
-
-
-
-
-
 - (IBAction)Delete:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches= [event allTouches];
     
@@ -120,7 +113,11 @@
     [_yonghuxinxi YongHuDelete:ids];
     
 }
-
+-(void)afternetwork2:(id)data
+{
+    [self tiShiKuangDisplay:@"删除成功" viewController:self];
+    [self query];
+}
 
 - (IBAction)ModifyPwd:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches= [event allTouches];
@@ -163,10 +160,6 @@
 
 
 
--(void)afternetwork2:(id)data
-{
-    [self query];
-}
 
 
 -(void)afternetwork3:(id)data

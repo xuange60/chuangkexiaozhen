@@ -38,6 +38,7 @@
      }
      */
     
+    [self receiveCurrentViewController:self];
 }
 
 -(void)afternetwork6:(id)data
@@ -168,6 +169,7 @@
 
 -(void)afternetwork5:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDTONGGAOSCUUESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

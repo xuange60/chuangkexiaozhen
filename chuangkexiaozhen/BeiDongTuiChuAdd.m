@@ -26,6 +26,7 @@
     _beidongtuichu.delegate=self;
     [self tenantparamQuery];
     
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
@@ -53,6 +54,7 @@
     
     if (result==1)
     {
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"BeiDongTuiChuVC" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }

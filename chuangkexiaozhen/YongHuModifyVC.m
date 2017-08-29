@@ -28,6 +28,8 @@
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     
     
+    [self receiveCurrentViewController:self];
+    
     [super viewDidLoad];
     _comanyname.text=[_datas objectNotNullForKey:@"companyName"];
     _department.text=[_datas objectNotNullForKey:@"department"];
@@ -158,10 +160,10 @@
     
     [_yonghuxinxi yongHuModify:param];
 }
-
-
 -(void) afternetwork4:(id)data
 {
+    [self tiShiKuangDisplay:@"提交成功" viewController:self];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"YongHuVC" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

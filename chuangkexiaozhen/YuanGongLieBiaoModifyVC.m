@@ -29,6 +29,8 @@
     _MobilePhone.text=[_datas objectNotNullForKey:@"phone"];
     _rank.text=[_datas objectNotNullForKey:@"rank"];
     _name.text=[_datas objectNotNullForKey:@"name"];
+    
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
@@ -78,6 +80,7 @@
 
 -(void) afternetwork7:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"YuanGongLieBiaoVC" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -24,31 +24,7 @@
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
    
-    
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    _HUD=[[MBProgressHUD alloc]initWithView:self.view];
-    [self.view addSubview:_HUD];
-    _HUD.mode=MBProgressHUDModeText;
-    _HUD.labelText=@"提交成功";
-    _HUD.margin=10;
-    _HUD.yOffset=self.view.center.y-100;
-    [_HUD show:YES];
-    [_HUD hide:YES afterDelay:3];
-    
-}
-
-
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
+    [self receiveCurrentViewController:self];
 }
 
 - (IBAction)submit:(id)sender {
@@ -67,6 +43,8 @@
 
 -(void)afternetwork4:(id)data
 {
+    [self tiShiKuangDisplay:@"提交成功" viewController:self];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"YuanGongLieBiaoVC" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

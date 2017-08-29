@@ -25,6 +25,8 @@
     self.genzongfuwu=[[GenZongFuWu alloc] init];
     self.genzongfuwu.delegate=self;
 
+    [self receiveCurrentViewController:self];
+    
     // Do any additional setup after loading the view.
 }
 
