@@ -123,6 +123,7 @@
 }
 -(void)afternetwork2:(id)data{
     
+    [self tiShiKuangDisplay:deleteStr viewController:self];
     [_tonggao YuanQuRenWuQuery];
 }
 

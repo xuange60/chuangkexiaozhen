@@ -37,6 +37,9 @@
     [super viewDidLoad];
     
     
+    [self receiveCurrentViewController:self];
+    
+    
     _shiti=[[ShiTiRuZhuGuanLi alloc]init];
     _shiti.delegate=self;
 
@@ -102,6 +105,7 @@
 
 -(void)afternetwork7:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"XIUGAIXINXISUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

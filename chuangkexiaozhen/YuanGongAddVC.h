@@ -9,12 +9,9 @@
 #import "BaseViewController.h"
 #import "YuanGongXinXi.h"
 #import "MBProgressHUD.h"
-@interface YuanGongAddVC : BaseViewController<BussinessApiDelegate>
+@interface YuanGongAddVC : BaseViewController<BussinessApiDelegate,UITextFieldDelegate,UITextViewDelegate>
 
-
-
-@property(nonatomic,strong)MBProgressHUD*HUD;
-
+@property(nonatomic,strong)BaseViewController*baseVC;
 @property (strong,nonatomic) YuanGongXinXi* yuangongxinxi;
 
 @property (strong, nonatomic) IBOutlet UITextField *loginName;

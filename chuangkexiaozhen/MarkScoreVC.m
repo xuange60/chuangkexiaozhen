@@ -27,6 +27,7 @@
     
     [super viewDidLoad];
     
+    [self receiveCurrentViewController:self];
     _dabian=[[DaBianGuanLi alloc]init];
     _dabian.delegate=self;
     
@@ -113,6 +114,7 @@
     int result=[num intValue];
     if (result==1)
     {
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDDABIANSUCCESS" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }

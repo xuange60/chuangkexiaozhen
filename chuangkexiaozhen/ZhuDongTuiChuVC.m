@@ -167,6 +167,12 @@
     [_zhudongtuichu ZhuDongTuiChuDelete:ids];
     
 }
+-(void)afternetwork2:(id)data
+{
+    [self tiShiKuangDisplay:deleteStr viewController:self];
+    [self query];
+}
+
 
 
 - (IBAction)Succ:(id)sender forEvent:(UIEvent *)event {
@@ -203,14 +209,6 @@
     [_zhudongtuichu ZhuDongTuiChuNo:ids];
     
 }
-
-
-
--(void)afternetwork2:(id)data
-{
-    [self query];
-}
-
 
 -(void)afternetwork3:(id)data
 {

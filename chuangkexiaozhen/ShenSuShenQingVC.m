@@ -154,6 +154,7 @@
 
 -(void)afternetwork1:(id)data
 {
+    [self tiShiKuangDisplay:deleteStr viewController:self];
     [_shensu ShenSuShenQingQuery];
 }
 

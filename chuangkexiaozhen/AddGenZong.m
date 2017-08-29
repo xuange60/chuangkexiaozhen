@@ -21,6 +21,7 @@
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     
+    [self receiveCurrentViewController:self];
     [super viewDidLoad];
     _genzong=[[ChengGuoGenZong alloc]init];
     _genzong.delegate=self;
@@ -116,7 +117,7 @@
 
 -(void)afternetwork4:(id)data
 {
-    
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDGENZONGSUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

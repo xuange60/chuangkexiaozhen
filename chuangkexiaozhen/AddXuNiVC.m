@@ -30,6 +30,8 @@
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     
+    [self receiveCurrentViewController:self];
+    
     _XuNi=[[XuNiRuZhuGuanLi alloc]init];
     _XuNi.delegate=self;
     
@@ -78,6 +80,7 @@
 
 -(void)afternetwork2:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"XIUGAIXUNISUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
     

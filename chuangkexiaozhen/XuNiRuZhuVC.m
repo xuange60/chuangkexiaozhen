@@ -171,6 +171,7 @@
 
 -(void)afternetwork3:(id)data
 {
+    [self tiShiKuangDisplay:deleteStr viewController:self];
     [_XuNi XuNiRuZhuGuanLiQuery];
 }
 

@@ -27,6 +27,8 @@
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     [super viewDidLoad];
    
+    [self receiveCurrentViewController:self];
+    
     _array=@[];
     _shiti=[[ShiTiRuZhuGuanLi alloc]init];
     _shiti.delegate=self;

@@ -23,6 +23,8 @@
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     
+    [self receiveCurrentViewController:self];
+    
     /*
      2.18.2 活动报销前查询所有活动，查询审批人，查询申请人
      http://116.228.176.34:9002/chuangke-serve/expense/add
@@ -187,6 +189,7 @@
 -(void)afternetwork4:(id)data
 {
     
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDBAOXIAOSUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

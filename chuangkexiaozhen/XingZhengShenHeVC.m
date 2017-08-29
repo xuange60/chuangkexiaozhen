@@ -71,7 +71,7 @@
     _tuanduiyunying.delegate=self;
     [self query];
     
-
+    [self receiveCurrentViewController:self];
 }
 
 
@@ -96,6 +96,7 @@
 
 -(void) afternetwork7:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

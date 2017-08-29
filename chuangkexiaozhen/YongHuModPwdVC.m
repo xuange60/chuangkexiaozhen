@@ -24,12 +24,10 @@
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     [super viewDidLoad];
     _username.text=[_datas objectNotNullForKey:@"loginName"];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
+    //把当前的viewcontroller传过去
+    [self receiveCurrentViewController:self];
+    
 }
 
 
@@ -45,6 +43,7 @@
 
 -(void) afternetwork7:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"YongHuVC" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

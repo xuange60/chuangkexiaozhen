@@ -29,6 +29,8 @@
     [super viewDidLoad];
     
     
+    [self receiveCurrentViewController:self];
+    
     _ziyuan=[[ZiYuanPeiZhiGuanLi alloc]init];
     _ziyuan.delegate=self;
     [_ziyuan ZiYuanGuanLiDetailQuery:_strID];
@@ -341,7 +343,7 @@
 
 -(void)afternetwork1:(id)data
 {
-    
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"XIUGAIZIYUANSUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

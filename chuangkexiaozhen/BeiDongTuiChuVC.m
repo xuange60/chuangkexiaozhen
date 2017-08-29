@@ -150,12 +150,6 @@
 }
 
 
-
-
-
-
-
-
 - (IBAction)Delete:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches= [event allTouches];
     
@@ -171,6 +165,11 @@
     
     [_beidongtuichu BeiDongTuiChuDelete:ids];
     
+}
+-(void)afternetwork2:(id)data
+{
+    [self tiShiKuangDisplay:deleteStr viewController:self];
+    [self query];
 }
 
 
@@ -208,15 +207,6 @@
     [_beidongtuichu BeiDongTuiChuNo:ids];
     
 }
-
-
-
--(void)afternetwork2:(id)data
-{
-    [self query];
-}
-
-
 -(void)afternetwork3:(id)data
 {
     [self query];

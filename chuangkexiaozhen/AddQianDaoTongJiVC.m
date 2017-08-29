@@ -29,6 +29,9 @@
     _qiandao.delegate=self;
     
     [_qiandao QianDaoTongJiQueryParam];
+    
+    
+    [self receiveCurrentViewController:self];
 }
 
 -(void)afternetwork6:(id)data
@@ -176,7 +179,7 @@
 }
 -(void)afternetwork4:(id)data
 {
-    
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDQIANDAOSUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"%s",__func__);
