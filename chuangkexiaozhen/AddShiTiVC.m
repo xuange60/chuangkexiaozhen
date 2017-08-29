@@ -20,6 +20,11 @@
 }
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"添加答辩";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoClicked:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     [super viewDidLoad];
    
     _array=@[];

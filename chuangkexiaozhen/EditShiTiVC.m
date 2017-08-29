@@ -29,6 +29,11 @@
 
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"实体入驻";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoClick:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     [super viewDidLoad];
     
     

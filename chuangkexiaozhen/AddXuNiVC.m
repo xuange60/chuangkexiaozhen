@@ -25,18 +25,13 @@
     [super viewDidLoad];
     self.navigationItem.title=@"虚拟入驻修改";
     
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(BtnClicked:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
+    
     _XuNi=[[XuNiRuZhuGuanLi alloc]init];
     _XuNi.delegate=self;
-    
-//    _InfoAry=[NSArray arrayWithObjects:
-//              [dic objectNotNullForKey:@"contact"],
-//              [dic objectNotNullForKey:@"contactType"],
-//              [dic objectNotNullForKey:@"companyName"],
-    
-//              [dic objectNotNullForKey:@"coopCategories"],
-//              [dic objectNotNullForKey:@"desc"],
-//              nil];
-
     
     _F1.text=[_infoAry objectAtIndex:0];
     _F2.text=[_infoAry objectAtIndex:1];

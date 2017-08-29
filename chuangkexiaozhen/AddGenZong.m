@@ -15,9 +15,13 @@
 @implementation AddGenZong
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"成果跟踪";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiao:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
+    
     [super viewDidLoad];
-   
-
     _genzong=[[ChengGuoGenZong alloc]init];
     _genzong.delegate=self;
     [_genzong ChengGuoGenZongParamQuery];

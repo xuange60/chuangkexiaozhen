@@ -15,10 +15,16 @@
 @implementation GenZongFuWuAddViewController
 
 - (void)viewDidLoad {
+    self.navigationItem.title=@"反馈意见";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
+    
     [super viewDidLoad];
     self.genzongfuwu=[[GenZongFuWu alloc] init];
     self.genzongfuwu.delegate=self;
-    self.navigationItem.title=@"反馈意见";
+
     // Do any additional setup after loading the view.
 }
 
