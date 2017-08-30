@@ -23,6 +23,8 @@
     [super viewDidLoad];
     _yuangongguanli=[[YuanGongGuanLi alloc] init];
     _yuangongguanli.delegate=self;
+    
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 

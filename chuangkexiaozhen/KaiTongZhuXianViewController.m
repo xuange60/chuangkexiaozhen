@@ -23,6 +23,9 @@
     self.rightbutton.enabled=NO;
 
     [self kaiTongZhuXianQuery];
+    
+    [self receiveCurrentViewController:self];
+    
     // Do any additional setup after loading the view.
 }
 

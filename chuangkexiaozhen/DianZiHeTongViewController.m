@@ -23,6 +23,8 @@
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     _images=[NSMutableArray array];
     _resourceids=[NSMutableString string];
+    
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 

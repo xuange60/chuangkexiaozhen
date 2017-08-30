@@ -30,7 +30,9 @@
                                                                     style:UIBarButtonItemStylePlain target:self action:@selector(backvc)];
     
     self.navigationItem.leftBarButtonItem=leftBtnItem;
-    // Do any additional setup after loading the view.
+    
+//    self.navigationItem.rightBarButtonItem =self.rightbutton;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +55,7 @@
 {
     self.navtitle=title;
 }
+
 -(void)receiveCurrentViewController:(UIViewController*)viewController
 {
     _currentVC=viewController;

@@ -24,6 +24,8 @@
     self.rightbutton.enabled=NO;
 
     [self initWithData];
+    
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
