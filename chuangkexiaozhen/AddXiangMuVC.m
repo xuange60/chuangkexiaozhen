@@ -18,6 +18,11 @@
     [super viewDidLoad];
     
     self.navigationItem.title=@"添加项目管理";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(TiJiaoClick:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
+    
     _mArray=[NSMutableArray array];//保存展示数据
     _Mstr=[NSMutableString string];//用于图片id连接
     
