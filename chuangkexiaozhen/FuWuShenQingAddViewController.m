@@ -24,6 +24,8 @@
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     [super viewDidLoad];
+    
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 

@@ -46,6 +46,7 @@
     }
     [_kaoqinluoji KaiQinLuoJiParamQuery];
 
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
@@ -111,6 +112,7 @@
     NSNumber* num=(NSNumber*)data;
     int result=[num intValue];
     if(1==result){
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"KaoQinLuoJiVC" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }else{

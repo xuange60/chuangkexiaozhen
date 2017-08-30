@@ -24,6 +24,8 @@
     _fakaguanli=[[FaKaGuanli alloc] init];
     _fakaguanli.delegate=self;
     [self queryParam];
+    
+    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
@@ -104,6 +106,8 @@
     NSNumber* num=(NSNumber*)data;
     int result=[num intValue];
     if(1==result){
+        
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"FaKaGuanLiVC" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }else{
@@ -114,14 +118,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

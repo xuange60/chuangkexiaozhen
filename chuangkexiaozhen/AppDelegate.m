@@ -19,26 +19,66 @@
     // Override point for customization after application launch.
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //接入百度地图
+    _mapManager=[[BMKMapManager alloc]init];
+   BOOL isSucceed= [_mapManager start:MapKey generalDelegate:self];
+    if (isSucceed) {
+        NSLog(@"地图接入成功");
+    }else{
+        NSLog(@"地图接入失败");
+    }
+   
+   // 开启定位服务
+    _locaService=[[BMKLocationService alloc]init];
+    _locaService.delegate=self;
+    [_locaService startUserLocationService];
     
     return YES;
 }
+
+
+-(void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    //获取更新位置
+    CLLocation *loca=userLocation.location;
+    CLLocationCoordinate2D coord=loca.coordinate;
+    NSLog(@"%.2f  %.2f",coord.latitude,coord.longitude);
+    
+    //设置中心点和半径
+    CLLocationCoordinate2D centerCoord=CLLocationCoordinate2DMake(22.56, 113.90);
+    double radius=1000;
+    
+    //判断点是否在  以--为中心，--为半径的圆内
+   BOOL isInCiecle=BMKCircleContainsCoordinate(coord, centerCoord, radius);
+    if (isInCiecle) {
+        NSLog(@"在圆内");
+    }else{
+         NSLog(@"未在圆内");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
