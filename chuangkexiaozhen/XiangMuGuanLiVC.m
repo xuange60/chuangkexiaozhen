@@ -154,7 +154,7 @@
     int result=[num intValue];
     
     if (result==1) {
-        
+        [self tiShiKuangDisplay:deleteStr viewController:self];
         [self query];//查询数据
 
     }

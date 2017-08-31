@@ -33,6 +33,7 @@
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
     
+    [self receiveCurrentViewController:self];
 }
 
 
@@ -121,6 +122,7 @@
     int result=[num intValue];
     if (result==1)
     {
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDCHANYEXUESCUUESS" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }

@@ -138,6 +138,7 @@
     int result=[num intValue];
     if (result==1)//删除成功
     {
+        [self tiShiKuangDisplay:deleteStr viewController:self];
         [self query];
     }
     
