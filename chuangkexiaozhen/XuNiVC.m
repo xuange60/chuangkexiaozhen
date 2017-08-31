@@ -19,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"虚拟入驻";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(BtnClicked:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
     // Do any additional setup after loading the view.
 }
 
