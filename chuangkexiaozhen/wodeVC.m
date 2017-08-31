@@ -50,15 +50,15 @@
 //        rank = "***11111";
 //        remark = "";
     
-    _userName.text=[NSString stringWithFormat:@"%@ %@",@"用户名：",[dic objectNotNullForKey:@"loginName"]];
+    _userName.text=[dic objectNotNullForKey:@"loginName"];
     
-     _mobile.text=[NSString stringWithFormat:@"%@ %@",@"手机号码：",[dic objectNotNullForKey:@"mobilePhone"]];
+     _mobile.text=[dic objectNotNullForKey:@"mobilePhone"];
     
-     _email.text=[NSString stringWithFormat:@"%@ %@",@"邮箱：",[dic objectNotNullForKey:@"email"]];
+     _email.text=[dic objectNotNullForKey:@"email"];
     
-    _companyName.text=[NSString stringWithFormat:@"%@ %@",@"公司名称：",[dic objectNotNullForKey:@"companytitle"]];
+    _companyName.text=[dic objectNotNullForKey:@"companytitle"];
     
-    _type.text=[NSString stringWithFormat:@"%@ %@",@"公司类型：",[dic objectNotNullForKey:@"companyType"]];
+    _type.text=[dic objectNotNullForKey:@"companyType"];
 
 }
 
