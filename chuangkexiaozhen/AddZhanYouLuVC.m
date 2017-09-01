@@ -92,6 +92,10 @@
 
 -(void)addData:(id)data
 {
+    
+//    NSDictionary*dic;
+//    [dic setValue:<#(nullable id)#> forKey:<#(nonnull NSString *)#>];
+    
     NSNumber*num=(NSNumber*)data;
     int result=[num intValue];
     
