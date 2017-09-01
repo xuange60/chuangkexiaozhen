@@ -161,6 +161,11 @@
         _btn12.hidden=YES;
     }
 
+    self.navigationItem.title=@"添加";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiao:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+    self.navigationItem.rightBarButtonItem=self.rightbutton;
 
 }
 

@@ -29,32 +29,13 @@
     [super viewDidLoad];
     
     self.navigationItem.title=@"实体入驻";
+    self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(shenQingBtnClick:)];
+    self.rightbutton.tintColor=[UIColor whiteColor];
+    self.rightbutton.enabled=NO;
+
     
      [self shiTiRuZhuQuery];
     
-    
-    _textField1.layer.borderWidth=0.2;
-    _textField1.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
-    
-    _textField2.layer.borderWidth=0.2;
-    _textField2.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
-
-    _textField3.layer.borderWidth=0.2;
-    _textField3.layer.borderColor=[UIColor colorWithRed:242/255 green:241/255 blue:241/255 alpha:1.0].CGColor;
-
-    
-    _view1.layer.cornerRadius=2;
-    _view1.layer.borderWidth=0.2;
-    _view1.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    
-    
-    _view2.layer.cornerRadius=2;
-    _view2.layer.borderWidth=0.2;
-    _view2.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    
-
-    
-    _xuanWenJianBtn.layer.cornerRadius=10;
     
 }
 
@@ -195,7 +176,7 @@
                 
                 _view4.hidden=YES;
                 _view3.hidden=NO;
-                
+                self.navigationItem.rightBarButtonItem=self.rightbutton;
             }else{
                 
                 _textField1.text=[dic objectNotNullForKey:@"contact"];

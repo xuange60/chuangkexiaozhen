@@ -43,8 +43,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *xuanWenJianBtn;
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
 @property (strong, nonatomic) IBOutlet UILabel *jihuashuLab;
-@property (strong, nonatomic) IBOutlet UILabel *tishiLab;
-@property (strong, nonatomic) IBOutlet UIButton *shenqingBtn;
+
+
 
 
 @property (strong, nonatomic) IBOutlet UIButton *btn3;
