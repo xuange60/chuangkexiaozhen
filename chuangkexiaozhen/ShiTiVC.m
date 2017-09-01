@@ -35,7 +35,7 @@
 
     
      [self shiTiRuZhuQuery];
-    
+    [self receiveCurrentViewController:self];
     
 }
 

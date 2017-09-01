@@ -167,6 +167,7 @@
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
 
+    [self receiveCurrentViewController:self];
 }
 
 -(void)afternetwork6:(id)data
@@ -359,6 +360,7 @@
 
 -(void)afternetwork4:(id)data
 {
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"COMMONVCADDSUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
     

@@ -29,6 +29,8 @@
     _fuHua=[[FuHusChengZhangGuanLi alloc]init];
     _fuHua.delegate=self;
     
+    
+    [self receiveCurrentViewController:self];
 }
 
 - (IBAction)ShangChuan:(id)sender {
@@ -92,6 +94,7 @@
     
     if (result==1)
     {
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDRENYUANJIEGOUSUCCESS" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }

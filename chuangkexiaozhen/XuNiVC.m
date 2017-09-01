@@ -24,6 +24,9 @@
     self.rightbutton.enabled=NO;
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     // Do any additional setup after loading the view.
+    
+    
+    [self receiveCurrentViewController:self];
 }
 
 - (IBAction)duoxianBtnClick2:(id)sender {
