@@ -15,13 +15,15 @@
 #import "AFHTTPSessionManager.h"
 #import "MainViewController.h"
 #import "CommNetWork.h"
+#import "MBProgressHUD.h"
+
 @interface ViewController : UIViewController<UITextFieldDelegate>
 
 
 
 
 
-@property (strong, nonatomic) IBOutlet UIButton *youke;
+
 @property (strong, nonatomic) IBOutlet UITextField *username;
 
 @property (strong, nonatomic) IBOutlet UITextField *pwd;
@@ -31,7 +33,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *login;
 
 
-
+@property (strong,nonatomic) MBProgressHUD* HUD;
 
 
 @end

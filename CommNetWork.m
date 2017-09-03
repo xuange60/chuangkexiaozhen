@@ -452,6 +452,8 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?name=%@",baseurl,@"/getuserinfo",name];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.userinfo"];
     
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];

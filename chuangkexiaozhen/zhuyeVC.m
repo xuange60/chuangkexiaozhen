@@ -160,19 +160,49 @@
 - (IBAction)btnclick:(id)sender {
     UIButton* btn=(UIButton*)sender;
     NSString* data=btn.titleLabel.text;
-    NSLog(@"%@,%@",@"click",data);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* logindata=[defaults objectForKey:@"chuangkexiaozhen.login"];
+    BOOL isLogin=NO;
+    if(logindata!=nil && [(NSString*)[logindata objectForKey:@"login"] isEqualToString:@"Y"]){
+        isLogin=YES;
+    }
     
     if([data isEqualToString:@"实体入驻"]){
+        if(!isLogin){
+            UIStoryboard*board=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewController*vc=[board instantiateViewControllerWithIdentifier:@"ViewController"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+            [self presentViewController:vc animated:YES completion:nil];
+            return;
+        }
         NSLog(@"%@ 按钮被点击",data);
         UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
         ShiTiVC*vc=[storyboard instantiateViewControllerWithIdentifier:@"ShiTiVC"];
         [self.navigationController pushViewController:vc animated:YES];
     }else if([data isEqualToString:@"虚拟入驻"]){
+        if(!isLogin){
+            UIStoryboard*board=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewController*vc=[board instantiateViewControllerWithIdentifier:@"ViewController"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+            [self presentViewController:vc animated:YES completion:nil];
+            return;
+        }
         NSLog(@"%@ 按钮被点击",data);
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
         XuNiVC*vc=[board instantiateViewControllerWithIdentifier:@"XuNiVC"];
         [self.navigationController pushViewController:vc animated:YES];
     }else if([data isEqualToString:@"文档下载"]){
+        if(!isLogin){
+            UIStoryboard*board=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewController*vc=[board instantiateViewControllerWithIdentifier:@"ViewController"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+            [self presentViewController:vc animated:YES completion:nil];
+            return;
+        }
         NSLog(@"%@ 按钮被点击",data);
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"MyStoryboard1" bundle:nil];
         WenDangVC*vc=[board instantiateViewControllerWithIdentifier:@"WenDangVC"];

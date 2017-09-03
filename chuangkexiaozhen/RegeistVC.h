@@ -8,19 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomButton.h"
-@interface RegeistVC : UIViewController<UITextFieldDelegate>
+#import "MBProgressHUD.h"
+#import "CommNetWork.h"
+@interface RegeistVC : UIViewController<UITextFieldDelegate,BussinessApiDelegate>
 
 
 @property(nonatomic,strong)NSTimer*timer;
 @property(nonatomic)int i;
 @property(nonatomic,strong)UIGestureRecognizer*ges;
 
-
+@property (strong,nonatomic) MBProgressHUD* HUD;
 
 
 @property (strong, nonatomic) IBOutlet CustomButton *yzmBtn;
 
-@property (strong, nonatomic) IBOutlet UIButton *xzlxBtn;
+
 @property (strong, nonatomic) IBOutlet UIButton *zhuceBtn;
 
 @property (strong, nonatomic) IBOutlet UITextField *username;
@@ -33,12 +35,17 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *usertype;
 
-- (IBAction)yzmBtnClick:(id)sender;
+
 
 - (IBAction)zhuceBtnClick:(id)sender;
 
 
+@property (nonatomic) BOOL checkname;
+@property (nonatomic) BOOL checkphone;
 
 
+@property (nonatomic,strong) CommNetWork* comnetwork;
+
+@property (nonatomic,strong) NSDictionary* typeindexs;
 
 @end

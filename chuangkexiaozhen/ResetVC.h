@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BussinessApi.h"
+#import "CustomButton.h"
+#import  "MBProgressHUD.h"
 @interface ResetVC : UIViewController<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *userName;
 
@@ -17,11 +19,18 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *pwd;
 
+@property (strong, nonatomic) IBOutlet UITextField *pwd2;
+@property (strong, nonatomic) IBOutlet CustomButton *yzmBtn;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *zhuceBtn;
 
+@property(nonatomic,strong)NSTimer*timer;
+@property(nonatomic)int i;
+@property(nonatomic,strong)UIGestureRecognizer*ges;
 
+@property (strong,nonatomic) MBProgressHUD* HUD;
 
-
+@property (nonatomic) BOOL check;
 
 @end

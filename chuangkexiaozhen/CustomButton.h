@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomButton : UIView
+@interface CustomButton : UIControl
 
 @property(nonatomic,strong)UILabel*lab1;
 @property(nonatomic,strong)UILabel*lab2;
 
--(void)clicked:(CustomButton*)btn;
 -(void)setContent:(NSString*)str   attributeStr:(NSString*)string;
 
 

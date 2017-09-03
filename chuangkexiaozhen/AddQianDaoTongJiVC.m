@@ -163,12 +163,15 @@
 
     [_dicM objectForKey:@"roadshows"];
     
-    NSString *ss=[NSString string];
+    __block NSMutableString *ss=[NSMutableString string];
     
     [_dicM enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         
         if ([key isEqualToString:_huodongBtn.currentTitle]) {
-          __block ss=(NSString*)obj;
+            if([ss length]>0){
+                [ss appendString:@""];
+            }
+            [ss appendString:((NSString*)obj)];
         }
     }];
     

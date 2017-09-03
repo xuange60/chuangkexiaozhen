@@ -46,6 +46,7 @@
     if([viewControllersr count]<=2){
         [self.navigationController setNavigationBarHidden:YES];
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
     [self.navigationController popViewControllerAnimated:YES];
     

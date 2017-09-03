@@ -27,13 +27,23 @@
     self.username.returnKeyType = UIReturnKeyDone;
     self.pwd.delegate=self;
     self.pwd.returnKeyType = UIReturnKeyDone;
+
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+    NSLog(@"%@", path);
+    
+    self.pwd.text=@"";
     
     CommNetWork* comm=[[CommNetWork alloc] init];
     [comm getBaseUrl];
+
 }
 - (IBAction)loginClick:(id)sender {
+    
     NSString* namestr=self.username.text;
     NSString* pwdstr=self.pwd.text;
+    if(namestr==nil || namestr.length<1 || pwdstr==nil || pwdstr.length<1){
+        return;
+    }
     [self loginWithName:namestr andPwd:pwdstr];
     
 }
@@ -59,10 +69,11 @@
     }
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.userinfo"];
     [defaults setObject:nil forKey:@"chuangkexiaozhen.cookie"];
     [defaults setObject:nil forKey:@"chuangkexiaozhen.zhujiemian"];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.login"];
     [defaults synchronize];
-    
     
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -75,30 +86,17 @@
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
         
-        CommNetWork* comnetwork=[[CommNetWork alloc] init];
-        [comnetwork getUserinfo:name];
-        
         if([contenttype containsString:@"json"])
         {//返回json格式数据
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             if(0==result){
                 NSLog(@"%@",@"用户名或密码错误"); //登陆失败
-                /**
-                 *登陆失败提示
-                 */
-                
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"用户名或密码错误，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                
-                [alertCon addAction:action1];
-                [alertCon addAction:action2];
-                
-                [self presentViewController:alertCon animated:YES completion:nil];
-            
+                [self tiShiKuangDisplay:@"登陆失败" viewController:self];
             }
         }else if([contenttype containsString:@"html"]){ //登陆成功
+            CommNetWork* comnetwork=[[CommNetWork alloc] init];
+            [comnetwork getUserinfo:name];
             //保存cookies
             NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -153,31 +151,25 @@
             }
             
             [defaults setObject:datas forKey:@"chuangkexiaozhen.zhujiemian"];
+            NSMutableDictionary* login=[NSMutableDictionary dictionary];
+            [login setObject:name forKey:@"name"];
+            [login setObject:pwd forKey:@"pwd"];
+            [login setObject:@"Y" forKey:@"login"];
+            [defaults setObject:login forKey:@"chuangkexiaozhen.login"];
             
             NSData *data = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];
             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);//datas包含了主界面相关数据
             
-
-            
             UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
             MainViewController* mainViewController=[storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-
+            [mainViewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
             [self presentViewController:mainViewController animated:YES completion:nil];
-            /**
-             *登陆成功界面显示
-             */
+            [self tiShiKuangDisplay:@"登陆成功" viewController:self];
             
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
-        //登陆失败 界面提示       网络发送失败信息提示？？？？
-        
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"网络请求发送失败，请等待网络恢复" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-        [alertCon addAction:action2];
-        [self presentViewController:alertCon animated:YES completion:nil];
-        
     }];
 }
 
@@ -188,13 +180,36 @@
 
 
 
+-(void)tiShiKuangDisplay:(NSString*)text viewController:(UIViewController*)vc;
+{
+    _HUD=[[MBProgressHUD alloc]initWithView:vc.view];
+    [vc.view  addSubview:_HUD];
+    
+    _HUD.mode=MBProgressHUDModeText;
+    _HUD.labelText=text;
+    _HUD.margin=10;
+    _HUD.yOffset=vc.view.center.y-100;
+    [_HUD show:YES];
+    [_HUD hide:YES afterDelay:1];
+    
+}
 
 
 
 
-
-
-
+- (IBAction)youke:(id)sender {
+    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MainViewController* mainViewController=[storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.userinfo"];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.cookie"];
+    NSArray* initdata=@[@{@"初始申请":@[@"实体入驻",@"虚拟入驻",@"文档下载"]}];
+    [defaults setObject:initdata forKey:@"chuangkexiaozhen.zhujiemian"];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.login"];
+    [defaults synchronize];
+    [mainViewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:mainViewController animated:YES completion:nil];
+}
 
 
 

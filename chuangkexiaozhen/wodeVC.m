@@ -65,6 +65,12 @@
 
 
 - (IBAction)tuichuClick:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.userinfo"];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.cookie"];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.zhujiemian"];
+    [defaults setObject:nil forKey:@"chuangkexiaozhen.login"];
+    [defaults synchronize];
     UIStoryboard*board=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController*vc=[board instantiateViewControllerWithIdentifier:@"ViewController"];
     
