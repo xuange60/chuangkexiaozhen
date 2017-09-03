@@ -28,7 +28,7 @@
     _photosIDS=[NSString string];
     _fuHua=[[FuHusChengZhangGuanLi alloc]init];
     _fuHua.delegate=self;
-    
+    [self paramsQuery:@"/market/tax/new"];
     [self receiveCurrentViewController:self];
 }
 
@@ -88,7 +88,8 @@
      */
     
     [dic setNotNullStrObject:_btn2Title.currentTitle forKey:@"dateType"];
-    [dic setNotNullStrObject:_btn3Title.currentTitle forKey:@"taxLevel"];
+    
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"taxLevel"] objectNotNullForKey:_btn3Title.currentTitle] forKey:@"taxLevel"];
     
     [dic setNotNullStrObject:_jinE.text forKey:@"taxPrice"];
     

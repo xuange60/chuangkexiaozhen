@@ -34,6 +34,7 @@
     _api.delegate=self;
     
     [self receiveCurrentViewController:self];
+    [self paramsQuery:@"/cooperatorunitInfo/add"];
 }
 
 
@@ -108,8 +109,9 @@
         [dic  setNotNullStrObject:_name.text forKey:@"name"];
         [dic setNotNullStrObject:_effct.text forKey:@"effect"];
         [dic setNotNullStrObject:_money.text forKey:@"money"];
-        [dic setNotNullStrObject:_moneyLevel.currentTitle forKey:@"moneyLevel"];
-        [dic setNotNullStrObject:_jiGouLevel.currentTitle forKey:@"level"];
+        
+        [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"moneyLevel"] objectNotNullForKey:_moneyLevel.currentTitle] forKey:@"moneyLevel"];
+        [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"level"] objectNotNullForKey:_jiGouLevel.currentTitle] forKey:@"level"];
         [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
         [_api chanXueYanSubmit:dic];

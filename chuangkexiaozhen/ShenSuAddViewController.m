@@ -84,18 +84,13 @@
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             if(1==result){
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申诉申请已提交" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self tiShiKuangDisplay:@"提交成功" viewController:self];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ShenSuViewController" object:nil];
+                [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }];
-                [alertCon addAction:action2];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"ShenSuViewController" object:nil];
-                [self presentViewController:alertCon animated:YES completion:nil];
             }else{
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申诉申请提交失败" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                [self tiShiKuangDisplay:@"提交失败" viewController:self];
             }
             
         }

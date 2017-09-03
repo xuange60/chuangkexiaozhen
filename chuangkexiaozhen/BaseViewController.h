@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BussinessApi.h"
 #import "MBProgressHUD.h"
+#import "CommNetWork.h"
 @interface BaseViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>
 
 @property(nonatomic,strong)MBProgressHUD*HUD;
@@ -27,5 +28,9 @@
 
 @property(nonatomic,strong)UIViewController*currentVC;
 
+
+@property (nonatomic,strong) NSDictionary* tmpparams;
+
+-(void)paramsQuery:(NSString*)url;
 
 @end

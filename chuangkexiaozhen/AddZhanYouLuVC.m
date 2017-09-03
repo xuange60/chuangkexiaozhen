@@ -28,7 +28,7 @@
     _photosIDS=[NSString string];
     _fuHua=[[FuHusChengZhangGuanLi alloc]init];
     _fuHua.delegate=self;
-    
+    [self paramsQuery:@"/market/market/new"];
     [self receiveCurrentViewController:self];
 }
 
@@ -76,8 +76,7 @@
      
      */
     
-   
-    [dic setNotNullStrObject:_btn3Title.currentTitle forKey:@"percentLevel"];
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"percentLevel"] objectNotNullForKey:_btn3Title.currentTitle] forKey:@"percentLevel"];
     [dic setNotNullStrObject:_xifenshichang.text forKey:@"marketDetail"];
     [dic setNotNullStrObject:_zhanyoulu.text forKey:@"marketPercent"]; //录入数据时，20%要输如20
     [dic setNotNullStrObject:_renzhengjigou.text forKey:@"organizationName"];

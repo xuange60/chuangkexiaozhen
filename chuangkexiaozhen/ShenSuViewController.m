@@ -149,17 +149,11 @@
             
             //result: 1,提交成功 不等于1,提交
             if(1==result){
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申诉申请已删除" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    [self shenSuShenQingQuery];
-                }];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                [self tiShiKuangDisplay:@"删除成功" viewController:self];
+                [self shenSuShenQingQuery];
             }else{
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申诉申请删除失败" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                [self tiShiKuangDisplay:@"删除失败" viewController:self];
+                [self shenSuShenQingQuery];
             }
             
         }

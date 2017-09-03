@@ -14,7 +14,7 @@
 //5.7 的文档下载
 -(void) chushishenqingFileDownload:(NSString*)resourceid
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/down"];
@@ -146,7 +146,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 */
 -(void)XiaoShouHeTongQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/sale/search?start=0&length=1000"];
@@ -220,20 +220,9 @@ saleBenefit
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c4364c1ac54a5ee9d6cf",@"一级合作方",@"58c7c4364c1ac54a5ee9d6d0",@"二级合作方",@"58c7c4364c1ac54a5ee9d6d1",@"三级合作方", nil];
-    NSString* value=[parameters objectForKey:@"partnerLevel"];
-    [parameters setObject: [types objectForKey:value] forKey:@"partnerLevel"];
+
     
-    NSDictionary* types1=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c7324c1a83778c59df76",@"1万",@"58c7c7324c1a83778c59df77",@"10万",@"58c7c7324c1a83778c59df78",@"50万",@"58c7c7324c1a83778c59df79",@"100万",@"58c7c7324c1a83778c59df7a",@"200万",@"58c7c7324c1a83778c59df7b",@"500万",@"58c7c7324c1a83778c59df7c",@"1000万",@"58c7c7324c1a83778c59df7d",@"10000万", nil];
-    NSString* value1=[parameters objectForKey:@"saleMoney"];
-    [parameters setObject: [types1 objectForKey:value1] forKey:@"saleMoney"];
-    
-    NSDictionary* types2=[NSDictionary dictionaryWithObjectsAndKeys:@"594b2a07d8937c61240af528",@"100元级别",@"594b2a93d8937c61240af52a",@"1000元级别",@"594b2aa0d8937c61240af52c",@"10000元级别",@"594b2b0ad8937c61240af52e",@"100000元级别", nil];
-    NSString* value2=[parameters objectForKey:@"saleBenefit"];
-    [parameters setObject: [types2 objectForKey:value2] forKey:@"saleBenefit"];
-    
-    
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/sale/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -267,7 +256,7 @@ saleBenefit
 */
 -(void)XiaoShouHeTongDelete:(NSString *)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/market/sale/deleteAll",ids];
@@ -306,7 +295,7 @@ saleBenefit
 
 -(void)XiaoShouHeTongFileQuery:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
@@ -348,7 +337,7 @@ saleBenefit
 */
 -(void)XiaoShouHeTongFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
@@ -390,7 +379,7 @@ saleBenefit
  */
 -(void)NaShuiGuanLiQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/tax/search?start=0&length=1000"];
@@ -443,12 +432,9 @@ saleBenefit
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* types2=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c76a4c1aa99f4a904e8a",@"1000元级别",@"58c7c76a4c1aa99f4a904e8b",@"5000元级别",@"58c7c76a4c1aa99f4a904e8c",@"10000元级别",@"58c7c76a4c1aa99f4a904e8d",@"100000元级别",@"58c7c76a4c1aa99f4a904e8e",@"500000元级别", nil];
-    NSString* value2=[parameters objectForKey:@"taxLevel"];
-    [parameters setObject: [types2 objectForKey:value2] forKey:@"taxLevel"];
     
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/tax/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -478,7 +464,7 @@ saleBenefit
  */
 -(void)NaShuiGuanLiDelete:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/market/tax/deleteAll",ids];
@@ -512,7 +498,7 @@ saleBenefit
  */
 -(void)NaShuiGuanLiFileQuery:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
@@ -550,7 +536,7 @@ saleBenefit
  */
 -(void)NaShuiGuanLiFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
@@ -591,7 +577,7 @@ saleBenefit
  :"云创智能科技有限公司"}]*/
 -(void)ShiChangZhanYouQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/market/search?start=0&length=1000"];
@@ -644,12 +630,9 @@ saleBenefit
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* types2=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c79c4c1a0ef1bf3d5749",@"占有率级别5%",@"58c7c79c4c1a0ef1bf3d574a",@"占有率级别20%",@"58c7c79c4c1a0ef1bf3d574b",@"占有率级别50%",@"58c7c79c4c1a0ef1bf3d574c",@"占有率级别80%", nil];
-    NSString* value2=[parameters objectForKey:@"percentLevel"];
-    [parameters setObject: [types2 objectForKey:value2] forKey:@"percentLevel"];
     
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/market/market/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -679,7 +662,7 @@ saleBenefit
  */
 -(void)ShiChangZhanYouDelete:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/market/market/deleteAll",ids];
@@ -718,7 +701,7 @@ saleBenefit
  */
 -(void)ShiChangZhanYouFileQuery:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
@@ -756,7 +739,7 @@ saleBenefit
  */
 -(void)ShiChangZhanYouFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];
@@ -800,7 +783,7 @@ saleBenefit
 
 -(void)RenYuanJieGouQuery
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/personaldistribution/search?start=0&length=1000"];
@@ -852,7 +835,7 @@ saleBenefit
     [parameters addEntriesFromDictionary:param];
     
     
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/personaldistribution/save"];
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
@@ -884,7 +867,7 @@ saleBenefit
  */
 -(void)RenYuanJieGouDelete:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@?ids=%@",baseurl,@"/personaldistribution/batchdelete",ids];
@@ -920,7 +903,7 @@ saleBenefit
  */
 -(void)RenYuanJieGouFileQuery:(NSString*)ids
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/downlist/search"];
@@ -957,7 +940,7 @@ saleBenefit
  */
 -(void)RenYuanJieGouFileDelete:(NSString*)resourceid withEntityId:(NSString*) entityId
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/resource/delete"];

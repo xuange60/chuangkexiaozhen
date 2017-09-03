@@ -30,7 +30,7 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
-    
+    [self paramsQuery:@"/knowledge/add"];
     [self receiveCurrentViewController:self];
 }
 
@@ -83,7 +83,8 @@
     
     [dic  setNotNullStrObject:_name.text forKey:@"name"];
     [dic setNotNullStrObject:_biMa.text forKey:@"code"];
-    [dic setNotNullStrObject:_leiBieBtn.currentTitle forKey:@"type"];
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"type"] objectNotNullForKey:_leiBieBtn.currentTitle] forKey:@"type"];
+
     [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
     [_api zhuanYeZhiShiSubmit:dic];

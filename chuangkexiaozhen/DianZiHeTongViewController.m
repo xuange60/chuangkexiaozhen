@@ -24,7 +24,6 @@
     _images=[NSMutableArray array];
     _resourceids=[NSMutableString string];
     
-    [self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 
@@ -115,7 +114,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyyMMddHHmmss";
     NSString *str = [formatter stringFromDate:[NSDate date]];
-    NSString *fileName = [NSString stringWithFormat:@"文件上传_%@.%@", str,type];
+    NSString *fileName = [NSString stringWithFormat:@"电子合同文件_%@.%@", str,type];
     NSLog(@"%@",fileName);
     
     NSDictionary *dict =[NSDictionary dictionary];
@@ -153,7 +152,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
         [string appendString:@","];
         [string appendString:ResourceId];
     }
-   
+    if(![self.rightbutton isEnabled]){
+        self.rightbutton.enabled=YES;
+    }
+
   //  NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:index],@"index",@"100%",@"progressstr", nil];
  //   [self performSelectorOnMainThread:@selector(refreshProgress:) withObject:param waitUntilDone:NO];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -214,18 +216,14 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
             
-            if(1==result){
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"电子合同已提交" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (result==1) {
+                [self tiShiKuangDisplay:@"提交成功" viewController:self];
+                [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                
             }else{
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"电子合同提交失败" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                [self tiShiKuangDisplay:@"提交失败" viewController:self];
             }
             
         }

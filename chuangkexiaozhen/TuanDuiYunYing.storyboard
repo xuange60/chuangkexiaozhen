@@ -476,9 +476,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="262" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nmg-97-h35">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="262" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nmg-97-h35">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.953205406665802" green="0.95065528154373169" blue="0.96887677907943726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liugeCommonCell" rowHeight="262" id="NRm-SY-QbG" customClass="liugeCommonCell">
@@ -737,6 +736,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Nmg-97-h35" secondAttribute="trailing" id="B8m-Mz-Ced"/>
+                            <constraint firstItem="i5J-ia-dkt" firstAttribute="top" secondItem="Nmg-97-h35" secondAttribute="bottom" id="UMb-Jy-raz"/>
+                            <constraint firstItem="Nmg-97-h35" firstAttribute="top" secondItem="6dm-ep-Xx2" secondAttribute="top" id="lLc-bh-iaF"/>
+                            <constraint firstItem="Nmg-97-h35" firstAttribute="leading" secondItem="6dm-ep-Xx2" secondAttribute="leading" id="tDe-T2-wmm"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Nmg-97-h35" id="deD-IC-EXf"/>
@@ -1364,18 +1369,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场人员占比" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLd-gw-tdd">
-                                <rect key="frame" x="16" y="186" width="85" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场人员占比(%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLd-gw-tdd">
+                                <rect key="frame" x="16" y="186" width="105" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="9v1-PW-FfU"/>
-                                    <constraint firstAttribute="width" constant="85" id="wLO-J8-I4n"/>
+                                    <constraint firstAttribute="width" constant="105" id="wLO-J8-I4n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-xb-nIg">
-                                <rect key="frame" x="104" y="180" width="200" height="28"/>
+                                <rect key="frame" x="124" y="180" width="200" height="28"/>
                                 <color key="backgroundColor" red="0.99991267920000004" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="mCs-oz-DhQ"/>
@@ -1427,18 +1432,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="技术人员占比" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-7O-M3T">
-                                <rect key="frame" x="16" y="271" width="85" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="技术人员占比(%)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-7O-M3T">
+                                <rect key="frame" x="16" y="271" width="100" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="58U-Gx-LIz"/>
-                                    <constraint firstAttribute="width" constant="85" id="KDf-cG-51h"/>
+                                    <constraint firstAttribute="width" constant="100" id="KDf-cG-51h"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d20-54-0aO">
-                                <rect key="frame" x="104" y="265" width="200" height="28"/>
+                                <rect key="frame" x="119" y="265" width="200" height="28"/>
                                 <color key="backgroundColor" red="0.99991267920000004" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="QNk-Qp-JVM"/>
@@ -1470,7 +1475,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8lr-PE-ANa">
-                                <rect key="frame" x="104" y="349" width="200" height="28"/>
+                                <rect key="frame" x="119" y="349" width="200" height="28"/>
                                 <color key="backgroundColor" red="0.99991267920000004" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="5BV-J9-8aF"/>
@@ -1490,10 +1495,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="运营人员占比" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KD-gV-ejR">
-                                <rect key="frame" x="16" y="354" width="85" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="运营人员占比(%)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KD-gV-ejR">
+                                <rect key="frame" x="16" y="354" width="100" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="IwL-eY-29v"/>
+                                    <constraint firstAttribute="width" constant="100" id="IwL-eY-29v"/>
                                     <constraint firstAttribute="height" constant="17" id="cZ8-eU-gGf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>

@@ -115,7 +115,7 @@
 
 -(void)addTouRongZiData:(NSDictionary*)param
 {
-    NSString* baseurl=@"http://116.228.176.34:9002/chuangke-serve";
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/investmentandfinancing/save"];
     
     NSString* investmentAmount=[param objectNotNullForKey:@"investmentAmount"];

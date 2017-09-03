@@ -33,6 +33,7 @@
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
     
+    [self paramsQuery:@"/activity/add"];
     [self receiveCurrentViewController:self];
 }
 
@@ -87,7 +88,8 @@
     [dic  setNotNullStrObject:_activeName.text forKey:@"name"];
     [dic setNotNullStrObject:_renShu.text forKey:@"participant"];
     [dic setNotNullStrObject:_danWei.text forKey:@"sponsor"];
-    [dic setNotNullStrObject:_activeLevelBtn.currentTitle forKey:@"activityLevel"];
+    
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"activityLevel"] objectNotNullForKey:_activeLevelBtn.currentTitle] forKey:@"activityLevel"];
     [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
     [_api huoDongSubmitNew:dic];

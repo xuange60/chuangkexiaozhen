@@ -29,7 +29,7 @@
     _photosIDS=[NSString string];
     _fuHua=[[FuHusChengZhangGuanLi alloc]init];
     _fuHua.delegate=self;
-    
+    [self paramsQuery:@"/market/sale/new"];
     [self receiveCurrentViewController:self];
 }
 
@@ -97,11 +97,13 @@
      金额级别 saleMoney 58c7c7324c1a83778c59df76
      社会效益 societyBenefit 100
 */
-    [dic setNotNullStrObject:_name.text forKey:@"pactName"];
-    [dic setNotNullStrObject:_btn1Title.currentTitle forKey:@"partnerLevel"];
+    [dic setNotNullStrObject:_name.text forKey:@"pactName"];    
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"partnerLevel"] objectNotNullForKey:_btn1Title.currentTitle] forKey:@"partnerLevel"];
+    
     [dic setNotNullStrObject:_jinE.text forKey:@"partnerPrice"];
-    [dic setNotNullStrObject:_btn3Title.currentTitle forKey:@"saleBenefit"];
-    [dic setNotNullStrObject:_btn2Title.currentTitle forKey:@"saleMoney"];
+    
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"saleBenefit"] objectNotNullForKey:_btn3Title.currentTitle] forKey:@"saleBenefit"];
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"saleMoney"] objectNotNullForKey:_btn2Title.currentTitle] forKey:@"saleMoney"];
     [dic setNotNullStrObject:_xiaoYi.text forKey:@"societyBenefit"];
     [dic setNotNullStrObject:_photosIDS forKey:@"arrivalResourceIds"];
     [dic setNotNullStrObject:@"" forKey:@"benefitResourceIds"];

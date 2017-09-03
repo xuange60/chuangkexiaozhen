@@ -31,7 +31,7 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
-    
+    [self paramsQuery:@"/award/add"];
     [self receiveCurrentViewController:self];
 }
 
@@ -84,7 +84,8 @@
     
     [dic  setNotNullStrObject:_name.text forKey:@"name"];
     [dic setNotNullStrObject:_biMa.text forKey:@"code"];
-    [dic setNotNullStrObject:_levelBtn.currentTitle forKey:@"awardLevel"];
+    
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"awardLevel"] objectNotNullForKey:_levelBtn.currentTitle] forKey:@"awardLevel"];
     [dic setNotNullStrObject:_danWei.text forKey:@"awardunit"];
     
     [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];

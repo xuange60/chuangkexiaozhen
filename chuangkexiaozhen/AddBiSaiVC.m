@@ -32,6 +32,7 @@
     _api.delegate=self;
     
     [self receiveCurrentViewController:self];
+    [self paramsQuery:@"/competition/add"];
 }
 
 // 比赛级别选择的事件处理
@@ -111,8 +112,10 @@
     [dic setNotNullStrObject:_rongyuName.text forKey:@"hornerName"];
     [dic setNotNullStrObject:_zuzhijigouName.text forKey:@"orgnizationUnit"];
     [dic setNotNullStrObject:_ownerCompetition.currentTitle forKey:@"ownerCompetition"];
-    [dic setNotNullStrObject:_CompleteLevelBtn.currentTitle forKey:@"competeLevel"];
-    [dic setNotNullStrObject:_prizeAwardsBtn.currentTitle forKey:@"prizeAwarded"];
+    
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"competeLevel"] objectNotNullForKey:_CompleteLevelBtn.currentTitle] forKey:@"competeLevel"];
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"prizeAwarded"] objectNotNullForKey:_prizeAwardsBtn.currentTitle] forKey:@"prizeAwarded"];
+    
     [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];
     
     [_api biSaiGuanLiSubmit:dic];

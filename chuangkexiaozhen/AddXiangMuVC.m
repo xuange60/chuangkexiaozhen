@@ -31,6 +31,7 @@
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
     
+    [self paramsQuery:@"/project/add"];
     [self receiveCurrentViewController:self];
 }
 
@@ -83,7 +84,9 @@
     
     [dic  setNotNullStrObject:_name.text forKey:@"name"];
     [dic setNotNullStrObject:_biMa.text forKey:@"code"];
-    [dic setNotNullStrObject:_levelBtn.currentTitle forKey:@"projectLevel"];
+    
+    [dic setNotNullStrObject:[(NSDictionary*)[self.tmpparams objectForKey:@"projectLevel"] objectNotNullForKey:_levelBtn.currentTitle] forKey:@"projectLevel"];
+        
     [dic setNotNullStrObject:_danWei.text forKey:@"competentunit"];
     
     [dic setNotNullStrObject:_photosIDS forKey:@"resourceIds"];

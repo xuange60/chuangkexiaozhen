@@ -964,13 +964,6 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* competeLevels=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c2114c1a48b6fd96506a",@"国家级比赛",@"58c7c2114c1a48b6fd96506b",@"省部级比赛",@"58c7c2114c1a48b6fd96506c",@"区县级比赛",@"58c7c2114c1a48b6fd96506d",@"一般比赛", nil];
-    NSString* value=[parameters objectForKey:@"competeLevel"];
-    [parameters setObject: [competeLevels objectForKey:value] forKey:@"competeLevel"];
-    
-    NSDictionary* prizeAwardeds=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c3c44c1ae760f68a1013",@"一等奖",@"58c7c3c44c1ae760f68a1014",@"二等奖",@"58c7c3c44c1ae760f68a1015",@"三等奖", nil];
-    NSString* value2=[parameters objectForKey:@"prizeAwarded"];
-    [parameters setObject: [prizeAwardeds objectForKey:value2] forKey:@"prizeAwarded"];
     
     NSDictionary* ownerCompetitions=[NSDictionary dictionaryWithObjectsAndKeys:@"true",@"是",@"false",@"否", nil];
     NSString* value3=[parameters objectForKey:@"ownerCompetition"];
@@ -1166,13 +1159,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* levels=[NSDictionary dictionaryWithObjectsAndKeys:@"5879d94ea5a121dff6b57a5d",@"合作机构一级",@"58be68b9cfdfdf03086a8833",@"合作机构三级",@"58c7c57bce7229367c55853e",@"合作机构二级", nil];
-    NSString* value=[parameters objectForKey:@"level"];
-    [parameters setObject: [levels objectForKey:value] forKey:@"level"];
-    
-    NSDictionary* moneyLevels=[NSDictionary dictionaryWithObjectsAndKeys:@"58be6e1a769052b56d66e91e",@"1万元以下",@"58be6e54769052b56d66e91f",@"10万元",@"58be6e72cfdfdf03086a8835",@"100万元", nil];
-    NSString* value2=[parameters objectForKey:@"moneyLevel"];
-    [parameters setObject: [moneyLevels objectForKey:value2] forKey:@"moneyLevel"];
+
     
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/cooperatorunitInfo/save"];
@@ -1440,9 +1427,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* activityLevels=[NSDictionary dictionaryWithObjectsAndKeys:@"5879d979a5a121dff6b57a5f",@"省市级活动",@"5879d983a5a121dff6b57a60",@"区县级活动",@"58de163d19eb91a825cd816c",@"园区镇街道活动", nil];
-    NSString* value=[parameters objectForKey:@"activityLevel"];
-    [parameters setObject: [activityLevels objectForKey:value] forKey:@"activityLevel"];
+
     
     
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
@@ -1724,9 +1709,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58be754fcfdfdf03086a8837",@"软件著作权",@"58be756fcfdfdf03086a8839",@"集成电路布图设计",@"58be7588cfdfdf03086a883b",@"商标",@"58be75a9cfdfdf03086a883d",@"实用新型专利",@"58be75c8cfdfdf03086a883f",@"发明专利",@"58be75e3cfdfdf03086a8841",@"文学著作权", nil];
-    NSString* value=[parameters objectForKey:@"type"];
-    [parameters setObject: [types objectForKey:value] forKey:@"type"];
+
     
     
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
@@ -1914,9 +1897,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c6c24c1a3bea9c268d9d",@"国家级",@"58c7c6c24c1a3bea9c268d9e",@"省部级",@"58c7c6c24c1a3bea9c268d9f",@"区县级",@"58c7c6c24c1a3bea9c268da0",@"一般", nil];
-    NSString* value=[parameters objectForKey:@"projectLevel"];
-    [parameters setObject: [types objectForKey:value] forKey:@"projectLevel"];
+
     
     
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
@@ -2106,9 +2087,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     [parameters addEntriesFromDictionary:param];
-    NSDictionary* types=[NSDictionary dictionaryWithObjectsAndKeys:@"58c7c7094c1a775d6de79f72",@"一级奖励",@"58c7c7094c1a775d6de79f73",@"二级奖励",@"58c7c7094c1a775d6de79f74",@"三级奖励", nil];
-    NSString* value=[parameters objectForKey:@"awardLevel"];
-    [parameters setObject: [types objectForKey:value] forKey:@"awardLevel"];
+
     
     
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
