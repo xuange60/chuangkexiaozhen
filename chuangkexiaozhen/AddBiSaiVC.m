@@ -30,6 +30,8 @@
     
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
+    
+    [self receiveCurrentViewController:self];
 }
 
 // 比赛级别选择的事件处理
@@ -123,6 +125,8 @@
     NSNumber *num=(NSNumber*)data;
     int result=[num intValue];
     if (result==1) {
+        
+    [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDBISAISUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
         

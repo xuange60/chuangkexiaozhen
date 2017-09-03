@@ -181,6 +181,7 @@
 
 -(void)afternetwork2:(id)data
 {
+    [self tiShiKuangDisplay:deleteStr viewController:self];
     [_yunying queryData:_strTitle];
 }
 

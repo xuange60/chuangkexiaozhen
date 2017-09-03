@@ -31,6 +31,7 @@
     _api=[[BussinessApi alloc]init];
     _api.delegate=self;
     
+    [self receiveCurrentViewController:self];
 }
 
 - (IBAction)levelBtnClick:(id)sender {
@@ -99,6 +100,7 @@
     int result=[num intValue];
     if (result==1)
     {
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [self.navigationController popViewControllerAnimated:YES];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDXIANGMUSCUUESS" object:nil];
     }

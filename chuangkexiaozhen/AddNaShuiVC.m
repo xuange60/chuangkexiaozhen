@@ -29,6 +29,7 @@
     _fuHua=[[FuHusChengZhangGuanLi alloc]init];
     _fuHua.delegate=self;
     
+    [self receiveCurrentViewController:self];
 }
 
 - (IBAction)Btn2Click:(id)sender {
@@ -108,6 +109,7 @@
     
     if (result==1)
     {
+        [self tiShiKuangDisplay:submitStr viewController:self];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDNASHUISUCCESS" object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }

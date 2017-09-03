@@ -30,6 +30,7 @@
     _fuHua=[[FuHusChengZhangGuanLi alloc]init];
     _fuHua.delegate=self;
     
+    [self receiveCurrentViewController:self];
 }
 
 - (IBAction)Btn1Click:(id)sender {
@@ -119,6 +120,8 @@
     
     if (result==1)
     {
+        
+        [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDHETONGSUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 

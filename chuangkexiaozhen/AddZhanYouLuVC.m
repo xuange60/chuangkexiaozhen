@@ -29,6 +29,7 @@
     _fuHua=[[FuHusChengZhangGuanLi alloc]init];
     _fuHua.delegate=self;
     
+    [self receiveCurrentViewController:self];
 }
 
 - (IBAction)Btn3Click:(id)sender {
@@ -91,12 +92,16 @@
 
 -(void)addData:(id)data
 {
+    
+//    NSDictionary*dic;
+//    [dic setValue:<#(nullable id)#> forKey:<#(nonnull NSString *)#>];
+    
     NSNumber*num=(NSNumber*)data;
     int result=[num intValue];
     
     if (result==1)
     {
-
+        [self tiShiKuangDisplay:submitStr viewController:self];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ADDSHICHANGZHANYOUSUCCESS" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
     }
