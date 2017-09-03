@@ -19,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"虚拟入驻";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary*dic=[defaults dictionaryForKey:@"chuangkexiaozhen.userinfo"];
+    _F3.text=[dic objectNotNullForKey:@"companytitle"];
+
+    
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(BtnClicked:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
     self.rightbutton.enabled=NO;
@@ -91,18 +96,13 @@
             //result: 1,虚拟入驻提交成功 不等于1,则提交失败
             
             if (result==1) {
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"申请提交成功" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action= [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                   [self.navigationController popViewControllerAnimated:YES];
+                [self tiShiKuangDisplay:@"提交成功" viewController:self];
+                [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                     [self.navigationController popViewControllerAnimated:YES];
                 }];
-                
-                [alertCon addAction:action];
-                [self presentViewController:alertCon animated:YES completion:nil];
+               
             }else{
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"提交失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                [self tiShiKuangDisplay:@"提交失败" viewController:self];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

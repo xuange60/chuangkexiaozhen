@@ -41,30 +41,33 @@
     [self.tableview setTableFooterView:footer];
     
     
-    
-/*
-    NSArray* ary1=@[@"实体入驻管理",@"电子合同管理",@"虚拟入驻管理",@"开通主线管理",@"申诉申请管理",@"资源配置管理"];
-    NSArray* ary2=@[@"服务申请"];
-    NSArray* ary3=@[@"模块",@"权限",@"角色",@"用户",@"员工列表",@"数据字典"];
-    NSDictionary* dic1=[NSDictionary dictionaryWithObjectsAndKeys:ary1,@"创客入驻管理", nil];
-    NSDictionary* dic2=[NSDictionary dictionaryWithObjectsAndKeys:ary2,@"服务申请管理", nil];
-    NSDictionary* dic3=[NSDictionary dictionaryWithObjectsAndKeys:ary3,@"系统配置", nil];
-    NSArray* ary=[NSArray arrayWithObjects:dic1,dic2,dic3, nil];
-*/
-    
     //前一个界面进行了数据存储，现在进行数据的获取
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray* arrays=[defaults objectForKey:@"chuangkexiaozhen.zhujiemian"];
 
     self.datas=arrays;
 
-    
 
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    _count=0;
+    self.timer=[NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        _count++;
+        if(_count>2) _count=0;
+        if(_count==0){
+            _imgview.image=[UIImage imageNamed:@"about-us.jpg"];
+        }else if(_count==1){
+            _imgview.image=[UIImage imageNamed:@"about-us-1.jpg"];
+        }else if(_count==2){
+            _imgview.image=[UIImage imageNamed:@"about-us-2.jpg"];
+        }
+    }];
+    
+    [self loadCookie];
+    
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:75/255.0 green:76/255.0 blue:77/255.0 alpha:1];
     [self.navigationController.navigationBar setTitleTextAttributes: @{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController setNavigationBarHidden:YES];
@@ -78,6 +81,16 @@
         }
     }
 }
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [_timer invalidate];
+    _timer=nil;
+}
+
+
+
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -131,11 +144,6 @@
         cell=cell1;
     }
 
- //
-    
-    
- //   cell.selectionStyle = NO;
- //   [cell setShuJu:[_array objectAtIndex:indexPath.row]];
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
@@ -471,6 +479,149 @@
 
 
 
+
+-(void)loadCookie
+{
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *cookieArray = [NSArray arrayWithArray:[cookieJar cookies]];
+    NSLog(@"current cookie %@",cookieArray);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData * cookiesData=[defaults objectForKey:@"chuangkexiaozhen.cookie"];
+    NSArray<NSHTTPCookie *>* cookies=[NSKeyedUnarchiver unarchiveObjectWithData:cookiesData];
+    if(cookiesData!=nil && cookies!=nil){
+        for(NSHTTPCookie* cookie in cookies)
+        {
+            [cookieJar setCookie:cookie];
+        }
+    }
+    
+    [self syncUserinfo];
+    
+    
+}
+
+
+//用户登录
+//参数 用户名，密码
+//返回数组数据 [{"初始申请",["实体入驻","虚拟入驻","文档下载"]}]
+-(void) syncUserinfo
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* logindata=[defaults objectForKey:@"chuangkexiaozhen.login"];
+    NSString* name=[logindata objectForKey:@"name"];
+    NSString* pwd=[logindata objectForKey:@"pwd"];
+    NSDate* logindate=[logindata objectForKey:@"logindate"];
+    if(logindata==nil || name==nil || pwd==nil || logindate==nil){
+        UIStoryboard*board=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController*vc=[board instantiateViewControllerWithIdentifier:@"ViewController"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [self presentViewController:vc animated:YES completion:nil];
+        return;
+    }
+    NSDate* curdate=[NSDate date];
+    NSTimeInterval secs=[curdate timeIntervalSinceDate:logindate];
+    NSLog(@"已登陆 %f 秒",secs);
+    if(secs<60*10){
+        return;
+    }
+
+    //清除cookie缓存
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *cookieArray = [NSArray arrayWithArray:[cookieJar cookies]];
+    for(id obj in cookieArray)
+    {
+        [cookieJar deleteCookie:obj];
+    }
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
+
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:name,@"username",pwd,@"password",@"1",@"holdme", nil];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/login"];
+    
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        
+        if([contenttype containsString:@"json"])
+        {//返回json格式数据
+            UIStoryboard*board=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewController*vc=[board instantiateViewControllerWithIdentifier:@"ViewController"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+            [self presentViewController:vc animated:YES completion:nil];
+            return;
+        }else if([contenttype containsString:@"html"]){ //登陆成功
+            CommNetWork* comnetwork=[[CommNetWork alloc] init];
+            [comnetwork getUserinfo:name];
+            //保存cookies
+            NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:cookiesData forKey:@"chuangkexiaozhen.cookie"];
+            [defaults synchronize];
+            
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//dl"];
+            
+            NSMutableArray* datas=[[NSMutableArray alloc]init];
+            for (TFHppleElement *ele in arrays) {
+                TFHppleElement* e1 =[ele firstChildWithTagName:@"dt"];
+                NSString* title=[[e1 text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                NSArray* ary1=[ele searchWithXPathQuery:@"//a"];
+                
+                NSMutableArray* ary=[[NSMutableArray alloc] init];
+                for (TFHppleElement *e2 in ary1) {
+                    NSString* content=[e2.content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    [ary addObject:content];
+                }
+                if([ary count]>0){
+                    NSDictionary* dic=[[NSDictionary alloc] initWithObjectsAndKeys:ary,title,nil];
+                    [datas addObject:dic];
+                }
+                
+            }
+            
+            if([datas count]>0){
+                int index=-1;
+                for (int i=0; i<[datas count]; i++) {
+                    NSDictionary* tmp=[datas objectAtIndex:i];
+                    if([tmp objectForKey:@"内部审核管理"] !=nil){
+                        index=i;
+                        break;
+                    }
+                }
+                if(index>0){
+                    [datas removeObjectAtIndex:index];
+                }
+                
+                for (int i=0; i<[datas count]; i++) {
+                    NSDictionary* tmp=[datas objectAtIndex:i];
+                    NSMutableArray* ary=(NSMutableArray*)[tmp objectForKey:@"系统配置"];
+                    if(ary!=nil){
+                        [ary removeObject:@"模块"];
+                        [ary removeObject:@"权限"];
+                        [ary removeObject:@"角色"];
+                        [ary removeObject:@"数据字典"];
+                    }
+                }
+                
+            }
+            
+            [defaults setObject:datas forKey:@"chuangkexiaozhen.zhujiemian"];
+            NSMutableDictionary* login=[NSMutableDictionary dictionary];
+            [login setObject:name forKey:@"name"];
+            [login setObject:pwd forKey:@"pwd"];
+            [login setObject:@"Y" forKey:@"login"];
+            [login setObject:[NSDate date] forKey:@"logindate"];
+            [defaults setObject:login forKey:@"chuangkexiaozhen.login"];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 
 

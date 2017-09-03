@@ -36,4 +36,12 @@
 @property (strong, nonatomic) NSArray* datas;
 
 @property (strong,nonatomic) NSString* isadmin;
+
+
+@property (strong, nonatomic) IBOutlet UIImageView *imgview;
+
+@property (strong,nonatomic) NSTimer* timer;
+
+@property (nonatomic) int count;
+
 @end

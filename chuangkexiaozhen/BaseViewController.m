@@ -46,7 +46,6 @@
     if([viewControllersr count]<=2){
         [self.navigationController setNavigationBarHidden:YES];
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
     [self.navigationController popViewControllerAnimated:YES];
     
@@ -60,9 +59,15 @@
 -(void)receiveCurrentViewController:(UIViewController*)viewController
 {
     _currentVC=viewController;
-    
-    //用来设置特殊控件的delegate
-    NSArray*ary=_currentVC.view.subviews;
+    UIView* view1=viewController.view;
+    [self addDelegate:view1];
+
+}
+
+
+-(void) addDelegate:(UIView*)view
+{
+    NSArray*ary=view.subviews;
     for (  id obj in ary) {
         
         if ([obj isKindOfClass:[UITextField class]])
@@ -73,10 +78,12 @@
         {
             UITextView*textView=(UITextView*)obj;
             textView.delegate=self;
+        }else if ([obj isKindOfClass:[UIView class]] && [((UIView*)obj).subviews count]>0){
+            [self addDelegate:(UIView*)obj];
         }
     }
-
 }
+
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {

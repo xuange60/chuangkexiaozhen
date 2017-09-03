@@ -104,9 +104,6 @@
 
 //上传数据
 - (IBAction)shenQingBtnClick:(id)sender {
-    
-    
-    
     //5.3 实体入驻申请提交
     //参数为字典： businessline=电子信息 companyname=测试机构 contact=小明 contacttype=18576672852
     // description=初创团队
@@ -146,6 +143,7 @@
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSLog(@"%@",[[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding]);
         if([contenttype containsString:@"html"])
         {
             TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
@@ -168,12 +166,11 @@
             NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);
-            if([dic objectNotNullForKey:@"submit"]!=nil){
+            if([dic objectNotNullForKey:@"submit"].length>0){
                 dic=nil;
             }
             
             if (dic==nil) {
-                
                 _view4.hidden=YES;
                 _view3.hidden=NO;
                 self.navigationItem.rightBarButtonItem=self.rightbutton;
@@ -185,7 +182,12 @@
                 [_btn1 setTitle:[dic objectNotNullForKey:@"businessline"] forState:UIControlStateNormal];
                 [_btn2 setTitle:[dic objectNotNullForKey:@"description"] forState:UIControlStateNormal];
                 _statueF.text=[dic objectNotNullForKey:@"applyStatus"];
-                
+                [_textField1 setUserInteractionEnabled:NO];
+                [_textField2 setUserInteractionEnabled:NO];
+                [_textField3 setUserInteractionEnabled:NO];
+                [_btn1 setUserInteractionEnabled:NO];
+                [_btn2 setUserInteractionEnabled:NO];
+                [_statueF setUserInteractionEnabled:NO];
                 _view3.hidden=YES;
                 _btn3.hidden=YES;
                 _btn4.hidden=YES;
@@ -267,23 +269,12 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             //result: 1,实体入驻提交成功 不等于1,则提交失败
            
             if (result==1) {
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交成功，请等待审核" preferredStyle:UIAlertControllerStyleAlert];
-                [self presentViewController:alertCon animated:YES completion:^{
-                    
-                    [NSThread sleepForTimeInterval:0.5];
-                    [self dismissViewControllerAnimated:YES completion:^{
-                        
-                        [NSThread sleepForTimeInterval:0.3];
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }];
+                [self tiShiKuangDisplay:@"提交成功" viewController:self];
+                [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                    [self.navigationController popViewControllerAnimated:YES];
                 }];
-                
             }else{
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"提交失败，请重新填写" preferredStyle:UIAlertControllerStyleAlert];
-                [self presentViewController:alertCon animated:YES completion:^{
-                    [NSThread sleepForTimeInterval:0.5];
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }];
+                [self tiShiKuangDisplay:@"提交失败" viewController:self];
             }
 
         }

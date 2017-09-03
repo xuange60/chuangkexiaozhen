@@ -18,6 +18,10 @@
     [super viewDidLoad];
     self.readonly=NO;
     self.navigationItem.title=@"开通主线";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary*dic=[defaults dictionaryForKey:@"chuangkexiaozhen.userinfo"];
+    _companyname.text=[dic objectNotNullForKey:@"companytitle"];
+    
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(kaiTongZhuXian:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
     self.rightbutton.enabled=NO;
@@ -77,7 +81,7 @@
             NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str); //打印查询到的数据
-            if([tmpdic objectForKey:@"submit"]!=nil){//如果有提交按钮，则需要用户录入注册数据；
+            if([tmpdic objectNotNullForKey:@"submit"].length>0){//如果有提交按钮，则需要用户录入注册数据；
                 dic=nil;
                 [self setNoReadOnly];
             }else{
@@ -143,18 +147,16 @@
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             NSLog(@"%d",result);
             //result: 1,提交成功 不等于1,提交
-            if(1==result){
+            if (result==1) {
+                [self tiShiKuangDisplay:@"提交成功" viewController:self];
                 [self setReadOnly];
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"开通主线申请已提交" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+                
             }else{
-                [self setNoReadOnly];
-                UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"开通主线申请提交失败" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-                [alertCon addAction:action2];
-                [self presentViewController:alertCon animated:YES completion:nil];
+                [self setReadOnly];
+                [self tiShiKuangDisplay:@"提交失败" viewController:self];
             }
             
         }

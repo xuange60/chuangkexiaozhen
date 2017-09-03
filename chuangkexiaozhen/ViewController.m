@@ -155,6 +155,7 @@
             [login setObject:name forKey:@"name"];
             [login setObject:pwd forKey:@"pwd"];
             [login setObject:@"Y" forKey:@"login"];
+            [login setObject:[NSDate date] forKey:@"logindate"];
             [defaults setObject:login forKey:@"chuangkexiaozhen.login"];
             
             NSData *data = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];
