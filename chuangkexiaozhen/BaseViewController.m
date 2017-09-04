@@ -79,12 +79,12 @@
     
     for (  id obj in ary) {
         
-        if ([obj isKindOfClass:[UITextField class]])
+        if ([obj isKindOfClass:[UITextField class]] && ((UITextField*)obj).hidden==NO)
         {
             UITextField*text=(UITextField*)obj;
             text.delegate=self;
             hasInput=YES;
-        }else if ([obj isKindOfClass:[UITextView class]])
+        }else if ([obj isKindOfClass:[UITextView class]] && ((UITextView*)obj).hidden==NO)
         {
             UITextView*textView=(UITextView*)obj;
             textView.delegate=self;

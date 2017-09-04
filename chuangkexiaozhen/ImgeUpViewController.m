@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if(self.navigatitle==nil || self.navigatitle.length==0){
-        self.navigationItem.title=@"文件上传";
+        self.navigationItem.title=@"上传";
     }else{
         self.navigationItem.title=self.navigatitle;
     }
@@ -120,11 +120,15 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyyMMddHHmmss";
     NSString *str = [formatter stringFromDate:[NSDate date]];
-    NSString *fileName = [NSString stringWithFormat:@"上传文件_%@.%@", str,type];
+    NSString *fileName = [NSString stringWithFormat:@"文件_%@.%@", str,type];
     NSLog(@"%@",fileName);
     
     NSDictionary *dict = @{@"":@""};
-    NSString *urlString = @"http://116.228.176.34:9002/chuangke-serve/upload/save";
+
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
+    NSString* urlString=[NSString stringWithFormat:@"%@%@",baseurl,@"/upload/save"];
+    
+    
     [manager POST:urlString parameters:dict
 constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     //[formData appendPartWithFileURL:[NSURLfileURLWithPath:@"文件地址"] name:@"file"fileName:@"1234.png"mimeType:@"application/octet-stream"error:nil];

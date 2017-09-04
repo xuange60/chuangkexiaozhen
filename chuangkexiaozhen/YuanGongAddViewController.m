@@ -51,19 +51,14 @@
 {
     NSNumber* num=(NSNumber*)data;
     int result=[num intValue];
-    if(1==result){
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"员工添加成功" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    if (result==1) {
+        [self tiShiKuangDisplay:@"提交成功" viewController:self];
+        [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
             [self.navigationController popViewControllerAnimated:YES];
         }];
-        [alertCon addAction:action2];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"YuanGongViewController" object:nil];
-        [self presentViewController:alertCon animated:YES completion:nil];
+        
     }else{
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"员工添加失败" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-        [alertCon addAction:action2];
-        [self presentViewController:alertCon animated:YES completion:nil];
+        [self tiShiKuangDisplay:@"提交失败" viewController:self];
     }
 }
 
