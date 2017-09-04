@@ -32,7 +32,7 @@
         [_yunying queryData:_strTitle];
     }
 
-    
+    self.navigationItem.title=_strTitle;
     
     UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon

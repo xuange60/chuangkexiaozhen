@@ -21,7 +21,7 @@
     _yunying.delegate=self;
     
     [_yunying queryParam:_strTitle];
-    
+    self.navigationItem.title=_strTitle;
     if ([_strTitle isEqualToString:@"高学历人才"])
     {
         _lab1.text=@"人员名称";
@@ -34,6 +34,12 @@
         _textF5.hidden=YES;
         _lab6.text=@"学校级别";
         _lab7.text=@"学位级别";
+        _view3.hidden=YES;
+        _view4.hidden=YES;
+        _view5.hidden=YES;
+        [_view6top setConstant:_view6top.constant-153];
+        [_view7top setConstant:_view7top.constant-153];
+        [_view8top setConstant:_view8top.constant-153];
     }else if ([_strTitle isEqualToString:@"社保缴纳"]){
         _lab1.text=@"职工人数:";
         _lab2.text=@"投保人数";
@@ -48,6 +54,9 @@
         _btn11.hidden=YES;
         _btn12.hidden=YES;
         
+        _view6.hidden=YES;
+        _view7.hidden=YES;
+        [_view8top setConstant:_view8top.constant-102];
     }else if ([_strTitle isEqualToString:@"社会责任履行"]){
         _lab1.text=@"履行名称";
         _lab2.text=@"参与人数";
@@ -63,6 +72,13 @@
         _lab7.hidden=YES;
         _btn2.hidden=YES;
         _btn12.hidden=YES;
+        
+        _view3.hidden=YES;
+        _view4.hidden=YES;
+        _view5.hidden=YES;
+        _view7.hidden=YES;
+        [_view6top setConstant:_view6top.constant-153];
+        [_view8top setConstant:_view8top.constant-204];
     }else if ([_strTitle isEqualToString:@"税务正规化"]){
         _lab1.text=@"税号";
         _lab2.text=@"会计名";
@@ -82,10 +98,16 @@
         
         _fujian.hidden=YES;
         _chuanBtn.hidden=YES;
+        
+        _view4.hidden=YES;
+        _view5.hidden=YES;
+        _view6.hidden=YES;
+        _view7.hidden=YES;
+        _view8.hidden=YES;
     }else if ([_strTitle isEqualToString:@"员工福利"]){
         _lab1.text=@"福利名称";
         _lab2.text=@"福利总金额";
-        _lab3.text=@"福利占比收入";
+        _lab3.text=@"福利占比收入(%)";
         _lab4.text=@"福利人数";
        
         _lab5.hidden=YES;
@@ -97,6 +119,11 @@
         _btn11.hidden=YES;
         _btn2.hidden=YES;
         _btn12.hidden=YES;
+        
+        _view5.hidden=YES;
+        _view6.hidden=YES;
+        _view7.hidden=YES;
+        [_view8top setConstant:_view8top.constant-153];
     }else if ([_strTitle isEqualToString:@"高技能人才"]){
         _lab1.text=@"人员姓名";
         _lab2.text=@"职称";
@@ -113,6 +140,13 @@
         _lab7.hidden=YES;
         _btn2.hidden=YES;
         _btn12.hidden=YES;
+        
+        _view3.hidden=YES;
+        _view4.hidden=YES;
+        _view5.hidden=YES;
+        _view7.hidden=YES;
+        [_view6top setConstant:_view6top.constant-153];
+        [_view8top setConstant:_view8top.constant-204];
     }else if ([_strTitle isEqualToString:@"规划目标"]){
         _lab1.text=@"短期发展目标";
         _lab2.text=@"中期发展目标";
@@ -129,6 +163,12 @@
         _lab7.hidden=YES;
         _btn2.hidden=YES;
         _btn12.hidden=YES;
+
+        _view4.hidden=YES;
+        _view5.hidden=YES;
+        _view6.hidden=YES;
+        _view7.hidden=YES;
+        [_view8top setConstant:_view8top.constant-204];
     }else if ([_strTitle isEqualToString:@"规模制度"]){
         _lab1.text=@"制度文件名称";
         
@@ -145,6 +185,14 @@
         _lab7.hidden=YES;
         _btn2.hidden=YES;
         _btn12.hidden=YES;
+        
+        _view2.hidden=YES;
+        _view3.hidden=YES;
+        _view4.hidden=YES;
+        _view5.hidden=YES;
+        _view7.hidden=YES;
+        [_view6top setConstant:_view6top.constant-204];
+        [_view8top setConstant:_view8top.constant-255];
     }else if ([_strTitle isEqualToString:@"投融资情况"]){
         _lab1.text=@"投资金额";
         
@@ -159,9 +207,15 @@
         _lab7.hidden=YES;
         _btn2.hidden=YES;
         _btn12.hidden=YES;
+        
+        _view3.hidden=YES;
+        _view4.hidden=YES;
+        _view5.hidden=YES;
+        _view7.hidden=YES;
+        [_view6top setConstant:_view6top.constant-153];
+        [_view8top setConstant:_view8top.constant-204];
     }
 
-    self.navigationItem.title=@"添加";
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiao:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
     self.rightbutton.enabled=NO;

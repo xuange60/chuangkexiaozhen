@@ -48,6 +48,33 @@
 
 
 
+@property (strong, nonatomic) IBOutlet UIView *view1;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view1top;
+
+@property (strong, nonatomic) IBOutlet UIView *view2;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view2top;
+
+@property (strong, nonatomic) IBOutlet UIView *view3;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view3top;
+
+@property (strong, nonatomic) IBOutlet UIView *view4;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view4top;
+
+
+@property (strong, nonatomic) IBOutlet UIView *view5;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view5top;
+
+@property (strong, nonatomic) IBOutlet UIView *view6;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view6top;
+
+@property (strong, nonatomic) IBOutlet UIView *view7;
+
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view7top;
+
+@property (strong, nonatomic) IBOutlet UIView *view8;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *view8top;
 
 
 @property(nonatomic,strong)TuanDuiYunYing*yunying;

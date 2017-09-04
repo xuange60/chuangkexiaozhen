@@ -60,28 +60,42 @@
 {
     _currentVC=viewController;
     UIView* view1=viewController.view;
-    [self addDelegate:view1];
+    if(![self addDelegate:view1]){
+        self.rightbutton.enabled=YES;
+    }
 
 }
 
 
--(void) addDelegate:(UIView*)view
+-(BOOL) addDelegate:(UIView*)view
 {
+    BOOL hasInput=NO;
+    if(view.hidden==YES){
+        return hasInput;
+    }
+    
     NSArray*ary=view.subviews;
+
+    
     for (  id obj in ary) {
         
         if ([obj isKindOfClass:[UITextField class]])
         {
             UITextField*text=(UITextField*)obj;
             text.delegate=self;
+            hasInput=YES;
         }else if ([obj isKindOfClass:[UITextView class]])
         {
             UITextView*textView=(UITextView*)obj;
             textView.delegate=self;
+            hasInput=YES;
         }else if ([obj isKindOfClass:[UIView class]] && [((UIView*)obj).subviews count]>0){
-            [self addDelegate:(UIView*)obj];
+            if([self addDelegate:(UIView*)obj]){
+                hasInput=YES;
+            }
         }
     }
+    return hasInput;
 }
 
 

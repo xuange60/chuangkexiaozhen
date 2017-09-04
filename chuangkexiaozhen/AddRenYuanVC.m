@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title=@"添加人员结构管理";
+    self.navigationItem.title=@"人员结构管理";
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(TiJiao:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
     self.rightbutton.enabled=NO;
@@ -45,7 +45,6 @@
 {
     if(data!=nil){
         NSNotification* tmp=(NSNotification*)data;
-        
         self.photosIDS=(NSString*)tmp.object;
     }
     

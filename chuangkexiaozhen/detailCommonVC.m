@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    self.navigationItem.title=@"详情";
     
      _lab1.text=_ary[0];
      _lab2.text=_ary[1];
@@ -47,6 +47,7 @@
         _lab14.text=_array[3];
         _lab15.text=_array[4];
         _lab16.hidden=YES;
+        _line6.hidden=YES;
     }else if (_array.count==4){
         _lab11.text=_array[0];
         _lab12.text=_array[1];
@@ -54,6 +55,8 @@
         _lab14.text=_array[3];
         _lab15.hidden=YES;
         _lab16.hidden=YES;
+        _line5.hidden=YES;
+        _line6.hidden=YES;
     }else if (_array.count==3){
         _lab11.text=_array[0];
         _lab12.text=_array[1];
@@ -61,6 +64,9 @@
         _lab14.hidden=YES;
         _lab15.hidden=YES;
         _lab16.hidden=YES;
+        _line4.hidden=YES;
+        _line5.hidden=YES;
+        _line6.hidden=YES;
     }
 }
 
