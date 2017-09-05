@@ -10,7 +10,7 @@
 #import "ZhuDongTuiChu.h"
 #import "ImgeUpViewController.h"
 #import "DuoXuanVC.h"
-@interface ZhuDongTuiChuAddVC : BaseViewController<BussinessApiDelegate>
+@interface ZhuDongTuiChuAddVC : BaseViewController<UIPickerViewDelegate,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *quitCompany;
 

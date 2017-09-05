@@ -41,9 +41,7 @@
                 if([result count]>0){
                     [ary addObjectsFromArray:result];
                 }
-                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
-                    [self.delegate  loadNetworkFinished :ary];
-                }
+                [self.delegate  loadNetworkFinished :ary];
             }else{
                 [ary addObjectsFromArray:result];
                 [self querylistWithRole:role andRelativeUrl:relativeurl amdTmp:ary];

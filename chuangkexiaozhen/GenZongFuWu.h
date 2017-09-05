@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "BussinessApi.h"
-@interface GenZongFuWu : NSObject
+#import "CommNetWork.h"
+@interface GenZongFuWu : CommNetWork
 
-@property(nonatomic,assign)id <BussinessApiDelegate> delegate;
+//@property(nonatomic,assign)id <BussinessApiDelegate> delegate;
 
 /*
  12.1 跟踪服务管理查询

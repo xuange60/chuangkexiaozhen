@@ -21,6 +21,8 @@
 
 -(void)HuoDongLuYanQuery
 {
+    [self querylistWithRole:@"admin" andRelativeUrl:@"/roadshow/search"];
+    /*
     NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -43,6 +45,59 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+    }];
+     */
+}
+
+
+
+-(void) querylistWithRole:(NSString*)role andRelativeUrl:(NSString*) relativeurl
+{
+    NSMutableArray* ary=[NSMutableArray array];
+    [self querylistWithRole:role andRelativeUrl:relativeurl amdTmp:ary];
+}
+
+
+-(void) querylistWithRole:(NSString*)role andRelativeUrl:(NSString*) relativeurl amdTmp:(NSMutableArray*)ary
+{
+    int start=(int)[ary count];
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?length=50&role=%@&start=%d",baseurl,relativeurl,role,start];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            if(result==nil || [result count]<10){
+                //result: 保存查询到的结果
+                if([result count]>0){
+                    [ary addObjectsFromArray:result];
+                }
+                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                    [self.delegate  loadNetworkFinished :ary];
+                }
+            }else{
+                [ary addObjectsFromArray:result];
+                [self querylistWithRole:role andRelativeUrl:relativeurl amdTmp:ary];
+            }
+        }else{
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :ary];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+            [self.delegate  loadNetworkFinished :ary];
+        }
     }];
 }
 

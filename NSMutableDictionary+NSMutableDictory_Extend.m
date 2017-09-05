@@ -24,6 +24,9 @@
 
 - (void)setNotNullObject:(id)anObject forKey:(id)aKey;
 {
+    if(anObject==nil){
+        anObject=@"";
+    }
     if(aKey==nil || anObject==nil){
         return;
     }

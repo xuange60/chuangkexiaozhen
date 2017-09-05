@@ -21,6 +21,8 @@
 
 -(void)GenZongFuWuQuery
 {
+    [self querylistWithRole:@"" andRelativeUrl:@"/track/search"];
+    /*
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -44,6 +46,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+     */
 
 }
 

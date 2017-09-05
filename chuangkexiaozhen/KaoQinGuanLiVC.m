@@ -73,8 +73,24 @@
 
 -(void)loadNetworkFinished:(id)data
 {
-    _ary=(NSArray*)data;
-    
+    if(![_isadmin isEqualToString:@"Y"]){
+        NSArray* tmparys=(NSArray*)data;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary*dic=[defaults dictionaryForKey:@"chuangkexiaozhen.userinfo"];
+        NSString* companyname=[dic objectNotNullForKey:@"companytitle"];
+        NSMutableArray* tmp=[NSMutableArray array];
+        for (NSDictionary* data in tmparys) {
+            if([[data objectNotNullForKey:@"companyName"] isEqualToString:companyname]){
+                [tmp addObject:data];
+                break;
+            }
+        }
+        _ary=tmp;
+    }else{
+        _ary=(NSArray*)data;
+    }
+
+
     [_tableView reloadData];
 }
 

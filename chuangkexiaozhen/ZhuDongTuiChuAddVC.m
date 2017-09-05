@@ -39,6 +39,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+- (IBAction)startBtnClick:(id)sender {
+    
+    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(_quitDate.frame.origin.x, _quitDate.frame.origin.y+5, self.view.frame.size.width, 200)];
+    picker.backgroundColor=[UIColor whiteColor];
+    picker.datePickerMode=UIDatePickerModeDate;
+    picker.minimumDate=[NSDate dateWithTimeIntervalSince1970:0];
+    picker.maximumDate=[NSDate date];
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置为中文
+    picker.locale = locale;
+    
+    [self.view addSubview:picker];
+    [picker addTarget:self action:@selector(pickerStart:) forControlEvents:UIControlEventValueChanged];
+}
+-(void)pickerStart:(UIDatePicker*)picker
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    _quitDate.text = [dateFormatter stringFromDate:picker.date];
+    [picker removeFromSuperview];
+}
+
+
+
+
+
+
 - (IBAction)tijiaoClicked:(id)sender {
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];

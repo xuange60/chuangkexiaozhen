@@ -111,7 +111,19 @@
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
     cell.quitCompany.text=[dic objectNotNullForKey:@"quitCompany"];
     cell.quitCause.text=[dic objectNotNullForKey:@"quitCause"];
-    cell.quitDate.text=[dic objectNotNullForKey:@"quitDate"];
+    
+    NSString* date=[dic objectNotNullForKey:@"quitDate"];
+    if(date!=nil && date.length>10 && [date containsString:@"T16:00:00"]){
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSString* tmp1=[date substringToIndex:10];
+        NSDate* tmp=[dateFormatter dateFromString:tmp1];
+        NSDate *tmp2 = [NSDate dateWithTimeInterval:60 * 60 * 24 sinceDate:tmp];
+        date=[dateFormatter stringFromDate:tmp2];
+    }
+    cell.quitDate.text=date;
+    
+   // cell.quitDate.text=[dic objectNotNullForKey:@"quitDate"];
     cell.quitType.text=[dic objectNotNullForKey:@"quitType"];
     
     NSString* status=[dic objectNotNullForKey:@"status"];

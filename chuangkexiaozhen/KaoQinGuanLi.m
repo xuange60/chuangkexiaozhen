@@ -22,7 +22,6 @@
  ,"actualCount":0,"absentCount":1,"shouldCount":1,"rateOfAttend":"0.00%","companyName":"清基(上海）农业发展有限公
  司"},{"id":"597d7aba80ab5e6790d52d37","actualCount":0,"absentCount":1,"shouldCount":1,"rateOfAttend":"0
  .00%","companyName":"测试机构zhangxuan"}]
- */
 
 -(void)KaoQinQueryStart:(NSString*)starttime End:(NSString*)endtime
 {
@@ -54,6 +53,62 @@
         NSLog(@"%@",error);
     }];
 }
+*/
+
+-(void)KaoQinQueryStart:(NSString*)starttime End:(NSString*)endtime
+{
+    NSMutableArray* ary=[NSMutableArray array];
+    [self querylistWithTmp:ary Start:starttime End:endtime];
+}
+
+
+-(void) querylistWithTmp:(NSMutableArray*)ary Start:(NSString*)starttime End:(NSString*)endtime
+{
+    int start=(int)[ary count];
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/userattendance/search"];
+    NSMutableDictionary* param=[NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",start],@"start",@"50",@"length",@"admin",@"role", nil];
+    [param setObject:starttime forKey:@"startTime"];
+    [param setObject:endtime forKey:@"endTime"];
+    
+    [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            if(result==nil || [result count]<10){
+                //result: 保存查询到的结果
+                if([result count]>0){
+                    [ary addObjectsFromArray:result];
+                }
+                if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                    [self.delegate  loadNetworkFinished :ary];
+                }
+            }else{
+                [ary addObjectsFromArray:result];
+                [self querylistWithTmp:ary Start:starttime End:endtime];
+            }
+        }else{
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :ary];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+            [self.delegate  loadNetworkFinished :ary];
+        }
+    }];
+}
+
 
 
 /*

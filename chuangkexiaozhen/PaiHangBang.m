@@ -11,6 +11,55 @@
 @implementation PaiHangBang
 
 
+-(void) querylistWithRole:(NSString*)role andRelativeUrl:(NSString*) relativeurl andParamString:(NSString*)paramstr
+{
+    NSMutableArray* ary=[NSMutableArray array];
+    [self querylistWithRole:role andRelativeUrl:relativeurl amdTmp:ary andParamString:paramstr];
+}
+
+
+-(void) querylistWithRole:(NSString*)role andRelativeUrl:(NSString*) relativeurl amdTmp:(NSMutableArray*)ary andParamString:(NSString*)paramstr
+{
+    int start=(int)[ary count];
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@?length=50&role=%@&start=%d&%@",baseurl,relativeurl,role,start,paramstr];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            NSArray* result=[jsondata objectForKey:@"obj"];
+            NSLog(@"%@",result);
+            if(result==nil || [result count]<10){
+                //result: 保存查询到的结果
+                if([result count]>0){
+                    [ary addObjectsFromArray:result];
+                }
+                [self.delegate  loadNetworkFinished :ary];
+            }else{
+                [ary addObjectsFromArray:result];
+                [self querylistWithRole:role andRelativeUrl:relativeurl amdTmp:ary andParamString:(NSString*)paramstr];
+            }
+        }else{
+            if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+                [self.delegate  loadNetworkFinished :ary];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(loadNetworkFinished:)]) {
+            [self.delegate  loadNetworkFinished :ary];
+        }
+    }];
+}
+
+
 /*
  13.1 综合能力排行
  请求 get http://116.228.176.34:9002/chuangke-serve/tenantscore/search?start=0&length=1000&lable=colligateAbility
@@ -21,6 +70,8 @@
 
 -(void)ZongHeNengLiQuery
 {
+    [self querylistWithRole:@"admin" andRelativeUrl:@"/tenantscore/search" andParamString:@"lable=colligateAbility"];
+    /*
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -44,6 +95,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+     */
 }
 
 /*
@@ -128,6 +180,8 @@
  */
 -(void)RiHuoYueQuery
 {
+    [self querylistWithRole:@"admin" andRelativeUrl:@"/tenantscore/search" andParamString:@"lable=dayAbility"];
+    /*
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -151,6 +205,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+     */
 }
 
 
@@ -231,6 +286,8 @@
  */
 -(void)KeJiChuangXinQuery
 {
+    [self querylistWithRole:@"admin" andRelativeUrl:@"/tenantscore/search" andParamString:@"lable=scienceAbility"];
+    /*
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -254,6 +311,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+     */
 }
 
 
@@ -333,6 +391,8 @@
  */
 -(void)ShiChangPaiHangQuery
 {
+    [self querylistWithRole:@"admin" andRelativeUrl:@"/tenantscore/search" andParamString:@"lable=marketAbility"];
+    /*
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -356,6 +416,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+     */
 }
 
 
@@ -435,6 +496,9 @@
  */
 -(void)XingZhengYunYingQuery
 {
+    [self querylistWithRole:@"admin" andRelativeUrl:@"/tenantscore/search" andParamString:@"lable=manageAbility"];
+    
+    /*
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
@@ -458,6 +522,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+     */
 }
 
 

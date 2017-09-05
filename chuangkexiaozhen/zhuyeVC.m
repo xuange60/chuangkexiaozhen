@@ -284,6 +284,7 @@
         
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaoQinGuanLi" bundle:nil];
         KaoQinGuanLiVC*vc=[board instantiateViewControllerWithIdentifier:@"KaoQinGuanLiVC"];
+        vc.isadmin=_isadmin;
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if([data isEqualToString:@"路演发布管理"]){

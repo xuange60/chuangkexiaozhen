@@ -10,7 +10,7 @@
 #import "BeiDongTuiChu.h"
 #import "ImgeUpViewController.h"
 #import "DuoXuanVC.h"
-@interface BeiDongTuiChuAdd : BaseViewController<BussinessApiDelegate>
+@interface BeiDongTuiChuAdd : BaseViewController<UIPickerViewDelegate,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *quitCompany;
 

@@ -21,7 +21,7 @@
 
 @property(nonatomic,strong)NSArray*ary;
 
-
+@property(nonatomic,strong) NSString* isadmin;
 
 
 @end
