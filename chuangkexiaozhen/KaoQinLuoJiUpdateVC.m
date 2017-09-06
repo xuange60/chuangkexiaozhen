@@ -81,6 +81,68 @@
 }
 
 
+- (IBAction)date1BtnClick:(id)sender {
+    
+    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(60, 400, 300, 200)];
+    picker.backgroundColor=[UIColor whiteColor];
+    picker.datePickerMode=UIDatePickerModeTime;
+    
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置为中文
+    picker.locale = locale;
+    
+    if(_starttime.text!=nil && _starttime.text.length>4){
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"HH:mm"];
+        NSData* date1=[dateFormatter dateFromString:_starttime.text];
+        picker.date=date1;
+    }
+    
+    [self.view addSubview:picker];
+    [picker addTarget:self action:@selector(picker1Start:) forControlEvents:UIControlEventValueChanged];
+}
+-(void)picker1Start:(UIDatePicker*)picker
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString*time= [dateFormatter stringFromDate:picker.date];
+    _starttime.text=time;
+    [picker removeFromSuperview];
+    
+}
+
+
+- (IBAction)date2BtnClick:(id)sender {
+    
+    UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(60, 400, 300, 200)];
+    picker.backgroundColor=[UIColor whiteColor];
+    picker.datePickerMode=UIDatePickerModeTime;
+    
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置为中文
+    picker.locale = locale;
+    
+    if(_endtime.text!=nil && _endtime.text.length>4){
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"HH:mm"];
+        NSData* date1=[dateFormatter dateFromString:_endtime.text];
+        picker.date=date1;
+    }
+    
+    [self.view addSubview:picker];
+    [picker addTarget:self action:@selector(picker2Start:) forControlEvents:UIControlEventValueChanged];
+}
+-(void)picker2Start:(UIDatePicker*)picker
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString*time= [dateFormatter stringFromDate:picker.date];
+    _endtime.text=time;
+    [picker removeFromSuperview];
+    
+}
+
+
 
 
 - (IBAction)submit:(id)sender {

@@ -76,7 +76,7 @@
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     cell.lianxiren.text=[dic objectNotNullForKey:@"contact"];
     cell.lianxifangshi.text=[dic objectNotNullForKey:@"contactType"];
-    cell.jigouName.text=[dic objectNotNullForKey:@"companyName"];
+    cell.jigouName.text=[dic objectNotNullForKey:@"branchName"];
     cell.shenqingTime.text=[dic objectNotNullForKey:@"applyDate"];
     cell.shenqingType.text=[dic objectNotNullForKey:@"applyStatus"];
     cell.beizhu.text=[dic objectNotNullForKey:@"desc"];
@@ -106,7 +106,7 @@
     _InfoAry=[NSArray arrayWithObjects:
               [dic objectNotNullForKey:@"contact"],
               [dic objectNotNullForKey:@"contactType"],
-              [dic objectNotNullForKey:@"companyName"],
+              [dic objectNotNullForKey:@"branchName"],
               [dic objectNotNullForKey:@"coopCategories"],
               [dic objectNotNullForKey:@"desc"],
               nil];

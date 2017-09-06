@@ -21,6 +21,9 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *endtime;
 
+@property (strong, nonatomic) IBOutlet UIButton *startpicker;
+
+@property (strong, nonatomic) IBOutlet UIButton *endpicker;
 
 @property (strong,nonatomic) NSDictionary* tenantids;
 

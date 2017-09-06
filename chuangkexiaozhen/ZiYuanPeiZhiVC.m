@@ -48,10 +48,6 @@
         cell=[[ZiYuanPeiZhiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
-    cell.MyView.layer.cornerRadius=5;
-    cell.MyView.layer.borderWidth=0.5;
-    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    
 
     /*
      2.13.2 资源管理查询
@@ -67,12 +63,6 @@
      :"","desc":""}]
      */
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
-    
-    
-    [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        
-        
-    }];
     
     
     cell.companyName.text=[dic objectNotNullForKey:@"companyName"];
@@ -107,22 +97,6 @@
     
     NSString*strID=[dic objectNotNullForKey:@"id"];
     
-//    cell.companyName.text=[dic objectNotNullForKey:@"companyName"];
-//    cell.workArea.text=[dic objectNotNullForKey:@"officeArea"];
-//    cell.zuoweiNum.text=[dic objectNotNullForKey:@"numberOfOffice"];
-//    cell.zhuoyiNum.text=[dic objectNotNullForKey:@"numberOftc"];
-//    cell.zhuoYiCode.text=[dic objectNotNullForKey:@"tcCodes"];
-//    cell.shebeiNum.text=[dic objectNotNullForKey:@"numberOfoe"];
-//    cell.sheBeiCode.text=[dic objectNotNullForKey:@"oeCodes"];
-//    cell.wenyinAccount.text=[dic objectNotNullForKey:@"printAccount"];
-//    cell.wenyinPsw.text=[dic objectNotNullForKey:@"printPassword"];
-//    cell.menjinkaNum.text=[dic objectNotNullForKey:@"numberOfegc"];
-//    cell.menjinkaCode.text=[dic objectNotNullForKey:@"egcCodes"];
-//    cell.carstopNum.text=[dic objectNotNullForKey:@"numberOfpl"];
-//    cell.carstopCode.text=[dic objectNotNullForKey:@"plCodes"];
-//    cell.witerName.text=[dic objectNotNullForKey:@"name"];
-//    cell.witerPhone.text=[dic objectNotNullForKey:@"concatType"];
-//
     
     NSArray*ary=[NSArray arrayWithObjects:
                  [dic objectNotNullForKey:@"numberOfOffice"],

@@ -79,7 +79,6 @@
     
      DuoXuanVC*vc=[[DuoXuanVC alloc]init];
     [vc setArray:ary btn:(UIButton*)sender];
-    [vc setDanXuan];
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -106,12 +105,18 @@
     
     UIDatePicker*picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(60, 400, 300, 200)];
     picker.backgroundColor=[UIColor whiteColor];
-    picker.datePickerMode=UIDatePickerModeDate;
-    picker.minimumDate=[NSDate dateWithTimeIntervalSince1970:0];
-    picker.maximumDate=[NSDate date];
+    picker.datePickerMode=UIDatePickerModeDateAndTime;
+    picker.minimumDate=[NSDate date];
     
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置为中文
     picker.locale = locale;
+    
+    if([_date currentTitle]!=nil && [_date currentTitle].length>10){
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSData* date1=[dateFormatter dateFromString:[_date currentTitle]];
+        picker.date=date1;
+    }
     
     [self.view addSubview:picker];
     [picker addTarget:self action:@selector(pickerStart:) forControlEvents:UIControlEventValueChanged];
@@ -119,7 +124,7 @@
 -(void)pickerStart:(UIDatePicker*)picker
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:MM:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString*time= [dateFormatter stringFromDate:picker.date];
     [_date setTitle:time forState:UIControlStateNormal];
     [picker removeFromSuperview];
@@ -163,6 +168,7 @@
      [dic setNotNullObject:array forKey:@"users"];
      [dic setNotNullStrObject:_content.text forKey:@"content"];
      [dic setNotNullStrObject:_photoIds forKey:@"resourceIds"];
+    [dic setNotNullStrObject:[_date currentTitle] forKey:@"enddate"];
 
     [_tongGao YuanQuRenWuAdd:dic];
 }

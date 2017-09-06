@@ -200,10 +200,7 @@
 -(void) afternetwork1:(id)data
 {
     if(1==[(NSNumber*)data intValue]){
-        UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:@"提示" message:@"服务申请已受理" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction*action2=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-        [alertCon addAction:action2];
-        [self presentViewController:alertCon animated:YES completion:nil];
+        [self tiShiKuangDisplay:@"提交成功" viewController:self];
     }
     [self query];
 }

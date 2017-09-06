@@ -434,9 +434,7 @@ http://116.228.176.34:9002/chuangke-serve/competition/status
             }
             //result: 保存查询到的结果
             
-            if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork1:)]) {
-                [self.delegate afternetwork1:dic];
-            }
+            [self.delegate afternetwork1:dic];
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

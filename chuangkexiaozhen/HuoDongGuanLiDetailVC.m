@@ -18,14 +18,14 @@
     self.navigationItem.title=@"详情";
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(approvesubmitclick:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
-    self.rightbutton.enabled=NO;
+    self.rightbutton.enabled=YES;
     
     [super viewDidLoad];
     _jiafencailiaoshenhe=[[JiaFenCaiLiaoShenHe alloc] init];
     _jiafencailiaoshenhe.delegate=self;
     [self shengequery];
     
-    [self receiveCurrentViewController:self];
+    //[self receiveCurrentViewController:self];
     // Do any additional setup after loading the view.
 }
 

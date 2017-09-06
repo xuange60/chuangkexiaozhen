@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    self.navigationItem.title=@"答辩管理";
     _array=[NSArray array];
     
     _dabian=[[DaBianGuanLi alloc]init];
@@ -55,10 +55,6 @@
     }
     
     
-    cell.MyView.layer.cornerRadius=5;
-    cell.MyView.layer.borderWidth=0.5;
-    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    
     /*
      1.1 答辩管理查询
      请求 get  http://116.228.176.34:9002/chuangke-serve/applytreat/search?start=0&length=10000
@@ -81,8 +77,10 @@
       if ([ornot isEqualToString:@"true"])
         {
             cell.scoreBtn.hidden=YES;
+            cell.caozuo.text=@"已经打分";
         }else{
              cell.scoreBtn.hidden=NO;
+            cell.caozuo.text=@"未打分";
         }
     
     cell.selectionStyle=UITableViewCellSelectionStyleNone;

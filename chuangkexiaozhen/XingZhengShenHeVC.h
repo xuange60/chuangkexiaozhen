@@ -45,6 +45,20 @@
 @property (strong, nonatomic) IBOutlet UIView *approveview;
 
 
+@property (strong, nonatomic) IBOutlet UIView *line1;
+
+@property (strong, nonatomic) IBOutlet UIView *line2;
+
+
+@property (strong, nonatomic) IBOutlet UIView *line3;
+
+@property (strong, nonatomic) IBOutlet UIView *line4;
+
+@property (strong, nonatomic) IBOutlet UIView *line5;
+
+@property (strong, nonatomic) IBOutlet UIView *line6;
+
+
 
 
 @property (strong,nonatomic) TuanDuiYunYing* tuanduiyunying;

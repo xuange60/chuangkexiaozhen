@@ -21,7 +21,7 @@
 }
 
 - (void)viewDidLoad {
-    self.navigationItem.title=@"资源配置";
+    self.navigationItem.title=@"资源配置修改";
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoClick:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
     self.rightbutton.enabled=NO;
@@ -35,40 +35,6 @@
     _ziyuan.delegate=self;
     [_ziyuan ZiYuanGuanLiDetailQuery:_strID];
     
-    //    cell.companyName.text=[dic objectNotNullForKey:@"companyName"];
-    //    cell.workArea.text=[dic objectNotNullForKey:@"officeArea"];
-    //    cell.zuoweiNum.text=[dic objectNotNullForKey:@"numberOfOffice"];
-    
-    //    cell.zhuoyiNum.text=[dic objectNotNullForKey:@"numberOftc"];
-    //    cell.zhuoYiCode.text=[dic objectNotNullForKey:@"tcCodes"];
-    //    cell.shebeiNum.text=[dic objectNotNullForKey:@"numberOfoe"];
-    //    cell.sheBeiCode.text=[dic objectNotNullForKey:@"oeCodes"];
-    //    cell.wenyinAccount.text=[dic objectNotNullForKey:@"printAccount"];
-    //    cell.wenyinPsw.text=[dic objectNotNullForKey:@"printPassword"];
-    //    cell.menjinkaNum.text=[dic objectNotNullForKey:@"numberOfegc"];
-    //    cell.menjinkaCode.text=[dic objectNotNullForKey:@"egcCodes"];
-    //    cell.carstopNum.text=[dic objectNotNullForKey:@"numberOfpl"];
-    //    cell.carstopCode.text=[dic objectNotNullForKey:@"plCodes"];
-    //    cell.witerName.text=[dic objectNotNullForKey:@"name"];
-    //    cell.witerPhone.text=[dic objectNotNullForKey:@"concatType"];
-    
-//    NSArray*ary=[NSArray arrayWithObjects:
-//                 [dic objectNotNullForKey:@"numberOfOffice"],
-//                 [dic objectNotNullForKey:@"ppppppppp"],
-//                 [dic objectNotNullForKey:@"numberOftc"],
-//                 [dic objectNotNullForKey:@"tcCodes"],
-//                 [dic objectNotNullForKey:@"numberOfoe"],
-//                 [dic objectNotNullForKey:@"oeCodes"],
-//                 [dic objectNotNullForKey:@"printAccount"],
-//                 [dic objectNotNullForKey:@"printPassword"],
-//                 [dic objectNotNullForKey:@"numberOfegc"],
-//                 [dic objectNotNullForKey:@"egcCodes"],
-//                 [dic objectNotNullForKey:@"numberOfpl"],
-//                 [dic objectNotNullForKey:@"plCodes"],
-//                 [dic objectNotNullForKey:@"name"],
-//                 [dic objectNotNullForKey:@"concatType"],
-//                 [dic objectNotNullForKey:@"companyName"],
-//                 nil];
 
     
     _chushiDuiXiang.text=[_ary lastObject];

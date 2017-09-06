@@ -1031,21 +1031,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ynK-4l-KIz">
-                                <rect key="frame" x="91" y="253" width="210" height="34"/>
+                                <rect key="frame" x="91" y="253" width="150" height="34"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="05c-ZV-AAA"/>
-                                    <constraint firstAttribute="width" constant="210" id="Voo-CX-kfp"/>
+                                    <constraint firstAttribute="width" constant="150" id="Voo-CX-kfp"/>
                                 </constraints>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iVb-zC-wZU">
-                                <rect key="frame" x="91" y="188" width="210" height="34"/>
+                                <rect key="frame" x="91" y="188" width="150" height="34"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="210" id="1ab-aj-3Kb"/>
+                                    <constraint firstAttribute="width" constant="150" id="1ab-aj-3Kb"/>
                                     <constraint firstAttribute="height" constant="34" id="pH1-Fq-4JR"/>
                                 </constraints>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1099,11 +1099,34 @@
                                     <action selector="companyclick:" destination="D86-O4-QcM" eventType="touchUpInside" id="ejc-VJ-vwf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-Gp-98W">
+                                <rect key="frame" x="266" y="188" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="c4m-rN-Fps"/>
+                                    <constraint firstAttribute="height" constant="35" id="pHD-sb-jws"/>
+                                </constraints>
+                                <state key="normal" image="newCalendar.png"/>
+                                <connections>
+                                    <action selector="date1BtnClick:" destination="D86-O4-QcM" eventType="touchUpInside" id="sOf-5g-3fw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHo-RI-3p5">
+                                <rect key="frame" x="266" y="253" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="85T-4K-BS1"/>
+                                    <constraint firstAttribute="width" constant="35" id="Ozi-Fj-mBS"/>
+                                </constraints>
+                                <state key="normal" image="newCalendar.png"/>
+                                <connections>
+                                    <action selector="date2BtnClick:" destination="D86-O4-QcM" eventType="touchUpInside" id="LcY-Vm-er5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hqE-4F-8Or" secondAttribute="trailing" constant="15" id="0Vj-Lp-aiL"/>
                             <constraint firstItem="ynK-4l-KIz" firstAttribute="top" secondItem="K0a-JV-74z" secondAttribute="bottom" constant="26" id="2XE-7z-kJ2"/>
+                            <constraint firstItem="LHo-RI-3p5" firstAttribute="top" secondItem="K0a-JV-74z" secondAttribute="bottom" constant="26" id="4MP-4r-Uz3"/>
                             <constraint firstItem="hqE-4F-8Or" firstAttribute="top" secondItem="zEs-it-VZC" secondAttribute="bottom" constant="4" id="7Zg-jY-yWi"/>
                             <constraint firstItem="K0a-JV-74z" firstAttribute="top" secondItem="iVb-zC-wZU" secondAttribute="bottom" constant="4" id="AMq-Qa-nnY"/>
                             <constraint firstItem="zEs-it-VZC" firstAttribute="leading" secondItem="nuw-q1-zhR" secondAttribute="trailing" constant="3" id="AcS-d6-yDG"/>
@@ -1112,24 +1135,29 @@
                             <constraint firstItem="ynK-4l-KIz" firstAttribute="leading" secondItem="X4g-1W-yTL" secondAttribute="trailing" constant="3" id="M0O-77-B3q"/>
                             <constraint firstItem="zEs-it-VZC" firstAttribute="top" secondItem="s7l-dJ-gqc" secondAttribute="bottom" constant="109" id="OfR-AS-V4W"/>
                             <constraint firstItem="nuw-q1-zhR" firstAttribute="top" secondItem="s7l-dJ-gqc" secondAttribute="bottom" constant="118" id="RTe-TA-75P"/>
+                            <constraint firstItem="zVf-Gp-98W" firstAttribute="leading" secondItem="iVb-zC-wZU" secondAttribute="trailing" constant="25" id="S5V-N1-FfU"/>
                             <constraint firstItem="X4g-1W-yTL" firstAttribute="leading" secondItem="qLc-Jj-iFe" secondAttribute="leadingMargin" constant="2" id="TBd-fo-3UY"/>
                             <constraint firstItem="hqE-4F-8Or" firstAttribute="leading" secondItem="qLc-Jj-iFe" secondAttribute="leading" constant="15" id="XHS-1E-ukr"/>
                             <constraint firstItem="1r8-Vh-wWw" firstAttribute="top" secondItem="s7l-dJ-gqc" secondAttribute="bottom" constant="119" id="Zlr-Co-pMD"/>
                             <constraint firstItem="nuw-q1-zhR" firstAttribute="leading" secondItem="qLc-Jj-iFe" secondAttribute="leadingMargin" constant="2" id="a2e-Z6-Uvm"/>
                             <constraint firstItem="Aio-iu-2bN" firstAttribute="leading" secondItem="qLc-Jj-iFe" secondAttribute="leading" constant="15" id="aeR-co-JAc"/>
+                            <constraint firstItem="zVf-Gp-98W" firstAttribute="top" secondItem="hqE-4F-8Or" secondAttribute="bottom" constant="20" id="bMt-hs-euq"/>
                             <constraint firstItem="Aio-iu-2bN" firstAttribute="top" secondItem="ynK-4l-KIz" secondAttribute="bottom" constant="4" id="cx9-ur-t1o"/>
                             <constraint firstItem="K0a-JV-74z" firstAttribute="leading" secondItem="qLc-Jj-iFe" secondAttribute="leading" constant="15" id="dtW-Tu-3n3"/>
                             <constraint firstAttribute="trailing" secondItem="Aio-iu-2bN" secondAttribute="trailing" constant="15" id="eht-xk-DDU"/>
                             <constraint firstItem="ZMx-1Z-Hla" firstAttribute="top" secondItem="hqE-4F-8Or" secondAttribute="bottom" constant="29" id="etN-8G-8IE"/>
                             <constraint firstItem="iVb-zC-wZU" firstAttribute="top" secondItem="hqE-4F-8Or" secondAttribute="bottom" constant="20" id="hVG-hT-gtB"/>
                             <constraint firstItem="X4g-1W-yTL" firstAttribute="top" secondItem="K0a-JV-74z" secondAttribute="bottom" constant="34" id="lSY-h8-dOl"/>
+                            <constraint firstItem="LHo-RI-3p5" firstAttribute="leading" secondItem="ynK-4l-KIz" secondAttribute="trailing" constant="25" id="rHk-v2-M0n"/>
                             <constraint firstItem="iVb-zC-wZU" firstAttribute="leading" secondItem="ZMx-1Z-Hla" secondAttribute="trailing" constant="3" id="uGw-J0-Lmw"/>
                             <constraint firstItem="ZMx-1Z-Hla" firstAttribute="leading" secondItem="qLc-Jj-iFe" secondAttribute="leadingMargin" constant="2" id="wpq-Df-6Dw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="company" destination="zEs-it-VZC" id="Xeb-5o-6zi"/>
+                        <outlet property="endpicker" destination="LHo-RI-3p5" id="0rh-4v-uKB"/>
                         <outlet property="endtime" destination="ynK-4l-KIz" id="C2W-hq-zWj"/>
+                        <outlet property="startpicker" destination="zVf-Gp-98W" id="6Hb-kn-fup"/>
                         <outlet property="starttime" destination="iVb-zC-wZU" id="c42-zC-2KF"/>
                     </connections>
                 </viewController>

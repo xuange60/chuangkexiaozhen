@@ -131,13 +131,13 @@
     
     if (result==1)
     {
-      UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"信息提交成功" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction*action=[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
-        [alertCon addAction:action];
-        [self presentViewController:alertCon animated:YES completion:nil];
+        [self tiShiKuangDisplay:submitStr viewController:self];
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self tiShiKuangDisplay:@"提交失败" viewController:self];
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 

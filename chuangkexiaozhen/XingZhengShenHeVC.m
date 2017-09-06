@@ -41,6 +41,7 @@
         _lab14.text=_array[3];
         _lab15.text=_array[4];
         _lab16.hidden=YES;
+        _line6.hidden=YES;
     }else if (_array.count==4){
         _lab11.text=_array[0];
         _lab12.text=_array[1];
@@ -48,6 +49,9 @@
         _lab14.text=_array[3];
         _lab15.hidden=YES;
         _lab16.hidden=YES;
+        
+        _line5.hidden=YES;
+        _line6.hidden=YES;
     }else if (_array.count==3){
         _lab11.text=_array[0];
         _lab12.text=_array[1];
@@ -55,6 +59,10 @@
         _lab14.hidden=YES;
         _lab15.hidden=YES;
         _lab16.hidden=YES;
+        
+        _line4.hidden=YES;
+        _line5.hidden=YES;
+        _line6.hidden=YES;
     }
     
 }
@@ -64,14 +72,14 @@
     self.navigationItem.title=@"详情";
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(approvesubmitclick:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
-    self.rightbutton.enabled=NO;
+    self.rightbutton.enabled=YES;
     
     [super viewDidLoad];
     _tuanduiyunying=[[TuanDuiYunYing alloc] init];
     _tuanduiyunying.delegate=self;
     [self query];
     
-    [self receiveCurrentViewController:self];
+   // [self receiveCurrentViewController:self];
 }
 
 

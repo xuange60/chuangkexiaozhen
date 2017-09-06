@@ -664,10 +664,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcF-Xo-PaE">
-                                        <rect key="frame" x="82" y="414" width="229" height="30"/>
+                                        <rect key="frame" x="82" y="414" width="180" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="229" id="1nn-mw-LQW"/>
+                                            <constraint firstAttribute="width" constant="180" id="1nn-mw-LQW"/>
                                             <constraint firstAttribute="height" constant="30" id="5Po-mc-fNP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -678,13 +678,6 @@
                                             <action selector="dateBtnClick:" destination="gCV-1m-SNv" eventType="touchUpInside" id="Doc-4W-qnP"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newCalendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZHR-xI-5y1">
-                                        <rect key="frame" x="284" y="417" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="KBW-Gz-eym"/>
-                                            <constraint firstAttribute="width" constant="25" id="bKC-Wf-oBG"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6f-Q4-L95">
                                         <rect key="frame" x="17" y="374" width="61" height="21"/>
                                         <constraints>
@@ -773,6 +766,17 @@
                                             <constraint firstAttribute="height" constant="0.5" id="3UG-fJ-Lc8"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-Ak-hKx">
+                                        <rect key="frame" x="272" y="412" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="ir8-zj-ux8"/>
+                                            <constraint firstAttribute="width" constant="35" id="yBb-BC-eXd"/>
+                                        </constraints>
+                                        <state key="normal" image="newCalendar.png"/>
+                                        <connections>
+                                            <action selector="dateBtnClick:" destination="gCV-1m-SNv" eventType="touchUpInside" id="dtX-jW-oHh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -790,16 +794,17 @@
                                     <constraint firstItem="bjp-6E-6Pa" firstAttribute="top" secondItem="hBe-6k-To3" secondAttribute="bottom" constant="19" id="DMU-sz-4NC"/>
                                     <constraint firstAttribute="trailing" secondItem="hBe-6k-To3" secondAttribute="trailing" constant="13" id="FPJ-DI-WI7"/>
                                     <constraint firstItem="Ijz-Yc-f6M" firstAttribute="top" secondItem="Had-4f-1Xr" secondAttribute="bottom" constant="20" id="Gt1-AE-Td5"/>
-                                    <constraint firstItem="ZHR-xI-5y1" firstAttribute="top" secondItem="YZw-bD-adz" secondAttribute="bottom" constant="12" id="Hnw-bq-SXN"/>
                                     <constraint firstItem="bEH-SK-yRg" firstAttribute="top" secondItem="Oqm-kq-Mfy" secondAttribute="bottom" constant="12" id="JoC-kI-7T8"/>
                                     <constraint firstItem="Ijz-Yc-f6M" firstAttribute="leading" secondItem="JV3-Uu-s6Z" secondAttribute="leading" constant="19" id="Jsj-Qx-ffd"/>
                                     <constraint firstItem="XM1-gA-heX" firstAttribute="top" secondItem="YZw-bD-adz" secondAttribute="bottom" constant="9" id="KfQ-bl-vMc"/>
                                     <constraint firstItem="DQZ-fU-hLw" firstAttribute="top" secondItem="Oqm-kq-Mfy" secondAttribute="bottom" constant="12" id="NwK-So-3pl"/>
                                     <constraint firstItem="QLO-qD-k1w" firstAttribute="leading" secondItem="JV3-Uu-s6Z" secondAttribute="leading" constant="17" id="P3g-uR-JLP"/>
+                                    <constraint firstItem="KaG-Ak-hKx" firstAttribute="top" secondItem="YZw-bD-adz" secondAttribute="bottom" constant="7" id="PNn-2z-OXK"/>
                                     <constraint firstItem="wxu-cg-yIj" firstAttribute="top" secondItem="hBe-6k-To3" secondAttribute="bottom" constant="19" id="Qb7-2J-jKA"/>
                                     <constraint firstItem="Qjz-wz-ywQ" firstAttribute="top" secondItem="gEB-gD-mEx" secondAttribute="bottom" constant="4" id="TdS-cf-Iw3"/>
                                     <constraint firstAttribute="trailing" secondItem="lHT-Mk-EMw" secondAttribute="trailing" constant="13" id="UgJ-Gi-e4X"/>
                                     <constraint firstAttribute="trailing" secondItem="Oqm-kq-Mfy" secondAttribute="trailing" constant="13" id="Vf3-T7-yV3"/>
+                                    <constraint firstItem="KaG-Ak-hKx" firstAttribute="leading" secondItem="KcF-Xo-PaE" secondAttribute="trailing" constant="10" id="X9J-cq-Zmm"/>
                                     <constraint firstItem="jaj-Kh-cFa" firstAttribute="top" secondItem="QLO-qD-k1w" secondAttribute="bottom" constant="12" id="YSN-LX-u87"/>
                                     <constraint firstItem="lHT-Mk-EMw" firstAttribute="top" secondItem="KcF-Xo-PaE" secondAttribute="bottom" constant="3" id="Yep-AP-l1G"/>
                                     <constraint firstItem="lHT-Mk-EMw" firstAttribute="leading" secondItem="JV3-Uu-s6Z" secondAttribute="leading" constant="17" id="aAw-zc-UFy"/>
@@ -807,7 +812,6 @@
                                     <constraint firstItem="Idm-W9-xLY" firstAttribute="top" secondItem="QLO-qD-k1w" secondAttribute="bottom" constant="18" id="bmZ-wf-RFF"/>
                                     <constraint firstItem="YtL-dL-BND" firstAttribute="top" secondItem="Had-4f-1Xr" secondAttribute="bottom" constant="12" id="cML-Iz-89e"/>
                                     <constraint firstAttribute="trailing" secondItem="58U-va-wAj" secondAttribute="trailing" constant="18" id="cqX-th-k8M"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZHR-xI-5y1" secondAttribute="trailing" constant="11" id="cqw-Ui-4sS"/>
                                     <constraint firstItem="lJH-CT-R5P" firstAttribute="top" secondItem="JV3-Uu-s6Z" secondAttribute="top" constant="73" id="cru-ba-Her"/>
                                     <constraint firstItem="XM1-gA-heX" firstAttribute="leading" secondItem="JV3-Uu-s6Z" secondAttribute="leading" constant="17" id="dvY-zA-YPe"/>
                                     <constraint firstItem="YZw-bD-adz" firstAttribute="top" secondItem="jaj-Kh-cFa" secondAttribute="bottom" constant="5" id="dxy-ZQ-eZG"/>

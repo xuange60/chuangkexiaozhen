@@ -44,11 +44,6 @@
         cell=[[KaiTongZhuXianCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
     }
     
-    
-    cell.MyView.layer.cornerRadius=5;
-    cell.MyView.layer.borderWidth=0.5;
-    cell.MyView.layer.borderColor=[UIColor whiteColor].CGColor;
-    
     /*
      2.11.1 开通主线管理 查询
      http://116.228.176.34:9002/chuangke-serve/mainline/search?start=0&length=10000
@@ -83,6 +78,12 @@
     cell.gaiZao.text=[dic objectNotNullForKey:@"reformDecoration"];
     cell.qingKuang.text=[dic objectNotNullForKey:@"companyStatus"];
     cell.tonYiHao.text=[dic objectNotNullForKey:@"uniNumber"];
+    NSString* inited=[dic objectNotNullForKey:@"tenantInit"];
+    if([inited isEqualToString:@"uninit"]){
+        cell.editBtn.hidden=NO;
+    }else{
+        cell.editBtn.hidden=YES;
+    }
     
    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;

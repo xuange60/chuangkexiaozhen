@@ -22,6 +22,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *renyuan;
 
+@property (strong, nonatomic) IBOutlet UILabel *caozuo;
+
+
 
 @property (strong, nonatomic) IBOutlet UIButton *scoreBtn;
 

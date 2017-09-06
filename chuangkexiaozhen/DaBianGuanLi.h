@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "BussinessApi.h"
-@interface DaBianGuanLi : NSObject
+#import "CommNetWork.h"
+@interface DaBianGuanLi : CommNetWork
 
-@property(nonatomic,assign)id <BussinessApiDelegate> delegate;
+//@property(nonatomic,assign)id <BussinessApiDelegate> delegate;
 
 /*
 1.1 答辩管理查询
