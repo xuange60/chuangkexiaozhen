@@ -83,7 +83,7 @@
     
     _num1++;
     _shidaoNum.text=[NSString stringWithFormat:@"%d",_num1];
-     _bilv.text=[NSString stringWithFormat:@"%d%%",_num1/_num2];
+    [self jisuan];
 }
 
 - (IBAction)jianBtn1Click:(id)sender {
@@ -92,7 +92,7 @@
         _num1=0;
     }
     _shidaoNum.text=[NSString stringWithFormat:@"%d",_num1];
-     _bilv.text=[NSString stringWithFormat:@"%d%%",_num1/_num2];
+   [self jisuan];
     
 }
 
@@ -100,7 +100,7 @@
     
     _num2++;
     _yingdaoNum.text=[NSString stringWithFormat:@"%d",_num2];
-     _bilv.text=[NSString stringWithFormat:@"%.2d%%",_num1/_num2];
+    [self jisuan];
 }
 
 - (IBAction)jian2BtnClick:(id)sender {
@@ -111,13 +111,29 @@
     }
     _yingdaoNum.text=[NSString stringWithFormat:@"%d",_num2];
     
-    CGFloat ff=_num1/_num2;
-    
-    
-    _bilv.text=[NSString stringWithFormat:@"%.2f%%",ff];
+    [self jisuan];
     
 }
 
+-(void)jisuan
+{
+    if(_num2<=0){
+        _bilv.text=@"0.00%";
+        return;
+    }
+    if(_num1<=0) {
+        _bilv.text=@"0.00%";
+        return;
+    }
+    if(_num2<=_num1){
+        _bilv.text=@"100.00%";
+        return;
+    }
+    if(_num2>_num1){
+        _bilv.text=[NSString stringWithFormat:@"%d%@",(int)((_num1/(_num2*1.00))*100),@"%"];
+    }
+    
+}
 - (IBAction)shangchuan1Click:(id)sender {
     
     ImgeUpViewController* imgup=[[ImgeUpViewController alloc] initView];
@@ -160,24 +176,10 @@
     [dic setNotNullStrObject:_bilv.text forKey:@"percent"];
     [dic setNotNullStrObject:_beizhu.text forKey:@"remark"];
     [dic setNotNullStrObject:_photoIds forKey:@"signResourceIds"];
+    NSDictionary*dics=[_dicM objectForKey:@"roadshows"];
+    
+    [dic setNotNullStrObject:[dics objectNotNullForKey:_huodongBtn.currentTitle] forKey:@"roadshows"];
 
-    [_dicM objectForKey:@"roadshows"];
-    
-    __block NSMutableString *ss=[NSMutableString string];
-    
-    [_dicM enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        
-        if ([key isEqualToString:_huodongBtn.currentTitle]) {
-            if([ss length]>0){
-                [ss appendString:@""];
-            }
-            [ss appendString:((NSString*)obj)];
-        }
-    }];
-    
-    [dic setNotNullStrObject:ss forKey:@"signResourceIds"];
-    
-    
     [_qiandao QianDaoTongJiAdd:dic];
 }
 -(void)afternetwork4:(id)data

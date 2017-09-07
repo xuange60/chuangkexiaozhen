@@ -12,6 +12,7 @@
 #import "HuoDongLuYanCell.h"
 #import "FilelistViewController.h"
 #import "HuoDongLuYanDetailViewController.h"
+#import "HuoDongLuYanAddVC.h"
 @interface HuoDongLuYanViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong,nonatomic) HuoDong* huodong;

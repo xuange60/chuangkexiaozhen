@@ -41,6 +41,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self query];
+}
+
 
 //点击右上角+号时，添加申请时重写
 -(void)add
@@ -56,7 +61,7 @@
 - (IBAction)categoryclick:(id)sender {
     DuoXuanVC* add=[[DuoXuanVC alloc] init];
     NSArray* keys=[_categorys allKeys];
-    [add setArray:keys btn:sender];
+    [add setArray:keys btn:_category];
     [add setNavTitle:@"选择资产类型"];
     [add setDanXuan];
     NSString* curtitle=[_category currentTitle];
@@ -93,9 +98,7 @@
 
     
 }
-- (IBAction)queryziyuan:(id)sender {
-    [self query];
-}
+
 
 
 - (void)loadNetworkFinished:(id)data
@@ -121,9 +124,6 @@
         cell=[[YuanQuZiYuanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str1];
     }
     
-    cell.MyView.layer.cornerRadius=5;
-    cell.MyView.layer.borderWidth=0.5;
-    cell.MyView.layer.borderColor=[UIColor lightGrayColor].CGColor;
     
     NSDictionary* dic=[self.datas objectAtIndex:indexPath.row];
     cell.category.text=[dic objectNotNullForKey:@"category"];

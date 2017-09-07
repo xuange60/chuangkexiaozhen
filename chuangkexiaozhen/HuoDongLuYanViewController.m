@@ -23,12 +23,15 @@
     //modify
     self.navigationItem.title=@"活动路演";
 
+    UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon  style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
+    [self.navigationItem setRightBarButtonItem:RightBarItem];
     
     self.huodong=[[HuoDong alloc] init];
     self.huodong.delegate=self;
     [self query];
 
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveInfomation) name:@"ADDHUODONGGUANLI" object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -37,7 +40,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)receiveInfomation
+{
+    [self query];
+}
 
+//左边添加比赛事件
+-(void)RightBarItemClick:(UIBarButtonItem*)item
+{
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"huodongluyan" bundle:nil];
+    HuoDongLuYanAddVC*vc=[board instantiateViewControllerWithIdentifier:@"HuoDongLuYanAddVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 //modify 查询数据，显示在tableview上时使用
@@ -78,6 +92,19 @@
     return cell;
 }
 
+- (IBAction)deleteBtnClick:(id)sender forEvent:(UIEvent *)event {
+    NSSet*touches= [event allTouches];
+    
+    UITouch*touch=[touches anyObject];
+    
+    CGPoint point=[touch locationInView:_tableview];
+    
+    NSIndexPath *indexPath=[_tableview indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
+    [_huodong HuoDongLuYanDelete:strID];
+}
 
 
 
@@ -104,7 +131,10 @@
 }
 
 
-
+-(void)afternetwork2:(id)data
+{
+    [self query];
+}
 
 
 

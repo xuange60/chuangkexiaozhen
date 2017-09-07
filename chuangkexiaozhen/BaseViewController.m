@@ -79,12 +79,12 @@
     
     for (  id obj in ary) {
         
-        if ([obj isKindOfClass:[UITextField class]] && ((UITextField*)obj).hidden==NO)
+        if ([obj isKindOfClass:[UITextField class]] && ((UITextField*)obj).hidden==NO && ((UITextField*)obj).userInteractionEnabled==YES)
         {
             UITextField*text=(UITextField*)obj;
             text.delegate=self;
             hasInput=YES;
-        }else if ([obj isKindOfClass:[UITextView class]] && ((UITextView*)obj).hidden==NO)
+        }else if ([obj isKindOfClass:[UITextView class]] && ((UITextView*)obj).hidden==NO && ((UITextView*)obj).userInteractionEnabled==YES)
         {
             UITextView*textView=(UITextView*)obj;
             textView.delegate=self;
@@ -104,7 +104,7 @@
     NSArray*ary=view.subviews;
     BOOL isNull=NO;
     for (  id obj in ary) {
-        if ([obj isKindOfClass:[UITextField class]]){
+        if ([obj isKindOfClass:[UITextField class]] && ((UITextField*)obj).hidden==NO && ((UITextField*)obj).userInteractionEnabled==YES){
             UITextField*field=(UITextField*)obj;
             if (field.text !=nil && field.text.length>0){
                 
@@ -112,7 +112,7 @@
                 isNull=YES;//有空跳出循环
                 break;
             }
-        }else if ([obj isKindOfClass:[UITextView class]]){
+        }else if ([obj isKindOfClass:[UITextView class]] && ((UITextView*)obj).hidden==NO && ((UITextView*)obj).userInteractionEnabled==YES){
             UITextView*textView=(UITextView*)obj;
             if (textView.text!=nil && textView.text.length>0) {
                 

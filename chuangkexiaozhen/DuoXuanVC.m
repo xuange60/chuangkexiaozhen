@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     if(_titlestr==nil || _titlestr.length==0){
-        self.navigationItem.title=@"选择资产编号";
+        self.navigationItem.title=@"请选择";
     }else{
         self.navigationItem.title=_titlestr;
     }

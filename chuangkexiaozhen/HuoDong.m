@@ -185,7 +185,92 @@
 
 
 
+-(void) HuoDongParamQuery
+{
+    [self queryParamMapwithRelativeUrl:@"/roadshow/add"];
+}
 
+
+-(void)HuoDongLuYanAdd:(NSDictionary*)param
+{
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults]objectForKey:@"baseurl"];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/roadshow/save"];
+    NSString* address=[param objectNotNullForKey:@"address"];
+    NSString* content=[param objectNotNullForKey:@"content"];
+    NSString* name=[param objectNotNullForKey:@"name"];
+    NSString* organizationList=[param objectNotNullForKey:@"organizationList"];
+    NSString* time=[param objectNotNullForKey:@"time"];
+    NSString* resourceIds=[param objectNotNullForKey:@"resourceIds"];
+    NSString* turl=[param objectNotNullForKey:@"url"];
+    
+    
+    
+    NSMutableString* users=[NSMutableString string];
+    NSArray* ary1=(NSArray*)[param objectForKey:@"noticeList"];
+    if([ary1 count]>0){
+        users=[NSMutableString stringWithString:@"&"];
+        for (int i=0; i<[ary1 count]; i++) {
+            NSString* data=[ary1 objectAtIndex:i];
+            [users appendFormat:@"noticeList=%@",data];
+            if(i<([ary1 count]-1)){
+                [users appendString:@"&"];
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    NSString* post=[NSString stringWithFormat:@"address=%@&content=%@&name=%@&organizationList=%@&resourceIds=%@%@&time=%@&url=%@",address,content,name,organizationList,resourceIds,users,time,turl];
+    
+    
+    NSData* postdate=[post dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* length=[NSString stringWithFormat:@"%lu",(unsigned long)[postdate length]];
+    NSMutableURLRequest* req=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
+    [req setHTTPMethod:@"POST"];
+    [req setValue:length forHTTPHeaderField:@"Content-Length"];
+    [req setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray<NSHTTPCookie *> *cookies=[cookieJar cookies];
+    NSHTTPCookie* cookie1=[cookies objectAtIndex:0];
+    NSString* cookiename=[cookie1 valueForKey:NSHTTPCookieName];
+    NSString* cookievalue=[cookie1 valueForKey:NSHTTPCookieValue];
+    NSString* cookiestr=[NSString stringWithFormat:@"%@=%@",cookiename,cookievalue];
+    [req setValue:cookiestr forHTTPHeaderField:@"Cookie"];
+    [req setHTTPBody:postdate];
+    
+    
+    
+    NSURLResponse* resp=nil;
+    NSError* err=nil;
+    NSData* respdata=[NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&err];
+    int result=-1;
+    
+    @try {
+        NSString* datastr= [[NSString alloc] initWithData:respdata  encoding:NSUTF8StringEncoding];
+        NSDictionary* jsondata=(NSDictionary*) [datastr objectFromJSONString];
+        result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+        NSLog(@"%d",result);
+    } @catch (NSException *exception) {
+        result=-1;
+    }
+    
+    //result: 1,删除成功 不等于1,失败
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(afternetwork5:)]) {
+        [self.delegate afternetwork5:[NSNumber numberWithInt:result]];
+        
+    }
+    
+    
+}
+
+
+-(void)HuoDongLuYanDelete:(NSString*)ids
+{
+    [self deleteWithId:ids andRelativeUrl:@"/roadshow/batchdelete"];
+}
 
 
 @end

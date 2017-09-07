@@ -56,7 +56,7 @@
 
 -(void)YuanQuZiYuanQuery
 {
-    [super querylistWithRole:@"" andRelativeUrl:@"/parkresource/search"];
+    [super querylistWithRole:@"admin" andRelativeUrl:@"/parkresource/search"];
 }
 
 -(void)YuanQuZiYuanQueryWithCategory:(NSString*)category

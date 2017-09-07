@@ -18,6 +18,7 @@
     _huodong=[[HuoDong alloc] init];
     _huodong.delegate=self;
     [super viewDidLoad];
+    self.navigationItem.title=@"详情";
     [self query];
     // Do any additional setup after loading the view.
 }
