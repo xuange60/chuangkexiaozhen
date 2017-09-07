@@ -57,11 +57,7 @@
    ShiTiRuZhuGuanLiCell *cell=[tableView dequeueReusableCellWithIdentifier:str];
     if (!cell) {
         cell=[[ShiTiRuZhuGuanLiCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-        
-          }
-//    cell.myView.layer.borderWidth=1;
-//    cell.myView.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    cell.myView.layer.cornerRadius=5;
+    }
 
     /*
      2.1 实体入驻管理查询

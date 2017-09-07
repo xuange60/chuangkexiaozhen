@@ -20,4 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *url;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *deletebtn;
+
+
 @end

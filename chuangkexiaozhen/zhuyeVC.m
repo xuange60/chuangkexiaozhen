@@ -287,9 +287,10 @@
         vc.isadmin=_isadmin;
         [self.navigationController pushViewController:vc animated:YES];
         
-    }else if([data isEqualToString:@"路演发布管理"]){
+    }else if([data isEqualToString:@"路演发布管理"]){//普通用户 管理员都会返回
         UIStoryboard*board=[UIStoryboard storyboardWithName:@"huodongluyan" bundle:nil];
         HuoDongLuYanViewController* vc=[board instantiateViewControllerWithIdentifier:@"HuoDongLuYanViewController"];
+        vc.isadmin=_isadmin;
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
     }else if([data isEqualToString:@"主动性退出管理"]){
@@ -431,13 +432,6 @@
         KaoQinLuoJiVC*vc=[board instantiateViewControllerWithIdentifier:@"KaoQinLuoJiVC"];
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"%@ 按钮被点击",data);
-    }else if([data isEqualToString:@"路演发布管理"]){
-        NSLog(@"%@ 按钮被点击",data);
-        UIStoryboard*board=[UIStoryboard storyboardWithName:@"huodongluyan" bundle:nil];
-        HuoDongLuYanViewController* vc=[board instantiateViewControllerWithIdentifier:@"HuoDongLuYanViewController"];
-        [self.navigationController pushViewController:vc animated:YES];
-        
-        
     }else if([data isEqualToString:@"签到统计管理"]){
         NSLog(@"%@ 按钮被点击",data);
         

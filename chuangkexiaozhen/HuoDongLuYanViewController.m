@@ -25,7 +25,10 @@
 
     UIImage *rightButtonIcon = [[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *RightBarItem = [[UIBarButtonItem alloc] initWithImage:rightButtonIcon  style:UIBarButtonItemStylePlain target:self action:@selector(RightBarItemClick:)];
-    [self.navigationItem setRightBarButtonItem:RightBarItem];
+    if([_isadmin isEqualToString:@"Y"]){
+        [self.navigationItem setRightBarButtonItem:RightBarItem];    
+    }
+
     
     self.huodong=[[HuoDong alloc] init];
     self.huodong.delegate=self;
@@ -88,6 +91,9 @@
     cell.address.text=[dic objectNotNullForKey:@"address"];
     cell.time.text=[dic objectNotNullForKey:@"time"];
     cell.url.text=[dic objectNotNullForKey:@"url"];
+    if(![_isadmin isEqualToString:@"Y"]){
+        cell.deletebtn.hidden=YES;
+    }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }

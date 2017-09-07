@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-
+    self.navigationItem.title=@"成功跟踪管理";
      _genzong =[[ChengGuoGenZong alloc]init];
      _genzong.delegate=self;
 

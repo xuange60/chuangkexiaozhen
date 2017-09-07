@@ -18,10 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.username.layer.borderWidth = 0.5f;
-    self.username.layer.cornerRadius = 2;
     self.username.layer.borderColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:1].CGColor;
     self.pwd.layer.borderWidth = 0.5f;
-    self.pwd.layer.cornerRadius = 2;
     self.pwd.layer.borderColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:1].CGColor;
     self.username.delegate=self;
     self.username.returnKeyType = UIReturnKeyDone;

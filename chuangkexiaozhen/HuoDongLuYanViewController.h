@@ -20,6 +20,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
-
+@property(nonatomic,strong) NSString* isadmin;
 
 @end
