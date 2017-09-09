@@ -48,7 +48,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *beizhu;
 
 
-
+@property (strong,nonatomic) NSString* isInit;
 
 
 

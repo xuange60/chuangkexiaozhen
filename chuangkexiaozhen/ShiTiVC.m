@@ -249,6 +249,24 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 }
 
 
+- (IBAction)shangchuan:(id)sender {
+    
+    ImgeUpViewController* imgup=[[ImgeUpViewController alloc] initView];
+    [imgup setNotifyName:@"ShiTiVCFileUp" AndTitle:@"上传"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getfile:) name:@"ShiTiVCFileUp" object:nil];
+    [self.navigationController pushViewController:imgup animated:YES];
+}
+
+-(void)getfile:(id)data
+{
+    if(data!=nil){
+        NSNotification* tmp=(NSNotification*)data;
+        
+        _resourceID=(NSString*)tmp.object;
+    }
+    
+}
+
 
 -(void) shiTiRuZhuSubmitWithParam:(NSDictionary*)param
 {

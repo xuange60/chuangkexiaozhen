@@ -111,7 +111,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToX-bZ-Qxb">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="行业类型">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -148,7 +148,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-FM-Y4r">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="团队类型">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -235,7 +235,7 @@
                                         </constraints>
                                         <state key="normal" image="newcamera1.png"/>
                                         <connections>
-                                            <action selector="xuaWenJianBtnClick:" destination="7Wz-PO-aIC" eventType="touchUpInside" id="Cxi-KH-xUn"/>
+                                            <action selector="shangchuan:" destination="7Wz-PO-aIC" eventType="touchUpInside" id="oVS-zP-nWi"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5K7-9w-XIN">
@@ -371,7 +371,7 @@
                         <outlet property="view2" destination="DaS-MZ-rrT" id="hfU-GL-vhO"/>
                         <outlet property="view3" destination="QoH-IU-qGC" id="bTA-82-oo0"/>
                         <outlet property="view4" destination="sga-Tn-eX5" id="0do-m3-Yyn"/>
-                        <outlet property="xuanWenJianBtn" destination="4l7-Kb-pIP" id="hsa-w5-E7Q"/>
+                        <outlet property="xuanWenJianBtn" destination="4l7-Kb-pIP" id="tCA-cN-SA0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHl-XC-Om2" userLabel="First Responder" sceneMemberID="firstResponder"/>

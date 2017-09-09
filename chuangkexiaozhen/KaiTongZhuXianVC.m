@@ -91,9 +91,42 @@
 
 - (IBAction)editBtnClick:(id)sender forEvent:(UIEvent *)event {
     
-//    UIStoryboard*board=[UIStoryboard storyboardWithName:@"KaiTongZhuXian" bundle:nil];
-//    AddKaiTongVC*vc=[board instantiateViewControllerWithIdentifier:@"AddKaiTongVC"];
-//    [self.navigationController pushViewController:vc animated:YES];
+    NSSet*touches=[event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath*path=[_tableView indexPathForRowAtPoint:point];
+    
+    NSDictionary*dic=[_array objectAtIndex:path.row];
+    
+    NSString*strID=[dic objectNotNullForKey:@"id"];
+    
+    
+    NSArray*ary=[NSArray arrayWithObjects:
+                 [dic objectNotNullForKey:@"numberOfOffice"],
+                 [dic objectNotNullForKey:@"ppppppppp"],//没有正确的，暂代替
+                 [dic objectNotNullForKey:@"numberOftc"],
+                 [dic objectNotNullForKey:@"tcCodes"],
+                 [dic objectNotNullForKey:@"numberOfoe"],
+                 [dic objectNotNullForKey:@"oeCodes"],
+                 [dic objectNotNullForKey:@"printAccount"],
+                 [dic objectNotNullForKey:@"printPassword"],
+                 [dic objectNotNullForKey:@"numberOfegc"],
+                 [dic objectNotNullForKey:@"egcCodes"],
+                 [dic objectNotNullForKey:@"numberOfpl"],
+                 [dic objectNotNullForKey:@"plCodes"],
+                 [dic objectNotNullForKey:@"name"],
+                 [dic objectNotNullForKey:@"concatType"],
+                 [dic objectNotNullForKey:@"companyName"],
+                 nil];
+    
+    
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"ZiYuanPeiZhi" bundle:nil];
+    EditZiYuanPeiZhiVC*vc=[board instantiateViewControllerWithIdentifier:@"EditZiYuanPeiZhiVC"];
+    
+    [vc setStr:strID infoAry:ary];
+    vc.isInit=@"Y";
+    [self.navigationController pushViewController:vc animated:YES];
+
     
 }
 

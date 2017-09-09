@@ -28,7 +28,7 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *ind3;
 
-
+@property (strong,nonatomic) NSString* ids;
 
 
 @end

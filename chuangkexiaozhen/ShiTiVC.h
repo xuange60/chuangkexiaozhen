@@ -10,6 +10,7 @@
 #import "BaseViewController.h"
 #import "XiaLaView.h"
 #import "BussinessApi.h"
+#import "ImgeUpViewController.h"
 @interface ShiTiVC : BaseViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property(nonatomic,strong)NSString*resourceID;

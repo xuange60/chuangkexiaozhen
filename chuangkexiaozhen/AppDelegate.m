@@ -45,6 +45,8 @@
     _locaService.delegate=self;
     [_locaService startUserLocationService];
     
+    CommNetWork* comm=[[CommNetWork alloc] init];
+    [comm getBaseUrl];
     return YES;
 }
 

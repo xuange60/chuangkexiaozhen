@@ -583,7 +583,7 @@
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/getbaseurl"];
     
     NSUserDefaults* defaults=[NSUserDefaults standardUserDefaults];
-    [defaults setObject:@"http://116.228.176.34:9001/chuangke-serve" forKey:@"baseurl"];
+    [defaults setObject:@"http://116.228.176.34:9002/chuangke-serve" forKey:@"baseurl"];
     
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];

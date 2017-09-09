@@ -21,7 +21,8 @@
 }
 
 - (void)viewDidLoad {
-    self.navigationItem.title=@"资源配置修改";
+
+    
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(tijiaoClick:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
     self.rightbutton.enabled=NO;
@@ -33,7 +34,16 @@
     
     _ziyuan=[[ZiYuanPeiZhiGuanLi alloc]init];
     _ziyuan.delegate=self;
-    [_ziyuan ZiYuanGuanLiDetailQuery:_strID];
+    
+    if([_isInit isEqualToString:@"Y"]){
+        self.navigationItem.title=@"资源配置初始化";
+        [_ziyuan ZiYuanGuanLiInitQuery:_strID];
+    }else{
+        self.navigationItem.title=@"资源配置修改";
+        [_ziyuan ZiYuanGuanLiDetailQuery:_strID];
+
+    }
+    
     
 
     
@@ -296,14 +306,19 @@
         NSString*value=[dicPL objectNotNullForKey:ss];
         [PLAry addObject:value];
     }
-    [dic setNotNullObject:PLAry forKey:@"plCodes"];
+    [dic setObject:PLAry forKey:@"plCodes"];
 
     [dic setNotNullStrObject:_name.text forKey:@"name"];
     [dic setNotNullStrObject:_concatType.text forKey:@"concatType"];
     [dic setNotNullStrObject: _beizhu.text forKey:@"desc"];
     [dic setNotNullStrObject:_strID forKey:@"id"];
+    if([_isInit isEqualToString:@"Y"]){
+        [_ziyuan ZiYuanGuanLiInit:dic];
+    }else{
+        [_ziyuan ZiYuanGuanLiModify:dic];
+        
+    }
     
-    [_ziyuan ZiYuanGuanLiModify:dic];
     
 }
 

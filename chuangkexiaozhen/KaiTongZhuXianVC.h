@@ -10,7 +10,7 @@
 #import "KaiTongZhuXianGuanLi.h"
 #import "KaiTongZhuXianCell.h"
 #import "AddKaiTongVC.h"
-
+#import "EditZiYuanPeiZhiVC.h"
 @interface KaiTongZhuXianVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,BussinessApiDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

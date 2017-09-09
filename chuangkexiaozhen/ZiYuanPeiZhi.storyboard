@@ -540,7 +540,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对应资产编号：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FV2-5T-5Ak">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对应资产编号：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FV2-5T-5Ak">
                                         <rect key="frame" x="5" y="61" width="120" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="MTR-ux-d58"/>
@@ -700,7 +700,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSe-AO-7em">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSe-AO-7em">
                                         <rect key="frame" x="128" y="61" width="177" height="25"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -714,7 +714,7 @@
                                             <action selector="btnOFOclick:" destination="Zgs-Tk-aJf" eventType="touchUpInside" id="ZrC-4P-D2m"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right.png" translatesAutoresizingMaskIntoConstraints="NO" id="mi1-Ms-8H4">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right.png" translatesAutoresizingMaskIntoConstraints="NO" id="mi1-Ms-8H4">
                                         <rect key="frame" x="282" y="64" width="18" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="18" id="45P-oK-A9p"/>
@@ -911,7 +911,7 @@
                                             <constraint firstAttribute="height" constant="0.5" id="Aon-jf-8Gf"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f9-td-rXZ">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f9-td-rXZ">
                                         <rect key="frame" x="10" y="87" width="300" height="1"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
@@ -1180,6 +1180,7 @@
                         <outlet property="OeCodes" destination="B4v-9B-imb" id="O2e-tn-eWc"/>
                         <outlet property="PlCodes" destination="cZI-Cx-btn" id="HVx-a7-FYG"/>
                         <outlet property="TcCodes" destination="Fa5-Qb-aZc" id="CId-ZP-lke"/>
+                        <outlet property="beizhu" destination="wfa-qr-Ilm" id="T5A-li-s3R"/>
                         <outlet property="chushiDuiXiang" destination="gYa-KN-rWi" id="7A5-lI-4x6"/>
                         <outlet property="concatType" destination="ZO1-di-nWI" id="Fbl-jA-GGg"/>
                         <outlet property="name" destination="L5p-l1-NhK" id="zVi-oh-oHn"/>

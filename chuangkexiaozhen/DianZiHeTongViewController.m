@@ -218,6 +218,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
             
             if (result==1) {
                 [self tiShiKuangDisplay:@"提交成功" viewController:self];
+                if(_ids!=nil && _ids.length>1){
+                    [self baodao];
+                }
                 [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }];
@@ -235,6 +238,31 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
 
 
 
+-(void)baodao
+{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    [parameters setNotNullStrObject:_ids forKey:@"id"];
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/apply/update/inplace"];
+    [manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectNotNullForKey:@"Content-Type"];
+        NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",data);
+        if([contenttype containsString:@"json"]){//返回json格式数据
+            NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
+            int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
+            NSLog(@"%d",result);
+            //result: 1,提交成功 不等于1,提交
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
 
 
 

@@ -74,7 +74,6 @@
     datePicker.backgroundColor=[UIColor whiteColor];
     datePicker.datePickerMode=UIDatePickerModeDate;
     datePicker.minimumDate=[NSDate dateWithTimeIntervalSince1970:0];
-    datePicker.maximumDate=[NSDate date];
     datePicker.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"zh-CN"];
 
     [self.view addSubview:datePicker];

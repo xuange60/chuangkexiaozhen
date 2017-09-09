@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+#import "ShenSuViewController.h"
+#import "DianZiHeTongViewController.h"
 @interface WoDeZiYuanViewController : BaseViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *numberOfOffice;

@@ -89,7 +89,6 @@
             NSDictionary* jsondata=(NSDictionary*) [data objectFromJSONString];
             int result=[((NSNumber*)[jsondata objectForKey:@"result"]) intValue];
             if(0==result){
-                NSLog(@"%@",@"用户名或密码错误"); //登陆失败
                 [self tiShiKuangDisplay:@"登陆失败" viewController:self];
             }
         }else if([contenttype containsString:@"html"]){ //登陆成功

@@ -154,6 +154,21 @@
 }
 
 
+- (IBAction)shensu:(id)sender {
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+    ShenSuViewController*vc=[board instantiateViewControllerWithIdentifier:@"ShenSuViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+- (IBAction)hetong:(id)sender {
+    UIStoryboard*board=[UIStoryboard storyboardWithName:@"baodaoruzhu" bundle:nil];
+    DianZiHeTongViewController*vc=[board instantiateViewControllerWithIdentifier:@"DianZiHeTongViewController"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary*dic=[defaults dictionaryForKey:@"chuangkexiaozhen.userinfo"];
+    vc.ids=[dic objectNotNullForKey:@"companyId"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 /*

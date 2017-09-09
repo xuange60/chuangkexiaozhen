@@ -24,7 +24,7 @@
  */
 -(void)YongHuQuery
 {
-    [super querylistWithRole:@"" andRelativeUrl:@"/user/search"];
+    [super querylistWithRole:@"admin" andRelativeUrl:@"/user/search"];
 }
 
 

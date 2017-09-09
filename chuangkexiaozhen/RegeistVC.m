@@ -275,12 +275,14 @@
            
             //result: 1,注册成功 不等于1,则注册失败
             if (result==1) {
-                [self tiShiKuangDisplay:@"注册成功" viewController:self];
+                [self tiShiKuangDisplay:@"注册成功,请登陆" viewController:self];
                 UIStoryboard*storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 
                 ViewController*vc=[storyBoard instantiateInitialViewController];
+                [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                    [self presentViewController:vc animated:YES completion:nil];
+                }];
                 
-                [self presentViewController:vc animated:YES completion:nil];
                 
             }else{
                 [self tiShiKuangDisplay:@"注册失败" viewController:self];

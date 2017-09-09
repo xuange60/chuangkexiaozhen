@@ -99,6 +99,7 @@
  */
 -(void) ZiYuanGuanLiDetailQuery:(NSString*)ids;
 
+-(void) ZiYuanGuanLiInitQuery:(NSString*)ids;
 
 /*
  2.13.1 资源管理配置修改
@@ -136,7 +137,7 @@
 -(void) ZiYuanGuanLiModify:(NSDictionary*)param;
 
 
-
+-(void) ZiYuanGuanLiInit:(NSDictionary*)param;
 
 /*
  2.13.2 资源管理查询
