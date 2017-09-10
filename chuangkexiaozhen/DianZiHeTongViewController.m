@@ -23,7 +23,7 @@
     self.navigationItem.rightBarButtonItem=self.rightbutton;
     _images=[NSMutableArray array];
     _resourceids=[NSMutableString string];
-    
+    [self baodaoquery];
     // Do any additional setup after loading the view.
 }
 
@@ -263,6 +263,52 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData){
     }];
     
 }
+
+
+
+
+
+
+-(void)baodaoquery
+{
+    NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer=[[AFHTTPResponseSerializer alloc] init];
+    NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/electroniccontract/add"];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
+        NSString* contenttype=[headers objectForKey:@"Content-Type"];
+        NSLog(@"%@",[[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding]);
+        if([contenttype containsString:@"html"])
+        {
+            TFHpple* doc=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSArray* arrays=[doc searchWithXPathQuery:@"//button"];
+            for (TFHppleElement *ele in arrays)
+            {
+                NSString * idstr=[ele objectForKey:@"id"];
+                NSString* value=[ele objectForKey:@"onclick"];
+                if(idstr!=nil && value!=nil && [value containsString:@"cover"]){
+                    NSMutableString* tmp=[NSMutableString stringWithString:value];
+                    NSRange rang1=NSMakeRange(0, [tmp length]);
+                    [tmp replaceOccurrencesOfString:@"cover('" withString:@"" options:NSCaseInsensitiveSearch range:rang1];
+                    rang1=NSMakeRange(0, [tmp length]);
+                    [tmp replaceOccurrencesOfString:@"')" withString:@"" options:NSCaseInsensitiveSearch range:rang1];
+                    _ids=tmp;
+                    break;
+                }
+            }
+            
+
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+
+    
+}
+
 
 
 
