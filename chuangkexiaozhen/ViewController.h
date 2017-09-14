@@ -21,7 +21,7 @@
 
 
 
-
+@property(nonatomic,strong)UITextField*TF;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *username;

@@ -6,18 +6,19 @@
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
+#import "BaseViewController.h"
 #import <UIKit/UIKit.h>
 #import "CustomButton.h"
 #import "MBProgressHUD.h"
 #import "CommNetWork.h"
-@interface RegeistVC : UIViewController<UITextFieldDelegate,BussinessApiDelegate>
+@interface RegeistVC : BaseViewController<UITextFieldDelegate,BussinessApiDelegate>
 
 
 @property(nonatomic,strong)NSTimer*timer;
 @property(nonatomic)int i;
 @property(nonatomic,strong)UIGestureRecognizer*ges;
 
-@property (strong,nonatomic) MBProgressHUD* HUD;
+//@property (strong,nonatomic) MBProgressHUD* HUD;
 
 
 @property (strong, nonatomic) IBOutlet CustomButton *yzmBtn;

@@ -71,10 +71,6 @@
 
 
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    [textField becomeFirstResponder];
-}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -229,20 +225,6 @@
 
 
 
-
--(void)tiShiKuangDisplay:(NSString*)text viewController:(UIViewController*)vc;
-{
-    _HUD=[[MBProgressHUD alloc]initWithView:vc.view];
-    [vc.view  addSubview:_HUD];
-    
-    _HUD.mode=MBProgressHUDModeText;
-    _HUD.labelText=text;
-    _HUD.margin=10;
-    _HUD.yOffset=vc.view.center.y-100;
-    [_HUD show:YES];
-    [_HUD hide:YES afterDelay:1];
-    
-}
 
 
 @end

@@ -33,24 +33,40 @@
     
     CommNetWork* comm=[[CommNetWork alloc] init];
     [comm getBaseUrl];
-
 }
+
 - (IBAction)loginClick:(id)sender {
-    
     NSString* namestr=self.username.text;
     NSString* pwdstr=self.pwd.text;
     if(namestr==nil || namestr.length<1 || pwdstr==nil || pwdstr.length<1){
         return;
     }
     [self loginWithName:namestr andPwd:pwdstr];
+}
+
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _TF=textField;
     
+}
+
+
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];//取消第一响应者
     return YES;
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [_TF resignFirstResponder];
+}
 
 //用户登录
 //参数 用户名，密码
@@ -172,12 +188,6 @@
 }
 
 
-
-
-
-
-
-
 -(void)tiShiKuangDisplay:(NSString*)text viewController:(UIViewController*)vc;
 {
     _HUD=[[MBProgressHUD alloc]initWithView:vc.view];
@@ -191,8 +201,6 @@
     [_HUD hide:YES afterDelay:1];
     
 }
-
-
 
 
 - (IBAction)youke:(id)sender {

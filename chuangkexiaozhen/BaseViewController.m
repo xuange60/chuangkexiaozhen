@@ -22,7 +22,7 @@
     }
     
     
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [self.navigationController setNavigationBarHidden:NO];
     
     UIImage *leftButtonIcon = [[UIImage imageNamed:@"left-arrow"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -146,8 +146,6 @@
 }
 
 
-
-
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
     BOOL isNull=[self checkInputHasNull:_currentVC.view];
@@ -160,6 +158,19 @@
 
 
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _TF=textField;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [_TF resignFirstResponder];
+}
+
+
+
 
 -(void)tiShiKuangDisplay:(NSString*)text viewController:(UIViewController*)vc;
 {

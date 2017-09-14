@@ -12,6 +12,9 @@
 #import "CommNetWork.h"
 @interface BaseViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>
 
+
+@property(nonatomic,strong)UITextField*TF;
+
 @property(nonatomic,strong)MBProgressHUD*HUD;
 
 @property (strong,nonatomic) NSString* navtitle;

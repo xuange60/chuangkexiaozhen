@@ -6,11 +6,12 @@
 //  Copyright © 2017年 小灰灰. All rights reserved.
 //
 
+#import "BaseViewController.h"
 #import <UIKit/UIKit.h>
 #import "BussinessApi.h"
 #import "CustomButton.h"
 #import  "MBProgressHUD.h"
-@interface ResetVC : UIViewController<UITextFieldDelegate>
+@interface ResetVC : BaseViewController<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *userName;
 
 @property (strong, nonatomic) IBOutlet UITextField *mobile;
@@ -29,7 +30,6 @@
 @property(nonatomic)int i;
 @property(nonatomic,strong)UIGestureRecognizer*ges;
 
-@property (strong,nonatomic) MBProgressHUD* HUD;
 
 @property (nonatomic) BOOL check;
 

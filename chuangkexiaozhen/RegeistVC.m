@@ -87,10 +87,7 @@
 
 
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    [textField becomeFirstResponder];
-}
+
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -132,7 +129,7 @@
 }
 
 //点击注册按钮的事件处理
-- (IBAction)zhuceBtnClick:(id)sender {
+- (IBAction)zhuceBtnClick:(id)sender{
     if(![_pwd.text isEqualToString:_pwd2.text] ){
         [_pwd becomeFirstResponder];
         [self tiShiKuangDisplay:@"密码不一致" viewController:self];
@@ -298,19 +295,7 @@
 
 
 
--(void)tiShiKuangDisplay:(NSString*)text viewController:(UIViewController*)vc;
-{
-    _HUD=[[MBProgressHUD alloc]initWithView:vc.view];
-    [vc.view  addSubview:_HUD];
-    
-    _HUD.mode=MBProgressHUDModeText;
-    _HUD.labelText=text;
-    _HUD.margin=10;
-    _HUD.yOffset=vc.view.center.y-100;
-    [_HUD show:YES];
-    [_HUD hide:YES afterDelay:1];
-    
-}
+
 
 
 @end
