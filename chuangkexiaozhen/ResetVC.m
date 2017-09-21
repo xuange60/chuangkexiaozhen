@@ -214,7 +214,12 @@
                  [self dismissViewControllerAnimated:YES completion:nil];
                  [self tiShiKuangDisplay:@"重置成功" viewController:self];
              }else{       //重置失败，弹出提示，继续设置
-                 [self tiShiKuangDisplay:@"重置失败" viewController:self];
+                 NSString* desc=(NSString*)[jsondata objectForKey:@"desc"];
+                 if(desc==nil){
+                     desc=@"重置失败";
+                 }
+                 [self tiShiKuangDisplay:desc viewController:self];
+
              }
          }
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

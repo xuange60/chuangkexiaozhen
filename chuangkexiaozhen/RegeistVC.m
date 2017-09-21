@@ -283,7 +283,11 @@
                 
                 
             }else{
-                [self tiShiKuangDisplay:@"注册失败" viewController:self];
+                NSString* desc=(NSString*)[jsondata objectForKey:@"desc"];
+                if(desc==nil){
+                    desc=@"注册失败";
+                }
+                [self tiShiKuangDisplay:desc viewController:self];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

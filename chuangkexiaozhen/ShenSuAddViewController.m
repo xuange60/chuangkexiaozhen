@@ -21,12 +21,11 @@
     self.navigationItem.title=@"申诉申请";
     self.rightbutton=[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submit:)];
     self.rightbutton.tintColor=[UIColor whiteColor];
-    self.rightbutton.enabled=NO;
-
     [self initWithData];
     
     [self receiveCurrentViewController:self];
-    // Do any additional setup after loading the view.
+    self.rightbutton.enabled=YES;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +40,14 @@
 }
 
 
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    return;
+}
+
+
+
 - (void)submit:(id)sender {
     NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:self.type.currentTitle,@"stateType",self.detail.text,@"stateContent",self.liyou.text,@"stateReason", nil];
     [self shenSuShenQingSubmit:param];
@@ -49,7 +56,6 @@
 
 -(void) initWithData
 {
-    UITextField;
     
     if(self.data!=nil){
         [self.type setTitle:[self.data objectNotNullForKey:@"stateType"] forState:UIControlStateNormal];

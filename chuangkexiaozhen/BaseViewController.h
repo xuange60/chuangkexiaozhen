@@ -14,6 +14,7 @@
 
 
 @property(nonatomic,strong)UITextField*TF;
+@property(nonatomic,strong)UITextView*TV;
 
 @property(nonatomic,strong)MBProgressHUD*HUD;
 
