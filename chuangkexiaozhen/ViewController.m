@@ -60,6 +60,9 @@
     [textField resignFirstResponder];//取消第一响应者
     return YES;
 }
+
+
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [_TF resignFirstResponder];

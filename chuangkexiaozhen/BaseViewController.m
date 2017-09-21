@@ -155,15 +155,28 @@
     }else{
         self.rightbutton.enabled=YES;
     }
-
-
 }
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]){//判断输入的字是否是回车，即按下return
+        //在这里做你响应return键的代码
+        
+        [textView resignFirstResponder];
+        
+        return NO; //这里返回NO，就代表return键值失效，即页面上按下return，不会出现换行，如果为yes，则输入页面会换行
+    }
+    return YES;
+}
+
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     _TF=textField;
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];//取消第一响应者
+    return YES;
+}
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [_TF resignFirstResponder];

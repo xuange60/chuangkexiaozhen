@@ -97,14 +97,15 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEM-L0-5EV">
-                                                    <rect key="frame" x="135" y="110" width="30" height="30"/>
+                                                    <rect key="frame" x="100" y="110" width="100" height="30"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="Jap-Ft-BWX"/>
+                                                        <constraint firstAttribute="width" constant="100" id="Jap-Ft-BWX"/>
                                                         <constraint firstAttribute="height" constant="30" id="pfD-JR-pvE"/>
                                                     </constraints>
-                                                    <state key="normal" image="newdetail1.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="查看详情">
+                                                        <color key="titleColor" red="0.034555756677806658" green="0.021133011288863354" blue="0.035394194162436499" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="PingFenDetail:forEvent:" destination="Ef1-6U-idx" eventType="touchUpInside" id="o8A-QQ-Q1y"/>
@@ -303,7 +304,4 @@
             <point key="canvasLocation" x="18.75" y="-55.985915492957744"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="newdetail1.png" width="64" height="64"/>
-    </resources>
 </document>

@@ -98,28 +98,30 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dq-PI-7Si">
-                                                    <rect key="frame" x="125" y="144" width="35" height="35"/>
+                                                    <rect key="frame" x="115" y="144" width="70" height="35"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="E6h-eh-Z5E"/>
-                                                        <constraint firstAttribute="width" constant="35" id="yM1-OG-6mR"/>
+                                                        <constraint firstAttribute="height" constant="35" id="8og-4F-XtQ"/>
+                                                        <constraint firstAttribute="width" constant="70" id="hoi-vq-oI0"/>
                                                     </constraints>
-                                                    <state key="normal" title="download" image="newdown1.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="立即下载">
+                                                        <color key="titleColor" red="0.084419410040000004" green="0.12984612579999999" blue="0.088421057009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="fileList:forEvent:" destination="dLa-D1-t68" eventType="touchUpInside" id="GvL-Q8-F3F"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h4-Fe-W6t">
-                                                    <rect key="frame" x="45" y="144" width="35" height="35"/>
+                                                    <rect key="frame" x="15" y="144" width="70" height="35"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="Rd7-ls-4H4"/>
-                                                        <constraint firstAttribute="height" constant="35" id="Sip-Ro-7EG"/>
+                                                        <constraint firstAttribute="height" constant="35" id="KYT-pH-2uF"/>
+                                                        <constraint firstAttribute="width" constant="70" id="Ub8-OG-6oR"/>
                                                     </constraints>
-                                                    <state key="normal" title="detail" image="newdetail1.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="查看详情">
+                                                        <color key="titleColor" red="0.084419410040000004" green="0.12984612579999999" blue="0.088421057009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="HuoDongDetail:forEvent:" destination="dLa-D1-t68" eventType="touchUpInside" id="buX-uD-JdE"/>
@@ -142,14 +144,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9Y-0e-wex">
-                                                    <rect key="frame" x="200" y="144" width="35" height="35"/>
+                                                    <rect key="frame" x="215" y="144" width="70" height="35"/>
                                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="cTM-AK-9wC"/>
-                                                        <constraint firstAttribute="height" constant="35" id="fJx-Mg-ipU"/>
+                                                        <constraint firstAttribute="width" constant="70" id="0VV-uY-RtC"/>
+                                                        <constraint firstAttribute="height" constant="35" id="mXU-uj-sBe"/>
                                                     </constraints>
-                                                    <state key="normal" image="newdelete.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="删除选项">
+                                                        <color key="titleColor" red="0.084419410040000004" green="0.12984612579999999" blue="0.088421057009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="deleteBtnClick:forEvent:" destination="dLa-D1-t68" eventType="touchUpInside" id="pCl-8t-kV0"/>
@@ -158,9 +161,9 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="g9Y-0e-wex" firstAttribute="leading" secondItem="6Dq-PI-7Si" secondAttribute="trailing" constant="40" id="0PP-a9-9pt"/>
                                                 <constraint firstItem="Tsx-Tw-YN2" firstAttribute="leading" secondItem="9DA-lY-P6w" secondAttribute="trailing" constant="5" id="0zd-bS-F2j"/>
                                                 <constraint firstItem="Tm2-KJ-ghy" firstAttribute="leading" secondItem="LWd-sJ-Qw5" secondAttribute="trailing" constant="5" id="1Pw-Bu-wjS"/>
+                                                <constraint firstItem="6Dq-PI-7Si" firstAttribute="centerX" secondItem="vkX-YR-cpJ" secondAttribute="centerX" id="2Ac-9Z-IFw"/>
                                                 <constraint firstItem="Tm2-KJ-ghy" firstAttribute="top" secondItem="Tsx-Tw-YN2" secondAttribute="bottom" constant="5" id="2nE-Ve-hNr"/>
                                                 <constraint firstItem="Tsx-Tw-YN2" firstAttribute="top" secondItem="vkX-YR-cpJ" secondAttribute="top" constant="5" id="2pX-So-Xdh"/>
                                                 <constraint firstItem="9DA-lY-P6w" firstAttribute="leading" secondItem="vkX-YR-cpJ" secondAttribute="leading" constant="10" id="31v-RI-XWM"/>
@@ -170,23 +173,23 @@
                                                 <constraint firstAttribute="trailing" secondItem="2r8-ce-1ga" secondAttribute="trailing" constant="5" id="8vb-pw-CzF"/>
                                                 <constraint firstItem="iCH-Kd-B84" firstAttribute="top" secondItem="LWd-sJ-Qw5" secondAttribute="bottom" constant="5" id="AaL-vF-4ll"/>
                                                 <constraint firstItem="LWd-sJ-Qw5" firstAttribute="leading" secondItem="vkX-YR-cpJ" secondAttribute="leading" constant="10" id="CSI-Ni-SbS"/>
-                                                <constraint firstItem="4h4-Fe-W6t" firstAttribute="leading" secondItem="vkX-YR-cpJ" secondAttribute="leading" constant="45" id="Czb-lP-xDI"/>
                                                 <constraint firstItem="9DA-lY-P6w" firstAttribute="top" secondItem="vkX-YR-cpJ" secondAttribute="top" constant="5" id="D65-nG-nHU"/>
-                                                <constraint firstItem="4h4-Fe-W6t" firstAttribute="top" secondItem="VSS-9f-dvU" secondAttribute="bottom" constant="13.5" id="Gn5-F1-BKb"/>
                                                 <constraint firstItem="2r8-ce-1ga" firstAttribute="top" secondItem="Tm2-KJ-ghy" secondAttribute="bottom" constant="5" id="Iqc-kj-dzf"/>
                                                 <constraint firstItem="I5I-bD-8NX" firstAttribute="leading" secondItem="LaI-5B-APP" secondAttribute="trailing" constant="5" id="KOV-ND-3LY"/>
-                                                <constraint firstItem="6Dq-PI-7Si" firstAttribute="top" secondItem="VSS-9f-dvU" secondAttribute="bottom" constant="13.5" id="MIt-mE-irM"/>
                                                 <constraint firstItem="LWd-sJ-Qw5" firstAttribute="top" secondItem="9DA-lY-P6w" secondAttribute="bottom" constant="5" id="MKx-g7-Cfd"/>
-                                                <constraint firstItem="g9Y-0e-wex" firstAttribute="top" secondItem="VSS-9f-dvU" secondAttribute="bottom" constant="13.5" id="XnK-Fq-rM1"/>
+                                                <constraint firstAttribute="bottom" secondItem="4h4-Fe-W6t" secondAttribute="bottom" constant="8" id="RKx-bf-nxD"/>
+                                                <constraint firstItem="6Dq-PI-7Si" firstAttribute="leading" secondItem="4h4-Fe-W6t" secondAttribute="trailing" constant="30" id="UKC-XZ-JAZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="g9Y-0e-wex" secondAttribute="bottom" constant="8" id="XxY-yY-pKn"/>
+                                                <constraint firstItem="g9Y-0e-wex" firstAttribute="leading" secondItem="6Dq-PI-7Si" secondAttribute="trailing" constant="30" id="cds-X2-Iu1"/>
                                                 <constraint firstItem="iCH-Kd-B84" firstAttribute="leading" secondItem="vkX-YR-cpJ" secondAttribute="leading" constant="10" id="hHc-a6-XGV"/>
                                                 <constraint firstItem="LaI-5B-APP" firstAttribute="leading" secondItem="vkX-YR-cpJ" secondAttribute="leading" constant="10" id="hOk-5H-Siz"/>
                                                 <constraint firstItem="VSS-9f-dvU" firstAttribute="leading" secondItem="vkX-YR-cpJ" secondAttribute="leading" constant="5" id="kkv-eU-pFa"/>
                                                 <constraint firstAttribute="trailing" secondItem="VSS-9f-dvU" secondAttribute="trailing" constant="5" id="lfG-ti-7ps"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Dq-PI-7Si" secondAttribute="bottom" constant="8" id="n1Q-Wj-S1f"/>
                                                 <constraint firstItem="2r8-ce-1ga" firstAttribute="leading" secondItem="iCH-Kd-B84" secondAttribute="trailing" constant="5" id="oHz-gz-FER"/>
                                                 <constraint firstAttribute="trailing" secondItem="Tm2-KJ-ghy" secondAttribute="trailing" constant="5" id="paJ-dk-Myy"/>
                                                 <constraint firstAttribute="trailing" secondItem="Tsx-Tw-YN2" secondAttribute="trailing" constant="5" id="u3I-mj-aFV"/>
                                                 <constraint firstItem="VSS-9f-dvU" firstAttribute="top" secondItem="I5I-bD-8NX" secondAttribute="bottom" constant="10" id="wCn-Ol-DCl"/>
-                                                <constraint firstItem="6Dq-PI-7Si" firstAttribute="leading" secondItem="4h4-Fe-W6t" secondAttribute="trailing" constant="45" id="wDo-5S-1uM"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -842,9 +845,6 @@
     <resources>
         <image name="newCalendar.png" width="64" height="64"/>
         <image name="newcamera1.png" width="128" height="128"/>
-        <image name="newdelete.png" width="64" height="64"/>
-        <image name="newdetail1.png" width="64" height="64"/>
-        <image name="newdown1.png" width="64" height="64"/>
         <image name="right.png" width="40" height="40"/>
     </resources>
 </document>

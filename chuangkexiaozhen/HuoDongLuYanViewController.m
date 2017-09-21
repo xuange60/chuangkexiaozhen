@@ -109,7 +109,17 @@
     
     NSDictionary*dic=[_datas objectAtIndex:indexPath.row];
     NSString*strID=[dic objectNotNullForKey:@"id"];
-    [_huodong HuoDongLuYanDelete:strID];
+    
+    UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"请确认是否删除？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction*action2=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [_huodong HuoDongLuYanDelete:strID];
+    }];
+    
+    [alertCon addAction:action1];
+    [alertCon addAction:action2];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
 }
 
 
