@@ -49,6 +49,8 @@
 
 -(void) initWithData
 {
+    UITextField;
+    
     if(self.data!=nil){
         [self.type setTitle:[self.data objectNotNullForKey:@"stateType"] forState:UIControlStateNormal];
         [self.type setUserInteractionEnabled:NO];
@@ -109,5 +111,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
+
+
+
+
+
 
 @end

@@ -180,7 +180,8 @@
     _HUD.mode=MBProgressHUDModeText;
     _HUD.labelText=text;
     _HUD.margin=10;
-    _HUD.yOffset=vc.view.center.y-100;
+//    _HUD.yOffset=vc.view.center.y-100;
+    
     [_HUD show:YES];
     [_HUD hide:YES afterDelay:2];
     

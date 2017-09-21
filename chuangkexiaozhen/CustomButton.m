@@ -9,6 +9,109 @@
 #import "CustomButton.h"
 
 @implementation CustomButton
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    NSLog(@"%s",__func__);
+    
+    _lab1=[[UILabel alloc]init];
+    _lab1.text=@"label1";
+    [self addSubview:_lab1];
+    
+    _lab2=[[UILabel alloc]init];
+    _lab2.text=@"label2";
+    [self addSubview:_lab2];
+    
+    self.backgroundColor=[UIColor whiteColor];
+    
+    
+}
+
+-(void)setContent:(NSString*)str   attributeStr:(NSString*)string
+{
+    _lab1.frame=CGRectMake(0, 0, 80,self.frame.size.height);
+    _lab1.textAlignment=NSTextAlignmentRight;
+    _lab1.font=[UIFont systemFontOfSize:14];
+    _lab1.text=str;
+    
+
+    _lab2.frame=CGRectMake(0, 0, 150, self.frame.size.height);
+    _lab2.textAlignment=NSTextAlignmentLeft;
+    _lab2.font=[UIFont systemFontOfSize:14];
+    _lab2.text=string;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //- (void)drawRect:(CGRect)rect
@@ -52,44 +155,6 @@
 //}
 
 
--(void)awakeFromNib
-{
-    [super awakeFromNib];
-    NSLog(@"%s",__func__);
-    
-    _lab1=[[UILabel alloc]init];
-    _lab1.text=@"label1";
-    [self addSubview:_lab1];
-    
-    _lab2=[[UILabel alloc]init];
-    _lab2.text=@"label2";
-    [self addSubview:_lab2];
-
-    self.backgroundColor=[UIColor whiteColor];
-    
-    
-}
-
--(void)setContent:(NSString*)str   attributeStr:(NSString*)string
-{
-    _lab1.frame=CGRectMake(0, 0, 80,self.frame.size.height);
-    _lab1.textAlignment=NSTextAlignmentRight;
-    _lab1.font=[UIFont systemFontOfSize:14];
-    _lab1.text=str;
-
-    
-    
-    _lab2.frame=CGRectMake(0, 0, 150, self.frame.size.height);
-    _lab2.textAlignment=NSTextAlignmentLeft;
-    _lab2.font=[UIFont systemFontOfSize:14];
-    _lab2.text=string;
-    
-//    self.autoresizesSubviews=YES;
-
-//    UITapGestureRecognizer*ges=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gesClick:)];
-//    [self addGestureRecognizer:ges];
-
-}
 
 //-(void)gesClick:(UIGestureRecognizer*)ges
 //{

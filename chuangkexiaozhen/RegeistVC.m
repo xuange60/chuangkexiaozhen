@@ -59,7 +59,7 @@
         return;
     }
     
-    if ([_yzmBtn.lab1.text isEqualToString:@"获取验证码"])
+    if ([_yzmBtn.lab1.text isEqualToString:@"获取验证码"]|| [_yzmBtn.lab1.text isEqualToString:@"重新获取验证码"])
     {
         _i=60;
         [self registerGetCode:_mobile.text];
@@ -75,7 +75,7 @@
                     [_yzmBtn setContent:@"" attributeStr:[NSString stringWithFormat:@"%d%@",_i,@"s后重新获取"]];
                     if (_i==0){
                         _i=60;
-                        [_yzmBtn setContent:@"获取验证码" attributeStr:@""];
+                        [_yzmBtn setContent:@"重新获取验证码" attributeStr:@""];
                         _yzmBtn.lab1.hidden=NO;
                         _yzmBtn.lab2.hidden=YES;
                         [_timer invalidate];
@@ -104,7 +104,7 @@
     _zhuceBtn.enabled=NO;
     [_zhuceBtn setTitleColor:[UIColor lightGrayColor]forState:UIControlStateNormal];
     
-    if(_username.text.length>0 && _mobile.text.length>0 && _email.text.length>0 && _checkcode.text.length>0 && _pwd.text.length>0 && _pwd2.text.length>0 && [[_usertype currentTitle] length]>0){
+    if(_username.text.length>0 && _mobile.text.length>0 && _checkcode.text.length>0 && _pwd.text.length>0 && _pwd2.text.length>0 && [[_usertype currentTitle] length]>0){
         _zhuceBtn.enabled=YES;
         [_zhuceBtn setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
     }
@@ -160,7 +160,8 @@
     NSMutableDictionary *parameters=[NSMutableDictionary dictionaryWithObjectsAndKeys:name,@"loginname", nil];
     NSString* baseurl=[[NSUserDefaults standardUserDefaults] objectForKey:@"baseurl"];
     NSString* url=[NSString stringWithFormat:@"%@%@",baseurl,@"/register/check"];
-    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
         NSDictionary* headers=[(NSHTTPURLResponse*)task.response allHeaderFields];
         NSString* contenttype=[headers objectForKey:@"Content-Type"];
         NSString* data= [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
@@ -177,7 +178,7 @@
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+        NSLog(@"error：%@",error);
         
     }];
     

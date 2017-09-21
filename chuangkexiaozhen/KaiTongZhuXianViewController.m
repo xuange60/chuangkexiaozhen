@@ -114,7 +114,10 @@
 
 - (IBAction)kaiTongZhuXian:(id)sender {
     NSMutableDictionary* param=[NSMutableDictionary dictionary];
+    
     [param setNotNullStrObject:self.companyname.text forKey:@"companyname"];
+    
+    
     [param setNotNullStrObject:@"" forKey:@"uninumber"];
     [param setNotNullStrObject:_reportedbodies.text forKey:@"reportedbodies"];
     [param setNotNullStrObject:_leasearea.text forKey:@"leasearea"];

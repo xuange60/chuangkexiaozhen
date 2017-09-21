@@ -118,18 +118,23 @@
 - (IBAction)deleteBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
    NSSet*touches= [event allTouches];
-    
    UITouch*touch=[touches anyObject];
-    
    CGPoint point=[touch locationInView:_tableView];
-    
    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
-    
     NSDictionary*dic=[_array objectAtIndex:indexPath.row];
     NSString*strID=[dic objectNotNullForKey:@"id"];
     
-    [_api biSaiGuanLiDelete:strID];
+    UIAlertController*alertCon=[UIAlertController alertControllerWithTitle:nil message:@"请确认是否删除？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction*action1=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction*action2=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+         [_api biSaiGuanLiDelete:strID];
+    }];
     
+    [alertCon addAction:action1];
+    [alertCon addAction:action2];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+
 }
 //删除数据委托代理，刷新
 -(void)deleteData:(id)data
@@ -158,27 +163,22 @@
 //下载比赛事件的处理，进入
 - (IBAction)DownloadBtnClicked:(id)sender forEvent:(UIEvent *)event {
     
-    NSSet*touches= [event allTouches];
-    
-    UITouch*touch=[touches anyObject];
-    
-    CGPoint point=[touch locationInView:_tableView];
-    
-    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
-    
-    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
-    NSString*strID=[dic objectNotNullForKey:@"id"];
-    
-
+    NSString*strID=[self saveCode:event];
     FilelistViewController* filelist=[[FilelistViewController alloc] initView:strID withType:@"5"];
     [self.navigationController pushViewController:filelist animated:YES];
-
     
 }
 
-
-
-
+-(NSString*)saveCode:(UIEvent*)event
+{
+    NSSet*touches= [event allTouches];
+    UITouch*touch=[touches anyObject];
+    CGPoint point=[touch locationInView:_tableView];
+    NSIndexPath *indexPath=[_tableView indexPathForRowAtPoint:point];
+    NSDictionary*dic=[_array objectAtIndex:indexPath.row];
+    NSString*strID=[dic objectNotNullForKey:@"id"];
+    return strID;
+}
 
 - (IBAction)detailclick:(id)sender forEvent:(UIEvent *)event {
     NSSet*touches= [event allTouches];

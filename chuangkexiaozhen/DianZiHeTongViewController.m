@@ -35,12 +35,12 @@
 
 - (IBAction)selectFile:(id)sender {
     // 1.判断相册是否可以打开
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
         return;
     // 2. 创建图片选择控制器
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
     // 3. 设置打开照片相册类型(显示所有相簿)
-    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
     // 4.设置代理
     ipc.delegate = self;
     // 5.modal出这个控制器
