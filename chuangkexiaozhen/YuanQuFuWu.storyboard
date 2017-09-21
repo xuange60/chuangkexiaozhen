@@ -97,57 +97,46 @@
                                                     <color key="textColor" red="0.39206180470000002" green="0.39836156610000001" blue="0.4064284581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWT-q0-AZP">
-                                                    <rect key="frame" x="150" y="140" width="35" height="35"/>
-                                                    <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="7iq-cn-kJL"/>
-                                                        <constraint firstAttribute="height" constant="35" id="jLs-hG-S3i"/>
-                                                    </constraints>
-                                                    <state key="normal" title="delete" image="newdelete.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="FuWuDelete:forEvent:" destination="oXP-qs-rPz" eventType="touchUpInside" id="wln-zv-7Q7"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oG-ua-GGZ">
-                                                    <rect key="frame" x="210" y="140" width="35" height="35"/>
+                                                    <rect key="frame" x="165" y="140" width="35" height="35"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="AVv-Mt-xeg"/>
-                                                        <constraint firstAttribute="width" constant="35" id="dP4-db-uOa"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Cpg-x3-FfG"/>
+                                                        <constraint firstAttribute="width" constant="35" id="avT-bZ-xwd"/>
                                                     </constraints>
-                                                    <state key="normal" title="download" image="newdown1.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="下载">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="fileList:forEvent:" destination="oXP-qs-rPz" eventType="touchUpInside" id="HhX-FA-32Z"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZa-9U-Edf">
-                                                    <rect key="frame" x="90" y="141" width="35" height="35"/>
+                                                    <rect key="frame" x="105" y="141" width="35" height="35"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="Bmb-hf-8Ye"/>
                                                         <constraint firstAttribute="height" constant="35" id="wzw-cK-kmS"/>
                                                     </constraints>
-                                                    <state key="normal" title="detail" image="newdetail1.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="详情">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="ShenSuDetail:forEvent:" destination="oXP-qs-rPz" eventType="touchUpInside" id="37M-p6-L0o"/>
                                                     </connections>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMd-4n-1HI">
-                                                    <rect key="frame" x="30" y="140" width="35" height="35"/>
+                                                    <rect key="frame" x="45" y="140" width="35" height="35"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="Omo-p2-Ach"/>
                                                         <constraint firstAttribute="width" constant="35" id="pjC-sb-kdr"/>
                                                     </constraints>
-                                                    <state key="normal" title="succ" image="newsucc1.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="通过">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="ShenQingSucc:forEvent:" destination="oXP-qs-rPz" eventType="touchUpInside" id="yRh-nE-4XT"/>
@@ -169,12 +158,28 @@
                                                     <color key="textColor" red="0.39206180470000002" green="0.39836156610000001" blue="0.4064284581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWT-q0-AZP">
+                                                    <rect key="frame" x="225" y="141" width="35" height="35"/>
+                                                    <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="cMV-JF-tcN"/>
+                                                        <constraint firstAttribute="height" constant="35" id="utK-9e-8KF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="删除">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="FuWuDelete:forEvent:" destination="oXP-qs-rPz" eventType="touchUpInside" id="wln-zv-7Q7"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="H3a-QP-t2G" firstAttribute="leading" secondItem="0dl-cf-sng" secondAttribute="leading" constant="10" id="2d7-ww-0LW"/>
                                                 <constraint firstItem="5EF-j4-ISI" firstAttribute="leading" secondItem="Pfj-FQ-HVm" secondAttribute="trailing" constant="5" id="7IC-3J-n0L"/>
                                                 <constraint firstAttribute="trailing" secondItem="9tP-54-iRM" secondAttribute="trailing" constant="5" id="7pJ-v2-Fdx"/>
+                                                <constraint firstItem="nWT-q0-AZP" firstAttribute="leading" secondItem="2oG-ua-GGZ" secondAttribute="trailing" constant="25" id="7uu-Bq-ECP"/>
                                                 <constraint firstItem="21N-Z7-m83" firstAttribute="top" secondItem="5EF-j4-ISI" secondAttribute="bottom" constant="10" id="8IP-pL-6Ei"/>
                                                 <constraint firstItem="Pfj-FQ-HVm" firstAttribute="leading" secondItem="0dl-cf-sng" secondAttribute="leading" constant="10" id="EG8-lw-8gq"/>
                                                 <constraint firstAttribute="trailing" secondItem="p5Q-US-atz" secondAttribute="trailing" constant="5" id="EiI-Hx-eFz"/>
@@ -184,24 +189,23 @@
                                                 <constraint firstItem="i8e-Tl-IB9" firstAttribute="top" secondItem="0dl-cf-sng" secondAttribute="top" constant="5" id="Kly-bg-hMm"/>
                                                 <constraint firstItem="i8e-Tl-IB9" firstAttribute="leading" secondItem="0dl-cf-sng" secondAttribute="leading" constant="10" id="OsK-Lc-kW6"/>
                                                 <constraint firstAttribute="trailing" secondItem="Df5-yK-GU7" secondAttribute="trailing" constant="5" id="PSp-EY-Flm"/>
-                                                <constraint firstItem="nWT-q0-AZP" firstAttribute="top" secondItem="21N-Z7-m83" secondAttribute="bottom" constant="10" id="SpN-Ha-tfq"/>
+                                                <constraint firstItem="2oG-ua-GGZ" firstAttribute="leading" secondItem="dZa-9U-Edf" secondAttribute="trailing" constant="25" id="REx-Pu-N3c"/>
                                                 <constraint firstItem="fMd-4n-1HI" firstAttribute="top" secondItem="21N-Z7-m83" secondAttribute="bottom" constant="10" id="TqD-hu-XIx"/>
                                                 <constraint firstItem="9tP-54-iRM" firstAttribute="leading" secondItem="i8e-Tl-IB9" secondAttribute="trailing" constant="5" id="UiW-M6-Cdc"/>
                                                 <constraint firstItem="5EF-j4-ISI" firstAttribute="top" secondItem="p5Q-US-atz" secondAttribute="bottom" constant="5" id="VkB-wz-xPC"/>
                                                 <constraint firstItem="21N-Z7-m83" firstAttribute="leading" secondItem="0dl-cf-sng" secondAttribute="leading" constant="5" id="Xc5-Iw-Ddt"/>
                                                 <constraint firstItem="Df5-yK-GU7" firstAttribute="top" secondItem="9tP-54-iRM" secondAttribute="bottom" constant="5" id="Xwb-wG-9wK"/>
                                                 <constraint firstItem="9tP-54-iRM" firstAttribute="top" secondItem="0dl-cf-sng" secondAttribute="top" constant="5" id="YyT-sS-POD"/>
-                                                <constraint firstItem="2oG-ua-GGZ" firstAttribute="top" secondItem="21N-Z7-m83" secondAttribute="bottom" constant="10" id="bbb-0R-JkF"/>
-                                                <constraint firstItem="nWT-q0-AZP" firstAttribute="leading" secondItem="dZa-9U-Edf" secondAttribute="trailing" constant="25" id="ca5-u1-E3Y"/>
                                                 <constraint firstItem="dZa-9U-Edf" firstAttribute="leading" secondItem="fMd-4n-1HI" secondAttribute="trailing" constant="25" id="chd-pw-chO"/>
+                                                <constraint firstItem="nWT-q0-AZP" firstAttribute="top" secondItem="21N-Z7-m83" secondAttribute="bottom" constant="10" id="dNF-8w-Pql"/>
                                                 <constraint firstItem="dZa-9U-Edf" firstAttribute="top" secondItem="21N-Z7-m83" secondAttribute="bottom" constant="10" id="f1N-HO-xJO"/>
+                                                <constraint firstItem="2oG-ua-GGZ" firstAttribute="top" secondItem="21N-Z7-m83" secondAttribute="bottom" constant="10" id="fFm-gy-RxS"/>
                                                 <constraint firstItem="H3a-QP-t2G" firstAttribute="top" secondItem="zb2-GS-E2k" secondAttribute="bottom" constant="5" id="gLD-tQ-ZJR"/>
                                                 <constraint firstItem="zb2-GS-E2k" firstAttribute="top" secondItem="i8e-Tl-IB9" secondAttribute="bottom" constant="5" id="gY1-uB-42o"/>
                                                 <constraint firstItem="zb2-GS-E2k" firstAttribute="leading" secondItem="0dl-cf-sng" secondAttribute="leading" constant="10" id="ivT-PC-Dq3"/>
                                                 <constraint firstItem="p5Q-US-atz" firstAttribute="leading" secondItem="H3a-QP-t2G" secondAttribute="trailing" constant="5" id="n7b-qZ-Ed5"/>
                                                 <constraint firstItem="Pfj-FQ-HVm" firstAttribute="top" secondItem="H3a-QP-t2G" secondAttribute="bottom" constant="5" id="s4i-w4-eV0"/>
-                                                <constraint firstItem="2oG-ua-GGZ" firstAttribute="leading" secondItem="nWT-q0-AZP" secondAttribute="trailing" constant="25" id="sF5-oH-2i9"/>
-                                                <constraint firstItem="fMd-4n-1HI" firstAttribute="leading" secondItem="0dl-cf-sng" secondAttribute="leading" constant="30" id="uRH-oU-uw3"/>
+                                                <constraint firstItem="fMd-4n-1HI" firstAttribute="leading" secondItem="0dl-cf-sng" secondAttribute="leading" constant="45" id="uRH-oU-uw3"/>
                                                 <constraint firstAttribute="trailing" secondItem="21N-Z7-m83" secondAttribute="trailing" constant="5" id="yM1-H1-DWk"/>
                                             </constraints>
                                         </view>
@@ -492,10 +496,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="newdelete.png" width="64" height="64"/>
-        <image name="newdetail1.png" width="64" height="64"/>
-        <image name="newdown1.png" width="64" height="64"/>
-        <image name="newsucc1.png" width="64" height="64"/>
         <image name="right.png" width="40" height="40"/>
     </resources>
 </document>

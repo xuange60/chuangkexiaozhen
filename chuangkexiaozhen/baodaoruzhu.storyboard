@@ -1142,28 +1142,30 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxg-hv-fYa">
-                                                            <rect key="frame" x="103" y="140" width="30" height="30"/>
+                                                            <rect key="frame" x="103" y="140" width="35" height="35"/>
                                                             <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="PLh-ag-v3L"/>
-                                                                <constraint firstAttribute="width" constant="30" id="a4B-6g-FjP"/>
+                                                                <constraint firstAttribute="height" constant="35" id="PLh-ag-v3L"/>
+                                                                <constraint firstAttribute="width" constant="35" id="a4B-6g-FjP"/>
                                                             </constraints>
-                                                            <state key="normal" title="detail" image="newdetail1.png">
-                                                                <color key="titleColor" red="0.36746349859703559" green="0.37336800731241038" blue="0.38092877538071068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <state key="normal" title="详情">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="ShenSuDetail:forEvent:" destination="Gbf-OG-7pl" eventType="touchUpInside" id="G5a-bd-cck"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1P-vC-EF7">
-                                                            <rect key="frame" x="178" y="140" width="30" height="30"/>
+                                                            <rect key="frame" x="173" y="140" width="35" height="35"/>
                                                             <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="dY2-tu-ZYI"/>
-                                                                <constraint firstAttribute="width" constant="30" id="y40-as-n6b"/>
+                                                                <constraint firstAttribute="height" constant="35" id="dY2-tu-ZYI"/>
+                                                                <constraint firstAttribute="width" constant="35" id="y40-as-n6b"/>
                                                             </constraints>
-                                                            <state key="normal" title="delete" image="newdelete1.png">
-                                                                <color key="titleColor" red="0.36746349859703559" green="0.37336800731241038" blue="0.38092877538071068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <state key="normal" title="删除">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="ShenSuDelete:forEvent:" destination="Gbf-OG-7pl" eventType="touchUpInside" id="wHe-Pi-yOf"/>
@@ -1518,8 +1520,6 @@
     </scenes>
     <resources>
         <image name="newcamera1.png" width="128" height="128"/>
-        <image name="newdelete1.png" width="64" height="64"/>
-        <image name="newdetail1.png" width="64" height="64"/>
         <image name="right.png" width="40" height="40"/>
     </resources>
 </document>

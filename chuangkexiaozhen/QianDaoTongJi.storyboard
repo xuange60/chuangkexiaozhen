@@ -140,41 +140,43 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6P-Ew-MGS">
                                                     <rect key="frame" x="0.0" y="186" width="300" height="62"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-xz-IO2">
-                                                            <rect key="frame" x="60" y="13" width="35" height="35"/>
-                                                            <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="35" id="42v-pu-VBO"/>
-                                                                <constraint firstAttribute="width" constant="35" id="vfV-9D-sEl"/>
-                                                            </constraints>
-                                                            <state key="normal" title="detail" image="newdelete.png">
-                                                                <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="deleteBtnClick:forEvent:" destination="aBF-tb-QxZ" eventType="touchUpInside" id="hqe-lC-49M"/>
-                                                            </connections>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVI-e0-Yai">
-                                                            <rect key="frame" x="205" y="13" width="35" height="35"/>
+                                                            <rect key="frame" x="80" y="10" width="35" height="35"/>
                                                             <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="35" id="Abo-X4-UnB"/>
-                                                                <constraint firstAttribute="width" constant="35" id="C2P-lf-xS5"/>
+                                                                <constraint firstAttribute="width" constant="35" id="ZYK-Sd-cCo"/>
+                                                                <constraint firstAttribute="height" constant="35" id="y26-gb-A6K"/>
                                                             </constraints>
-                                                            <state key="normal" title="download" image="newdown1.png">
-                                                                <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <state key="normal" title="下载">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="downloadBtnClick:forEvent:" destination="aBF-tb-QxZ" eventType="touchUpInside" id="6S0-fl-rgu"/>
                                                             </connections>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-xz-IO2">
+                                                            <rect key="frame" x="185" y="10" width="35" height="35"/>
+                                                            <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="35" id="TZR-uV-CNp"/>
+                                                                <constraint firstAttribute="height" constant="35" id="yyW-eS-LLa"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <state key="normal" title="删除">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="deleteBtnClick:forEvent:" destination="aBF-tb-QxZ" eventType="touchUpInside" id="hqe-lC-49M"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="BVI-e0-Yai" firstAttribute="centerY" secondItem="p6P-Ew-MGS" secondAttribute="centerY" id="Mfi-bq-nL2"/>
-                                                        <constraint firstAttribute="trailing" secondItem="BVI-e0-Yai" secondAttribute="trailing" constant="60" id="bLQ-8X-aZN"/>
-                                                        <constraint firstItem="ZX8-xz-IO2" firstAttribute="centerY" secondItem="p6P-Ew-MGS" secondAttribute="centerY" id="dhI-eC-OTM"/>
-                                                        <constraint firstItem="ZX8-xz-IO2" firstAttribute="leading" secondItem="p6P-Ew-MGS" secondAttribute="leading" constant="60" id="vf7-Pm-DzD"/>
+                                                        <constraint firstItem="BVI-e0-Yai" firstAttribute="leading" secondItem="p6P-Ew-MGS" secondAttribute="leading" constant="80" id="e5d-wC-W1M"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZX8-xz-IO2" secondAttribute="trailing" constant="80" id="oam-6K-wBE"/>
+                                                        <constraint firstItem="ZX8-xz-IO2" firstAttribute="top" secondItem="p6P-Ew-MGS" secondAttribute="top" constant="10" id="pXq-kL-v86"/>
+                                                        <constraint firstItem="BVI-e0-Yai" firstAttribute="top" secondItem="p6P-Ew-MGS" secondAttribute="top" constant="10" id="zFC-F2-Evm"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -576,8 +578,6 @@
     <resources>
         <image name="minus.png" width="64" height="64"/>
         <image name="newcamera1.png" width="128" height="128"/>
-        <image name="newdelete.png" width="64" height="64"/>
-        <image name="newdown1.png" width="64" height="64"/>
         <image name="plus.png" width="64" height="64"/>
         <image name="right.png" width="40" height="40"/>
     </resources>

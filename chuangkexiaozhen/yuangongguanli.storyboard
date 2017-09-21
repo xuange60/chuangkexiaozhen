@@ -99,28 +99,30 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1G-ZR-D8Y">
-                                                    <rect key="frame" x="80" y="136" width="30" height="30"/>
+                                                    <rect key="frame" x="80" y="136" width="35" height="30"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="0cr-N4-VC1"/>
+                                                        <constraint firstAttribute="width" constant="35" id="0cr-N4-VC1"/>
                                                         <constraint firstAttribute="height" constant="30" id="cpW-ix-gSw"/>
                                                     </constraints>
-                                                    <state key="normal" title="detail" image="newedit1.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="编辑">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="detail:forEvent:" destination="p6z-nN-p0i" eventType="touchUpInside" id="JJ8-9w-pGO"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E06-Bj-CY1">
-                                                    <rect key="frame" x="170" y="136" width="30" height="30"/>
+                                                    <rect key="frame" x="175" y="136" width="35" height="30"/>
                                                     <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="Nlb-yR-KQa"/>
+                                                        <constraint firstAttribute="width" constant="35" id="Nlb-yR-KQa"/>
                                                         <constraint firstAttribute="height" constant="30" id="ZmN-8W-XpS"/>
                                                     </constraints>
-                                                    <state key="normal" title="delete" image="newdelete.png">
-                                                        <color key="titleColor" red="0.36746349859999999" green="0.37336800730000003" blue="0.38092877539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="删除">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="delete:forEvent:" destination="p6z-nN-p0i" eventType="touchUpInside" id="mH6-zt-ORz"/>
@@ -765,8 +767,4 @@
             <point key="canvasLocation" x="1112" y="7"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="newdelete.png" width="64" height="64"/>
-        <image name="newedit1.png" width="64" height="64"/>
-    </resources>
 </document>
